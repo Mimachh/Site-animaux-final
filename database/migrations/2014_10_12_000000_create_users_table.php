@@ -23,16 +23,16 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
-            $table->boolean('civility');
-            $table->date('birth_date');
-            $table->boolean('sex');
-            $table->string('city');
+            $table->boolean('civility')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->boolean('sex')->nullable();
+            $table->string('city')->nullable();
 
-            $table->string('animal_owned_id');
+            $table->string('animal_owned_id')->nullable();
             //**$table->foreign('animal_owned_id')->references('id')->on('animals_owneds');
             /** je peux appeler ma clÃ© pareil que le tableau? */
         
-            $table->string('ads_posted');
+            $table->string('ads_posted')->nullable();
             /** $table->foreign('ads_posted')->references('id')->on('annonces'); */
         });
     }
