@@ -33,9 +33,9 @@ class CreateAnnoncesTable extends Migration
             $table->boolean('watch_farm_animal');
             $table->boolean('watch_other_animal');
 
-            $table->text('description');
+            $table->text('description')->nullable();
             
-            $table->integer('my_animal_id');
+            $table->integer('my_animal_id')->nullable();
             /* $table->foreign('my_animal_id')->references('id')->on('my_animal'); */
 
             $table->string('posted_by');
@@ -47,8 +47,27 @@ class CreateAnnoncesTable extends Migration
 
             $table->timestamps();
         });
+
+        
+        Schema::table('annonces', function (Blueprint $table) {
+           
+            
+    
+            
+            $table->foreign('my_animal_id')->references('id')->on('animals_owneds');
+            $table->foreign('user_name')->references('name')->on('users');
+            $table->foreign('posted_by')->references('id')->on('users');
+    
+        });
+
     }
 
+       
+
+    
+
+    
+    
     /**
      * Reverse the migrations.
      *
