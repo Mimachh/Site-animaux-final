@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
             $table->boolean('civility')->nullable();
             $table->date('birth_date')->nullable();
-            $table->boolean('sex')->nullable();
+            $table->string('sex')->nullable();
             $table->string('city')->nullable(); /* Clé étrangère ville*/
 
             $table->string('animal_owned_id')->nullable();
@@ -38,7 +38,7 @@ return new class extends Migration
     }
 
 
-    public function foreign()
+   /* public function foreign()
     {
 
     Schema::table('users', function (Blueprint $table) {
@@ -48,10 +48,10 @@ return new class extends Migration
         $table->string('ads_posted')->nullable();
         $table->foreign('ads_posted')->references('id')->on('annonces');
 
-        $table->string('city')->nullable(); /* Clé étrangère ville*/
+        $table->string('city')->nullable(); /* Clé étrangère ville
         $table->foreign('city')->references('id')->on('villes_france_free');
     });
-    }
+    } */ 
 
 
     /**

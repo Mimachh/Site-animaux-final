@@ -20,10 +20,10 @@ class CreateVillesFrancesTable extends Migration
             $table->string('ville_nom')->nullable();
             $table->string('ville_nom_simple')->nullable();
             $table->string('ville_nom_reel')->nullable();
-            $table->string('ville_nom_soundex')->nullable();
-            $table->string('ville_nom_metaphone')->nullable();
+            /* $table->string('ville_nom_soundex')->nullable();
+            $table->string('ville_nom_metaphone')->nullable();*/
             $table->string('ville_code_postal')->nullable();
-            $table->string('ville_commune')->nullable();
+            /* $table->string('ville_commune')->nullable(); 
             $table->string('ville_code_commune')->nullable();
             $table->integer('ville_arrondissement')->nullable();
             $table->string('ville_canton')->nullable();
@@ -40,7 +40,7 @@ class CreateVillesFrancesTable extends Migration
             $table->string('ville_longitude_dms')->nullable();
             $table->string('ville_latitude_dms')->nullable();
             $table->mediumInteger('ville_zmin')->nullable();
-            $table->mediumInteger('ville_zmax')->nullable();
+            $table->mediumInteger('ville_zmax')->nullable();*/
             $table->nullableTimestamps();
         });
     }

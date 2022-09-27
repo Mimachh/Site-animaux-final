@@ -52,19 +52,28 @@
             </div>
         @endif
 
+         <!-- Civility -->                           
+         <div class="col-span-6 sm:col-span-4 ">
+            <x-jet-label for="" value="{{ __('Quel est votre sexe?') }}" />
+            <div class="inline-flex mr-2 mt-3">    
+                <x-jet-input type="radio" id="sex" name="sex" value="homme" class="mr-2" wire:model.defer="state.sex" autocomplete="sex"
+                    checked/>
+                <x-jet-label for="homme" value="{{ __('Homme') }}" />
+            </div>
+            <div class="inline-flex"> 
+                <x-jet-input type="radio" id="sex" name="sex" value="femme" class="mr-2" wire:model.defer="state.sex" autocomplete="sex"/>
+                <x-jet-label for="femme" value="{{ __('Femme') }}"/>
+                <x-jet-input-error for="sex" class="mt-2" />
+            </div>
+        </div>      
+
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
-
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="city" value="{{ __('Ville') }}" />
-            <x-jet-input id="city" type="text" class="mt-1 block w-full" wire:model.defer="state.ville" autocomplete="city" />
-            <x-jet-input-error for="city" class="mt-2" />
-        </div>
-
+                             
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />

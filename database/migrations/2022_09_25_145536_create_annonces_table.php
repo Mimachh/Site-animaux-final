@@ -49,16 +49,17 @@ class CreateAnnoncesTable extends Migration
         });
 
         
-        Schema::table('annonces', function (Blueprint $table) {
+        /*Schema::table('annonces', function (Blueprint $table) {
            
             
     
             
             $table->foreign('my_animal_id')->references('id')->on('animals_owneds');
+                                        
             $table->foreign('user_name')->references('name')->on('users');
             $table->foreign('posted_by')->references('id')->on('users');
     
-        });
+        }); */
 
     }
 
