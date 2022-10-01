@@ -33,7 +33,7 @@ class CreateAnimalsOwnedsTable extends Migration
         });
     }
 
-    public function foreign()
+    /* public function foreign()
     {
 
     Schema::table('animals_owneds', function (Blueprint $table) {
@@ -42,7 +42,7 @@ class CreateAnimalsOwnedsTable extends Migration
         $table->foreign('owned_by')->references('id')->on('users');
 
     });
-    }
+    } */
 
     /**
      * Reverse the migrations.

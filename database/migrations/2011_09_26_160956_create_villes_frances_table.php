@@ -52,6 +52,6 @@ class CreateVillesFrancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('villes_frances');
+        Schema::dropIfExists('villes_frances_free');
     }
 }

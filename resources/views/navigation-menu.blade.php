@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -13,13 +13,28 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Tableau de bord') }}
                     </x-jet-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('create.ad') }}" :active="request()->routeIs('create.ad')">
+                        {{ __('Ajouter une annonce') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('create.ad') }}" :active="request()->routeIs('create.ad')">
+                        {{ __('Articles') }}
+                    </x-jet-nav-link>
+                </div>
+
+
             </div>
-            <livewire:search />
+
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+
+                
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
@@ -35,7 +50,7 @@
                                     </button>
                                 </span>
                             </x-slot>
-
+                            
                             <x-slot name="content">
                                 <div class="w-60">
                                     <!-- Team Management -->
@@ -70,9 +85,11 @@
                     </div>
                 @endif
 
+
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                <div class="ml-4 relative">
                     <x-jet-dropdown align="right" width="48">
+                        
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
@@ -94,11 +111,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Paramètres de mon compte') }}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Gérer mon Profil') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -107,15 +124,20 @@
                                 </x-jet-dropdown-link>
                             @endif
 
-                            <div class="border-t border-gray-100"></div>
+                           
+                            
+                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                {{ __('Voir mes annonces') }}
+                            </x-jet-dropdown-link>
 
+                            <div class="border-t border-gray-100"></div>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Me déconnecter') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
