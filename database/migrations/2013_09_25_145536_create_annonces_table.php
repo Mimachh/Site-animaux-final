@@ -19,7 +19,7 @@ class CreateAnnoncesTable extends Migration
             $table->string('user_name');
             /* $table->foreign('user_name')->references('name')->on('users'); */ 
 
-            $table->timestamp('free_on'); /** voir pour calendrier */
+           /**  $table->timestamp('free_on'); voir pour calendrier */
             
             $table->string('city-where'); /** relier au city de la table users? */
             $table->boolean('visit');
@@ -38,8 +38,8 @@ class CreateAnnoncesTable extends Migration
             $table->integer('my_animal_id')->nullable();
             /* $table->foreign('my_animal_id')->references('id')->on('my_animal'); */
 
-            $table->string('posted_by');
-            /* $table->foreign('posted_by')->references('id')->on('users'); */
+            /* $table->string('posted_by');
+             $table->foreign('posted_by')->references('id')->on('users'); */
 
             /**Photo du clebs */
 

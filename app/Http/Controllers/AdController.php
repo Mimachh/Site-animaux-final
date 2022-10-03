@@ -9,9 +9,14 @@ class AdController extends Controller
 {
     public function create() 
     {
-       $ads = annonces::online()->latest()->get();
+       /* $ads = annonces::online()->latest()->get();
        
-       return $ads;
+       return $ads; */
+       /* $ads = annonces::all();
+
+       return $ads; */
+
+       return view('create_ad');
     }
 
 }

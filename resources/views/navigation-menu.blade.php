@@ -18,6 +18,12 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="" :active="request()->routeIs('')">
+                        {{ __('Voir les annonces') }}
+                    </x-jet-nav-link>
+                </div>
+                
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('create.ad') }}" :active="request()->routeIs('create.ad')">
                         {{ __('Ajouter une annonce') }}
                     </x-jet-nav-link>
@@ -127,7 +133,11 @@
                            
                             
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Voir mes annonces') }}
+                                {{ __('Mes annonces') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                {{ __('Ma messagerie') }}
                             </x-jet-dropdown-link>
 
                             <div class="border-t border-gray-100"></div>
