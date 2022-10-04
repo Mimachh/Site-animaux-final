@@ -4,12 +4,12 @@
             {{ __('Créer mon annonce de pet-sitter') }}
         </h1>
     </x-slot>
-<main class="bg-indigo-50 mr-64 ml-64 mt-5 rounded-3xl">
+<main class="bg-indigo-50 mt-5 rounded-3xl ">
 
 
     <h2 class="text-center mb-10 py-5 font-semibold">Créer mon annonce de pet-sitter</h2>
 
-    <form class="w-full max-w-sm m-auto">
+    <form class="w-full  max-w-sm m-auto" action="" method="POST">
     
     <!-- Section Type de garde -->
 
@@ -55,13 +55,13 @@
     <!-- Section animaux à garder -->
 
         <div class="md:flex mid:items-center">
-                <div class="md:w-1/3">
+                <div class="md:w-1/3 sm:w-3/3">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                 Quels animaux pouvez-vous<br> garder?
                 </label> 
                 </div>
 
-            <div class="md:w-2/3">
+            <div class="md:w-2/3 sm:w-3/3">
                 <div class="block">
                         <x-jet-label for="" value="{{ __('Chat?') }}"/>
                         <div class="inline-flex mr-2 mt-3 mb-5">    
@@ -183,7 +183,7 @@
 
         <x-jet-section-border />
 
-            <div class="md:flex md:items-center py-4 mb-4">
+            <div class="md:flex md:items-center py-4 ">
                 <div class="md:w-1/3">
                     <x-jet-label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price" value="{{ __('Prix/Jour (en euros)') }}"/>
                 </div>
@@ -191,7 +191,14 @@
                 <x-jet-input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded mb-3 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="price" type="number" min="1" max="50" placeholder="7"/>
                 </div>   
             </div>
-        
+
+        <x-jet-section-border />
+
+            <div class="text-center pb-10">
+            <x-jet-button >
+                    {{ __('Valider') }}
+                </x-jet-button>
+            </div>
 
     </form>
 
