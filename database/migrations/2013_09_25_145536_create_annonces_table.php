@@ -16,12 +16,12 @@ class CreateAnnoncesTable extends Migration
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
 
-            $table->string('user_name');
+            $table->string('user_name')->nullable();
             /* $table->foreign('user_name')->references('name')->on('users'); */ 
 
            /**  $table->timestamp('free_on'); voir pour calendrier */
             
-            $table->string('city-where'); /** relier au city de la table users? */
+            $table->string('city-where')->nullable(); /** relier au city de la table users? */
             $table->boolean('visit');
             $table->boolean('home');
 

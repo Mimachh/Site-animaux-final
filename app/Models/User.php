@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('annonces')->withTimestamps();
     }
+
+    public function animals()
+    {
+        return $this->hasMany('animals_owned');
+    }
 }

@@ -31,3 +31,4 @@ Route::middleware([
 
 
 Route::get('/annonce', [AdController::class, 'create'])->name('create.ad');
+Route::post('/annonce', [AdController::class, 'store']);
