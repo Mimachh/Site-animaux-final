@@ -22,16 +22,16 @@ class CreateAnnoncesTable extends Migration
            /**  $table->timestamp('free_on'); voir pour calendrier */
             
             $table->string('city-where')->nullable(); /** relier au city de la table users? */
-            $table->boolean('visit');
-            $table->boolean('home');
+            $table->string('visit')->nullable(); 
+            $table->string('home')->nullable();
 
-            $table->boolean('watch_cat');
-            $table->boolean('watch_dog');
-            $table->boolean('watch_rabbit');
-            $table->boolean('watch_bird');
-            $table->boolean('watch_reptile');
-            $table->boolean('watch_farm_animal');
-            $table->boolean('watch_other_animal');
+            $table->boolean('watch_cat')->nullable();
+            $table->boolean('watch_dog')->nullable();
+            $table->boolean('watch_rabbit')->nullable();
+            $table->boolean('watch_bird')->nullable();
+            $table->boolean('watch_reptile')->nullable();
+            $table->boolean('watch_farm_animal')->nullable();
+            $table->boolean('watch_other_animal')->nullable();
 
             $table->text('description')->nullable();
             
@@ -43,9 +43,13 @@ class CreateAnnoncesTable extends Migration
 
             /**Photo du clebs */
 
-            $table->decimal('price', $precision = 4 );
+            $table->decimal('price', $precision = 4 )->nullable();
 
             $table->timestamps();
+
+            /* partie de table ajoutée pour les checkbox */
+            $table->string('garde_type')->nullable();
+            $table->string('animaux_gardes')->nullable();
         });
 
         

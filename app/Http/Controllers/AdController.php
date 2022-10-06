@@ -22,9 +22,12 @@ class AdController extends Controller
 
     public function store(AdStore $request)
     {
+      
         $validated = $request->validated();
 
         $annonces = new annonces();
+        
+        
         $annonces->visit = $validated['visit'];
         $annonces->home = $validated['home'];
         $annonces->watch_cat = $validated['watch_cat'];
@@ -36,10 +39,27 @@ class AdController extends Controller
         $annonces->watch_other_animal = $validated['watch_other_animal'];
         $annonces->description = $validated['description'];
         $annonces->price = $validated['price'];
+        
+
+        
+        /* Partie pour checkbox 
+        implode(', ', $annonces->garde_type= $validated['garde_type']);
+        $annonces->animaux_gardes= $validated['animaux_gardes'];
+        $annonces->description = $validated['description'];
+        $annonces->price = $validated['price'];
+        */
+
+        
 
         $annonces->save();
 
+
         return redirect()->route('create.ad');
+
+        /*
+        if ($request->validated->isValid()) {
+            return view
+        }*/
         
     }
 

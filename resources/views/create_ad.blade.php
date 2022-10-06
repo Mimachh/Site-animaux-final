@@ -183,6 +183,7 @@
                 </div>
                 <div class="md:w-2/3">
                 <textarea class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded w-full h-40 text-gray-700 leading-tight" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>
+                <x-jet-input-error for="description" class="mt-2" />
                 </div>
             </div>
 
@@ -193,7 +194,8 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="price"> Prix/Jour (en euros)</label>
                 </div>
                 <div class="md:w-2/3">
-                <x-jet-input class=" appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded mb-3 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="price" type="number" min="1" max="50" placeholder="7" name="price"/>
+                <x-jet-input class=" appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded mb-3 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="price" type="text" min="1" max="50" placeholder="7" name="price"/>
+                <x-jet-input-error for="price" class="mt-2" />
                 </div>   
             </div>
 
@@ -206,8 +208,154 @@
             </div>
 
     </form>
+    
 
 
+    <div class="mt-10 sm:mt-0">
+  <div class="md:grid md:grid-cols-6 md:gap-4 ">
+    
+    <div class="mt-5  md:col-start-2 md:col-span-4 md:mt-0">
+      <form action="{{ route('create.ad')}}" method="POST">
+        @csrf
+        <div class="overflow-hidden shadow sm:rounded-md  ">
+          <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+            <fieldset>
+              <legend class="sr-only">Quel type de garde <br> souhaitez vous?</legend>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    Quel type de garde <br> souhaitez vous?
+                    </label> 
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input id="home" name="garde_type[]" value="home" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="home" value="{{ __('Chez vous?') }}"/>
+                    <p class="text-gray-500">Vous garderez les animaux dans votre domicile.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input id="visit" name="garde_type[]" value="visit" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="visit" value="{{ __('Visite à domicile ?') }}"/>
+                    <p class="text-gray-500">Vous irez au domicile du propriétaire pour vous occuper de ses animaux.</p>
+                  </div>
+                </div>               
+              </div>
+            </fieldset>
+            <x-jet-section-border />
+            <fieldset>
+              <legend class="sr-only">Quels animaux <br> pouvez-vous garder?</legend>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 " for="">
+                Quels animaux <br> pouvez-vous garder?
+                </label>  
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input value="cat" id="cat" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="cat" value="{{ __('Chat') }}"/>
+                    
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input value="dog" id="dog" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="watch_dog" value="{{ __('Chien') }}"/>
+                    
+                  </div>
+                </div> 
+                
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input value="rabbit" id="rabbit" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="rabbit" value="{{ __('Rongeur') }}"/>
+                    <p class="text-gray-500">Lapin, cochon d'inde, hamster...</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input value="bird" id="bird" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="bird" value="{{ __('Oiseau') }}"/>
+                    <p class="text-gray-500">Oiseaux en cage ou en volière.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input value="reptile" id="reptile" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="reptile" value="{{ __('Reptile') }}"/>
+                    <p class="text-gray-500">Serpent, caméléon, tortue...</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input value="farm_animal" id="farm_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="farm_animal" value="{{ __('Animaux de ferme') }}"/>
+                    <p class="text-gray-500">Poule, oie, cheval...</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <x-jet-input value="other_animal" id="other_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  </div>
+                  <div class="ml-3 text-sm">
+                  <x-jet-label for="other_animal" value="{{ __('Tous les autres animaux') }}"/>
+                    <p class="text-gray-500">Vous garderez les animaux dans votre domicile.</p>
+                  </div>
+                </div>
+                <x-jet-section-border />
+                <div class="flex items-start pb-10">
+                    <div class="ml-3 text-sm mr-4 ">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 pr-2" for="description">Décrivez-vous <br> en quelques mots</label>
+                    <p class="text-gray-500">Donner envie <br> aux prioriétaires<br> d'animaux <br>de vous confier<br>leur compagnon.</p>
+                    </div>
+                    <div class="flex ">
+                        <textarea class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>
+                    </div>
+                  
+                    </div>
+                </div>
+                <x-jet-section-border />
+                <div class="flex items-start">
+                <div class="ml-3 text-sm pr-10">
+                  <x-jet-label for="price" value="{{ __('Prix') }}"/>
+                    <p class="text-gray-500">Votre tarif par jour.</p>
+                  </div>
+                  <div class="flex">
+                    <x-jet-input  id="price" name="price" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
+                  </div>
+                  
+                </div>
+
+            </fieldset>
+            <x-jet-section-border />
+          </div>
+          <div class="bg-gray-50 px-4 py-3 text-center sm:px-6">
+            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Valider</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 </main>
 

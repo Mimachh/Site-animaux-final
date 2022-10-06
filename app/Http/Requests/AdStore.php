@@ -24,7 +24,9 @@ class AdStore extends FormRequest
     public function rules()
     {
         return [
-            'visit' => 'required',
+           
+
+            'visit' => ['boolean','required'],
             'home' => 'required',
             'watch_cat' => 'required',
             'watch_dog' => 'required',
@@ -33,8 +35,15 @@ class AdStore extends FormRequest
             'watch_reptile' => 'required',
             'watch_farm_animal' => 'required',
             'watch_other_animal' => 'required',
+           
+            
+            /* Partie test avec checkbox
+            'garde_type' => 'array',
+            'animaux_gardes' => 'array',
+            */
+
             'description' => 'required',
-            'price' => ['integer', 'required'],
+            'price' => ['numeric', 'required'],
 
         ];
     }

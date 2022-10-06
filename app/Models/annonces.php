@@ -19,4 +19,8 @@ class annonces extends Model
     {
         return $this->belongsTo('App\Models\User')->withTimestamps();
     }
+
+    /* Ajout pour les checkbox 
+    protected $guarded = []; */
+
 }
