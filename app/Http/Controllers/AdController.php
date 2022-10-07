@@ -28,7 +28,7 @@ class AdController extends Controller
         $annonces = new annonces();
     
 
-        /* $annonces->visit = $validated['visit'];
+        $annonces->visit = $validated['visit'];
         $annonces->home = $validated['home'];
         $annonces->watch_cat = $validated['watch_cat'];
         $annonces->watch_dog = $validated['watch_dog'];
@@ -38,17 +38,17 @@ class AdController extends Controller
         $annonces->watch_farm_animal = $validated['watch_farm_animal'];
         $annonces->watch_other_animal = $validated['watch_other_animal'];
         $annonces->description = $validated['description'];
-        $annonces->price = $validated['price']; */ 
+        $annonces->price = $validated['price']; 
         
         $annonces->start_watch = $validated['start_watch'];
         $annonces->end_watch = $validated['end_watch'];
         
-         
+         /*
         $annonces->garde_type= $validated['garde_type'];
         $annonces->animaux_gardes= $validated['animaux_gardes'];
         $annonces->description = $validated['description'];
         $annonces->price = $validated['price'];
-       
+        */
 
         
 

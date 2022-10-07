@@ -201,6 +201,28 @@
             </div>
 
         <x-jet-section-border />
+        <legend class="sr-only">Quand êtes-vous disponible?</legend>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+              Quand êtes-vous disponible?
+              </label> 
+            <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                <div class="ml-3 text-sm mr-2">
+                  
+                    <x-jet-label for="start_watch" value="{{ __('Du :') }}"/>
+                  </div>
+                  <div class="flex h-5 items-center">
+                    <x-jet-input id="start_watch" name="start_watch" type="date"/>   
+                  </div>
+
+                  <div class="ml-3 text-sm mr-2">
+                    <x-jet-label for="end_watch" value="{{ __('Au :') }}"/>
+                  </div>
+                  <div class="flex h-5 items-center">
+                    <x-jet-input id="end_watch" name="end_watch" type="date"/>   
+                  </div>
+                </div>
+            </div>
 
             <div class="text-center pb-10">
             <x-jet-button >
@@ -211,7 +233,7 @@
     </form>
     
 
-
+<!-- a annuler pour l'instant 
     <div class="mt-10 sm:mt-0">
   <div class="md:grid md:grid-cols-6 md:gap-4 ">
    
@@ -219,11 +241,12 @@
       <form action="{{ route('create.ad')}}" method="POST">
         @csrf
         <div class="overflow-hidden shadow sm:rounded-md  ">
-          <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+          <div class="space-y-6 bg-white px-4 py-5 sm:p-6"> -->
            
           <!-- Partie date mais en texte -->
 
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+          <!-- 
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Quand êtes-vous disponible?
               </label>
               <div date-rangepicker class="flex items-center">
@@ -246,11 +269,11 @@
                   </div>
                   <input name="end_watch" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Date de fin">
                 </div>
-              </div>
+              </div> -->
 
 
           <!-- Partie date mais en date -->
-
+<!--
           <legend class="sr-only">Quand êtes-vous disponible?</legend>
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Quand êtes-vous disponible?
@@ -273,10 +296,10 @@
                   </div>
                 </div>
             </div>
-           
+-->
 
             <!-- Partie type de garde -->
-            <fieldset>
+           <!-- <fieldset>
               <legend class="sr-only">Quel type de garde <br> souhaitez vous?</legend>
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                     Quel type de garde <br> souhaitez vous?
@@ -303,10 +326,10 @@
               </div>
             </fieldset>
             <x-jet-section-border />
-
+-->
 
             <!-- Partie type d'animaux -->
-            <fieldset>
+        <!--    <fieldset>
               <legend class="sr-only">Quels animaux <br> pouvez-vous garder?</legend>
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 " for="">
                 Quels animaux <br> pouvez-vous garder?
@@ -413,6 +436,8 @@
           </div>
         </div>
       </form>
+-->
+
     </div>
     
   </div>

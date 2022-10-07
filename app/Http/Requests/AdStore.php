@@ -25,7 +25,7 @@ class AdStore extends FormRequest
     {
         return [
            
-            /*
+            
             'visit' => 'accepted',
             'home' => 'accepted',
             'watch_cat' => 'required',
@@ -34,14 +34,15 @@ class AdStore extends FormRequest
             'watch_bird' => 'required',
             'watch_reptile' => 'required',
             'watch_farm_animal' => 'required',
-            'watch_other_animal' => 'required', */
+            'watch_other_animal' => 'required',
            
             'start_watch' => 'required',
             'end_watch' => 'required',
            
+            /*
             'garde_type' => 'required',
             'animaux_gardes' => 'required',
-            
+            */
 
             'description' => 'required',
             'price' => ['numeric', 'required'],
