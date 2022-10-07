@@ -20,8 +20,8 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <header class="shadow"  style="background-color: #C93756">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" >
                         {{ $header }}
                     </div>
                 </header>
@@ -38,5 +38,10 @@
         @stack('modals')
 
         @livewireScripts
+        <script src="../path/to/flowbite/dist/flowbite.js"></script>
+        <script src="../path/to/flowbite/dist/datepicker.js"></script>
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
+
+
     </body>
 </html>

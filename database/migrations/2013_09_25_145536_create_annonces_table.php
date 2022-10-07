@@ -17,29 +17,26 @@ class CreateAnnoncesTable extends Migration
             $table->id();
 
             $table->string('user_name')->nullable();
-            /* $table->foreign('user_name')->references('name')->on('users'); */ 
-
-           /**  $table->timestamp('free_on'); voir pour calendrier */
             
-            $table->string('city-where')->nullable(); /** relier au city de la table users? */
-            $table->string('visit')->nullable(); 
+            $table->unsignedBigInteger('city-where')->nullable(); 
+            $table->string('visit')->default('non'); 
             $table->string('home')->nullable();
+            
+            $table->string('start_watch')->nullable();
+            $table->string('end_watch')->nullable();
 
-            $table->boolean('watch_cat')->nullable();
-            $table->boolean('watch_dog')->nullable();
-            $table->boolean('watch_rabbit')->nullable();
-            $table->boolean('watch_bird')->nullable();
-            $table->boolean('watch_reptile')->nullable();
-            $table->boolean('watch_farm_animal')->nullable();
-            $table->boolean('watch_other_animal')->nullable();
+            $table->string('watch_cat')->nullable();
+            $table->string('watch_dog')->nullable();
+            $table->string('watch_rabbit')->nullable();
+            $table->string('watch_bird')->nullable();
+            $table->string('watch_reptile')->nullable();
+            $table->string('watch_farm_animal')->nullable();
+            $table->string('watch_other_animal')->nullable();
 
             $table->text('description')->nullable();
             
-            $table->integer('my_animal_id')->nullable();
-            /* $table->foreign('my_animal_id')->references('id')->on('my_animal'); */
-
-            /* $table->string('posted_by');
-             $table->foreign('posted_by')->references('id')->on('users'); */
+            $table->unsignedBigInteger('my_animal_id')->nullable();
+            
 
             /**Photo du clebs */
 
@@ -51,19 +48,6 @@ class CreateAnnoncesTable extends Migration
             $table->string('garde_type')->nullable();
             $table->string('animaux_gardes')->nullable();
         });
-
-        
-        /*Schema::table('annonces', function (Blueprint $table) {
-           
-            
-    
-            
-            $table->foreign('my_animal_id')->references('id')->on('animals_owneds');
-                                        
-            $table->foreign('user_name')->references('name')->on('users');
-            $table->foreign('posted_by')->references('id')->on('users');
-    
-        }); */
 
     }
 

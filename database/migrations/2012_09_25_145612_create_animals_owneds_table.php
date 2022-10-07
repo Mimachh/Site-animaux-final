@@ -18,7 +18,7 @@ class CreateAnimalsOwnedsTable extends Migration
             $table->timestamps();
             $table->string('animal_name');
             $table->text('personnality');
-            
+            $table->unsignedBigInteger('espece');
             $table->boolean('likes_male_dog');
             $table->boolean('likes_female_dog');
             $table->boolean('likes_male_cat');
@@ -28,21 +28,11 @@ class CreateAnimalsOwnedsTable extends Migration
             $table->boolean('likes_bird');
             $table->boolean('likes_reptile');
 
-            $table->string('owned_by');
-           /* $table->foreign('owned_by')->references('id')->on('users'); */
+            $table->unsignedBigInteger('owned_by');
+           
         });
     }
 
-    /* public function foreign()
-    {
-
-    Schema::table('animals_owneds', function (Blueprint $table) {
-        $table->string('owned_by');
-     
-        $table->foreign('owned_by')->references('id')->on('users');
-
-    });
-    } */
 
     /**
      * Reverse the migrations.

@@ -31,11 +31,6 @@ return new class extends Migration
             $table->unsignedBigInteger('ads_posted')->nullable();
         });
 
-        Schema::table('users', function ($table) {
-            $table->foreign('animal_owned_id')->references('id')->on('animals_owneds');
-            $table->foreign('ads_posted')->references('id')->on('annonces');
-            $table->foreign('city')->references('ville_id')->on('villes_france_free');
-        });
     }
 
 

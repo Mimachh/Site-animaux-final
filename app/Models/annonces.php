@@ -23,4 +23,6 @@ class annonces extends Model
     /* Ajout pour les checkbox 
     protected $guarded = []; */
 
+    
+
 }
