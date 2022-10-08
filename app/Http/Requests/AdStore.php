@@ -21,13 +21,14 @@ class AdStore extends FormRequest
      *
      * @return array
      */
+    
     public function rules()
     {
         return [
            
             
-            'visit' => 'accepted',
-            'home' => 'accepted',
+            'visit' => 'required',
+            'home' => 'required',
             'watch_cat' => 'required',
             'watch_dog' => 'required',
             'watch_rabbit' => 'required',
@@ -48,5 +49,7 @@ class AdStore extends FormRequest
             'price' => ['numeric', 'required'],
 
         ];
+    
     }
+    
 }
