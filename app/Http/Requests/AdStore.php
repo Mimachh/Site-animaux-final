@@ -27,23 +27,14 @@ class AdStore extends FormRequest
         return [
            
             
-            'visit' => 'required',
-            'home' => 'required',
-            'watch_cat' => 'required',
-            'watch_dog' => 'required',
-            'watch_rabbit' => 'required',
-            'watch_bird' => 'required',
-            'watch_reptile' => 'required',
-            'watch_farm_animal' => 'required',
-            'watch_other_animal' => 'required',
            
             'start_watch' => 'required',
             'end_watch' => 'required',
            
-            /*
-            'garde_type' => 'required',
-            'animaux_gardes' => 'required',
-            */
+            
+            'garde_type' => ['array', 'required'],
+            'animaux_gardes' => ['array', 'required'],
+            
 
             'description' => 'required',
             'price' => ['numeric', 'required'],

@@ -25,13 +25,56 @@ class CreateAdForeignKeyControllersTable extends Migration
             $table->foreign('owned_by')->references('id')->on('users')
                         ->onDelete('restrict')
                         ->onUpdate('restrict');
-            $table->foreign('espece')->references('id')->on('animaux_a_garders');
+            $table->foreign('espece')->references('id')->on('especes_animaux');
         });
+
         Schema::table('annonces', function(Blueprint $table) {
             $table->foreign('city-where')->references('ville_id')->on('villes_france_free');
             $table->foreign('my_animal_id')->references('id')->on('animals_owneds');
 
         });
+
+        Schema::table('especes_animaux', function(Blueprint $table) {
+            $table->foreign('race')->references('id')->on('race_chiens', 'race_chats', 'race_rongeurs');
+           
+
+        });
+
+        Schema::table('race_chiens', function(Blueprint $table) {
+            $table->foreign('chien_id')->references('id')->on('especes_animaux');
+        
+        });
+
+        Schema::table('race_chats', function(Blueprint $table) {
+            $table->foreign('chat_id')->references('id')->on('especes_animaux');
+        
+        });
+
+        Schema::table('race_rongeurs', function(Blueprint $table) {
+            $table->foreign('rongeur_id')->references('id')->on('especes_animaux');
+        
+        });
+
+        Schema::table('race_oiseaux', function(Blueprint $table) {
+            $table->foreign('oiseau_id')->references('id')->on('especes_animaux');
+        
+        });
+
+        Schema::table('race_reptiles', function(Blueprint $table) {
+            $table->foreign('reptile_id')->references('id')->on('especes_animaux');
+        
+        });
+
+        Schema::table('animaux_fermes', function(Blueprint $table) {
+            $table->foreign('animaux_ferme_id')->references('id')->on('especes_animaux');
+        
+        });
+
+        Schema::table('race_other_animaux', function(Blueprint $table) {
+            $table->foreign('other_animal_id')->references('id')->on('especes_animaux');
+        
+        });
+
     }
 
     /**

@@ -27,9 +27,9 @@ class annonces extends Model
      * @var string[]
      */
     protected $fillable = [
-        'visit', 'home', 'start_watch', 'end_watch', 'watch_cat', 'watch_dog', 'watch_rabbit',
-        'watch_bird', 'watch_reptile', 'watch_farm_animal', 'watch_other_animal', 'description', 
-        'price',
+        /*'visit', 'home', 'start_watch', 'end_watch', 'watch_cat', 'watch_dog', 'watch_rabbit',
+        'watch_bird', 'watch_reptile', 'watch_farm_animal', 'watch_other_animal',*/
+        'description', 'price', 'garde_type', 'animaux_gardes', 'name',
     ];
     /* Ajout pour les checkbox 
     protected $guarded = []; */
