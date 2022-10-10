@@ -16,7 +16,7 @@ class CreateRaceOtherAnimauxesTable extends Migration
         Schema::create('race_other_animaux', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('race__other_animal_')->nullable();
+            $table->string('race__other_animal')->nullable();
             $table->unsignedBigInteger('other_animal_id')->default(8);
         });
     }

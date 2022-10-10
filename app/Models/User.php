@@ -62,11 +62,11 @@ class User extends Authenticatable
 
     public function ads()
     {
-        return $this->hasMany('annonces')->withTimestamps();
+        return $this->hasMany('App\Models\annonces');
     }
 
     public function animals()
     {
-        return $this->hasMany('animals_owned');
+        return $this->hasMany('App\Models\animals_owned');
     }
 }

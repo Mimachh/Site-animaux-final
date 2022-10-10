@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AdStore;
+use auth;
 use App\Models\annonces;
 use Illuminate\Http\Request;
+use App\Http\Requests\AdStore;
 
 class AdController extends Controller
 {
@@ -27,8 +28,7 @@ class AdController extends Controller
         $string = implode(', ', $arraytostring);
         $arraytostring2 = $request->garde_type;
         $string2 = implode(', ', $arraytostring2); 
-
-       
+      
 
         $annonces = annonces::create([
             'name' => $request->name,
@@ -36,9 +36,11 @@ class AdController extends Controller
             'garde_type' => $string2,
             'description' =>  $request->description,
             'price' => $request->price,
+           
 
         ]);
-
+        $annonces->user_id = auth()->user()->id; 
+        
         $annonces->save();
 
         

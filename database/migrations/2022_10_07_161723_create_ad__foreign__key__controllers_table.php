@@ -15,8 +15,8 @@ class CreateAdForeignKeyControllersTable extends Migration
     {
        
        Schema::table('users', function ($table) {
-            $table->foreign('animal_owned_id')->references('id')->on('animals_owneds');
-            $table->foreign('ads_posted')->references('id')->on('annonces');
+            $table->foreign('animal_owned_id')->references('id')->on('animals_owneds')->onDelete('cascade');
+            /* $table->foreign('ads_posted')->references('id')->on('annonces')->onDelete('cascade'); */
             $table->foreign('city')->references('ville_id')->on('villes_france_free');
             
         });
@@ -30,8 +30,8 @@ class CreateAdForeignKeyControllersTable extends Migration
 
         Schema::table('annonces', function(Blueprint $table) {
             $table->foreign('city-where')->references('ville_id')->on('villes_france_free');
-            $table->foreign('my_animal_id')->references('id')->on('animals_owneds');
-
+            $table->foreign('my_animal_id')->references('id')->on('animals_owneds')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::table('especes_animaux', function(Blueprint $table) {

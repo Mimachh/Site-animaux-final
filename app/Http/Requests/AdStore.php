@@ -39,6 +39,8 @@ class AdStore extends FormRequest
             'description' => 'required',
             'price' => ['numeric', 'required'],
 
+            'user_id' => 'integer',
+
         ];
     
     }

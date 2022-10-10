@@ -24,7 +24,7 @@ class CreateAnnoncesTable extends Migration
             $table->text('description')->nullable();  
             $table->unsignedBigInteger('my_animal_id')->nullable();
             $table->decimal('price', $precision = 4 )->nullable();
-
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
 

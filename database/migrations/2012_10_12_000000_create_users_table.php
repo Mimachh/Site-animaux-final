@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('sex')->nullable();
             $table->unsignedBigInteger('city')->nullable(); 
             $table->unsignedBigInteger('animal_owned_id')->nullable();
-            $table->unsignedBigInteger('ads_posted')->nullable();
+           /* $table->unsignedBigInteger('ads_posted')->nullable(); */
         });
 
     }
