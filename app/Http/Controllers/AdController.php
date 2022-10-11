@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use auth;
+
+use App\Models\User;
 use App\Models\annonces;
 use Illuminate\Http\Request;
+
+use Laravel\Fortify\Fortify;
 use App\Http\Requests\AdStore;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Actions\Fortify\CreateNewUser;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+
 
 class AdController extends Controller
 {
@@ -24,6 +34,29 @@ class AdController extends Controller
     public function store(AdStore $request)
     {
       
+       /* Marche pas if(!Auth::check())
+        {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|unique:users',
+                'password' => 'required|confirmed',
+                'password_confirmation' => 'required',
+            ]);
+        $user = User::create([
+
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            
+            ]); 
+
+          
+ 
+        }; */
+       
+
+
+
         $arraytostring = $request->animaux_gardes;
         $string = implode(', ', $arraytostring);
         $arraytostring2 = $request->garde_type;
@@ -31,12 +64,12 @@ class AdController extends Controller
       
 
         $annonces = annonces::create([
-            'name' => $request->name,
+            
             'animaux_gardes' => $string,
             'garde_type' => $string2,
             'description' =>  $request->description,
             'price' => $request->price,
-           
+          
 
         ]);
         $annonces->user_id = auth()->user()->id; 

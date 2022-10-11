@@ -7,6 +7,7 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link href="../../css/app.css" rel="stylesheet" type="text/css">
 @livewireStyles
 
 <!-- Scripts -->
@@ -38,10 +39,7 @@
         @stack('modals')
 
         @livewireScripts
-        <script src="../path/to/flowbite/dist/flowbite.js"></script>
-        <script src="../path/to/flowbite/dist/datepicker.js"></script>
-        <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
-
-
+        
+    <script src="../../js/app.js"></script>
     </body>
 </html>
