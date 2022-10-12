@@ -221,77 +221,7 @@
             
             <x-jet-section-border />
         
-          <!--
-          @guest
           
-
-        <x-jet-validation-errors class="mb-4" />
-
-      
-             <h1 class="text-center mb-10 pb-5 font-semibold">Vous devez être inscrit et connecté pour poster une annonce </h1>   
-        
-
-          <div class="flex items-start items-center">
-                <div class="ml-3 text-sm pr-10">
-                  <x-jet-label for="name" value="{{ __('Votre nom (peut-être modifié plus tard)') }}"/> 
-                </div>
-                  <div class="flex">
-                    <x-jet-input  id="name" name="name" type="text" class="w-full shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  placeholder="Entrez votre nom" :value="old('name')" required autofocus autocomplete="name"/>
-                  </div>
-          </div>
-
-          <div class="flex items-start items-center">
-                <div class="ml-3 text-sm pr-10">
-                  <x-jet-label for="email" value="{{ __('Votre adresse mail') }}"/> 
-                </div>
-                <div class="flex">
-                  <x-jet-input placeholder="Adresse mail" id="email" class="block mt-1 w-full shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" />
-                </div>
-          </div>
-           
-          <div class="flex items-start items-center">
-                <div class="ml-3 text-sm pr-10">
-                  <x-jet-label for="password" value="{{ __('Mot de passe') }}"/> 
-                </div>
-                <div class="flex">
-                  <x-jet-input placeholder="Mot de passe" id="password" class="block mt-1 w-full shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" required autocomplete="new-password" />
-                </div>
-          </div>
-
-            
-
-            <div class="flex items-start items-center">
-                <div class="ml-3 text-sm pr-10 ">
-                  <x-jet-label class="" for="password_confirmation" value="{{ __('Confirmer votre mot de passe') }}"/> 
-                </div>
-                <div class="flex">
-                  <x-jet-input placeholder="Confirmer mot de passe" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-                </div>
-          </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
-
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
-                        </div>
-                    </x-jet-label>
-                </div>
-            @endif
-
-            
-        
-    
-              <x-jet-section-border />
-          @endguest
-                                -->
                   
           </div>
           <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
