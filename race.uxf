@@ -1,0 +1,49 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>189</w><h>108</h></coordinates><panel_attributes>Table espèces
+
+--
+-id:
+-espèce : 
+chien
+chat
+rongeurs
+...
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>216</y><w>189</w><h>171</h></coordinates><panel_attributes>Table race de chiens
+--
+-id : 
+- race :
+berger allemand,
+cocker...
+
+clé étrangère : table espèce = chien</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>207</x><y>216</y><w>189</w><h>171</h></coordinates><panel_attributes>Table race de chats
+--
+-id : 
+- race :
+siamois
+gouttière...
+
+
+clé étrangère : table espèce = chat</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>405</x><y>216</y><w>189</w><h>171</h></coordinates><panel_attributes>Table race de rongeurs
+--
+-id : 
+- race :
+hamster
+lapin...
+
+
+clé étrangère : table espèce = rongeurs</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>99</y><w>63</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>126</x><y>99</y><w>153</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;150;130</additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>99</y><w>342</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;360;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>549</y><w>189</w><h>108</h></coordinates><panel_attributes>Table espèces
+
+--
+-id:
+-espèce : 
+chien
+chat
+rongeurs
+...
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>522</x><y>468</y><w>243</w><h>171</h></coordinates><panel_attributes>Table races
+--
+-id : 
+- liste de toutes les races de tous les animaux
+
+
+clé étrangère : qui renvoie pour les races de 
+chiens à l'id du chien dans la table espèce...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>597</y><w>72</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element></diagram>

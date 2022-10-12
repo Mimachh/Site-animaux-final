@@ -75,6 +75,11 @@ class CreateAdForeignKeyControllersTable extends Migration
         
         });
 
+        Schema::table('liste_races', function(Blueprint $table) {
+            $table->foreign('espece_id')->references('id')->on('especes_animaux');
+        
+        });
+
     }
 
     /**

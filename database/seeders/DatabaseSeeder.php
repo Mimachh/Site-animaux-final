@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             ['race_chien' => 'Chien de ferme Dano-Suéduois'],
             ['race_chien' => 'Finnois de Laponie'],
             ['race_chien' => 'Chihuahua'],
-            ['race_chien' => 'Colley à poil lon'],
+            ['race_chien' => 'Colley à poil long'],
             ['race_chien' => 'Coton de Tuléar'],
             ['race_chien' => 'Dalmatien'],
             ['race_chien' => 'Golden Retriever'],
@@ -72,13 +72,18 @@ class DatabaseSeeder extends Seeder
             ['race_chien' => 'Yorkshire Terrier'],
             
         ]);
+    
 
         DB::table('race_chats')->insert([
  
-            ['race_chat' => 'Chat de gouttière'],
-            ['race_chat' => 'Chat de race'],
+            ['race_chat' => 'Chat de gouttière',
+             'chat_id' => '1'],
+            ['race_chat' => 'Chat de race',
+             'chat_id' => '1'],
             
         ]);
+        
+       
 
         DB::table('race_rongeurs')->insert([
  
@@ -117,6 +122,141 @@ class DatabaseSeeder extends Seeder
             ['race_animaux_ferme' => 'Âne'],
             ['race_animaux_ferme' => 'Poule/Oie'],
             ['race_animaux_ferme' => 'Vache/Veau/Taureau'],     
+            
+        ]);
+
+
+
+        DB::table('liste_races')->insert([
+ 
+            ['race_animal' => 'Chat de gouttière',
+             'espece_id' => '1'],
+            ['race_animal' => 'Chat de race',
+            'espece_id' => '1'],
+
+            ['race_animal' => 'Beagle',
+            'espece_id' => '2'],
+            ['race_animal' => 'Berger Allemand',
+            'espece_id' => '2'],
+            ['race_animal' => 'Berger Australien',
+            'espece_id' => '2'],
+            ['race_animal' => 'Berger des Shetland',
+            'espece_id' => '2'],
+            ['race_animal' => 'Bichon',
+            'espece_id' => '2'],
+            ['race_animal' => 'Border Collie',
+            'espece_id' => '2'],
+            ['race_animal' => 'Bouledogue Français',
+            'espece_id' => '2'],
+            ['race_animal' => 'Bouvier Bernois',
+            'espece_id' => '2'],
+            ['race_animal' => 'Caniche',
+            'espece_id' => '2'],
+            ['race_animal' => 'Cairn Terrier',
+            'espece_id' => '2'],
+            ['race_animal' => 'Carlin',
+            'espece_id' => '2'],
+            ['race_animal' => 'Cavalier King Charles Spaniel',
+            'espece_id' => '2'],
+            ['race_animal' => 'Chien de ferme Dano-Suéduois',
+            'espece_id' => '2'],
+            ['race_animal' => 'Finnois de Laponie',
+            'espece_id' => '2'],
+            ['race_animal' => 'Chihuahua',
+            'espece_id' => '2'],
+            ['race_animal' => 'Colley à poil long',
+            'espece_id' => '2'],
+            ['race_animal' => 'Coton de Tuléar',
+            'espece_id' => '2'],
+            ['race_animal' => 'Dalmatien',
+            'espece_id' => '2'],
+            ['race_animal' => 'Golden Retriever',
+            'espece_id' => '2'],
+            ['race_animal' => 'Husky de Sibérie',
+            'espece_id' => '2'],
+            ['race_animal' => 'Jack Russell',
+            'espece_id' => '2'],
+            ['race_animal' => 'Labrador Retriever',
+            'espece_id' => '2'],
+            ['race_animal' => 'Loulou de Poméranie',
+            'espece_id' => '2'],
+            ['race_animal' => 'Retriever',
+            'espece_id' => '2'],
+            ['race_animal' => 'Rhodesian Ridgeback',
+            'espece_id' => '2'],
+            ['race_animal' => 'Rottweiler',
+            'espece_id' => '2'],
+            ['race_animal' => 'Samoyède',
+            'espece_id' => '2'],
+            ['race_animal' => 'Setter Anglais',
+            'espece_id' => '2'],
+            ['race_animal' => 'Shih Tzu',
+            'espece_id' => '2'],
+            ['race_animal' => 'Staffordshire Bull Terrier',
+            'espece_id' => '2'],
+            ['race_animal' => 'Teckel',
+            'espece_id' => '2'],
+            ['race_animal' => 'Whippet/Levrier',
+            'espece_id' => '2'],
+            ['race_animal' => 'Yorkshire Terrier',
+            'espece_id' => '2'],
+
+            ['race_animal' => 'Poisson',
+            'espece_id' => '3'],
+
+            ['race_animal' => 'Lapin',
+            'espece_id' => '4'],
+            ['race_animal' => 'Hamster',
+            'espece_id' => '4'],
+            ['race_animal' => 'Gerbille',
+            'espece_id' => '4'],
+            ['race_animal' => 'Souris/Rat',
+            'espece_id' => '4'],
+            ['race_animal' => 'Chincilla',
+            'espece_id' => '4'],
+            ['race_animal' => 'Furet',
+            'espece_id' => '4'],
+
+
+            ['race_animal' => 'Perruche',
+            'espece_id' => '5'],
+            ['race_animal' => 'Perroquet',
+            'espece_id' => '5'],
+            ['race_animal' => 'Cacatoès',
+            'espece_id' => '5'],
+            ['race_animal' => 'Canaris',
+            'espece_id' => '5'],
+            ['race_animal' => 'Colombe',
+            'espece_id' => '5'],
+            ['race_animal' => 'Tourterelle',
+            'espece_id' => '5'],
+
+            ['race_animal' => 'Serpent',
+            'espece_id' => '6'],
+            ['race_animal' => 'Caméléon',
+            'espece_id' => '6'],
+            ['race_animal' => 'Tortue',
+            'espece_id' => '6'],
+            ['race_animal' => 'Gecko',
+            'espece_id' => '6'],
+            ['race_animal' => 'Lézard',
+            'espece_id' => '6'],
+
+            ['race_animal' => 'Cheval',
+            'espece_id' => '7'],
+            ['race_animal' => 'Âne',
+            'espece_id' => '7'],
+            ['race_animal' => 'Poule/Oie',
+            'espece_id' => '7'],
+            ['race_animal' => 'Vache/Veau/Taureau',
+            'espece_id' => '7'],
+
+
+
+
+
+        
+             
             
         ]);
     }
