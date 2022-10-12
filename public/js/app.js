@@ -22290,7 +22290,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   \*******************************/
 /***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nSyntaxError: Unexpected token (20:90)\n    at _class.pp$4.raise (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:2927:15)\n    at _class.pp.unexpected (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:698:10)\n    at _class.pp$3.parseIdent (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:2878:12)\n    at _class.parseIdent (/Users/karlmuller/Site_final/node_modules/acorn-node/lib/class-fields/index.js:63:47)\n    at _class.parseIdent (/Users/karlmuller/Site_final/node_modules/acorn-node/lib/static-class-features/index.js:132:55)\n    at _class.pp$2.parseBindingAtom (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:1776:17)\n    at _class.pp$2.parseMaybeDefault (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:1811:25)\n    at _class.pp$2.parseBindingList (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:1796:25)\n    at _class.pp$3.parseMethod (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:2714:24)\n    at _class.pp$3.parsePropertyValue (/Users/karlmuller/Site_final/node_modules/acorn/dist/acorn.js:2636:25)\n    at processResult (/Users/karlmuller/Site_final/node_modules/webpack/lib/NormalModule.js:758:19)\n    at /Users/karlmuller/Site_final/node_modules/webpack/lib/NormalModule.js:860:5\n    at /Users/karlmuller/Site_final/node_modules/loader-runner/lib/LoaderRunner.js:400:11\n    at /Users/karlmuller/Site_final/node_modules/loader-runner/lib/LoaderRunner.js:252:18\n    at context.callback (/Users/karlmuller/Site_final/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/Users/karlmuller/Site_final/node_modules/postcss-loader/dist/index.js:142:7)");
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: Cannot find module 'tailwindcss/colors'\nRequire stack:\n- /Users/karlmuller/Site_final/node_modules/@tailwindcss/forms/src/index.js\n- /Users/karlmuller/Site_final/tailwind.config.js\n- /Users/karlmuller/Site_final/node_modules/tailwindcss/lib/index.js\n- /Users/karlmuller/Site_final/node_modules/postcss-loader/dist/utils.js\n- /Users/karlmuller/Site_final/node_modules/postcss-loader/dist/index.js\n- /Users/karlmuller/Site_final/node_modules/postcss-loader/dist/cjs.js\n- /Users/karlmuller/Site_final/node_modules/webpack/lib/ProgressPlugin.js\n- /Users/karlmuller/Site_final/node_modules/webpack/lib/index.js\n- /Users/karlmuller/Site_final/node_modules/webpack-cli/lib/webpack-cli.js\n- /Users/karlmuller/Site_final/node_modules/webpack-cli/lib/bootstrap.js\n- /Users/karlmuller/Site_final/node_modules/webpack-cli/bin/cli.js\n- /Users/karlmuller/Site_final/node_modules/webpack/bin/webpack.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (/Users/karlmuller/Site_final/node_modules/@tailwindcss/forms/src/index.js:4:16)\n    at Module._compile (node:internal/modules/cjs/loader:1105:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)\n    at Module.load (node:internal/modules/cjs/loader:981:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:822:12)\n    at Module.require (node:internal/modules/cjs/loader:1005:19)\n    at processResult (/Users/karlmuller/Site_final/node_modules/webpack/lib/NormalModule.js:758:19)\n    at /Users/karlmuller/Site_final/node_modules/webpack/lib/NormalModule.js:860:5\n    at /Users/karlmuller/Site_final/node_modules/loader-runner/lib/LoaderRunner.js:400:11\n    at /Users/karlmuller/Site_final/node_modules/loader-runner/lib/LoaderRunner.js:252:18\n    at context.callback (/Users/karlmuller/Site_final/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/Users/karlmuller/Site_final/node_modules/postcss-loader/dist/index.js:142:7)");
 
 /***/ }),
 
@@ -22486,80 +22486,7 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 
-/**  JS POUR AFFICHER UNE DIV */
-
-let bouton_cache1 = document.getElementById("bouton_cache1");
-let d2 = document.getElementById("d2");
-
-function cache(){
-  if(getComputedStyle(d2).display != "block")
-  {d2.style.display = "block";}
-  else {
-    d2.style.display = "none";
-  }
-};
-
-bouton_cache1.onclick = cache;
-
-let bouton_cache2 = document.getElementById("bouton_cache2");
-let d3 = document.getElementById("d3");
-
-function cache2(){
-  if(getComputedStyle(d3).display != "block")
-  {d3.style.display = "block";}
-  else {
-    d3.style.display = "none";
-  }
-};
-
-bouton_cache2.onclick = cache2;
-
-
-let bouton_cache3 = document.getElementById("bouton_cache3");
-let d4 = document.getElementById("d4");
-
-function cache3(){
-  if(getComputedStyle(d4).display != "block")
-  {d4.style.display = "block";}
-  else {
-    d4.style.display = "none";
-  }
-};
-
-bouton_cache3.onclick = cache3;
-
-let bouton_cache4 = document.getElementById("bouton_cache4");
-let d5 = document.getElementById("d5");
-
-function cache4(){
-  if(getComputedStyle(d5).display != "block")
-  {d5.style.display = "block";}
-  else {
-    d5.style.display = "none";
-  }
-};
-
-bouton_cache4.onclick = cache4;
-
-let bouton_cache5 = document.getElementById("bouton_cache5");
-let d6 = document.getElementById("d6");
-
-function cache5(){
-  if(getComputedStyle(d6).display != "block")
-  {d6.style.display = "block";}
-  else {
-    d6.style.display = "none";
-  }
-};
-
-bouton_cache5.onclick = cache5;
-
-/** FIN DU JS POUR AFFICHER UNE DIV */
-
-
-
 /***/ }),
-
 
 /***/ "./node_modules/axios/package.json":
 /*!*****************************************!*\
@@ -22673,4 +22600,3 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	
 /******/ })()
 ;
-

@@ -295,7 +295,7 @@
                   
           </div>
           <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
-          <button type="submit" class=" button1 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-4 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Valider</button>
+          <button type="submit" id="button2" class=" inline-flex justify-center  border border-transparent bg-indigo-600 py-4 px-4 text-sm font-medium text-white">Valider</button>
           </div>
           
         </div>

@@ -6,12 +6,14 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<link href="../../css/app.css" rel="stylesheet" type="text/css">
+
 @livewireStyles
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app_perso.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -21,7 +23,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="shadow"  style="background-color: #C93756">
+                <header class="shadow ban">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" >
                         {{ $header }}
                     </div>
