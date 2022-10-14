@@ -17,7 +17,7 @@ class CreateEspeceAnimauxesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('espece');
-            $table->unsignedBigInteger('race')->nullable(); 
+           /* $table->unsignedBigInteger('race')->nullable(); */
         });
     }
 

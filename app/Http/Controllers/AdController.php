@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\annonces;
 use Illuminate\Http\Request;
+use App\Models\Espece_animaux;
 
 use Laravel\Fortify\Fortify;
 use App\Http\Requests\AdStore;
@@ -19,8 +20,13 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class AdController extends Controller
 {
+    
     public function create() 
     {
+
+       
+
+
        /* $ads = annonces::online()->latest()->get();
        
        return $ads; */
@@ -34,28 +40,9 @@ class AdController extends Controller
     public function store(AdStore $request)
     {
       
-       /* Marche pas if(!Auth::check())
-        {
-            $request->validate([
-                'name' => 'required',
-                'email' => 'required|unique:users',
-                'password' => 'required|confirmed',
-                'password_confirmation' => 'required',
-            ]);
-        $user = User::create([
-
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            
-            ]); 
-
-          
- 
-        }; */
-       
-
-
+      
+        $espece = Espece_animaux::select('id', 'espece')->get();
+        
 
         $arraytostring = $request->animaux_gardes;
         $string = implode(', ', $arraytostring);
@@ -80,7 +67,28 @@ class AdController extends Controller
         
         return redirect()->route('create.ad'); 
 
+       
         
+
+         /* Marche pas if(!Auth::check())
+        {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|unique:users',
+                'password' => 'required|confirmed',
+                'password_confirmation' => 'required',
+            ]);
+        $user = User::create([
+
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            
+            ]); 
+
+          
+ 
+        }; */
     }
 
 

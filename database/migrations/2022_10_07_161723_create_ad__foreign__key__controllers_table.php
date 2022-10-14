@@ -34,11 +34,7 @@ class CreateAdForeignKeyControllersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::table('especes_animaux', function(Blueprint $table) {
-            $table->foreign('race')->references('id')->on('race_chiens', 'race_chats', 'race_rongeurs');
-           
-
-        });
+        /*
 
         Schema::table('race_chiens', function(Blueprint $table) {
             $table->foreign('chien_id')->references('id')->on('especes_animaux');
@@ -73,9 +69,9 @@ class CreateAdForeignKeyControllersTable extends Migration
         Schema::table('race_other_animaux', function(Blueprint $table) {
             $table->foreign('other_animal_id')->references('id')->on('especes_animaux');
         
-        });
+        }); */
 
-        Schema::table('liste_races', function(Blueprint $table) {
+        Schema::table('liste_race', function(Blueprint $table) {
             $table->foreign('espece_id')->references('id')->on('especes_animaux');
         
         });

@@ -25,6 +25,7 @@
           <div class="space-y-6 bg-white px-4 py-5 sm:p-6"> 
      
           <!-- Partie date mais en date -->
+          @livewire("race-select")
       
           <button type="button" id="bouton_cache1" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
               Quand êtes-vous disponible?
@@ -52,6 +53,8 @@
             </div>
           </div>
             <x-jet-section-border />
+
+          
 
             <!-- Partie type de garde -->
             <fieldset>
@@ -95,7 +98,7 @@
                   <div class="mt-4 space-y-4">
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="cat" id="watch_cat" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="cat" id="cat" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                         <x-jet-label for="cat" value="{{ __('Chat') }}"/>
@@ -125,7 +128,7 @@
                     
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="rabbit" id="watch_rabbit" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="rabbit" id="rabbit" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                         <x-jet-label for="rabbit" value="{{ __('Rongeur') }}"/>
@@ -135,7 +138,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="bird" id="watch_bird" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="bird" id="bird" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="bird" value="{{ __('Oiseau') }}"/>
@@ -145,7 +148,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="reptile" id="watch_reptile" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="reptile" id="reptile" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="reptile" value="{{ __('Reptile') }}"/>
@@ -155,7 +158,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="farm_animal" id="watch_farm_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="farm_animal" id="farm_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="farm_animal" value="{{ __('Animaux de ferme') }}"/>
@@ -165,7 +168,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="other_animal" id="watch_other_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="other_animal" id="other_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                         <x-jet-label for="other_animal" value="{{ __('Tous les autres animaux') }}"/>
@@ -221,11 +224,81 @@
             
             <x-jet-section-border />
         
+          <!--
+          @guest
           
+
+        <x-jet-validation-errors class="mb-4" />
+
+      
+             <h1 class="text-center mb-10 pb-5 font-semibold">Vous devez être inscrit et connecté pour poster une annonce </h1>   
+        
+
+          <div class="flex items-start items-center">
+                <div class="ml-3 text-sm pr-10">
+                  <x-jet-label for="name" value="{{ __('Votre nom (peut-être modifié plus tard)') }}"/> 
+                </div>
+                  <div class="flex">
+                    <x-jet-input  id="name" name="name" type="text" class="w-full shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  placeholder="Entrez votre nom" :value="old('name')" required autofocus autocomplete="name"/>
+                  </div>
+          </div>
+
+          <div class="flex items-start items-center">
+                <div class="ml-3 text-sm pr-10">
+                  <x-jet-label for="email" value="{{ __('Votre adresse mail') }}"/> 
+                </div>
+                <div class="flex">
+                  <x-jet-input placeholder="Adresse mail" id="email" class="block mt-1 w-full shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" />
+                </div>
+          </div>
+           
+          <div class="flex items-start items-center">
+                <div class="ml-3 text-sm pr-10">
+                  <x-jet-label for="password" value="{{ __('Mot de passe') }}"/> 
+                </div>
+                <div class="flex">
+                  <x-jet-input placeholder="Mot de passe" id="password" class="block mt-1 w-full shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" required autocomplete="new-password" />
+                </div>
+          </div>
+
+            
+
+            <div class="flex items-start items-center">
+                <div class="ml-3 text-sm pr-10 ">
+                  <x-jet-label class="" for="password_confirmation" value="{{ __('Confirmer votre mot de passe') }}"/> 
+                </div>
+                <div class="flex">
+                  <x-jet-input placeholder="Confirmer mot de passe" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                </div>
+          </div>
+
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div class="mt-4">
+                    <x-jet-label for="terms">
+                        <div class="flex items-center">
+                            <x-jet-checkbox name="terms" id="terms"/>
+
+                            <div class="ml-2">
+                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                ]) !!}
+                            </div>
+                        </div>
+                    </x-jet-label>
+                </div>
+            @endif
+
+            
+        
+    
+              <x-jet-section-border />
+          @endguest
+                                -->
                   
           </div>
           <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
-          <button type="submit" id="button2" class=" inline-flex justify-center  border border-transparent bg-indigo-600 py-4 px-4 text-sm font-medium text-white">Valider</button>
+          <button type="submit" id="button2 " class=" inline-flex justify-center  border border-transparent bg-indigo-600 py-4 px-4 text-sm font-medium text-white">Valider</button>
           </div>
           
         </div>
@@ -306,6 +379,10 @@
 </div>
 
 @endguest
+
+
+
+
 </main>
 
 </x-app-layout>

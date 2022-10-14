@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-        DB::table('liste_races')->insert([
+        DB::table('liste_race')->insert([
  
             ['race_animal' => 'Chat de gouttière',
              'espece_id' => '1'],

@@ -13,10 +13,10 @@ class CreateListeRacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('liste_races', function (Blueprint $table) {
+        Schema::create('liste_race', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('race_animal')->nullable();
+            $table->string('race_animal');
             $table->unsignedBigInteger('espece_id')->nullable();
         });
     }
