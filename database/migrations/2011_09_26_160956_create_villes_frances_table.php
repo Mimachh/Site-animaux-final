@@ -13,7 +13,7 @@ class CreateVillesFrancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('villes_france_free', function (Blueprint $table) {
+        Schema::create('villes_france', function (Blueprint $table) {
             $table->id('ville_id');
             $table->string('ville_departement')->nullable();
             $table->string('ville_slug')->nullable();

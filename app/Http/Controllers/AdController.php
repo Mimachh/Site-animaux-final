@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\annonces;
 use Illuminate\Http\Request;
 use App\Models\Espece_animaux;
+use App\Models\villes_france;
 
 use Laravel\Fortify\Fortify;
 use App\Http\Requests\AdStore;
@@ -23,7 +24,7 @@ class AdController extends Controller
     
     public function create() 
     {
-
+        
        
 
 
@@ -41,8 +42,6 @@ class AdController extends Controller
     {
       
       
-        $espece = Espece_animaux::select('id', 'espece')->get();
-        
 
         $arraytostring = $request->animaux_gardes;
         $string = implode(', ', $arraytostring);

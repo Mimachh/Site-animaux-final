@@ -40,8 +40,9 @@
 
         @stack('modals')
 
-        @livewireScripts
+       
         
     <script src="../../js/app.js"></script>
+    @livewireScripts
     </body>
 </html>

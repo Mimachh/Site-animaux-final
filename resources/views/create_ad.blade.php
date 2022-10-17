@@ -24,9 +24,10 @@
         <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
           <div class="space-y-6 bg-white px-4 py-5 sm:p-6"> 
      
-          <!-- Partie date mais en date -->
-          @livewire("race-select")
-      
+         @livewire('ville-select')
+
+
+          <!-- Partie date mais en date --> 
           <button type="button" id="bouton_cache1" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
               Quand êtes-vous disponible?
               <legend class="sr-only">Quand êtes-vous disponible?</legend>           
