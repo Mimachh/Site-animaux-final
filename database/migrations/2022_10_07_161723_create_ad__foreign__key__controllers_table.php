@@ -32,44 +32,9 @@ class CreateAdForeignKeyControllersTable extends Migration
             $table->foreign('city-where')->references('ville_id')->on('villes_france');
             $table->foreign('my_animal_id')->references('id')->on('animals_owneds')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('animaux_gardes')->references('id')->on('especes_animaux');
         });
 
-        /*
-
-        Schema::table('race_chiens', function(Blueprint $table) {
-            $table->foreign('chien_id')->references('id')->on('especes_animaux');
-        
-        });
-
-        Schema::table('race_chats', function(Blueprint $table) {
-            $table->foreign('chat_id')->references('id')->on('especes_animaux');
-        
-        });
-
-        Schema::table('race_rongeurs', function(Blueprint $table) {
-            $table->foreign('rongeur_id')->references('id')->on('especes_animaux');
-        
-        });
-
-        Schema::table('race_oiseaux', function(Blueprint $table) {
-            $table->foreign('oiseau_id')->references('id')->on('especes_animaux');
-        
-        });
-
-        Schema::table('race_reptiles', function(Blueprint $table) {
-            $table->foreign('reptile_id')->references('id')->on('especes_animaux');
-        
-        });
-
-        Schema::table('animaux_fermes', function(Blueprint $table) {
-            $table->foreign('animaux_ferme_id')->references('id')->on('especes_animaux');
-        
-        });
-
-        Schema::table('race_other_animaux', function(Blueprint $table) {
-            $table->foreign('other_animal_id')->references('id')->on('especes_animaux');
-        
-        }); */
 
         Schema::table('liste_race', function(Blueprint $table) {
             $table->foreign('espece_id')->references('id')->on('especes_animaux');

@@ -6,11 +6,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\annonces;
 use Illuminate\Http\Request;
-use App\Models\Espece_animaux;
+use Laravel\Fortify\Fortify;
 use App\Models\villes_france;
 
-use Laravel\Fortify\Fortify;
 use App\Http\Requests\AdStore;
+use App\Models\Espece_animaux;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\CreateNewUser;
@@ -26,21 +27,25 @@ class AdController extends Controller
     {
         
        
-
-
-       /* $ads = annonces::online()->latest()->get();
-       
-       return $ads; */
-       /* $ads = annonces::all();
-
-       return $ads; */
-
-       return view('create_ad');
+           
+        $chats = Espece_animaux::find(1);
+        $chiens = Espece_animaux::find(2);
+        $poissons = Espece_animaux::find(3);
+        $rongeurs = Espece_animaux::find(4);
+        $oiseaux = Espece_animaux::find(5);
+        $reptiles = Espece_animaux::find(6);
+        $ferme = Espece_animaux::find(7);
+        $autre = Espece_animaux::find(8);
+        
+        
+       return view('create_ad', ['chats'=>$chats, 'chiens'=>$chiens, 'poissons'=>$poissons,
+        'rongeurs'=>$rongeurs, 'oiseaux'=>$oiseaux, 'reptiles'=>$reptiles,
+        'ferme'=>$ferme, 'autre'=>$autre]);
     }
-
+    
     public function store(AdStore $request)
     {
-      
+       
       
 
         $arraytostring = $request->animaux_gardes;
@@ -55,7 +60,7 @@ class AdController extends Controller
             'garde_type' => $string2,
             'description' =>  $request->description,
             'price' => $request->price,
-          
+            
 
         ]);
         $annonces->user_id = auth()->user()->id; 

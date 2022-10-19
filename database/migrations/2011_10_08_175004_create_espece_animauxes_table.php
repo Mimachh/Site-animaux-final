@@ -16,7 +16,7 @@ class CreateEspeceAnimauxesTable extends Migration
         Schema::create('especes_animaux', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('espece');
+            $table->string('espece')->nullable();
            /* $table->unsignedBigInteger('race')->nullable(); */
         });
     }

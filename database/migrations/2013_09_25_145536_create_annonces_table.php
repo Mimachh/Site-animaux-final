@@ -20,7 +20,7 @@ class CreateAnnoncesTable extends Migration
             
             $table->unsignedBigInteger('city-where')->nullable(); 
             $table->string('garde_type')->nullable();
-            $table->string('animaux_gardes')->nullable();
+            $table->unsignedBigInteger('animaux_gardes')->nullable();
             $table->text('description')->nullable();  
             $table->unsignedBigInteger('my_animal_id')->nullable();
             $table->decimal('price', $precision = 4 )->nullable();

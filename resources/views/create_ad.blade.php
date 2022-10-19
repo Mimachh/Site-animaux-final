@@ -97,82 +97,82 @@
                 </button>
                 <div id="d4" style="display:none;">
                   <div class="mt-4 space-y-4">
-                    <div class="flex items-start">
+                  <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="cat" id="cat" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$chats->id}}" id="watch_cat" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                        <x-jet-label for="cat" value="{{ __('Chat') }}"/>
-                        <p class="text-gray-500">Chat de gouttière, de race...</p>
+                      <x-jet-label for="watch_cat" value="{{ $chats->espece }}"/>
+                      <p class="text-gray-500">Chat de race, de gouttière...</p>
                       </div>
-                    </div>
+                    </div> 
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="dog" id="watch_dog" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$chiens->id}}" id="watch_dog" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                      <x-jet-label for="watch_dog" value="{{ __('Chien') }}"/>
+                      <x-jet-label for="watch_dog" value="{{$chiens->espece}}"/>
                       <p class="text-gray-500">Labrador, Berger Australien...</p>
                       </div>
                     </div> 
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="fish" id="watch_fish" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$poissons->id}}" id="watch_fish" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                      <x-jet-label for="watch_fish" value="{{ __('Poisson') }}"/>
+                      <x-jet-label for="watch_fish" value="{{$poissons->espece}}"/>
                       <p class="text-gray-500">En bocal, en bassin...</p>
                       </div>
                     </div> 
                     
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="rabbit" id="rabbit" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$rongeurs->id}}" id="rabbit" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                        <x-jet-label for="rabbit" value="{{ __('Rongeur') }}"/>
+                        <x-jet-label for="" value="{{$rongeurs->espece}}"/>
                         <p class="text-gray-500">Lapin, cochon d'inde, hamster...</p>
                       </div>
                     </div>
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="bird" id="bird" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$oiseaux->id}}" id="bird" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                      <x-jet-label for="bird" value="{{ __('Oiseau') }}"/>
+                      <x-jet-label for="bird" value="{{$oiseaux->espece}}"/>
                         <p class="text-gray-500">Oiseaux en cage ou en volière.</p>
                       </div>
                     </div>
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="reptile" id="reptile" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$reptiles->id}}" id="reptile" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                      <x-jet-label for="reptile" value="{{ __('Reptile') }}"/>
+                      <x-jet-label for="reptile" value="{{ $reptiles->espece}}"/>
                         <p class="text-gray-500">Serpent, caméléon, tortue...</p>
                       </div>
                     </div>
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="farm_animal" id="farm_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$ferme->id}}" id="farm_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                      <x-jet-label for="farm_animal" value="{{ __('Animaux de ferme') }}"/>
+                      <x-jet-label for="farm_animal" value="{{$ferme->espece}}"/>
                         <p class="text-gray-500">Poule, oie, cheval...</p>
                       </div>
                     </div>
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="other_animal" id="other_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$autre->id}}" id="other_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                        <x-jet-label for="other_animal" value="{{ __('Tous les autres animaux') }}"/>
+                        <x-jet-label for="other_animal" value="{{ $autre->espece}}"/>
                         <p class="text-gray-500">Vous garderez les animaux dans votre domicile.</p>
                       </div>
                     </div>
@@ -299,8 +299,9 @@
                   
           </div>
           <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
-          <button type="submit" id="button2 " class=" inline-flex justify-center  border border-transparent bg-indigo-600 py-4 px-4 text-sm font-medium text-white">Valider</button>
+          <button type="submit" id="button2">Valider</button>
           </div>
+          
           
         </div>
       </form>
