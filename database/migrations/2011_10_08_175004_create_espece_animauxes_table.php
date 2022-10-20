@@ -14,10 +14,11 @@ class CreateEspeceAnimauxesTable extends Migration
     public function up()
     {
         Schema::create('especes_animaux', function (Blueprint $table) {
-            $table->id();
+            $table->string('id', 100)->nullable();
+            $table->primary('id');
             $table->timestamps();
             $table->string('espece')->nullable();
-           /* $table->unsignedBigInteger('race')->nullable(); */
+           
         });
     }
 

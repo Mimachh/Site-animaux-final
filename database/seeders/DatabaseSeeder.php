@@ -14,20 +14,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+       
 
         DB::table('especes_animaux')->insert([
  
-            ['espece' => 'chats'],
-            ['espece' => 'chiens'],
-            ['espece' => 'poissons'],
-            ['espece' => 'rongeurs'],
-            ['espece' => 'oiseaux'],
-            ['espece' => 'reptiles'],
-            ['espece' => 'animaux de la ferme'],
-            ['espece' => 'autre'],
+            ['espece' => 'Chats',
+            'id' => '1'],
+            ['espece' => 'Chiens',
+            'id' => '2'],
+            ['espece' => 'Poissons',
+            'id' => '3'],
+            ['espece' => 'Rongeurs',
+            'id' => '4'],
+            ['espece' => 'Oiseaux',
+            'id' => '5'],
+            ['espece' => 'Reptiles',
+            'id' => '6'],
+            ['espece' => 'Animaux de la ferme',
+            'id' => '7'],
+            ['espece' => 'Autre',
+            'id' => '8'],
+           
         ]);
-
+        
         DB::table('garde_types')->insert([
  
             ['garde_type' => 'home'],
@@ -35,7 +44,7 @@ class DatabaseSeeder extends Seeder
             
         ]);
 
-        DB::table('race_chiens')->insert([
+       /* DB::table('race_chiens')->insert([
  
             ['race_chien' => 'Beagle'],
             ['race_chien' => 'Berger Allemand'],
@@ -124,7 +133,7 @@ class DatabaseSeeder extends Seeder
             ['race_animaux_ferme' => 'Vache/Veau/Taureau'],     
             
         ]);
-
+*/
 
 
         DB::table('liste_race')->insert([

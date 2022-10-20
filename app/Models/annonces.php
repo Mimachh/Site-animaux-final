@@ -20,6 +20,11 @@ class annonces extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function especes()
+    {
+        return $this->hasMany('App\Models\Espece_animaux');
+    }
+
 
     /**
      * The attributes that are mass assignable.
@@ -27,9 +32,8 @@ class annonces extends Model
      * @var string[]
      */
     protected $fillable = [
-        /*'visit', 'home', 'start_watch', 'end_watch', 'watch_cat', 'watch_dog', 'watch_rabbit',
-        'watch_bird', 'watch_reptile', 'watch_farm_animal', 'watch_other_animal',*/
-        'description', 'price', 'garde_type', 'animaux_gardes', 'name',
+        
+        'animaux_gardes', 'description', 'price', 'garde_type', 'name', 'especes_animaux'
     ];
     /* Ajout pour les checkbox 
     protected $guarded = []; */

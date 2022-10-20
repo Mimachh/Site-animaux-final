@@ -17,7 +17,7 @@ class CreateListeRacesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('race_animal');
-            $table->unsignedBigInteger('espece_id')->nullable();
+            $table->string('espece_id')->nullable();
         });
     }
 

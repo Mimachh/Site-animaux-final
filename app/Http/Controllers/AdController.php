@@ -36,8 +36,7 @@ class AdController extends Controller
         $reptiles = Espece_animaux::find(6);
         $ferme = Espece_animaux::find(7);
         $autre = Espece_animaux::find(8);
-        
-        
+     
        return view('create_ad', ['chats'=>$chats, 'chiens'=>$chiens, 'poissons'=>$poissons,
         'rongeurs'=>$rongeurs, 'oiseaux'=>$oiseaux, 'reptiles'=>$reptiles,
         'ferme'=>$ferme, 'autre'=>$autre]);
@@ -64,6 +63,8 @@ class AdController extends Controller
 
         ]);
         $annonces->user_id = auth()->user()->id; 
+
+        
         
         $annonces->save();
 

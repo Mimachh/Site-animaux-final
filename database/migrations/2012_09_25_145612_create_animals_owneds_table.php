@@ -18,7 +18,7 @@ class CreateAnimalsOwnedsTable extends Migration
             $table->timestamps();
             $table->string('animal_name');
             $table->text('personnality');
-            $table->unsignedBigInteger('espece');
+            $table->string('espece');
             $table->boolean('likes_male_dog');
             $table->boolean('likes_female_dog');
             $table->boolean('likes_male_cat');

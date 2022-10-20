@@ -4,12 +4,34 @@ namespace App\Models;
 
 
 
+use App\Models\annonces;
 use App\Models\Liste_race;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Espece_animaux extends Model
 {
+    /**
+     * The table associated with the model.
+     * @var string
+    */ 
+    protected $table = 'especes_animaux';
+    
+   /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+   
+    /**
+     * The data type of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
     use HasFactory;
 
     public function races()
@@ -17,9 +39,10 @@ class Espece_animaux extends Model
         return $this->hasMany(Liste_race::class);
     }
 
-    /**
-     * The table associated with the model.
-     * @var string
-    */ 
-    protected $table = 'especes_animaux';
+    public function annonces()
+    {
+        return $this->belongsToMany('App\Models\annonces');
+    }
+    
+    
 }
