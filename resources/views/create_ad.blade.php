@@ -67,19 +67,19 @@
                   <div class="mt-4 space-y-4">
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input id="home" name="garde_type[]" value="home" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input id="home" name="home" value="{{$home->id}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                      <x-jet-label for="home" value="{{ __('Chez vous') }}"/>
+                      <x-jet-label for="home" value="{{$home->garde_type}}"/>
                         <p class="text-gray-500">Vous garderez les animaux dans votre domicile.</p>
                       </div>
                     </div>
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input id="visit" name="garde_type[]" value="visit" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input id="visit" name="visit" value="{{$visit->id}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
-                      <x-jet-label for="visit" value="{{ __('Visite à domicile') }}"/>
+                      <x-jet-label for="visit" value="{{$visit->garde_type}}"/>
                         <p class="text-gray-500">Vous irez au domicile du propriétaire pour vous occuper de ses animaux.</p>
                       </div>
                     </div>               
@@ -99,7 +99,7 @@
                   <div class="mt-4 space-y-4">
                   <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$chats->id}}" id="watch_cat" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$chats->id}}" id="watch_cat" name="chats" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="watch_cat" value="{{ $chats->espece }}"/>
@@ -109,7 +109,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$chiens->id}}" id="watch_dog" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$chiens->id}}" id="watch_dog" name="chiens" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="watch_dog" value="{{$chiens->espece}}"/>
@@ -119,7 +119,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$poissons->id}}" id="watch_fish" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$poissons->id}}" id="watch_fish" name="poissons" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="watch_fish" value="{{$poissons->espece}}"/>
@@ -129,7 +129,7 @@
                     
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$rongeurs->id}}" id="rabbit" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$rongeurs->id}}" id="rabbit" name="rongeurs" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                         <x-jet-label for="" value="{{$rongeurs->espece}}"/>
@@ -139,7 +139,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$oiseaux->id}}" id="bird" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$oiseaux->id}}" id="bird" name="oiseaux" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="bird" value="{{$oiseaux->espece}}"/>
@@ -149,7 +149,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$reptiles->id}}" id="reptile" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$reptiles->id}}" id="reptile" name="reptiles" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="reptile" value="{{ $reptiles->espece}}"/>
@@ -159,7 +159,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$ferme->id}}" id="farm_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$ferme->id}}" id="farm_animal" name="ferme" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                       <x-jet-label for="farm_animal" value="{{$ferme->espece}}"/>
@@ -169,7 +169,7 @@
 
                     <div class="flex items-start">
                       <div class="flex h-5 items-center">
-                        <x-jet-input value="{{$autre->id}}" id="other_animal" name="animaux_gardes[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                        <x-jet-input value="{{$autre->id}}" id="other_animal" name="autre" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                       </div>
                       <div class="ml-3 text-sm">
                         <x-jet-label for="other_animal" value="{{ $autre->espece}}"/>

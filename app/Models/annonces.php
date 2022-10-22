@@ -24,7 +24,7 @@ class annonces extends Model
     {
         return $this->hasMany('App\Models\Espece_animaux');
     }
-
+    
 
     /**
      * The attributes that are mass assignable.
@@ -33,7 +33,8 @@ class annonces extends Model
      */
     protected $fillable = [
         
-        'animaux_gardes', 'description', 'price', 'garde_type', 'name', 'especes_animaux'
+        'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
+        'oiseaux', 'reptiles', 'ferme', 'autre' 
     ];
     /* Ajout pour les checkbox 
     protected $guarded = []; */

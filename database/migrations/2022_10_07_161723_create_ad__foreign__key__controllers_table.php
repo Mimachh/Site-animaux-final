@@ -32,7 +32,36 @@ class CreateAdForeignKeyControllersTable extends Migration
             $table->foreign('city-where')->references('ville_id')->on('villes_france');
             $table->foreign('my_animal_id')->references('id')->on('animals_owneds')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('animaux_gardes')->references('id')->on('especes_animaux')
+           
+            $table->foreign('chats')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('chiens')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('poissons')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('rongeurs')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('reptiles')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('ferme')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('autre')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('oiseaux')->references('id')->on('especes_animaux')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            
+            $table->foreign('visit')->references('id')->on('garde_types')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+            $table->foreign('home')->references('id')->on('garde_types')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
         });

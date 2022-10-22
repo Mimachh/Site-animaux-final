@@ -25,17 +25,9 @@ class AdStore extends FormRequest
     public function rules()
     {
         return [
-           
-            
-           
+       
             'start_watch' => 'required',
             'end_watch' => 'required',
-           
-            
-            'garde_type' => ['array', 'required'],
-            'animaux_gardes' => ['array', 'required'],
-            
-
             'description' => 'required',
             'price' => ['numeric', 'required'],
 

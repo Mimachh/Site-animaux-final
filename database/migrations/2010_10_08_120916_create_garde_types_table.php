@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRacePoissonsTable extends Migration
+class CreateGardeTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateRacePoissonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('race_poissons', function (Blueprint $table) {
-            $table->id();
+        Schema::create('garde_types', function (Blueprint $table) {
+            $table->string('id', 100)->nullable();
+            $table->primary('id');
             $table->timestamps();
+            $table->string('garde_type');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateRacePoissonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('race_poissons');
+        Schema::dropIfExists('garde_types');
     }
 }

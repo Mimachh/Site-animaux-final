@@ -11,6 +11,7 @@ class CreateAnnoncesTable extends Migration
      *
      * @return void
      */
+    
     public function up()
     {
         Schema::create('annonces', function (Blueprint $table) {
@@ -19,39 +20,25 @@ class CreateAnnoncesTable extends Migration
             $table->string('name')->nullable();
             
             $table->unsignedBigInteger('city-where')->nullable(); 
-            $table->string('garde_type')->nullable();
-            $table->string('animaux_gardes', 100)->nullable();
+           
+
+            $table->string('visit', 100)->nullable();
+            $table->string('home', 100)->nullable();
+
+            $table->string('chats', 100)->nullable();
+            $table->string('chiens', 100)->nullable();
+            $table->string('poissons', 100)->nullable();
+            $table->string('rongeurs', 100)->nullable();
+            $table->string('oiseaux', 100)->nullable();
+            $table->string('reptiles', 100)->nullable();
+            $table->string('ferme', 100)->nullable();
+            $table->string('autre', 100)->nullable();
+
             $table->text('description')->nullable();  
             $table->unsignedBigInteger('my_animal_id')->nullable();
             $table->decimal('price', $precision = 4 )->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->timestamps();
-
-
-            /*
-            $table->string('visit')->nullable(); 
-            $table->string('home')->nullable();
-            
-            $table->string('start_watch')->nullable();
-            $table->string('end_watch')->nullable();
-
-            $table->string('watch_cat')->nullable();
-            $table->string('watch_dog')->nullable();
-            $table->string('watch_rabbit')->nullable();
-            $table->string('watch_bird')->nullable();
-            $table->string('watch_reptile')->nullable();
-            $table->string('watch_farm_animal')->nullable();
-            $table->string('watch_other_animal')->nullable();
-            */
-
-            
-            
-
-            /**Photo du clebs */
-
-           
-          
-           
+            $table->timestamps();          
         });
 
     }
