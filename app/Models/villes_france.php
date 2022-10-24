@@ -16,6 +16,11 @@ class villes_france extends Model
     protected $table = 'villes_france';
 
     protected $primaryKey = 'ville_id';
+
+    public function annonce()
+    {
+        return $this->belongsTo('App\Models\annonces');
+    }
 }
 
 

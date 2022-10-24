@@ -22,9 +22,8 @@
       <form action="{{ route('create.ad')}}" method="POST">
         @csrf
         <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
-          <div class="space-y-6 bg-white px-4 py-5 sm:p-6"> 
-     
-         @livewire('ville-select')
+          <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+         
 
 
           <!-- Partie date mais en date --> 

@@ -24,10 +24,12 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 class AdController extends Controller
 {
    
-    
+   
+
     public function create() 
     {
-        
+       
+
         $visit = Garde_type::find(2);
         $home = Garde_type::find(1);
            
@@ -39,11 +41,13 @@ class AdController extends Controller
         $reptiles = Espece_animaux::find(6);
         $ferme = Espece_animaux::find(7);
         $autre = Espece_animaux::find(8);
+       
      
-       return view('create_ad', ['chats'=>$chats, 'chiens'=>$chiens, 'poissons'=>$poissons,
+       return view('create_ad', [ 'chats'=>$chats, 'chiens'=>$chiens, 'poissons'=>$poissons,
         'rongeurs'=>$rongeurs, 'oiseaux'=>$oiseaux, 'reptiles'=>$reptiles,
-        'ferme'=>$ferme, 'autre'=>$autre, 'visit'=>$visit, 'home'=>$home,]);
+        'ferme'=>$ferme, 'autre'=>$autre, 'visit'=>$visit, 'home'=>$home]);
     }
+    
     
     public function store(AdStore $request)
     {
@@ -59,11 +63,12 @@ class AdController extends Controller
         $visit = Garde_type::find(2);
         $home = Garde_type::find(1);
       
-
+       
        
       
 
         $annonces = annonces::create([
+            'ville' =>$request->ville,
             'visit' => $request->visit,
             'home' => $request->home,
             'chiens' => $request->chiens,
@@ -76,6 +81,8 @@ class AdController extends Controller
             'autre' =>$request->autre,
             'description' =>  $request->description,
             'price' => $request->price,
+            'start_watch' => $request->start_watch,
+            'end_watch' => $request->end_watch,
  
         ]);
         $annonces->name = auth()->user()->name;

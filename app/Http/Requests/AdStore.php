@@ -30,8 +30,8 @@ class AdStore extends FormRequest
             'end_watch' => 'required',
             'description' => 'required',
             'price' => ['numeric', 'required'],
-
             'user_id' => 'integer',
+            
 
         ];
     

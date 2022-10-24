@@ -170,13 +170,7 @@ class DatabaseSeeder extends Seeder
             ['race_animal' => 'Vache/Veau/Taureau',
             'espece_id' => '7'],
 
-
-
-
-
-        
-             
-            
+   
         ]);
 
 

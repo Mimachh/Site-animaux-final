@@ -24,6 +24,11 @@ class annonces extends Model
     {
         return $this->hasMany('App\Models\Espece_animaux');
     }
+
+    public function ville()
+    {
+        return $this->hasOne('App\Models\villes_france');
+    }
     
 
     /**
@@ -34,11 +39,9 @@ class annonces extends Model
     protected $fillable = [
         
         'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
-        'oiseaux', 'reptiles', 'ferme', 'autre' 
+        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 
     ];
-    /* Ajout pour les checkbox 
-    protected $guarded = []; */
-
+  
     
 
 }
