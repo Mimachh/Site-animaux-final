@@ -16,7 +16,9 @@
 
     <!-- Début du formulaire  -->
 
-<div class="mt-10 sm:mt-0">
+            
+
+<div class="mt-10 sm:mt-2">
     <div class="md:grid md:grid-cols-6 md:gap-4 ">
    
         <div class="mt-5  md:col-start-2 md:col-span-4 md:mt-0">
@@ -24,33 +26,87 @@
                 <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
                     <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 
+
+            
                         <!-- Choix de la ville -->    
 
                         <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
-                            Choisir votre ville :
+                                        Choisir votre ville :
                             <legend class="sr-only">Choisir votre ville </legend>           
                         </button>          
                         <div class="mt-4 space-y-4">
-                            <div class="flex items-start">
-                                <x-jet-input list="list_ville" wire:model='ville' class="py-2 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
+                                        <div class="flex items-start">
+                                            <x-jet-input list="list_ville" wire:model='ville' class="py-2 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
 
-                                @if (strlen($ville) > 2)
-                                    <datalist id="list_ville">
+                                            @if (strlen($ville) > 2)
+                                                <datalist id="list_ville">
 
-                                    @if (count($villes) > 0)
-                                        @foreach ($villes as $ville)
+                                                @if (count($villes) > 0)
+                                                    @foreach ($villes as $ville)
 
-                                    <option value="{{$ville->ville_id}}">{{$ville->ville_nom}}-{{$ville->ville_departement}}</option>
+                                                <option value="{{$ville->ville_id}}">{{$ville->ville_nom}}-{{$ville->ville_departement}}</option>
 
-                                
-                                        @endforeach
-                                @endif
-                                </datalist>
+                                            
+                                                    @endforeach
+                                            @endif
+                                            </datalist>
 
-                                @endif
-                            </div>
+                                            @endif
+                                        </div>
                         </div>
                     
+                        <!-- Partie type de garde -->
+                        <fieldset>
+                            <button type="button" id="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                            Quel type de garde souhaitez vous?
+                            <legend class="sr-only">Quel type de garde <br> souhaitez vous?</legend>           
+                            </button>
+                        
+                            
+                            <div class="mt-4 space-y-4">
+                                <div class="flex items-start" >
+                                    <div class="flex h-5 items-center">     
+                                        <x-jet-input wire:model='home'  value="1" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                    <x-jet-label for="home" value=""/>
+                                        <p class="text-gray-500">Vous garderez les animaux dans votre domicile.</p>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="mt-4 space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex h-5 items-center">
+                                        <x-jet-input wire:model='visit' value="{2}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                    </div>
+                                    
+                                    <div class="ml-3 text-sm">
+                                    <x-jet-label for="visit" value=""/>
+                                        <p class="text-gray-500">Vous irez au domicile du propriétaire pour vous occuper de ses animaux.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </fieldset>
+                        <div class="mt-4 space-y-4">
+                            <div class="ml-3 text-sm">
+                                <x-jet-label for="garde" value="{{ __('Type de Garde') }}"/>
+                            </div>
+
+                            <div class="flex items-start">               
+                                <div class="flex h-5 items-center">
+                                    <select  name='garde' id="garde" wire:model.lazy='type_id'>
+                                    <option value="">--Choisissez un type de garde--</option>
+                                    @foreach($garde_type as $type_id) 
+                                    <option value="{{$type_id->id}}" wire:key="{{$type_id->id}}">{{$type_id->garde_type}}</option>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                        </div>
+                        <x-jet-section-border />
+
 
                         <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
                             <button type="submit" id="button2">Valider</button>

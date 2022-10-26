@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
             'id' => '7'],
             ['espece' => 'Autre',
             'id' => '8'],
+            ['espece' => 'Tous les animaux',
+            'id' => '9'],
            
         ]);
         
@@ -41,6 +43,7 @@ class DatabaseSeeder extends Seeder
  
             ['id'=>'1', 'garde_type' => 'Chez vous'],
             ['id'=>'2', 'garde_type' => 'Visite à domicile'],
+            ['id'=>'3', 'garde_type' => 'Les deux'],
             
         ]);
 

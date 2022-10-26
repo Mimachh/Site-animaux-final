@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Request;
+
 use Livewire\Component;
 use App\Models\annonces;
+use App\Models\Garde_type;
 use App\Models\villes_france;
-use App\Http\Requests\AdStore;
+
 
 class VilleSelect extends Component
 {
@@ -37,24 +38,53 @@ class VilleSelect extends Component
     /* Validation du formulaire */
 
    
-   
-    
-    protected $rules = [
-
-        'ville' => 'required',
-       
+   protected function rules()
+   {
+    return [
+        'ville' => 'required',     
+        'user_id' => 'required',
+       'visit' => 'nullable',
+       'home' => 'nullable',
+       'type_id' => 'required',
     ];
+   }
     
+    
+   
+    public $user_id;
+
+    public $visit='';
+    public $home='';
+
+    public $garde_type=[];
+    public $type_id;
+
+    public function mount()
+    {
+        $garde_type = Garde_type::all(); 
+        $this->type_id = $this->garde_type;
+
+    }
 
     public function submit()
     {
-        $this->validate();
+        
 
-       annonces::create([
+       $annonces=annonces::create([
             'ville' => $this->ville,
+            'home' => $this->home,
+            'visit' => $this->visit,
+            'garde_type' => $this->garde_type
+          
         ]);
+       
+        
+        $annonces->user_id = auth()->user()->id;
+       
+        $annonces->save();
+       
+        
 
-        return redirect()->route('create.ad'); 
      
     }
    
@@ -64,8 +94,8 @@ class VilleSelect extends Component
 
     public function render()
     {
-        
-            
+        $this->garde_type= Garde_type::all();
+      
             
              return view('livewire.ville-select'); 
             

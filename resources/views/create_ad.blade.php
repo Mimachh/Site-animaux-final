@@ -19,6 +19,7 @@
   <div class="md:grid md:grid-cols-6 md:gap-4 ">
    
     <div class="mt-5  md:col-start-2 md:col-span-4 md:mt-0">
+     
       <form action="{{ route('create.ad')}}" method="POST">
         @csrf
         <div class="overflow-hidden shadow sm:rounded-md mb-10 ">

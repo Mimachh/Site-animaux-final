@@ -67,8 +67,8 @@ class AdController extends Controller
        
       
 
-        $annonces = annonces::create([
-            'ville' =>$request->ville,
+        $annonces = annonces::updateOrCreate([
+            
             'visit' => $request->visit,
             'home' => $request->home,
             'chiens' => $request->chiens,
@@ -81,8 +81,7 @@ class AdController extends Controller
             'autre' =>$request->autre,
             'description' =>  $request->description,
             'price' => $request->price,
-            'start_watch' => $request->start_watch,
-            'end_watch' => $request->end_watch,
+           
  
         ]);
         $annonces->name = auth()->user()->name;
