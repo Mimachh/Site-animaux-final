@@ -41,11 +41,13 @@ class VilleSelect extends Component
    protected function rules()
    {
     return [
-        'ville' => 'required',     
+            
         'user_id' => 'required',
+       'visit_id' => 'nullable',
+       'home_id' => 'nullable',
+       'home' => ['array','nullable'],
        'visit' => 'nullable',
-       'home' => 'nullable',
-       'type_id' => 'required',
+       
     ];
    }
     
@@ -53,28 +55,39 @@ class VilleSelect extends Component
    
     public $user_id;
 
-    public $visit='';
-    public $home='';
+    public $visit;
+    public $visit_id;
+
+    public $home;
+    public $home_id;
 
     public $garde_type=[];
-    public $type_id;
+    public $type_id='';
 
     public function mount()
     {
         $garde_type = Garde_type::all(); 
         $this->type_id = $this->garde_type;
 
+        $visit = Garde_type::find(2);
+        $this->visit_id = $this->visit;
+
+        $home = Garde_type::find(1);
+        $this->home_id = $this->home;
+
     }
 
     public function submit()
     {
-        
+       
+       
+
 
        $annonces=annonces::create([
-            'ville' => $this->ville,
-            'home' => $this->home,
-            'visit' => $this->visit,
-            'garde_type' => $this->garde_type
+           
+            'home' => $this->home_id,
+            'visit' => $this->visit_id,
+            
           
         ]);
        
@@ -95,7 +108,8 @@ class VilleSelect extends Component
     public function render()
     {
         $this->garde_type= Garde_type::all();
-      
+        $this->visit = Garde_type::find(2);
+        $this->home = Garde_type::find(1);
             
              return view('livewire.ville-select'); 
             

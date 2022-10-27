@@ -65,11 +65,13 @@
                             
                             <div class="mt-4 space-y-4">
                                 <div class="flex items-start" >
+                                    
                                     <div class="flex h-5 items-center">     
-                                        <x-jet-input wire:model='home'  value="1" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                        <x-jet-input wire:model='home_id'  value="{{$home->id}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                                     </div>
+                                    
                                     <div class="ml-3 text-sm">
-                                    <x-jet-label for="home" value=""/>
+                                    <x-jet-label for="home_id" value="{{$home->garde_type}}"/>
                                         <p class="text-gray-500">Vous garderez les animaux dans votre domicile.</p>
                                     </div>
                                 </div>
@@ -78,17 +80,20 @@
                             <div class="mt-4 space-y-4">
                                 <div class="flex items-start">
                                     <div class="flex h-5 items-center">
-                                        <x-jet-input wire:model='visit' value="{2}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                        <x-jet-input wire:model='visit_id' value="{{$visit->id}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                                     </div>
                                     
                                     <div class="ml-3 text-sm">
-                                    <x-jet-label for="visit" value=""/>
+                                    <x-jet-label for="visit_id" value="{{$visit->garde_type}}"/>
                                         <p class="text-gray-500">Vous irez au domicile du propriétaire pour vous occuper de ses animaux.</p>
                                     </div>
                                 </div>
                             </div>
                             
                         </fieldset>
+                        <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
+                            <button type="submit" id="button2">Valider</button>
+                        </div>
                         <div class="mt-4 space-y-4">
                             <div class="ml-3 text-sm">
                                 <x-jet-label for="garde" value="{{ __('Type de Garde') }}"/>
@@ -108,9 +113,7 @@
                         <x-jet-section-border />
 
 
-                        <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
-                            <button type="submit" id="button2">Valider</button>
-                        </div>
+                        
                     </div>
                 </div>
             </form>
