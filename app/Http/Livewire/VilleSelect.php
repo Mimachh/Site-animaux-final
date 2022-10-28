@@ -13,6 +13,25 @@ use App\Models\villes_france;
 class VilleSelect extends Component
 {
 
+    /* Séparation des pages */
+
+    public $currentPage = 1;
+    public $pages = [1=>1,
+2=>2];
+
+   public function goToPreviousPages()
+   {
+    $this->currentPage--;
+   }
+   public function goToNextPages()
+   {
+    $this->currentPage++;
+   }
+
+
+
+
+
     /* Barre de data-list */
 
         public $ville='';

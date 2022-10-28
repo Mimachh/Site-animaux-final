@@ -26,15 +26,15 @@
                 <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
                     <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 
-
+@if($currentPage === 1)
             
                         <!-- Choix de la ville -->    
-                        <fieldset>
+                        <fieldset class="mt-4">
                             <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
                                             Choisir votre ville :
                                 <legend class="sr-only">Choisir votre ville </legend>           
                             </button>          
-                            <div class="mt-4 space-y-4">
+                            <div class="my-8 space-y-4">
                                             <div class="flex items-start">
                                                 <x-jet-input list="list_ville" wire:model='ville' class="py-2 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
 
@@ -58,24 +58,24 @@
                         <hr>
 
                         <!-- Partie date mais en date --> 
-                        <fieldset>
-                            <button type="button" id="bouton_cache1" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                        <fieldset class="mt-4">
+                            <button type="button" class=" py-4 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
                                 Quand êtes-vous disponible?
                                 <legend class="sr-only">Quand êtes-vous disponible?</legend>           
                             </button>
             
                             <div>
 
-                                <div class="mt-4 mb-4 space-y-4">
+                                <div class="my-8 space-y-4">
                                     <div class="flex items-start">
-                                    <div class="ml-3 text-sm mr-2">
+                                    <div class="ml-3 text-sm mr-8">
                                         <x-jet-label for="start_watch" value="{{ __('Du :') }}"/>
                                     </div>
                                     <div class="flex h-5 items-center">
                                         <x-jet-input id="start_watch" wire:model="start_watch" name="start_watch" type="date"/>   
                                     </div>
 
-                                    <div class="ml-3 text-sm mr-2">
+                                    <div class="ml-16 text-sm mr-8">
                                         <x-jet-label for="end_watch" value="{{ __('Au :') }}"/>
                                     </div>
                                     <div class="flex h-5 items-center">
@@ -88,20 +88,17 @@
                         <hr>
 
                         <!-- Partie type de garde -->
-                        <fieldset>
+                        <fieldset class="mt-4 pt-4">
                             <button type="button"  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 pb-2">  
                             Quel type de garde souhaitez vous?
                             <legend class="sr-only">Quel type de garde <br> souhaitez vous?</legend>           
                             </button>
-                        
-                            
-                            
-                            <!-- Type de Garde-->
-                            <div class="mt-4 space-y-4">
+
+                            <div class="my-8 space-y-4">
                             
                                 <div class="flex items-start">               
                                     <div class="flex h-5 items-center">
-                                        <select  name='garde' id="garde" wire:model='garde_type' class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                        <select  name='garde' id="garde" wire:model='garde_type' class="py-3 px-8 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                         <option value="">--Choisissez un type de garde--</option>
                                         @foreach($type_id as $garde_type) 
                                         <option value="{{$garde_type->id}}" >{{$garde_type->garde_type}}</option>
@@ -113,7 +110,9 @@
                             </div>
                             
                         </fieldset>
-                    <hr>
+                  
+
+                    @elseif ($currentPage === 2)
                 <!-- Partie type d'animaux -->
             <fieldset>
                 <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
@@ -262,10 +261,20 @@
                   </div>
                 </div>
             </fieldset>
+            @endif
+            <hr>
 
-
-                        <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
-                            <button type="submit" id="button2">Valider</button>
+                        <div class="flex items-center justify-between px-4 py-8 text-right sm:px-6 mx-8"> 
+                            @if($currentPage === 1)
+                                <div></div>
+                            @else
+                                <button wire:click='goToPreviousPages' type="button" id="buttonback">Retour</button>
+                            @endif
+                            @if ($currentPage === count($pages))
+                            <button type="submit" id="buttonsubmit">Valider</button>
+                            @else
+                            <button wire:click="goToNextPages" type="button" id="buttonnext">Suivant</button>
+                            @endif
                         </div>
 
                     </div>
@@ -274,7 +283,7 @@
         </div>
     </div>
 </div>
-<x-jet-section-border />
+
 
 @endauth
 
