@@ -27,6 +27,8 @@ class CreateAnnoncesTable extends Migration
             $table->string('visit', 100)->nullable();
             $table->string('home', 100)->nullable();
 
+            $table->string('garde_type', 100)->nullable();
+
             $table->string('chats', 100)->nullable();
             $table->string('chiens', 100)->nullable();
             $table->string('poissons', 100)->nullable();

@@ -9,7 +9,7 @@
 <main class="bg-indigo-50 pt-5 rounded-3xl ">
 @auth
 
-<x-jet-validation-errors class="mb-4 text-center" />
+    <x-jet-validation-errors class="mb-4 text-center" />
 
     <h2 class="text-center mb-10 py-5 font-semibold">Créer mon annonce de pet-sitter</h2>
 
@@ -29,91 +29,245 @@
 
             
                         <!-- Choix de la ville -->    
+                        <fieldset>
+                            <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                                            Choisir votre ville :
+                                <legend class="sr-only">Choisir votre ville </legend>           
+                            </button>          
+                            <div class="mt-4 space-y-4">
+                                            <div class="flex items-start">
+                                                <x-jet-input list="list_ville" wire:model='ville' class="py-2 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
 
-                        <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
-                                        Choisir votre ville :
-                            <legend class="sr-only">Choisir votre ville </legend>           
-                        </button>          
-                        <div class="mt-4 space-y-4">
-                                        <div class="flex items-start">
-                                            <x-jet-input list="list_ville" wire:model='ville' class="py-2 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
+                                                @if (strlen($ville) > 2)
+                                                    <datalist id="list_ville">
 
-                                            @if (strlen($ville) > 2)
-                                                <datalist id="list_ville">
+                                                    @if (count($villes) > 0)
+                                                        @foreach ($villes as $ville)
 
-                                                @if (count($villes) > 0)
-                                                    @foreach ($villes as $ville)
+                                                    <option value="{{$ville->ville_id}}">{{$ville->ville_nom}}-{{$ville->ville_departement}}</option>
 
-                                                <option value="{{$ville->ville_id}}">{{$ville->ville_nom}}-{{$ville->ville_departement}}</option>
+                                                
+                                                        @endforeach
+                                                @endif
+                                                </datalist>
 
-                                            
-                                                    @endforeach
-                                            @endif
-                                            </datalist>
+                                                @endif
+                                            </div>
+                            </div>
+                        </fieldset>
+                        <hr>
 
-                                            @endif
-                                        </div>
-                        </div>
-                    
+                        <!-- Partie date mais en date --> 
+                        <fieldset>
+                            <button type="button" id="bouton_cache1" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                                Quand êtes-vous disponible?
+                                <legend class="sr-only">Quand êtes-vous disponible?</legend>           
+                            </button>
+            
+                            <div>
+
+                                <div class="mt-4 mb-4 space-y-4">
+                                    <div class="flex items-start">
+                                    <div class="ml-3 text-sm mr-2">
+                                        <x-jet-label for="start_watch" value="{{ __('Du :') }}"/>
+                                    </div>
+                                    <div class="flex h-5 items-center">
+                                        <x-jet-input id="start_watch" wire:model="start_watch" name="start_watch" type="date"/>   
+                                    </div>
+
+                                    <div class="ml-3 text-sm mr-2">
+                                        <x-jet-label for="end_watch" value="{{ __('Au :') }}"/>
+                                    </div>
+                                    <div class="flex h-5 items-center">
+                                        <x-jet-input id="end_watch" wire:model='end_watch' name="end_watch" type="date"/>   
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+
                         <!-- Partie type de garde -->
                         <fieldset>
-                            <button type="button" id="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                            <button type="button"  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 pb-2">  
                             Quel type de garde souhaitez vous?
                             <legend class="sr-only">Quel type de garde <br> souhaitez vous?</legend>           
                             </button>
                         
                             
+                            
+                            <!-- Type de Garde-->
                             <div class="mt-4 space-y-4">
-                                <div class="flex items-start" >
-                                    
-                                    <div class="flex h-5 items-center">     
-                                        <x-jet-input wire:model='home_id'  value="{{$home->id}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                    </div>
-                                    
-                                    <div class="ml-3 text-sm">
-                                    <x-jet-label for="home_id" value="{{$home->garde_type}}"/>
-                                        <p class="text-gray-500">Vous garderez les animaux dans votre domicile.</p>
-                                    </div>
-                                </div>
-                               
-                            </div>
-                            <div class="mt-4 space-y-4">
-                                <div class="flex items-start">
+                            
+                                <div class="flex items-start">               
                                     <div class="flex h-5 items-center">
-                                        <x-jet-input wire:model='visit_id' value="{{$visit->id}}" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                    </div>
-                                    
-                                    <div class="ml-3 text-sm">
-                                    <x-jet-label for="visit_id" value="{{$visit->garde_type}}"/>
-                                        <p class="text-gray-500">Vous irez au domicile du propriétaire pour vous occuper de ses animaux.</p>
+                                        <select  name='garde' id="garde" wire:model='garde_type' class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                        <option value="">--Choisissez un type de garde--</option>
+                                        @foreach($type_id as $garde_type) 
+                                        <option value="{{$garde_type->id}}" >{{$garde_type->garde_type}}</option>
+                                        @endforeach
+                                        </select>
                                     </div>
                                 </div>
+
                             </div>
                             
                         </fieldset>
+                    <hr>
+                <!-- Partie type d'animaux -->
+            <fieldset>
+                <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                        Quels animaux pouvez-vous garder?
+                  <legend class="sr-only">Quels animaux <br> pouvez-vous garder?</legend>           
+                </button>
+
+                <div>
+                    
+                  <div class="mt-4 space-y-4">
+
+                    <!-- Chats -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model="chats" value="{{$chats_id->id}}"  name="chats" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <x-jet-label for="watch_cat" value="{{$chats_id->espece }}"/>
+                        <p class="text-gray-500">Chat de race, de gouttière...</p>
+                      </div>
+                    </div> 
+
+                    <!-- Chiens -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model="chiens" value="{{$chiens_id->id}}" id="watch_dog" name="chiens" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <x-jet-label for="watch_dog" value="{{$chiens_id->espece}}"/>
+                        <p class="text-gray-500">Labrador, Berger Australien...</p>
+                      </div>
+                    </div> 
+
+                    <!-- Poissons -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model="poissons" value="{{$poissons_id->id}}" id="watch_fish" name="poissons" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <x-jet-label for="watch_fish" value="{{$poissons_id->espece}}"/>
+                        <p class="text-gray-500">En bocal, en bassin...</p>
+                      </div>
+                    </div> 
+                    
+                    <!-- Rongeurs -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model="rongeurs" value="{{$rongeurs_id->id}}" id="rabbit" name="rongeurs" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <x-jet-label for="" value="{{$rongeurs_id->espece}}"/>
+                        <p class="text-gray-500">Lapin, cochon d'inde, hamster...</p>
+                      </div>
+                    </div>
+
+                    <!-- Oiseaux -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model="oiseaux" value="{{$oiseaux_id->id}}" id="bird" name="oiseaux" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                      <x-jet-label for="bird" value="{{$oiseaux_id->espece}}"/>
+                        <p class="text-gray-500">Oiseaux en cage ou en volière.</p>
+                      </div>
+                    </div>
+
+                    <!-- Reptiles -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model='reptiles' value="{{$reptiles_id->id}}" id="reptile" name="reptiles" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                      <x-jet-label for="reptile" value="{{$reptiles_id->espece}}"/>
+                        <p class="text-gray-500">Serpent, caméléon, tortue...</p>
+                      </div>
+                    </div>
+
+                    <!-- Ferme -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model="ferme" value="{{$ferme_id->id}}" id="farm_animal" name="ferme" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                      <x-jet-label for="farm_animal" value="{{$ferme_id->espece}}"/>
+                        <p class="text-gray-500">Poule, oie, cheval...</p>
+                      </div>
+                    </div>
+
+                    <!-- Autre -->
+                    <div class="flex items-start">
+                      <div class="flex h-5 items-center">
+                        <x-jet-input wire:model="autre" value="{{$autre_id->id}}" id="other_animal" name="autre" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                      </div>
+                      <div class="ml-3 text-sm">
+                        <x-jet-label for="other_animal" value="{{ $autre_id->espece}}"/>
+                        <p class="text-gray-500">Vous acceptez de garder n'importe quel type d'animal.</p>
+                      </div>
+                    </div>
+
+                
+                    
+                </div>
+            </fieldset>
+            <hr>
+
+            <!-- Description -->
+            <fieldset>
+                <button class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                          Décrivez-vous en quelques mots
+                          <legend class="sr-only">Décrivez-vous <br> en quelques mots</legend>           
+                </button>
+                <div>
+                    <div class="mt-4 space-y-4">
+                      <div class="flex items-start pb-10">   
+                          <div class="ml-3 text-sm mr-4 ">    
+                            <p class="text-gray-500">Donnez envie <br> aux prioriétaires<br> d'animaux <br>de vous confier<br>leur compagnon.</p>
+                          </div>
+                          <div class="flex ">
+                              <textarea wire:model="description" class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>
+                          </div>
+                        
+                      </div>
+                    </div>
+                </div>
+            </fieldset>    
+            <hr>
+
+            <!-- Prix -->
+            <fieldset> 
+                    <button class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                          Prix
+                          <legend class="sr-only">Prix</legend>           
+                    </button>
+                <div>
+                  <div class="mt-4 space-y-4">
+                    <div class="flex items-start items-center">
+                        <div class="ml-3 text-sm pr-10 ">
+                          <x-jet-label for="price" value="{{ __('Votre tarif en euro par jour.') }}"/>
+                         
+                        </div>
+                        <div class="flex">
+                          <x-jet-input wire:model="price" name="price" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
+                        </div>
+                      
+                    </div>
+                  </div>
+                </div>
+            </fieldset>
+
+
                         <div class="bg-white px-4 pb-12 text-center sm:px-6"> 
                             <button type="submit" id="button2">Valider</button>
                         </div>
-                        <div class="mt-4 space-y-4">
-                            <div class="ml-3 text-sm">
-                                <x-jet-label for="garde" value="{{ __('Type de Garde') }}"/>
-                            </div>
 
-                            <div class="flex items-start">               
-                                <div class="flex h-5 items-center">
-                                    <select  name='garde' id="garde" wire:model.lazy='type_id'>
-                                    <option value="">--Choisissez un type de garde--</option>
-                                    @foreach($garde_type as $type_id) 
-                                    <option value="{{$type_id->id}}" wire:key="{{$type_id->id}}">{{$type_id->garde_type}}</option>
-                                    @endforeach
-                                </div>
-                            </div>
-
-                        </div>
-                        <x-jet-section-border />
-
-
-                        
                     </div>
                 </div>
             </form>

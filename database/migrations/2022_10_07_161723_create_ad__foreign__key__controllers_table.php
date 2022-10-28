@@ -30,6 +30,7 @@ class CreateAdForeignKeyControllersTable extends Migration
 
         Schema::table('annonces', function(Blueprint $table) {
             $table->foreign('ville')->references('ville_id')->on('villes_france');
+
             $table->foreign('my_animal_id')->references('id')->on('animals_owneds')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            
@@ -62,6 +63,10 @@ class CreateAdForeignKeyControllersTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
             $table->foreign('home')->references('id')->on('garde_types')
+            ->onDelete('cascade')
+            ->onUpdate('cascade'); 
+
+            $table->foreign('garde_type')->references('id')->on('garde_types')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
         });

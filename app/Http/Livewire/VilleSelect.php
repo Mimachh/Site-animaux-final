@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\annonces;
+use App\Models\Espece_animaux;
 use App\Models\Garde_type;
 use App\Models\villes_france;
 
@@ -43,11 +44,29 @@ class VilleSelect extends Component
     return [
             
         'user_id' => 'required',
-       'visit_id' => 'nullable',
+        'name' => 'required',
+
+       /*'visit_id' => 'nullable',
        'home_id' => 'nullable',
        'home' => ['array','nullable'],
-       'visit' => 'nullable',
+       'visit' => 'nullable',*/
        
+       'chats' => 'nullable',
+       'chiens' => 'nullable',
+       'poissons' => 'nullable',
+       'rongeurs' => 'nullable',
+       'oiseaux' => 'nullable',
+       'reptiles' => 'nullable',
+       'ferme' => 'nullable',
+       'autre' => 'nullable',
+
+       'description' => 'required',
+       'price' => 'required',
+
+       'start_watch' => 'nullable',
+       'end_watch' => 'nullable',
+
+       'type_id' => 'required',
     ];
    }
     
@@ -55,44 +74,107 @@ class VilleSelect extends Component
    
     public $user_id;
 
-    public $visit;
-    public $visit_id;
 
-    public $home;
-    public $home_id;
+    public $garde_type;
+    public $type_id;
 
-    public $garde_type=[];
-    public $type_id='';
+    public $chats;
+    public $chats_id;
+
+    public $chiens;
+    public $chiens_id;
+
+    public $poissons;
+    public $poissons_id;
+
+    public $rongeurs;
+    public $rongeurs_id;
+
+    public $oiseaux;
+    public $oiseaux_id;
+
+    public $reptiles;
+    public $reptiles_id;
+
+    public $ferme;
+    public $ferme_id;
+
+    public $autre;
+    public $autre_id;
+
+    public $description;
+
+    public $price;
+
+    public $start_watch;
+    public $end_watch;
 
     public function mount()
     {
         $garde_type = Garde_type::all(); 
         $this->type_id = $this->garde_type;
+       
 
-        $visit = Garde_type::find(2);
-        $this->visit_id = $this->visit;
+      
 
-        $home = Garde_type::find(1);
-        $this->home_id = $this->home;
+
+        /* Animals */
+
+        $chats_id = Espece_animaux::find(1);
+        $this->chats = $this->chats_id;
+
+        $chiens_id = Espece_animaux::find(2);
+        $this->chiens = $this->chiens_id;
+
+        $poissons_id = Espece_animaux::find(3);
+        $this->poissons = $this->poissons_id;
+
+        $rongeurs_id = Espece_animaux::find(4);
+        $this->rongeurs = $this->rongeurs_id;
+
+        $oiseaux_id = Espece_animaux::find(5);
+        $this->oiseaux = $this->oiseaux_id;
+
+        $reptiles_id = Espece_animaux::find(6);
+        $this->reptiles = $this->reptiles_id;
+
+        $ferme_id = Espece_animaux::find(7);
+        $this->ferme = $this->ferme_id;
+
+        $autre_id = Espece_animaux::find(8);
+        $this->autre = $this->autre_id;
 
     }
 
     public function submit()
     {
        
-       
+        
 
-
-       $annonces=annonces::create([
-           
-            'home' => $this->home_id,
-            'visit' => $this->visit_id,
-            
-          
-        ]);
        
         
+
+       
+       $annonces=annonces::create([
+           
+          /*'garde_type' => $this->garde_type, Celui là marche pas..*/
+            'start_watch' => $this->start_watch,
+            'end_watch' => $this->end_watch,
+            'chats' => $this->chats,
+            'chiens' => $this->chiens,
+            'oiseaux' => $this->oiseaux,
+            'poissons' => $this->poissons,
+            'rongeurs' => $this->rongeurs,
+            'ferme' => $this->ferme,
+            'autre' => $this->autre,
+            'reptiles' => $this->reptiles,
+            'description' => $this->description,
+            'price' => $this->price,
+        ]);
+       
+        $annonces->garde_type = $this->garde_type;
         $annonces->user_id = auth()->user()->id;
+        $annonces->name = auth()->user()->name;
        
         $annonces->save();
        
@@ -107,10 +189,17 @@ class VilleSelect extends Component
 
     public function render()
     {
-        $this->garde_type= Garde_type::all();
-        $this->visit = Garde_type::find(2);
-        $this->home = Garde_type::find(1);
-            
+        $this->type_id= Garde_type::all();
+       
+        $this->chats_id = Espece_animaux::find(1);
+        $this->chiens_id = Espece_animaux::find(2);
+        $this->poissons_id  = Espece_animaux::find(3);
+        $this->rongeurs_id = Espece_animaux::find(4);
+        $this->oiseaux_id = Espece_animaux::find(5);
+        $this->reptiles_id = Espece_animaux::find(6);
+        $this->ferme_id = Espece_animaux::find(7);
+        $this->autre_id = Espece_animaux::find(8);
+        
              return view('livewire.ville-select'); 
             
                

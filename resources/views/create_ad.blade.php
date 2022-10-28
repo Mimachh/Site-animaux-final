@@ -33,7 +33,7 @@
               <legend class="sr-only">Quand êtes-vous disponible?</legend>           
           </button>
           
-          <div id="d2"  style="display:none;">
+          <div>
 
             <div class="mt-4 space-y-4">
                 <div class="flex items-start">
@@ -202,7 +202,7 @@
                 </div>
             </fieldset>    
                     <x-jet-section-border />
-               <fieldset> 
+              <fieldset> 
                     <button type="button" id="bouton_cache5" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
                           Prix
                           <legend class="sr-only">Prix</legend>           
@@ -221,7 +221,7 @@
                     </div>
                   </div>
                 </div>
-            </fieldset>
+              </fieldset>
             
             <x-jet-section-border />
         
