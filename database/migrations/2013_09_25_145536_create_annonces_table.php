@@ -20,6 +20,8 @@ class CreateAnnoncesTable extends Migration
             $table->string('name')->nullable();
             
             $table->unsignedBigInteger('ville')->nullable(); 
+
+            $table->boolean('status')->default(1);
             
             $table->date('start_watch')->nullable();
             $table->date('end_watch')->nullable();

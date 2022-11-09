@@ -39,3 +39,4 @@ Route::get('/annonce', function () {
     return view('ad_create');
 })->name('ad.create');
 
+Route::get('/annonces_show',[AdController::class, 'index'])->name('annonces');

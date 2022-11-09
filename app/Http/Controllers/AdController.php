@@ -24,9 +24,17 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 class AdController extends Controller
 {
    
-   
+   public function index()
+   {
+    $annonces = annonces::online()->latest()->get();
 
-    public function create() 
+    return view('annonces.index', [
+        'annonces' => $annonces
+    ]);
+
+   }
+
+    /* public function create() 
     {
        
 
@@ -46,7 +54,7 @@ class AdController extends Controller
        return view('create_ad', [ 'chats'=>$chats, 'chiens'=>$chiens, 'poissons'=>$poissons,
         'rongeurs'=>$rongeurs, 'oiseaux'=>$oiseaux, 'reptiles'=>$reptiles,
         'ferme'=>$ferme, 'autre'=>$autre, 'visit'=>$visit, 'home'=>$home]);
-    }
+    } 
     
     
     public function store(AdStore $request)
@@ -90,7 +98,7 @@ class AdController extends Controller
 
         return redirect()->route('create.ad'); 
 
-    }
+    } */
 
 
 

@@ -27,7 +27,6 @@ class CreateAnimalsOwnedsTable extends Migration
             $table->boolean('female_rongeurs')->nullable();
             $table->boolean('birds')->nullable();
             $table->boolean('reptiles')->nullable();
-
             $table->unsignedBigInteger('owner')->nullable();
            
         });

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class Ad_ListController extends Controller
 {
-    public function create() 
+    public function index() 
     {
        /* $ads = ads_list::online()->latest()->get();
        

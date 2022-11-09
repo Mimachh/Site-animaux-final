@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="" :active="request()->routeIs('')" style="color: #cbd5e0">
+                    <x-jet-nav-link href="{{ route('annonces') }}" :active="request()->routeIs('annonces')" style="color: #cbd5e0">
                         {{ __('Voir les annonces') }}
                     </x-jet-nav-link>
                 </div>

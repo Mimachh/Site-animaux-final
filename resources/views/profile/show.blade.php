@@ -13,9 +13,9 @@
                 <x-jet-section-border />
             @endif
 
-           
-                @livewire('animal-profil-form')
-
+                <div class="mt-10 sm:mt-0">
+                    @livewire('animal-profil-form')
+                </div>
                 <x-jet-section-border />
             
 
@@ -39,7 +39,7 @@
             
 
             @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-jet-section-border />
+              
 
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.delete-user-form')
