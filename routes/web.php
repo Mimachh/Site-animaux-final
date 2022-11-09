@@ -19,7 +19,7 @@ use App\Http\Livewire\VilleSelect;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware([
     'auth:sanctum',
