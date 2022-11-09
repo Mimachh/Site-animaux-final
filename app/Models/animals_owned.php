@@ -13,6 +13,13 @@ class animals_owned extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    protected $fillable = [
+        
+        'animal_name', 'owner', 'personnality', 'male_cats', 'female_cats', 'male_dogs', 'female_dogs', 
+        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles',
+    ];
 }
+
 
 

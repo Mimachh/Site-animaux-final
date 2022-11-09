@@ -22,7 +22,7 @@ class CreateAdForeignKeyControllersTable extends Migration
         });
 
         Schema::table('animals_owneds', function(Blueprint $table) {
-            $table->foreign('owned_by')->references('id')->on('users')
+            $table->foreign('owner')->references('id')->on('users')
                         ->onDelete('cascade')
                         ->onUpdate('cascade');
             $table->foreign('espece')->references('id')->on('especes_animaux');

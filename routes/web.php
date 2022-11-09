@@ -38,3 +38,4 @@ Route::post('/annonces', [AdController::class, 'store']);  Vieux formulaire*/
 Route::get('/annonce', function () {
     return view('ad_create');
 })->name('ad.create');
+

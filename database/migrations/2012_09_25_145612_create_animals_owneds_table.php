@@ -16,19 +16,19 @@ class CreateAnimalsOwnedsTable extends Migration
         Schema::create('animals_owneds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('animal_name');
-            $table->text('personnality');
-            $table->string('espece');
-            $table->boolean('likes_male_dog');
-            $table->boolean('likes_female_dog');
-            $table->boolean('likes_male_cat');
-            $table->boolean('likes_female_cat');
-            $table->boolean('likes_male_rabbit');
-            $table->boolean('likes_female_rabbit');
-            $table->boolean('likes_bird');
-            $table->boolean('likes_reptile');
+            $table->string('animal_name')->nullable();
+            $table->text('personnality')->nullable();
+            $table->string('espece')->nullable();
+            $table->boolean('male_dogs')->nullable();
+            $table->boolean('female_dogs')->nullable();
+            $table->boolean('male_cats')->nullable();
+            $table->boolean('female_cats')->nullable();
+            $table->boolean('male_rongeurs')->nullable();
+            $table->boolean('female_rongeurs')->nullable();
+            $table->boolean('birds')->nullable();
+            $table->boolean('reptiles')->nullable();
 
-            $table->unsignedBigInteger('owned_by');
+            $table->unsignedBigInteger('owner')->nullable();
            
         });
     }

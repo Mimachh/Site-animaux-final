@@ -196,9 +196,10 @@ class AdForm extends Component
         $annonces->name = auth()->user()->name;
        
         $annonces->save();
+
        
         
-
+       return redirect()->to('/dashboard');
      
     }
    
@@ -220,8 +221,7 @@ class AdForm extends Component
         $this->autre_id = Espece_animaux::find(8);
         
         return view('livewire.ad-form'); 
-            
-               
+              
         
     }
 }
