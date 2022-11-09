@@ -32,5 +32,9 @@ Route::middleware([
 });
 
 
-Route::get('/annonce', [AdController::class, 'create'])->name('create.ad');
-Route::post('/annonce', [AdController::class, 'store']);
+/* Route::get('/annonces', [AdController::class, 'create'])->name('create.ad');
+Route::post('/annonces', [AdController::class, 'store']);  Vieux formulaire*/
+
+Route::get('/annonce', function () {
+    return view('ad_create');
+})->name('ad.create');

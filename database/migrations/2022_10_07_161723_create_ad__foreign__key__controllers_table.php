@@ -59,12 +59,12 @@ class CreateAdForeignKeyControllersTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             
-            $table->foreign('visit')->references('id')->on('garde_types')
+            /*$table->foreign('visit')->references('id')->on('garde_types')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
             $table->foreign('home')->references('id')->on('garde_types')
             ->onDelete('cascade')
-            ->onUpdate('cascade'); 
+            ->onUpdate('cascade'); */
 
             $table->foreign('garde_type')->references('id')->on('garde_types')
             ->onDelete('cascade')

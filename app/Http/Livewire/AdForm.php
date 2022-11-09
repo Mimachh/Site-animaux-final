@@ -2,22 +2,22 @@
 
 namespace App\Http\Livewire;
 
-
 use Livewire\Component;
-use App\Models\annonces;
-use App\Models\Espece_animaux;
 use App\Models\Garde_type;
+use App\Models\Espece_animaux;
+use App\Models\annonces;
 use App\Models\villes_france;
 
 
-class VilleSelect extends Component
+class AdForm extends Component
 {
 
     /* Séparation des pages */
 
     public $currentPage = 1;
     public $pages = [1=>1,
-2=>2];
+2=>2,
+3=>3];
 
    public function goToPreviousPages()
    {
@@ -219,9 +219,10 @@ class VilleSelect extends Component
         $this->ferme_id = Espece_animaux::find(7);
         $this->autre_id = Espece_animaux::find(8);
         
-             return view('livewire.ville-select'); 
+        return view('livewire.ad-form'); 
             
                
         
     }
 }
+
