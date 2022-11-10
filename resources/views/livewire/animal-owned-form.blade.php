@@ -29,93 +29,99 @@
 
                         @if($currentPage === 1)
                             <x-jet-label for="name" value="{{ __('Nom de mon animal') }}" />
-                            <input name="name" type="text" class="mt-1 block w-full" wire:model="nom"/>
+                            <input name="name" type="text" class=" mt-1 block w-64 rounded" wire:model="nom"/>
                             <x-jet-input-error for="name" class="mt-2" />
 
                             <x-jet-label for="personnality" value="{{ __('Sa personnalité') }}" />
-                            <textarea name="personnality" type="text"  class="mt-1 block w-full" wire:model="personnalité" placeholder="Décrivez en quelques mots votre animal pour informer le pet-sitter"></textarea>
-                            <x-jet-input-error for="personnality" class="mt-2" />
+                            <textarea name="personnality" type="text"  class="rounded mt-1 block w-full" wire:model="personnalité" placeholder="Décrivez en quelques mots votre animal pour informer le pet-sitter"></textarea>
+                            <x-jet-input-error for="personnality" class="mt-2"/>
 
                         @elseif($currentPage === 2)
-                        <!-- CHIENS -->
-                        <h4 class="font-semibold text-gray-600 text-sm underline">Votre animal s'entend bien avec : </h4>
-                        <div class="flex items-start pt-2">
+                        
                             
+                            <h4 class="text-center font-semibold text-gray-600 text-sm underline">Votre animal s'entend bien avec : </h4>
+                        <div class="">
+                            <!-- CHIENS -->
+                            <div class="flex items-start py-2 justify-around">
+                                
+                                            <div class="flex ml-2">
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="chiens" value="1" id="chiens mâles" name="chiens mâles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm">
+                                                    <x-jet-label for="chiens mâles" value="{{ __('Chiens mâles') }}"/>
+                                                </div>
+                                            </div>
+                                            <div class="flex ml-2">
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="chiennes" value="1" id="chiens femelles" name="chiens femelles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm">
+                                                    <x-jet-label for="chiens femelles" value="{{ __('Chiens femelles') }}"/>
+                                                </div>
+                                            </div>
+                            </div>
+                            <!-- CHATS -->
+                            <div class="flex items-start py-2 justify-around">
+                                            <div class="flex">
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="chats" value="1" id="chats mâles" name="chats mâles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm">
+                                                    <x-jet-label for="chats mâles" value="{{ __('Chats mâles') }}"/>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="chattes" value="1" id="chats femelles" name="chats femelles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm">
+                                                    <x-jet-label for="chats femelles" value="{{ __('Chats femelles') }}"/>
+                                                </div>
+                                            </div>
+                            </div>
+                            <!-- RONGEURS -->
+                            <div class="flex items-start py-2 justify-around">
+                                            <div class="flex ml-6">
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="rongeurs" value="1" id="rongeurs mâles" name="rongeurs mâles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm">
+                                                    <x-jet-label for="rongeurs mâles" value="{{ __('Rongeurs mâles') }}"/>
+                                                </div>
+                                            </div>
+                                            <div class="flex ml-6">
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="rongeuses" value="1" id="rongeurs femelles" name="rongeurs femelles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm">
+                                                    <x-jet-label for="rongeurs femelles" value="{{ __('Rongeurs femelles') }}"/>
+                                                </div>
+                                            </div>
+                            </div>
+                            <!-- OISEAUX -->
+                            <div class="flex items-start py-2 justify-center">
 
-                                            <div class="flex h-5 items-center">
-                                                <x-jet-input wire:model="chiens" value="1" name="chiens mâles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="chiens mâles" value="{{ __('Chiens mâles') }}"/>
-                                            </div>
-                       
-
-                                            <div class="flex h-5 items-center ml-5">
-                                                <x-jet-input wire:model="chiennes" value="1" name="chiens femelles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="chiens femelles" value="{{ __('Chiens femelles') }}"/>
-                                            </div>
-                        </div>
-                        <!-- CHATS -->
-                        <div class="flex items-start pt-2">
-
-                                            <div class="flex h-5 items-center">
-                                                <x-jet-input wire:model="chats" value="1" name="chats mâles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="chats mâles" value="{{ __('Chats mâles') }}"/>
-                                            </div>
-                       
-
-                                            <div class="flex h-5 items-center ml-5">
-                                                <x-jet-input wire:model="chattes" value="1" name="chats femelles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="chats femelles" value="{{ __('Chats femelles') }}"/>
-                                            </div>
-                        </div>
-                        <!-- RONGEURS -->
-                        <div class="flex items-start pt-2">
-
-                                            <div class="flex h-5 items-center">
-                                                <x-jet-input wire:model="rongeurs" value="1" name="rongeurs mâles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="rongeurs mâles" value="{{ __('Rongeurs mâles') }}"/>
-                                            </div>
-                       
-
-                                            <div class="flex h-5 items-center ml-5">
-                                                <x-jet-input wire:model="rongeuses" value="1" name="rongeurs femelles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="rongeurs femelles" value="{{ __('Rongeurs femelles') }}"/>
-                                            </div>
-                        </div>
-                        <!-- OISEAUX -->
-                        <div class="flex items-start pt-2">
-
-                                            <div class="flex h-5 items-center">
-                                                <x-jet-input wire:model="birds" value="1" name="oiseaux" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="oiseaux" value="{{ __('Oiseaux') }}"/>
-                                            </div>
-        
-                        </div>
-                        <!-- REPTILES -->
-                        <div class="flex items-start pt-2">
-
-                                            <div class="flex h-5 items-center">
-                                                <x-jet-input wire:model="reptiles" value="1" name="reptiles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
-                                            </div>
-                                            <div class="ml-2 text-sm">
-                                                <x-jet-label for="reptiles" value="{{ __('Reptiles') }}"/>
-                                            </div>
-        
-                        </div>
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="birds" value="1" id="oiseaux" name="oiseaux" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm mr-5">
+                                                    <x-jet-label for="oiseaux" value="{{ __('Oiseaux') }}"/>
+                                                </div>
             
+                            </div>
+                            <!-- REPTILES -->
+                            <div class="flex items-start py-2 justify-center">
+
+                                                <div class="flex h-5 items-center">
+                                                    <x-jet-input wire:model="reptiles" value="1" id="reptiles" name="reptiles" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                                </div>
+                                                <div class="ml-2 text-sm mr-5">
+                                                    <x-jet-label for="reptiles" value="{{ __('Reptiles') }}"/>
+                                                </div>
+            
+                            </div>
+                        </div>
                         @endif
                                 <!-- Boutons -->
                                 <div class="flex items-center justify-between px-4 py-8 text-right sm:px-6 mx-8"> 

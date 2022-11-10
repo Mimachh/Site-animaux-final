@@ -101,6 +101,9 @@ protected function rules()
         
        
         $my_animal->save();
+
+        return redirect()->route('annonces');
+
        
         
 

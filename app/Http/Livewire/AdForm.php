@@ -198,8 +198,8 @@ class AdForm extends Component
         $annonces->save();
 
        
-        
-       return redirect()->to('/dashboard');
+     
+       return redirect()->route('annonces');
      
     }
    

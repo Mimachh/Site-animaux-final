@@ -299,7 +299,7 @@
 
     <h2 class="text-center font-semibold text-gray-800 leading-tight py-10">Pour ajouter une annonce vous devez être connecté </h2>
 
-    <img src="images/clin.jpg" alt="chien qui fait un clin d'oeil">
+    <img src="/images/clin.jpg" alt="chien qui fait un clin d'oeil">
        
     <div class="w-full sm:max-w-md px-6 py-6 bg-white shadow-md overflow-hidden sm:rounded-lg"">
             <x-jet-validation-errors class="mb-4" />
