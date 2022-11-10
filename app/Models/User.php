@@ -69,4 +69,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\animals_owned');
     }
+
+    public function fav()
+    {
+        return $this->belongsToMany('App\Models\annonces');
+    }
 }

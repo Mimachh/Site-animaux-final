@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class annonces extends Model
 {
@@ -14,6 +15,8 @@ class annonces extends Model
         return $query->where('status', 1);
     }
 
+
+/* Relations */
 
     public function user()
     {
@@ -29,7 +32,22 @@ class annonces extends Model
     {
         return $this->hasOne('App\Models\villes_france');
     }
+
+    public function fav()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
+    public function fav_added()
+    {
+        if (auth()->check()) {
+            return auth()->user()->fav->contains('id', $this->id);      
+        }
+        
+    }
     
+/* Fin Relations */
+
 
     /**
      * The attributes that are mass assignable.

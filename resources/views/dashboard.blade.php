@@ -7,7 +7,6 @@
             </h2>
      
     </x-slot>
-    
 
     <div class="py-12 bg-red-700 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 opacity-50">

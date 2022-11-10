@@ -28,8 +28,11 @@ class AdController extends Controller
    {
     $annonces = annonces::online()->latest()->get();
 
+
+   
+
     return view('annonces.index', [
-        'annonces' => $annonces
+        'annonces' => $annonces,
     ]);
 
    }
