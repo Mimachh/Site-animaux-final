@@ -1,14 +1,36 @@
 <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 opacity-80">
+        <div class=" sm:px-6 lg:px-8 opacity-80">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+               
                 <div class="flex justify-around">  
-                <button type="button" wire:click='goToPageFav'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes favoris</h2></button>
-                <button type="button" wire:click='goToPageAds'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes annonces</h2></button>
+                   
+                @if($currentPage === 1)
+                <button type="button"  wire:click='goToPageFav'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800" >Mes favoris</h2></button>
+                @else()
+                <button type="button"  wire:click='goToPageFav'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800" >Mes favoris</h2></button>
+                @endif
+                
+                @if($currentPage === 2)
+                <button type="button" wire:click='goToPageAds'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes annonces</h2></button>
+                @else()
+                <button class="bg-blue" type="button" wire:click='goToPageAds'><h2 class=" ml-5 mt-5 font-semibold text-lg text-gray-800">Mes annonces</h2></button>
+                @endif
+
+                @if($currentPage === 3)
+                <button type="button" wire:click='goToPageMess'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes messages</h2></button>
+                @else()
                 <button type="button" wire:click='goToPageMess'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes messages</h2></button>
+                @endif
+                
+                @if($currentPage === 4)
+                <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes gardes réalisées</h2></button>    
+                @else()
                 <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes gardes réalisées</h2></button>    
+                @endif
+            
             </div>
               <hr class="my-5 mx-5 border border-2 border-gray-400">
-                
+            <div class="">   
               @if($currentPage === 1)
                 @foreach(auth()->user()->fav as $fav)
                 <div class="px-3 py-5 mb-3 mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">
@@ -80,4 +102,4 @@
                 @endif
             </div>
         </div>
-    </div>
+</div>

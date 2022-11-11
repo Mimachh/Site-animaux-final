@@ -7,6 +7,11 @@
             </h2>
      
     </x-slot>
+    
+   
 
-    @livewire('dashboard-pages')
+                 @livewire('dashboard-pages')
+
+       
+            
 </x-app-layout>
