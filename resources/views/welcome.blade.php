@@ -1,3 +1,3 @@
 <x-app-layout>
-    @livewire('animal-owned-form')
+    @livewire('espece-select')
 </x-app-layout>

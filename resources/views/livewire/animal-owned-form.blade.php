@@ -6,7 +6,7 @@
     </x-slot>
 @endauth
 
-<main class="bg-indigo-50 pt-5 rounded-3xl ">
+<main class="bg-indigo-100 pt-5 rounded-3xl ">
     @auth
 
         <x-jet-validation-errors class="mb-4 text-center" />
@@ -35,7 +35,7 @@
                             <x-jet-label for="personnality" value="{{ __('Sa personnalité') }}" />
                             <textarea name="personnality" type="text"  class="rounded mt-1 block w-full" wire:model="personnalité" placeholder="Décrivez en quelques mots votre animal pour informer le pet-sitter"></textarea>
                             <x-jet-input-error for="personnality" class="mt-2"/>
-
+                       
                         @elseif($currentPage === 2)
                         
                             
