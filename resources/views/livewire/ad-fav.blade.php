@@ -5,12 +5,12 @@
         <div class="lg:flex mx-auto mb-5 max-w-sm md:max-w-sm lg:max-w-xs rounded shadow-sm hover:shadow-lg border-2 border-gray-300">
             <div>
                 <div class="px-1 py-1">
-                    <img class="w-full" src="/images/clin.jpg" alt="Sunset in the mountains">
+                    <img class="w-full rounded" src="/images/clin.jpg" alt="Sunset in the mountains">
                 </div>
                 <div class="px-2 py-4">
                     <div class="flex justify-between">
                         <h2 class="text-xl font-bold text-green-800 pb-2">{{ $annonce->name }}</h2>
-                        @if(auth()->user())
+                        @if(auth()->user()->id !== $annonce->user_id)
                         <button class="h-5 w-5 text-red-400 focus:outline-none" wire:click="add_fav">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="{{ $annonce->fav_added() ? 'red' : 'white'}}" viewBox="0 0 24 24"  stroke="currentColor" >
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
