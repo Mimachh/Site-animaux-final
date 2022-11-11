@@ -17,7 +17,7 @@ class animals_owned extends Model
     protected $fillable = [
         
         'animal_name', 'owner', 'personnality', 'male_cats', 'female_cats', 'male_dogs', 'female_dogs', 
-        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles',
+        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles', 'espece', 'race'
     ];
 }
 

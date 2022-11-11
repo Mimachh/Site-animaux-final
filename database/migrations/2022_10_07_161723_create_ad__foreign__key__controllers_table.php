@@ -26,6 +26,7 @@ class CreateAdForeignKeyControllersTable extends Migration
                         ->onDelete('cascade')
                         ->onUpdate('cascade');
             $table->foreign('espece')->references('id')->on('especes_animaux');
+            $table->foreign('race')->references('id')->on('liste_race');
         });
 
         Schema::table('annonces', function(Blueprint $table) {

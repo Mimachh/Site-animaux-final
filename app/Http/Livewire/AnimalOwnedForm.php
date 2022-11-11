@@ -26,13 +26,14 @@ class AnimalOwnedForm extends Component
     $this->currentPage++;
    }
 
-/* Début du formulaire */
-protected function rules()
-   {
-    return [
+    /* Début du formulaire */
+    protected function rules()
+    {
+        return [
         'animal_name' => 'required',
         'personnality' => 'nullable',
         'espece' => 'required',
+        'race' => 'required',
         'male_dogs' => 'required',
         'female_dogs' => 'required',
         'male_cats' => 'required',
@@ -43,50 +44,50 @@ protected function rules()
         'reptiles' => 'required',
         'owner' => 'required',
     
-    ];
-   }
+        ];
+    }
 
     /* Validation du formulaire */
 
-   public $nom;
+    public $nom;
 
-   public $personnalité;
+    public $personnalité;
 
-   public $chiens;
-   public $chiennes;
+    public $chiens;
+    public $chiennes;
 
-   public $chats;
-   public $chattes;
+    public $chats;
+    public $chattes;
 
-   public $rongeurs;
-   public $rongeuses;
+    public $rongeurs;
+    public $rongeuses;
 
-   public $birds;
+    public $birds;
 
-   public $reptiles;
+    public $reptiles;
 
-   public $owner;
-
-
-   /* FAIRE LES ESPECES */
-
-/* Fin du formulaire */
+    public $owner;
 
 
-public $espece_id;
-public $race_id;
-public $races;
+    /* FAIRE LES ESPECES */
 
-public function mount()
-{
-    $this->races = collect();
+    /* Fin du formulaire */
 
-}
 
-public function updatedEspeceId($newValue)
-{
-    $this->races = Liste_race::where('espece_id', $newValue)->orderBy('race_animal')->get();
-}
+    public $espece_id;
+    public $race_id;
+    public $races;
+
+    public function mount()
+    {
+        $this->races = collect();
+
+    }
+
+    public function updatedEspeceId($newValue)
+    {
+        $this->races = Liste_race::where('espece_id', $newValue)->orderBy('race_animal')->get();
+    }
 
     public function submit()
     {
@@ -104,12 +105,13 @@ public function updatedEspeceId($newValue)
             'female_rongeurs' => $this->rongeuses,
             'birds' => $this->birds,
             'reptiles' => $this->reptiles,
+            'espece' =>$this->espece_id,
+            'race' => $this->race_id,
             
         ]);
        
         $my_animal->owner = auth()->user()->id;
-        
-       
+    
         $my_animal->save();
 
         return redirect()->route('annonces');
@@ -127,8 +129,9 @@ public function updatedEspeceId($newValue)
     public function render()
     {
         
-        $especes = Espece_animaux::select("id", "espece")->get();
-        return view('livewire.animal-owned-form', ['especes' => $especes]); 
+        $especes = Espece_animaux::select('id', 'espece')->where('id', '<', 9 )->get();
+
+        return view('livewire.animal-owned-form', ["especes"=>$especes]); 
             
                
         

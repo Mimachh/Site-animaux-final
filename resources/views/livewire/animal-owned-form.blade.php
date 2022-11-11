@@ -31,32 +31,36 @@
                             <x-jet-label for="name" value="{{ __('Nom de mon animal') }}" />
                             <input name="name" type="text" class=" mt-1 block w-64 rounded" wire:model="nom"/>
                             <x-jet-input-error for="name" class="mt-2" />
-                            <div class=" mt-1">
-                                <p wire:loading></p>
+
+                            <!-- Barre de selection espèces et races -->
+                            <div class=" py-5">
+                                <x-jet-label for="type" value="{{ __('Espèce de mon animal') }}" class="pb-3"/>
+                                <!--<p wire:loading></p>-->
                                 <div>
                                     <select class="block px-3 py-1.5 text-base font-normal text-gray-700 
-                                                bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0
+                                                bg-whiteborder border-solid border-gray-300 rounded transition ease-in-out m-0
                                                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             id="espece_id" wire:model="espece_id">
-                                        <option value="">Choisir une espece</option>
-                                        @foreach($especes as $espece)
-                                            <option class="" value="{{$espece->id}}">{{$espece->espece}}</option>
+                                            <option value="">Choisir une espece</option>
+                                        @foreach($especes as $espece) 
+                                            <option value="{{$espece->id}}">{{$espece->espece}}</option>    
                                         @endforeach
                                     </select>
                                 </div>
-                                @if($races->count() > 0)
-                                <div>
-                                    <select id="race_id" wire:model="race_id" 
-                                            class="my-3 block px-3 py-1.5 text-base font-normal text-gray-700 
-                                                bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0
-                                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                                        @foreach($races as $race)       
-                                        <option value="{{$race->id}}">{{$race->race_animal}}</option>
-                                        @endforeach
-                                    </select>   
-                                </div>
+                                @if($races->count() > 0)                                   
+                                <div>    
+                                        <select id="race_id" wire:model="race_id" 
+                                                class="my-3 block px-3 py-1.5 text-base font-normal text-gray-700 
+                                                    bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
+                                                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                                            @foreach($races as $race)   
+                                            <option value="{{$race->id}}">{{$race->race_animal}}</option>
+                                            @endforeach
+                                        </select>  
+                                </div>                              
                                 @endif
                             </div>
+                            <!-- Fin barre de selection espèces et races -->
 
                             <x-jet-label for="personnality" value="{{ __('Sa personnalité') }}" />
                             <textarea name="personnality" type="text"  class="rounded mt-1 block w-full" wire:model="personnalité" placeholder="Décrivez en quelques mots votre animal pour informer le pet-sitter"></textarea>

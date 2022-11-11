@@ -19,6 +19,7 @@ class CreateAnimalsOwnedsTable extends Migration
             $table->string('animal_name')->nullable();
             $table->text('personnality')->nullable();
             $table->string('espece')->nullable();
+            $table->unsignedBigInteger('race')->nullable();
             $table->boolean('male_dogs')->nullable();
             $table->boolean('female_dogs')->nullable();
             $table->boolean('male_cats')->nullable();
