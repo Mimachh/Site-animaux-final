@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\animals_owned;
 use Livewire\Component;
+use App\Models\Liste_race;
+use App\Models\animals_owned;
+use App\Models\Espece_animaux;
 
 
 class AnimalOwnedForm extends Component
@@ -71,12 +73,20 @@ protected function rules()
 /* Fin du formulaire */
 
 
-    public function mount()
-    {
-        /* ICI LES ESPECES */
-     
+public $espece_id;
+public $race_id;
+public $races;
 
-    }
+public function mount()
+{
+    $this->races = collect();
+
+}
+
+public function updatedEspeceId($newValue)
+{
+    $this->races = Liste_race::where('espece_id', $newValue)->orderBy('race_animal')->get();
+}
 
     public function submit()
     {
@@ -117,8 +127,8 @@ protected function rules()
     public function render()
     {
         
-        
-        return view('livewire.animal-owned-form'); 
+        $especes = Espece_animaux::select("id", "espece")->get();
+        return view('livewire.animal-owned-form', ['especes' => $especes]); 
             
                
         
