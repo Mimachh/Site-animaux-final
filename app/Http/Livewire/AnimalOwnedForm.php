@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\annonces;
 use App\Models\Liste_race;
 use App\Models\animals_owned;
 use App\Models\Espece_animaux;
@@ -11,6 +12,7 @@ use App\Models\Espece_animaux;
 class AnimalOwnedForm extends Component
 {
 
+    
     /* Séparation des pages */
 
     public $currentPage = 1;
@@ -28,24 +30,24 @@ class AnimalOwnedForm extends Component
 
     /* Début du formulaire */
     protected function rules()
-    {
-        return [
-        'animal_name' => 'required',
-        'personnality' => 'nullable',
-        'espece' => 'required',
-        'race' => 'required',
-        'male_dogs' => 'required',
-        'female_dogs' => 'required',
-        'male_cats' => 'required',
-        'female_cats' => 'required',
-        'male_rongeurs' => 'required',
-        'female_rongeurs' => 'required',
-        'birds' => 'required',
-        'reptiles' => 'required',
-        'owner' => 'required',
-    
-        ];
-    }
+        {
+            return [
+            'animal_name' => 'required',
+            'personnality' => 'nullable',
+            'espece' => 'required',
+            'race' => 'required',
+            'male_dogs' => 'required',
+            'female_dogs' => 'required',
+            'male_cats' => 'required',
+            'female_cats' => 'required',
+            'male_rongeurs' => 'required',
+            'female_rongeurs' => 'required',
+            'birds' => 'required',
+            'reptiles' => 'required',
+            'owner' => 'required',
+        
+            ];
+        }
 
     /* Validation du formulaire */
 

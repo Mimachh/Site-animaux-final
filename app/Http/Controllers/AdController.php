@@ -23,11 +23,14 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class AdController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+    }
    
    public function index()
    {
     $annonces = annonces::online()->latest()->get();
-
 
    
 

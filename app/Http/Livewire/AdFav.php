@@ -13,9 +13,17 @@ class AdFav extends Component
 
     public function add_fav()
     {
-       auth()->user()->fav()->toggle($this->annonce->id);
-       return redirect()->route('annonces');
+      if(auth()->check()) {
 
+        auth()->user()->fav()->toggle($this->annonce->id);
+
+        return redirect()->route('annonces');
+      }
+      else {
+        $this->emit('flash', 'Vous devez être connecté pour ajouter un favori', 
+        'error');
+      }
+     
     }
 
     

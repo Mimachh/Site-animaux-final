@@ -29,14 +29,15 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/annonce', function () {
+        return view('ad_create');
+    })->name('ad.create');
 });
 
 
 /* Route::get('/annonces', [AdController::class, 'create'])->name('create.ad');
 Route::post('/annonces', [AdController::class, 'store']);  Vieux formulaire*/
 
-Route::get('/annonce', function () {
-    return view('ad_create');
-})->name('ad.create');
+
 
 Route::get('/annonces_show',[AdController::class, 'index'])->name('annonces');

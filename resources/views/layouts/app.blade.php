@@ -7,6 +7,9 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    [x-cloak] { display: none;}
+</style>
 
 @livewireStyles
 
@@ -26,13 +29,16 @@
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" >
                         {{ $header }}
                     </div>
+                    
                 </header>
             @endif
-
+            
             <!-- Page Content -->
+            
             <main>
-                
+            @livewire('flash')    
                 {{ $slot }}
+                
                 @yield('content')
             </main>
         </div>

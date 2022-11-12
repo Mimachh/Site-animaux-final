@@ -6,7 +6,6 @@
         </h1>
     </x-slot>
 
-     
         
         <div class="md:flex-wrap md:flex md:mx-32 xs:mx-auto mt-5">
             <div class="bg-white">

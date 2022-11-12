@@ -1,13 +1,13 @@
-@auth
+
     <x-slot name="header">
         <h1 class="font-semibold text-xl text-gray-200 leading-tight">
             {{ __('Créer mon annonce de pet-sitter') }}
         </h1>
     </x-slot>
-@endauth
+
 
 <main class="bg-indigo-50 pt-5 rounded-3xl ">
-    @auth
+    
 
         <x-jet-validation-errors class="mb-4 text-center" />
 
@@ -265,7 +265,7 @@
                                     </div>
                                     </div>
                                 </fieldset>
-                    @endif
+            @endif
                                 <hr>
 
                                 <!-- Boutons -->
@@ -288,76 +288,4 @@
                 </div>
             </div>
         </div>
-
-
-@endauth
-
-    <!-- Pour les non-connecté -->
-@guest
-
-<div class="bg-gray-100 min-h-screen flex flex-col  items-center sm:pt-0 bg-gray-100 ">
-
-    <h2 class="text-center font-semibold text-gray-800 leading-tight py-10">Pour ajouter une annonce vous devez être connecté </h2>
-
-    <img src="/images/clin.jpg" alt="chien qui fait un clin d'oeil">
-       
-    <div class="w-full sm:max-w-md px-6 py-6 bg-white shadow-md overflow-hidden sm:rounded-lg"">
-            <x-jet-validation-errors class="mb-4" />
-
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
-
-                <div>
-                    <x-jet-label for="name" value="{{ __('Votre nom (peut-être modifié plus tard)') }}" />
-                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                </div>
-
-                <div class="mt-4">
-                    <x-jet-label for="email" value="{{ __('Votre adresse mail') }}" />
-                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-                </div>
-
-                <div class="mt-4">
-                    <x-jet-label for="password" value="{{ __('Mot de passe') }}" />
-                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-                </div>
-
-                <div class="mt-4">
-                    <x-jet-label for="password_confirmation" value="{{ __('Confirmer votre mot de passe') }}" />
-                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-                </div>
-
-                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                    <div class="mt-4">
-                        <x-jet-label for="terms">
-                            <div class="flex items-center">
-                                <x-jet-checkbox name="terms" id="terms"/>
-
-                                <div class="ml-2">
-                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                    ]) !!}
-                                </div>
-                            </div>
-                        </x-jet-label>
-                    </div>
-                @endif
-
-                <div class="flex items-center justify-end mt-4">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                        {{ __('Déjà enregistré?') }}
-                    </a>
-
-                    <x-jet-button class="ml-4">
-                        {{ __('S\'inscrire') }}
-                    </x-jet-button>
-                </div>
-            </form>
-    </div>
-    
-</div>
-
-@endguest
-
 </main>

@@ -12,6 +12,7 @@ use App\Models\villes_france;
 class AdForm extends Component
 {
 
+    
     /* Séparation des pages */
 
     public $currentPage = 1;
@@ -166,14 +167,8 @@ class AdForm extends Component
     }
 
     public function submit()
-    {
-       
+    {   
         
-
-       
-        
-
-       
        $annonces=annonces::create([
            
           /*'garde_type' => $this->garde_type, Celui là marche pas..*/
@@ -197,9 +192,12 @@ class AdForm extends Component
        
         $annonces->save();
 
-       
-     
-       return redirect()->route('annonces');
+        $ads = auth()->user();
+      
+
+        return redirect()->route('annonces.show', $ads->id);
+
+           
      
     }
    
