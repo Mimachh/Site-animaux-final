@@ -22,12 +22,12 @@
             <div class="md:grid md:grid-cols-6 md:gap-4 ">
         
                 <div class="mt-5  md:col-start-2 md:col-span-4 md:mt-0">
-                    <form wire:submit.prevent="submit">
+                    <form wire:submit.prevent="store">
                         <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
                             <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 
             @if($currentPage === 1)
-                    
+                
                                 <!-- Choix de la ville -->    
                                 <fieldset class="mt-4">
                                                 <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
@@ -91,7 +91,7 @@
 
                                 <!-- Partie type de garde -->
                                 <fieldset class="mt-4 pt-4">
-                                                <button type="button"  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 pb-2">  
+                                                <button  name='o' type="button"  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 pb-2">  
                                                 Quel type de garde souhaitez vous?
                                                 <legend class="sr-only">Quel type de garde <br> souhaitez vous?</legend>           
                                                 </button>
@@ -100,10 +100,10 @@
                                                 
                                                     <div class="flex items-start">               
                                                         <div class="flex h-5 items-center">
-                                                            <select  name='garde' id="garde" wire:model='garde_type' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                            <select wire:model='garde' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                                             <option value="">--Choisissez un type de garde--</option>
-                                                            @foreach($type_id as $garde_type) 
-                                                            <option value="{{$garde_type->id}}" >{{$garde_type->garde_type}}</option>
+                                                            @foreach($gardes as $garde_type) 
+                                                            <option value="{{ $garde_type->id }}">{{ $garde_type->garde }}</option>
                                                             @endforeach
                                                             </select>
                                                         </div>
@@ -258,7 +258,7 @@
                                             
                                             </div>
                                             <div class="flex">
-                                            <x-jet-input wire:model="price" name="price" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
+                                            <x-jet-input wire:model="prix" name="prix" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
                                             </div>
                                         
                                         </div>
@@ -289,3 +289,4 @@
             </div>
         </div>
 </main>
+        

@@ -1,3 +1,3 @@
 <x-app-layout>
-    @livewire('animal-owned-form')
+Welcome
 </x-app-layout>

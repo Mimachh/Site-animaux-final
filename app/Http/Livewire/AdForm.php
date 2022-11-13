@@ -17,8 +17,8 @@ class AdForm extends Component
 
     public $currentPage = 1;
     public $pages = [1=>1,
-2=>2,
-3=>3];
+                    2=>2,
+                    3=>3];
 
    public function goToPreviousPages()
    {
@@ -195,7 +195,7 @@ class AdForm extends Component
         $ads = auth()->user();
       
 
-        return redirect()->route('annonces.show', $ads->id);
+        return redirect()->route('annonces', $ads->id);
 
            
      

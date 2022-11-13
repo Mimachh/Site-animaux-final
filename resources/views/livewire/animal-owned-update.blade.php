@@ -1,7 +1,7 @@
 @auth
     <x-slot name="header">
         <h1 class="font-semibold text-xl text-gray-200 leading-tight">
-            {{ __('Créer la fiche de mon animal') }}
+            {{ __('Modifier la fiche de mon animal') }}
         </h1>
     </x-slot>
 @endauth
@@ -11,7 +11,7 @@
 
         <x-jet-validation-errors class="mb-4 text-center" />
         <div class="py-5">
-            <h2 class="text-center font-bold">Créer la fiche de mon animal</h2>
+            <h2 class="text-center font-bold">Modifier la fiche de mon animal</h2>
             <p class="text-center mb-10 py-5">Ses informations permettront au Pet-Sitter d'en savoir plus sur votre animal. <br>
            Les Pet-Sitter acceptent plus facilement les gardes lorsqu'ils ont une description de votre compagnon. </p>
         </div>
@@ -26,7 +26,7 @@
                 <form wire:submit.prevent="submit">
                     <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
                         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-
+<input type="hidden" name="id" wire:model="ids"/>
                         @if($currentPage === 1)
                             <x-jet-label for="name" value="{{ __('Nom de mon animal') }}" />
                             <input name="name" type="text" class=" mt-1 block w-64 rounded" wire:model="nom"/>

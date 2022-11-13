@@ -17,7 +17,7 @@ class CreateGardeTypesTable extends Migration
             $table->string('id', 100)->nullable();
             $table->primary('id');
             $table->timestamps();
-            $table->string('garde_type');
+            $table->string('garde');
         });
     }
 

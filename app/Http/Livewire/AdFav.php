@@ -25,6 +25,7 @@ class AdFav extends Component
       }
      
     }
+   
 
     
     public function render()

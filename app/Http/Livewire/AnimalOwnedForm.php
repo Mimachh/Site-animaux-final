@@ -15,39 +15,22 @@ class AnimalOwnedForm extends Component
     
     /* Séparation des pages */
 
-    public $currentPage = 1;
-    public $pages = [1=>1,
-                    2=>2];
+        public $currentPage = 1;
+        public $pages = [1=>1,
+                        2=>2];
 
-   public function goToPreviousPages()
-   {
-    $this->currentPage--;
-   }
-   public function goToNextPages()
-   {
-    $this->currentPage++;
-   }
+        public function goToPreviousPages()
+        {
+            $this->currentPage--;
+        }
+        public function goToNextPages()
+        {
+            $this->currentPage++;
+        }
+    /* Fin séparation page */
 
     /* Début du formulaire */
-    protected function rules()
-        {
-            return [
-            'animal_name' => 'required',
-            'personnality' => 'nullable',
-            'espece' => 'required',
-            'race' => 'required',
-            'male_dogs' => 'required',
-            'female_dogs' => 'required',
-            'male_cats' => 'required',
-            'female_cats' => 'required',
-            'male_rongeurs' => 'required',
-            'female_rongeurs' => 'required',
-            'birds' => 'required',
-            'reptiles' => 'required',
-            'owner' => 'required',
         
-            ];
-        }
 
     /* Validation du formulaire */
 
@@ -70,31 +53,51 @@ class AnimalOwnedForm extends Component
 
     public $owner;
 
+    
+    public $espece;
+    
+    public $race;
+   
+
 
     /* FAIRE LES ESPECES */
 
-    /* Fin du formulaire */
+  
 
 
-    public $espece_id;
-    public $race_id;
+    
     public $races;
 
     public function mount()
     {
         $this->races = collect();
 
+
     }
 
-    public function updatedEspeceId($newValue)
+    public function updatedEspece($newValue)
     {
         $this->races = Liste_race::where('espece_id', $newValue)->orderBy('race_animal')->get();
     }
 
     public function submit()
     {
-       
-       $my_animal=animals_owned::create([
+       $validated =$this->validate([
+            'nom' => 'required',
+            'personnalité' => 'nullable',
+            'espece' => 'required',
+            'race' => 'required',
+            'chiens' => 'nullable',
+            'chiennes' => 'nullable',
+            'chats' => 'nullable',
+            'chattes' => 'nullable',
+            'rongeurs' => 'nullable',
+            'rongeuses' => 'nullable',
+            'birds' => 'nullable',
+            'reptiles' => 'nullable',
+            'owner' => 'required',
+       ]);
+       animals_owned::create([
            
          
             'animal_name' => $this->nom,
@@ -107,14 +110,12 @@ class AnimalOwnedForm extends Component
             'female_rongeurs' => $this->rongeuses,
             'birds' => $this->birds,
             'reptiles' => $this->reptiles,
-            'espece' =>$this->espece_id,
-            'race' => $this->race_id,
+            'espece' =>$this->espece,
+            'race' => $this->race,
+            'owner' => $this->owner,
             
         ]);
        
-        $my_animal->owner = auth()->user()->id;
-    
-        $my_animal->save();
 
         return redirect()->route('annonces');
 
@@ -124,12 +125,13 @@ class AnimalOwnedForm extends Component
      
     }
    
-
+  /* Fin du formulaire */
    
     /* Rendu visuel */
 
     public function render()
     {
+        $this->owner = auth()->user()->id;
         
         $especes = Espece_animaux::select('id', 'espece')->where('id', '<', 9 )->get();
 

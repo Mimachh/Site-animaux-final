@@ -37,6 +37,10 @@ class annonces extends Model
     {
         return $this->belongsToMany('App\Models\User');
     }
+    public function gard()
+    {
+        return $this->hasOne ('App\Models\Garde_type');
+    }
 
     public function fav_added()
     {
@@ -56,8 +60,8 @@ class annonces extends Model
      */
     protected $fillable = [
         
-        'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
-        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 
+        'user_id', 'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
+        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 'garde_type',
     ];
   
     

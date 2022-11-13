@@ -43,11 +43,12 @@
                             </p>
                         
                             <p class="text-sm text-gray-600 pb-3">Animaux gardés :  </p>    
-                            
+                            </a>    
                             <div class="flex items-center">
                                 <span class="flex h-2 w-2 bg-red-600 rounded-full mr-2"></span>
                                 <a class="text-sm" href="">Consulter l'annonce</a>
+                                <button wire:click="update">Modifier l'annonce</button>
                             </div> 
-                        </a>
+                        
         </div>
              
