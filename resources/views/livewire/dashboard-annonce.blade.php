@@ -1,42 +1,4 @@
-<div class="py-12">
-        <div class=" sm:px-6 lg:px-8 opacity-80">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-               
-                <div class="flex justify-around">  
-                
-                @if($currentPage === 1)
-                    <button type="button" wire:click='goToPageAds'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes annonces</h2></button>
-                    @else()
-                    <button class="bg-blue" type="button" wire:click='goToPageAds'><h2 class=" ml-5 mt-5 font-semibold text-lg text-gray-800">Mes annonces</h2></button>
-                @endif
-
-                @if($currentPage === 2)
-                    <button type="button"  wire:click='goToPageFav'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800" >Mes favoris</h2></button>
-                    @else()
-                    <button type="button" class="bg-blue" wire:click='goToPageFav'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800" >Mes favoris</h2></button>
-                @endif
-                
-                
-
-                @if($currentPage === 3)
-                    <button type="button" wire:click='goToPageMess'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes messages</h2></button>
-                    @else()
-                    <button type="button" wire:click='goToPageMess'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes messages</h2></button>
-                @endif
-                
-                @if($currentPage === 4)
-                    <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes gardes réalisées</h2></button>    
-                    @else()
-                    <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes gardes réalisées</h2></button>    
-                @endif
-            
-            </div>
-              <hr class="my-5 mx-5 border border-2 border-gray-400">
-            <div class="">                
-                   <!-- Page de mes annonces --> 
-            @if($currentPage === 1)
-               
-                @foreach($ads as $annonce)
+@foreach($ads as $annonce)
                     <div class="px-3 py-5 mb-3 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">
 
                         <div class="flex md:justify-end mb-3 pr-10">
@@ -93,7 +55,7 @@
                     </div>               
                 @endforeach
                 @foreach($ads as $annonce)
-                    <x-jet-dialog-modal wire:model="confirmingAnnonceDeletion">
+                <x-jet-dialog-modal wire:model="confirmingAnnonceDeletion">
                     <x-slot name="title">
                         Supprimer mon annonce
                     </x-slot>
@@ -111,51 +73,5 @@
                             Supprimer l'annonce
                         </x-jet-danger-button>
                     </x-slot>
-                    </x-jet-dialog-modal>
+                </x-jet-dialog-modal>
                 @endforeach
-                @endif
-
-                <!-- Page de Favoris -->   
-            @if($currentPage === 2)
-                @foreach($favs as $annonce)
-                    <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">
-                    <div class="flex justify-between">
-                        <h2 class="text-md font-bold text-gray-600">{{$annonce->name}}</h2>
-                        <livewire:ad-fav :annonce="$annonce">
-                    </div>
-                   <p class="text-sm text-gray-600 pb-2">Disponible du : <span class="text-md text-gray-800">{{$annonce->start_watch}}</span>  au : <span class="text-md text-gray-800">{{$annonce->end_watch}} </span></p>
-                   <p class="text-sm text-gray-600 pb-2"> Ville : {{ $annonce->ville }}</p>
-                    
-                    <p class="text-sm text-gray-600 pb-2">Type de garde :
-                        @if ($annonce->garde_type == 1)
-                        <span class="text-sm text-gray-800">Au domicile du Pet-Sitter</span> 
-                        @elseif ($annonce->garde_type == 2)
-                        <span class="text-sm text-gray-800">En visite à votre domicile</> 
-                        @elseif ($annonce->garde_type == 3)
-                        <span class="text-sm text-gray-800"> En visite et chez le Pet-Sitter</span>
-                        @endif
-                    </p>    
-                    <p class="text-sm text-gray-600">Animaux gardés :  </p>
-                        <ul class="text-sm text-gray-800 pb-2">
-                            <li class="pb-1">{{ $annonce->chats ? 'Chats' : ''}}</li>
-                            <li class="pb-1">{{ $annonce->chiens ? ' Chiens' : ''}} </li>
-                            <li class="pb-1">{{ $annonce->poissons ? ' Poissons' : ''}}</li>
-                            <li class="pb-1">{{ $annonce->rongeurs ? ' Rongeurs' : ''}}</li>
-                            <li class="pb-1">{{ $annonce->oiseaux ? ' Oiseaux' : ''}}</li>
-                            <li class="pb-1">{{ $annonce->reptiles ? ' Reptiles' : ''}}</li>
-                            <li class="pb-1">{{ $annonce->ferme ? ' Animaux de la ferme' : ''}}</li>
-                        </ul> 
-                    <p class="text-sm text-gray-600 pb-2">Prix : <span class="text-sm text-gray-800">{{ number_format($annonce->price, 2, ',', '') }} €/jour.</span></p>     
-                    <div class="flex items-center">
-                        <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
-                        <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir l'annonce</a>
-                    </div> 
-                    </div>
-                @endforeach
-            @endif
-            </div>
-
-            
-        </div>
-                    
-</div>

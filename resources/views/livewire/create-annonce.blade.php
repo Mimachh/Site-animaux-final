@@ -1,4 +1,3 @@
-
 <x-slot name="header">
     <h1 class="font-semibold text-xl text-gray-200 leading-tight">
         {{ __('Créer mon annonce de pet-sitter') }}
@@ -91,13 +90,12 @@
 
                                 <!-- Partie type de garde -->
                                 <fieldset class="mt-4 pt-4">
-                                                <button  name='o' type="button"  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 pb-2">  
+                                                <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 pb-2">  
                                                 Quel type de garde souhaitez vous?
                                                 <legend class="sr-only">Quel type de garde <br> souhaitez vous?</legend>           
-                                                </button>
+                                                </h2>
 
-                                                <div class="my-8 space-y-4">
-                                                
+                                                <div class="my-8 space-y-4">                        
                                                     <div class="flex items-start">               
                                                         <div class="flex h-5 items-center">
                                                             <select wire:model='garde' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
@@ -108,7 +106,6 @@
                                                             </select>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                                 
                                 </fieldset>
@@ -117,10 +114,10 @@
             @elseif ($currentPage === 2)
                                 <!-- Partie type d'animaux -->
                                 <fieldset class="mt-4">
-                                    <button type="button" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                                    <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
                                             Quels animaux pouvez-vous garder?
                                     <legend class="sr-only">Quels animaux <br> pouvez-vous garder?</legend>           
-                                    </button>
+                                    </h2>
 
                                     <div>
                                         
@@ -129,10 +126,10 @@
                                         <!-- Chats -->
                                         <div class="flex items-start pt-2">
                                         <div class="flex h-5 items-center">
-                                            <x-jet-input wire:model="chats" value="{{$chats_id->id}}"  name="chats" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                            <x-jet-input wire:model="chats" value="{{$chats_id->id}}" id="chats" name="chats" type="checkbox" class=" h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                                         </div>
                                         <div class="ml-3 text-sm">
-                                            <x-jet-label for="watch_cat" value="{{$chats_id->espece }}"/>
+                                            <x-jet-label for="chats" name="chats" value="{{$chats_id->espece }}"/>
                                             <p class="text-gray-500 pt-1">Chat de race, de gouttière...</p>
                                         </div>
                                         </div> 
@@ -140,10 +137,10 @@
                                         <!-- Chiens -->
                                         <div class="flex items-start pt-2">
                                         <div class="flex h-5 items-center">
-                                            <x-jet-input wire:model="chiens" value="{{$chiens_id->id}}" id="watch_dog" name="chiens" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                            <x-jet-input wire:model="chiens" value="{{$chiens_id->id}}" id="chiens" name="chiens" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                                         </div>
                                         <div class="ml-3 text-sm">
-                                            <x-jet-label for="watch_dog" value="{{$chiens_id->espece}}"/>
+                                            <x-jet-label for="chiens" value="{{$chiens_id->espece}}"/>
                                             <p class="text-gray-500 pt-1">Labrador, Berger Australien...</p>
                                         </div>
                                         </div> 
@@ -162,7 +159,7 @@
                                         <!-- Rongeurs -->
                                         <div class="flex items-start pt-2">
                                         <div class="flex h-5 items-center">
-                                            <x-jet-input wire:model="rongeurs" value="{{$rongeurs_id->id}}" id="rabbit" name="rongeurs" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                                            <x-jet-input wire:model="rongeurs" value="{{$rongeurs_id->id}}" id="rongeurs" name="rongeurs" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
                                         </div>
                                         <div class="ml-3 text-sm">
                                             <x-jet-label for="rongeurs" value="{{$rongeurs_id->espece}}"/>
@@ -224,23 +221,15 @@
                     
                                 <!-- Description -->
                                 <fieldset>
-                                    <button class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                                    <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
                                             Décrivez-vous en quelques mots
                                             <legend class="sr-only">Décrivez-vous <br> en quelques mots</legend>           
-                                    </button>
-                                    <div>
+                                    </h2>
                                         <div class="mt-4 space-y-4">
-                                        <div class="flex items-start pb-10">   
-                                            <div class="ml-3 text-sm mr-4 ">    
-                                                <p class="text-gray-500">Donnez envie <br> aux prioriétaires<br> d'animaux <br>de vous confier<br>leur compagnon.</p>
+                                            <div class="flex items-start pt-4 pb-4">   
+                                                <textarea wire:model="description" class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>       
                                             </div>
-                                            <div class="flex ">
-                                                <textarea wire:model="description" class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>
-                                            </div>
-                                            
-                                        </div>
-                                        </div>
-                                    </div>
+                                        </div>       
                                 </fieldset>    
                                 <hr>
 
@@ -289,4 +278,3 @@
             </div>
         </div>
 </main>
-        

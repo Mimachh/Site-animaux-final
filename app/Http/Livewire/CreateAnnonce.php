@@ -2,17 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
+use App\Models\Annonce;
 use Livewire\Component;
-
 use App\Models\Garde_type;
-
 use App\Models\Espece_animaux;
-use App\Models\villes_france;
 
-class Annonce extends Component
+class CreateAnnonce extends Component
 {
-  /* Séparation des pages */
+    /* Séparation des pages */
 
     public $currentPage = 1;
     public $pages = [1=>1, 2=>2, 3=>3];
@@ -185,12 +182,9 @@ class Annonce extends Component
       return redirect()->route('annonces.show', $annonces->id);
 
   }
-  
-
 
     public function render()
     {
-       
         $gardes = Garde_type::all();
      
         $this->name = auth()->user()->name;
@@ -204,7 +198,7 @@ class Annonce extends Component
         $this->reptiles_id = Espece_animaux::find(6);
         $this->ferme_id = Espece_animaux::find(7);
         $this->autre_id = Espece_animaux::find(8);
-        
-        return view('livewire.annonce', ["gardes"=>$gardes]);
+
+        return view('livewire.create-annonce', ["gardes"=>$gardes]);
     }
 }

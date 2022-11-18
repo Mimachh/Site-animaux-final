@@ -16,7 +16,6 @@ class CreateAdForeignKeyControllersTable extends Migration
        
        Schema::table('users', function ($table) {
             $table->foreign('animal_owned_id')->references('id')->on('animals_owneds')->onDelete('cascade');
-            /* $table->foreign('ads_posted')->references('id')->on('annonces')->onDelete('cascade'); */
             $table->foreign('city')->references('ville_id')->on('villes_france');
             
         });
@@ -87,19 +86,38 @@ class CreateAdForeignKeyControllersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table) {
+        Schema::table('users', function(Blueprint $table) 
+        {
             $table->dropForeign('users_animal_owned_id_foreign');
-            $table->dropForeign('users_ads_posted_foreign');
             $table->dropForeign('users_city_foreign');
         });
 
-        Schema::table('animals_owneds', function(Blueprint $table) {
+        Schema::table('animals_owneds', function(Blueprint $table) 
+        {
             $table->dropForeign('animals_owneds_owned_by_foreign');
+            $table->dropForeign('animals_owneds_owner_foreign');
+            $table->dropForeign('animals_owneds_espece_foreign');
+            $table->dropForeign('animals_owneds_race_foreign');
         });
 
-        Schema::table('annonces', function(Blueprint $table) {
-            $table->dropForeign('annonces_city-where_foreign');
-            $table->dropForeign('annonces_my_animal_idforeign');
+        Schema::table('annonces', function(Blueprint $table) 
+        {
+            $table->dropForeign('annonces_my_animal_id_foreign');
+            $table->dropForeign('annonces_user_id_foreign');
+            $table->dropForeign('annonces_chats_foreign');
+            $table->dropForeign('annonces_chiens_foreign');
+            $table->dropForeign('annonces_poissons_foreign');
+            $table->dropForeign('annonces_rongeurs_foreign');
+            $table->dropForeign('annonces_reptiles_foreign');
+            $table->dropForeign('annonces_ferme_foreign');
+            $table->dropForeign('annonces_autre_foreign');
+            $table->dropForeign('annonces_oiseaux_foreign');
+            $table->dropForeign('annonces_garde_type_foreign');
+            $table->dropForeign('annonces_ville_foreign');
+        });
+
+        Schema::table('liste_race', function(Blueprint $table) {
+            $table->dropForeign('liste_race_espece_id_foreign');
         });
     }
 }

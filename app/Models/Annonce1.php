@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Garde_type extends Model
+class Annonce extends Model
 {
-    public function annonce()
-    {
-        return $this->belongsToMany('App\Models\Annonce');
-    }
     use HasFactory;
 }

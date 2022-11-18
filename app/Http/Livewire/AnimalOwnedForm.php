@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\annonces;
+use App\Models\Annonce;
 use App\Models\Liste_race;
 use App\Models\animals_owned;
 use App\Models\Espece_animaux;

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use App\Models\Annonce;
 
 
 class AdFav extends Component
@@ -17,7 +18,7 @@ class AdFav extends Component
 
         auth()->user()->fav()->toggle($this->annonce->id);
 
-        return redirect()->route('annonces');
+       /* return redirect()->route('annonces.index'); Apparemment plus besoin ça marche sans */
       }
       else {
         $this->emit('flash', 'Vous devez être connecté pour ajouter un favori', 
@@ -25,8 +26,8 @@ class AdFav extends Component
       }
      
     }
-   
 
+   
     
     public function render()
     {

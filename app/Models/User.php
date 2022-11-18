@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\annonces;
+use App\Models\Annonce;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -62,8 +62,9 @@ class User extends Authenticatable
 
     public function ads()
     {
-        return $this->hasMany('App\Models\annonces');
+        return $this->hasMany('App\Models\Annonce');
     }
+
 
     public function animals()
     {
@@ -72,6 +73,6 @@ class User extends Authenticatable
 
     public function fav()
     {
-        return $this->belongsToMany('App\Models\annonces');
+        return $this->belongsToMany('App\Models\Annonce');
     }
 }

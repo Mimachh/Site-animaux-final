@@ -19,7 +19,7 @@ class villes_france extends Model
 
     public function annonce()
     {
-        return $this->belongsTo('App\Models\annonces');
+        return $this->belongsTo('App\Models\annonce');
     }
 }
 

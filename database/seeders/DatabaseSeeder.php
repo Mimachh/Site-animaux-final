@@ -41,9 +41,9 @@ class DatabaseSeeder extends Seeder
         
         DB::table('garde_types')->insert([
  
-            ['id'=>'1', 'garde' => 'Chez vous'],
+            ['id'=>'1', 'garde' => 'Chez le Pet-Sitter'],
             ['id'=>'2', 'garde' => 'Visite à domicile'],
-            ['id'=>'3', 'garde' => 'Les deux'],
+            ['id'=>'3', 'garde' => 'Chez le Pet-Sitter / En visite '],
             
         ]);
 

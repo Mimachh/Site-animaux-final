@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
-class annonces extends Model
+class Annonce extends Model
 {
+    use HasFactory;
     use HasFactory;
 
     public function scopeOnline($query)
@@ -63,7 +63,4 @@ class annonces extends Model
         'user_id', 'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
         'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 'garde_type',
     ];
-  
-    
-
 }

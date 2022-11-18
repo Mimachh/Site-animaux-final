@@ -4,7 +4,7 @@ namespace App\Models;
 
 
 
-use App\Models\annonces;
+use App\Models\Annonce;
 use App\Models\Liste_race;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -41,7 +41,7 @@ class Espece_animaux extends Model
 
     public function annonces()
     {
-        return $this->belongsToMany('App\Models\annonces');
+        return $this->belongsToMany('App\Models\Annonce');
     }
     
     
