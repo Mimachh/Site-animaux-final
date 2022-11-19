@@ -12,10 +12,11 @@ class Annonces extends Component
    
     public function index()
     {
+        $annonces = Annonce::find(1);
+        $ville = $annonces->ville->ville_nom;
        
-       
-
-        return view('annonces.index', ['annonces' => Annonce::paginate(8)]);
+        return view('annonces.index', ['annonces' => Annonce::paginate(8), 
+        'ville' => $ville]);
     }
 
     /**
@@ -46,7 +47,8 @@ public $annonce;
      * @return \Illuminate\Http\Response
      */
     public function show(Annonce $annonce)
-    {        
+    {       
+       
         return view('annonces.show', compact('annonce'));
     }
 

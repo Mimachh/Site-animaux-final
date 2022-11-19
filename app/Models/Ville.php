@@ -1,19 +1,16 @@
 <?php
 
 namespace App\Models;
-use App\Models\Annonce;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Garde_type extends Model
+class Ville extends Model
 {
-
-   
-
+    use HasFactory;
 
     public function annonces()
     {
-        return $this->hasMany('App\Models\Annonce');
+        return $this->hasMany('App\Models\annonce');
     }
-    use HasFactory;
 }

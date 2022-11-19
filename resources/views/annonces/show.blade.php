@@ -5,8 +5,6 @@
         </h1>
     </x-slot>
 
-<h1>{{ $annonce->id }} {{ $annonce->price}}{{ $annonce->name}}  {{ $annonce->description}} du {{$annonce->start_watch}} au {{$annonce->end_watch}}</h1>
-
 <div class="ml-10 mr-10 bg-white border rounded shadow-md dark:bg-gray-800 dark:border-gray-700">
     <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800" id="defaultTab" data-tabs-toggle="#defaultTabContent" role="tablist">
         <li class="mr-2">
@@ -23,7 +21,8 @@
         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
             <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Bonjour je m'appelle {{ $annonce->name }}</h2>
             <p class="mb-3 text-gray-500 dark:text-gray-400">Je peux garder vos animaux du {{$annonce->start_watch}} au {{$annonce->end_watch}}.</p>
-            <p class="mb-3 text-gray-500 dark:text-gray-400">Je peux garder vos animaux : {{$annonce->garde_type}}.</p>
+            <p class="mb-3 text-gray-500 dark:text-gray-400">Je peux garder vos animaux : {{$annonce->garde_type->id}}.</p>
+            <p class="mb-3 text-gray-500 dark:text-gray-400">Ma ville : {{ $annonce->ville->ville_nom}}.</p>
             <p class="mb-3 text-gray-500 dark:text-gray-400">{{$annonce->description}}.</p>
             <p class="mb-3 text-gray-500 dark:text-gray-400">Mon tarif : {{$annonce->price}}€/jour.</p>
             <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">

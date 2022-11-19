@@ -19,7 +19,7 @@ class CreateAnnoncesTable extends Migration
 
             $table->string('name')->nullable();
             
-            $table->unsignedBigInteger('ville')->nullable(); 
+            $table->unsignedBigInteger('ville_id')->onDelete('cascade')->nullable(); 
 
             $table->boolean('status')->default(1);
             

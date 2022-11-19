@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\villes_france;
 use App\Models\Garde_type;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -30,9 +31,14 @@ class Annonce extends Model
         return $this->hasMany('App\Models\Espece_animaux');
     }
 
+    public function vill()
+    {
+        return $this->belongsTo(villes_france::class);
+    }
+
     public function ville()
     {
-        return $this->hasOne('App\Models\villes_france');
+        return $this->belongsTo('App\Models\Ville');
     }
 
     public function fav()
@@ -41,7 +47,7 @@ class Annonce extends Model
     }
     public function garde()
     {
-        return $this->hasOne('App\Models\Garde_type');
+        return $this->belongsTo('App\Models\Garde_type');
     }
 
     public function fav_added()

@@ -186,6 +186,11 @@ class DatabaseSeeder extends Seeder
             ['id' => '2', 'garde_type' => '1', 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 21, 'user_id' => 1],
             ['id' => '3', 'garde_type' => '2', 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 25, 'user_id' => 1]
         ]);
+
+        DB::table('villes')->insert([
+            ['id' => 1, 'ville_nom' => 'Le Mans']
+        
+        ]);
     
     }
 }
