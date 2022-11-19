@@ -99,7 +99,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        {{ __('Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                        Êtes-vous sûr de vouloir supprimer votre annonce ? Si vous confirmez, celle-ci sera définitivement perdu.
                     </x-slot>
 
                     <x-slot name="footer">

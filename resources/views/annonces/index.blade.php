@@ -30,7 +30,7 @@
                                                 <img src="/images/clin.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
                                             </div>
                                         </a>
-                                        
+                                       
                                         <div class="flex justify-between mt-4">
                                             <a href="{{ route('annonces.show', $annonce) }}">
                                                 <h2 class="text-lg text-semibold text-gray-700">{{ $annonce->name }}</h2>

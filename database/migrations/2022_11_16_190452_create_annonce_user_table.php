@@ -15,8 +15,10 @@ class CreateAnnonceUserTable extends Migration
     {
         Schema::create('annonce_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->nullable();
-            $table->foreignId('annonce_id')->constrained()->nullable();
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')
+            ->onDelete('cascade')->nullable();
+            $table->foreignId('annonce_id')->constrained()->onUpdate('cascade')
+            ->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

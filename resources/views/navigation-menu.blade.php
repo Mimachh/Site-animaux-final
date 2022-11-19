@@ -31,7 +31,7 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('create.my.ad') }}" :active="request()->routeIs('create.my.ad')" style="color: #cbd5e0">
+                    <x-jet-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')" style="color: #cbd5e0">
                         {{ __('Articles') }}
                     </x-jet-nav-link>
                 </div>
@@ -162,11 +162,11 @@
                                 {{ __('Voir les annonces') }}
                         </x-jet-responsive-nav-link>
 
-                        <x-jet-responsive-nav-link href="{{ route('create.my.ad') }}" :active="request()->routeIs('create.my.ad')">
+                        <x-jet-responsive-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')">
                                 {{ __('Ajouter une annonce') }}
                         </x-jet-responsive-nav-link>
 
-                        <x-jet-responsive-nav-link href="{{ route('create.my.ad') }}" :active="request()->routeIs('create.my.ad')">
+                        <x-jet-responsive-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')">
                                 {{ __('Articles') }}
                         </x-jet-responsive-nav-link>
 
@@ -205,11 +205,11 @@
                             {{ __('Voir les annonces') }}
                     </x-jet-responsive-nav-link>
 
-                    <x-jet-responsive-nav-link href="{{ route('create.my.ad') }}" :active="request()->routeIs('create.my.ad')">
+                    <x-jet-responsive-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')">
                             {{ __('Ajouter une annonce') }}
                     </x-jet-responsive-nav-link>
 
-                    <x-jet-responsive-nav-link href="{{ route('create.my.ad') }}" :active="request()->routeIs('create.my.ad')">
+                    <x-jet-responsive-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')">
                             {{ __('Articles') }}
                     </x-jet-responsive-nav-link>
 

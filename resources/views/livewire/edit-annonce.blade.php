@@ -267,12 +267,12 @@
                                     @if($currentPage === 1)
                                         <div></div>
                                     @else
-                                        <button wire:click='goToPreviousPages' type="button" id="buttonback">Retour</button>
+                                        <x-jet-button class="bg-blue-600" wire:click='goToPreviousPages' type="button" >Retour</x-jet-button>
                                     @endif
                                     @if ($currentPage === count($pages))
-                                        <button type="submit" id="buttonsubmit">Valider</button>
+                                        <x-jet-button class="bg-red-600" type="submit">Valider</x-jet-button>
                                     @else
-                                        <button wire:click="goToNextPages" type="button" id="buttonnext">Suivant</button>
+                                        <x-jet-button class="bg-orange-700" wire:click="goToNextPages" type="button">Suivant</x-jet-button>
                                     @endif
                                 </div>
 

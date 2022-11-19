@@ -12,7 +12,8 @@ class Annonces extends Component
    
     public function index()
     {
-        
+       
+       
 
         return view('annonces.index', ['annonces' => Annonce::paginate(8)]);
     }
@@ -37,7 +38,7 @@ class Annonces extends Component
     {
         
     }
-
+public $annonce;
     /**
      * Display the specified resource.
      *
@@ -45,7 +46,7 @@ class Annonces extends Component
      * @return \Illuminate\Http\Response
      */
     public function show(Annonce $annonce)
-    {
+    {        
         return view('annonces.show', compact('annonce'));
     }
 

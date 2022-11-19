@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Garde_type;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Annonce extends Model
 {
@@ -20,7 +22,7 @@ class Annonce extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     public function especes()
@@ -37,9 +39,9 @@ class Annonce extends Model
     {
         return $this->belongsToMany('App\Models\User');
     }
-    public function gard()
+    public function garde()
     {
-        return $this->hasOne ('App\Models\Garde_type');
+        return $this->hasOne('App\Models\Garde_type');
     }
 
     public function fav_added()
