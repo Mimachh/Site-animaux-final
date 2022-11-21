@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
            
         ]);
         
-        DB::table('garde_types')->insert([
+        DB::table('gardes')->insert([
  
             ['id'=>'1', 'garde' => 'Chez le Pet-Sitter'],
             ['id'=>'2', 'garde' => 'Visite à domicile'],
@@ -180,17 +180,19 @@ class DatabaseSeeder extends Seeder
             ['id' => '1', 'name' => 'Karl', 'email' => 'karl.m@gmail.com', 
             'password' => '$2y$10$ZaUzuL/yWyVcl8bCxhQ64OyOA/GrLJpfP9eThY7dfco29sZvgw.fK']
         ]);
-
-        DB::table('annonces')->insert([
-            ['id' => '1', 'garde_type' => '2', 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 12, 'user_id' => 1],
-            ['id' => '2', 'garde_type' => '1', 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 21, 'user_id' => 1],
-            ['id' => '3', 'garde_type' => '2', 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 25, 'user_id' => 1]
-        ]);
-
+        
         DB::table('villes')->insert([
             ['id' => 1, 'ville_nom' => 'Le Mans']
         
         ]);
+
+        DB::table('annonces')->insert([
+            ['id' => '1', 'garde_id' => '2', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 12, 'user_id' => 1],
+            ['id' => '2', 'garde_id' => '1', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 21, 'user_id' => 1],
+            ['id' => '3', 'garde_id' => '2', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 25, 'user_id' => 1]
+        ]);
+
+        
     
     }
 }

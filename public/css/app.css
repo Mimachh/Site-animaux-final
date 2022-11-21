@@ -2419,3 +2419,124 @@ select {
  .ban { 
   background: rgb(81,9,121);
 background: linear-gradient(90deg, rgba(81,9,121,1) 0%, rgba(15,15,184,1) 2%, rgba(179,8,21,1) 48%, rgba(116,21,29,1) 92%);}
+
+/* Css Text Landing Page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+  background:ivory;
+  width:100%;
+  height:100%;
+  padding:0;
+  margin:0;
+  overflow-x:hidden;
+}
+#text{
+  text-align:center;
+  position:relative;
+  top:200px;
+  font-size:7em;
+  
+}
+.text0,.text2{
+    color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.text1,.text3{
+    color: black;
+  -webkit-text-fill-color: #bc0000; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+#dummy{
+  position:relative;
+  height:100vh;
+  width:100%;
+}
+#back{
+  position:relative;
+ padding-top:50%;
+  text-align:center;
+ font-size:1.5em;
+  cursor:pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+  #back{
+    cursor:none;
+    font-size:0.8em;
+  }
+  #text{
+        top:70px;
+    font-size:2.25em;
+  }
+
+}
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+  
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+.text_wave {
+  position: relative;
+}
+
+.text_wave h6 {
+  color: #fff;
+  font-size: 6em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-left: 50%;
+  
+}
+
+.text_wave h6:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #03a9f4;
+}
+
+.text_wave h6:nth-child(2) {
+  color: #03a9f4;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}

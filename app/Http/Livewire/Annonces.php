@@ -5,18 +5,20 @@ namespace App\Http\Livewire;
 use App\Models\Annonce;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Annonces extends Component
 {
+    use AuthorizesRequests;
     use WithPagination;
    
     public function index()
     {
-        $annonces = Annonce::find(1);
-        $ville = $annonces->ville->ville_nom;
-       
-        return view('annonces.index', ['annonces' => Annonce::paginate(8), 
-        'ville' => $ville]);
+        $annonces = Annonce::paginate(8);
+      
+
+        return view('annonces.index', ['annonces' => $annonces]);
     }
 
     /**
@@ -49,6 +51,7 @@ public $annonce;
     public function show(Annonce $annonce)
     {       
        
+        
         return view('annonces.show', compact('annonce'));
     }
 
@@ -58,10 +61,14 @@ public $annonce;
      * @param  \App\Models\Annonce  $annonce
      * @return \Illuminate\Http\Response
      */
+   
     public function edit(Annonce $annonce)
     {
-        
+        $this->authorize('update', $annonce);
+     
         return view ('annonces.edit', compact('annonce'));
+       
+     
     }
 
     /**
@@ -73,7 +80,7 @@ public $annonce;
      */
     public function update(Request $request, Annonce $annonce)
     {
-        //
+        
     }
 
     /**
@@ -84,7 +91,7 @@ public $annonce;
      */
     public function destroy(Annonce $annonce)
     {
-        //
+        $this->authorize('destroy', $annonce);
     }
 
     

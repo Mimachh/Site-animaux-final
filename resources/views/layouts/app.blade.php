@@ -42,7 +42,7 @@
             
             <!-- Page Content -->
             
-            <main>
+            <main class="text_wave">
             @livewire('flash')    
                 {{ $slot }}
                 

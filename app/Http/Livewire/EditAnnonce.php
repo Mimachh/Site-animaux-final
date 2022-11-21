@@ -2,15 +2,19 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
+use App\Models\Garde;
 
-use App\Models\Garde_type;
-use App\Models\Espece_animaux;
-use App\Models\villes_france;
 use App\Models\Annonce;
+use Livewire\Component;
+use App\Models\Garde_type;
+use App\Models\villes_france;
+use App\Models\Espece_animaux;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditAnnonce extends Component
 {
+    use AuthorizesRequests;
+    
     public $annonce;
 
     
@@ -101,7 +105,9 @@ class EditAnnonce extends Component
      */
     public function update()
     {
+        
         $ids = $this->annonce->id;
+        $this->authorize('update', $this->annonce);
         $this->user_id = auth()->user()->id;
 
         $this->validate([
@@ -126,7 +132,7 @@ class EditAnnonce extends Component
         ]);
 
         $update = Annonce::find($ids)->update([
-            'garde_type' => $this->garde,
+            'garde_id' => $this->garde,
             'start_watch' => $this->start_watch,
             'end_watch' => $this->end_watch,
             'chats' => $this->chats,
@@ -152,7 +158,7 @@ class EditAnnonce extends Component
     {
         $ids = $this->annonce->id;
         $infos = Annonce::find($ids);
-        $gardes = Garde_type::all();
+        $gardes = Garde::all();
         
         /*$this->garde = $infos->garde_type;
         $this->start_watch_upd = $infos->start_watch;

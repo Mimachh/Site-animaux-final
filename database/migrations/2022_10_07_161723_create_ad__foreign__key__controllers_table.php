@@ -29,7 +29,7 @@ class CreateAdForeignKeyControllersTable extends Migration
         });
 
         Schema::table('annonces', function(Blueprint $table) {
-            /*$table->foreign('villes_france_id')->references('ville_id')->on('villes_france');*/
+       
             $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade');
 
             $table->foreign('my_animal_id')->references('id')->on('animals_owneds')->onDelete('cascade');
@@ -59,15 +59,7 @@ class CreateAdForeignKeyControllersTable extends Migration
             $table->foreign('oiseaux')->references('id')->on('especes_animaux')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
-            /*$table->foreign('visit')->references('id')->on('garde_types')
-            ->onDelete('cascade')
-            ->onUpdate('cascade'); 
-            $table->foreign('home')->references('id')->on('garde_types')
-            ->onDelete('cascade')
-            ->onUpdate('cascade'); */
-
-            $table->foreign('garde_type')->references('id')->on('garde_types')
+            $table->foreign('garde_id')->references('id')->on('gardes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
         });

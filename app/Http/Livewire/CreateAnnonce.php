@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Garde;
 use App\Models\Annonce;
 use Livewire\Component;
-use App\Models\Garde_type;
 use App\Models\Espece_animaux;
 
 class CreateAnnonce extends Component
@@ -159,7 +159,7 @@ class CreateAnnonce extends Component
    
      $annonces=Annonce::create([
          
-        'garde_type' => $this->garde,
+        'garde_id' => $this->garde,
         'start_watch' => $this->start_watch,
         'end_watch' => $this->end_watch,
         'chats' => $this->chats,
@@ -185,7 +185,7 @@ class CreateAnnonce extends Component
 
     public function render()
     {
-        $gardes = Garde_type::all();
+        $gardes = Garde::all();
      
         $this->name = auth()->user()->name;
         $this->user_id = auth()->user()->id;

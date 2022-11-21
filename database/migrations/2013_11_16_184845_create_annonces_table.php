@@ -25,11 +25,8 @@ class CreateAnnoncesTable extends Migration
             
             $table->date('start_watch')->nullable();
             $table->date('end_watch')->nullable();
-
-            /* $table->string('visit', 100)->nullable();
-            $table->string('home', 100)->nullable();  remplacé par celui d'après*/
-
-            $table->string('garde_type', 100)->nullable();
+            
+            $table->unsignedBigInteger('garde_id')->nullable();
 
             $table->string('chats', 100)->nullable();
             $table->string('chiens', 100)->nullable();

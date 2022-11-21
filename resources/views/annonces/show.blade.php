@@ -5,75 +5,81 @@
         </h1>
     </x-slot>
 
-<div class="ml-10 mr-10 bg-white border rounded shadow-md dark:bg-gray-800 dark:border-gray-700">
-    <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800" id="defaultTab" data-tabs-toggle="#defaultTabContent" role="tablist">
-        <li class="mr-2">
-            <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="true" class="inline-block p-4 text-blue-600 rounded-tl-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500">About</button>
-        </li>
-        <li class="mr-2">
-            <button id="services-tab" data-tabs-target="#services" type="button" role="tab" aria-controls="services" aria-selected="false" class="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300">Services</button>
-        </li>
-        <li class="mr-2">
-            <button id="statistics-tab" data-tabs-target="#statistics" type="button" role="tab" aria-controls="statistics" aria-selected="false" class="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300">Facts</button>
-        </li>
-    </ul>
-    <div id="defaultTabContent">
-        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
-            <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Bonjour je m'appelle {{ $annonce->name }}</h2>
-            <p class="mb-3 text-gray-500 dark:text-gray-400">Je peux garder vos animaux du {{$annonce->start_watch}} au {{$annonce->end_watch}}.</p>
-            <p class="mb-3 text-gray-500 dark:text-gray-400">Je peux garder vos animaux : {{$annonce->garde_type->id}}.</p>
-            <p class="mb-3 text-gray-500 dark:text-gray-400">Ma ville : {{ $annonce->ville->ville_nom}}.</p>
-            <p class="mb-3 text-gray-500 dark:text-gray-400">{{$annonce->description}}.</p>
-            <p class="mb-3 text-gray-500 dark:text-gray-400">Mon tarif : {{$annonce->price}}€/jour.</p>
-            <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
-                Me contacter
-                <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-            </a>
-        </div>
-        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="services" role="tabpanel" aria-labelledby="services-tab">
-            <h2 class="mb-5 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">We invest in the world’s potential</h2>
-            <!-- List -->
-            <ul role="list" class="space-y-4 text-gray-500 dark:text-gray-400">
-                <li class="flex space-x-2">
-                    <!-- Icon -->
-                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    <span class="font-light leading-tight">Dynamic reports and dashboards</span>
-                </li>
-                <li class="flex space-x-2">
-                    <!-- Icon -->
-                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    <span class="font-light leading-tight">Templates for everyone</span>
-                </li>
-                <li class="flex space-x-2">
-                    <!-- Icon -->
-                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    <span class="font-light leading-tight">Development workflow</span>
-                </li>
-                <li class="flex space-x-2">
-                    <!-- Icon -->
-                    <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    <span class="font-light leading-tight">Limitless business automation</span>
-                </li>
-            </ul>
-        </div>
-        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
-            <dl class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
-                <div class="flex flex-col">
-                    <dt class="mb-2 text-3xl font-extrabold">73M+</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">Developers</dd>
-                </div>
-                <div class="flex flex-col">
-                    <dt class="mb-2 text-3xl font-extrabold">100M+</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">Public repositories</dd>
-                </div>
-                <div class="flex flex-col">
-                    <dt class="mb-2 text-3xl font-extrabold">1000s</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">Open source projects</dd>
-                </div>
-            </dl>
-        </div>
+<div >
+    <div class="text-center xs:mx-32 sm:mx-32 lg:mx-64 group border px-2 py-3 rounded shadow hover:shadow-lg">
+                                            
+                                            <a href="{{ route('annonces.show', $annonce) }}">
+                                                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                                    <img src="/images/clin.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                                                </div>
+                                            </a>
+                                        
+                                            <div class="flex justify-between mt-4 mb-4">
+                                                <div></div>
+                                                <a href="{{ route('annonces.show', $annonce) }}">
+                                                    <h2 class="text-xl text-semibold text-gray-700">{{ $annonce->name }}</h2>
+                                                </a>
+                                            
+                                                <livewire:ad-fav :annonce="$annonce">
+                                                
+                                            </div>
+
+                                            <a href="{{ route('annonces.show', $annonce) }}">
+                                                
+                                                <!-- Dispo -->
+                                                @if($annonce->start_watch && $annonce->end_watch !== null)
+                                                <div class="flex justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                                                    </svg>
+                                                    <p class="text-lg text-gray-600 pb-3 pl-4">
+                                                        Disponible du : <span class="text-md text-gray-800">{{date('d/m/Y', strtotime($annonce->start_watch))}}</span>  
+                                                        au : <span class="text-md text-gray-800">{{date('d/m/Y', strtotime($annonce->end_watch))}}</span>
+                                                    </p>
+                                                </div>
+                                                @endif
+                                                <!-- Fin dispo --> 
+                                                <!-- Ville -->
+                                                @if($annonce->ville_id !== null)
+                                                <div class="flex justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+                                                    </svg>
+                                                    <p class="text-lg text-gray-600 pl-4 pb-3">Ville : <span class="text-md text-gray-800"> {{ $annonce->ville->ville_nom }}</span></p>    
+                                                </div>
+                                                @endif
+                                                <!--Fin ville -->
+                                                <!-- Type de garde -->
+                                                <p class="text-lg text-gray-600 pb-3">Type de garde :               
+                                                    <span class="text-lg text-gray-800">{{$annonce->garde->garde}}</span>       
+                                                </p>
+                                                <!-- Fin type de garde -->
+                                                
+                                                <p class="text-lg text-gray-600 pb-2">Animaux gardés :
+                                                
+                                                    <p class="text-lg text-gray-800 mb-5">{{ $annonce->chats ? 'Chats' : ''}}
+                                                        {{ $annonce->chiens ? ' Chiens' : ''}} 
+                                                        {{ $annonce->poissons ? ' Poissons' : ''}}
+                                                        {{ $annonce->rongeurs ? ' Rongeurs' : ''}} 
+                                                        {{ $annonce->oiseaux ? ' Oiseaux' : ''}} 
+                                                        {{ $annonce->reptiles ? ' Reptiles' : ''}} 
+                                                        {{ $annonce->ferme ? ' Animaux de la ferme' : ''}}
+
+                                                    </p>
+                                                </p>
+                                                <label for="description" class="my-1 text-lg font-medium text-gray-600 mt-6">Quelques mots sur moi :</label> 
+                                                <p class="text-lg text-gray-800 mb-5" id="description" name="description">{{ $annonce->description }}</p>
+                                                
+                                                <label for="prix" class="my-1 text-lg font-medium text-gray-600 mt-5"> Mon tarif :</label>
+                                                <p class="my-1 text-lg font-medium text-gray-900 pb-3" id="prix" name="prix">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>
+                                                  
+                                            </a>    
+                                                <div class="flex items-center mt-2">
+                                                    <span class="flex h-2 w-2 bg-red-600 rounded-full mr-2"></span>
+                                                    <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Consulter l'annonce</a>
+                                                </div> 
+                                            
     </div>
 </div>
-
 
 </x-app-layout>

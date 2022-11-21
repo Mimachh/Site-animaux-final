@@ -1,15 +1,15 @@
 <x-app-layout>
 
-
-  
-
     <!-- Hero Area Start -->
-    <section id="hero-area" class="bg-blue-100 pt-48 pb-10">
+    <section id="hero-area" class="bg-blue-100 pt-48 pb-48">
       <div class="container">
         <div class="flex justify-between">
           <div class="w-full text-center">
-            <h2 class="text-4xl font-bold leading-snug text-gray-700 mb-10 wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible;-webkit-animation-delay: 1s; -moz-animation-delay: 1s; animation-delay: 1s;">Startup and SaaS Landing Page
-              <br class="hidden lg:block"> Built with TailwindCSS</h2>
+            <div class="">
+              <h6>Bienvenue</h6>
+              <h6>Bienvenue</h6>
+            </div>
+            <br class="hidden lg:block"> Le site qui</h2>
             <div class="text-center wow fadeInUp animated" data-wow-delay="1.6s" style="visibility: visible;-webkit-animation-delay: 1.6s; -moz-animation-delay: 1.6s; animation-delay: 1.6s;">
               <img class="img-fluid mx-auto" src="assets/img/hero.svg" alt="">
             </div>

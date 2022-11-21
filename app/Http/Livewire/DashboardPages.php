@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\Annonce;
-use App\Models\annonce_user;
 use App\Models\user;
-
-
-
+use App\Models\Annonce;
 use Livewire\Component;
+
+
+
+use App\Models\annonce_user;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class DashboardPages extends Component
 {
+   use AuthorizesRequests;
+
     public $annonces;
     public $confirmingAnnonceDeletion = false;
   
@@ -54,13 +57,18 @@ class DashboardPages extends Component
       $this->confirmingAnnonceDeletion = true;
     }
 
-    public function deleteAnnonce($id)
+    
+    public function delete($annonce)
     {
-      if($id) {
-        $record = Annonce::where('id', $id);
-        $record->delete();
+      $ad = $annonce['user_id'];
+      $user = auth()->user()->id;
+    
+      if($ad === $user) {
+        Annonce::destroy($annonce);
+      
+        $this->confirmingAnnonceDeletion = false;
       }
-      $this->confirmingAnnonceDeletion = false;
+      
     }
 
     /*

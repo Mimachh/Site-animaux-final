@@ -31,25 +31,23 @@ class Annonce extends Model
         return $this->hasMany('App\Models\Espece_animaux');
     }
 
-    public function vill()
-    {
-        return $this->belongsTo(villes_france::class);
-    }
-
+    
     public function ville()
     {
         return $this->belongsTo('App\Models\Ville');
     }
+    public function garde()
+    {
+        return $this->belongsTo('App\Models\Garde');
+    }
+
+
 
     public function fav()
     {
         return $this->belongsToMany('App\Models\User');
     }
-    public function garde()
-    {
-        return $this->belongsTo('App\Models\Garde_type');
-    }
-
+    
     public function fav_added()
     {
         if (auth()->check()) {
@@ -69,6 +67,6 @@ class Annonce extends Model
     protected $fillable = [
         
         'user_id', 'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
-        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 'garde_type',
+        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 'garde_id',
     ];
 }

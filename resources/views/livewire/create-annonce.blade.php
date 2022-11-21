@@ -100,8 +100,8 @@
                                                         <div class="flex h-5 items-center">
                                                             <select wire:model='garde' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                                             <option value="">--Choisissez un type de garde--</option>
-                                                            @foreach($gardes as $garde_type) 
-                                                            <option value="{{ $garde_type->id }}">{{ $garde_type->garde }}</option>
+                                                            @foreach($gardes as $g) 
+                                                            <option value="{{ $g->id }}">{{ $g->garde }}</option>
                                                             @endforeach
                                                             </select>
                                                         </div>
