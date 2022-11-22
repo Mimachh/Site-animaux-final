@@ -95,8 +95,9 @@ class DashboardPages extends Component
     {
       $ads = auth()->user()->ads;
       $favs = auth()->user()->fav;
+      $animals = auth()->user()->animals;
     
         
-        return view('livewire.dashboard-pages', ['ads' => $ads, 'favs' => $favs]);
+        return view('livewire.dashboard-pages', ['ads' => $ads, 'favs' => $favs, 'animals' => $animals]);
     }
 }

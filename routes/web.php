@@ -34,13 +34,13 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('/annonces', Annonces::class)
     ->except('index');
-    
+    Route::resource('/animals', Animals::class);    
 });
 
 
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
 
-Route::resource('/animals', Animals::class);
+
 
 
