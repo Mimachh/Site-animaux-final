@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Race;
 use App\Models\Animal;
+use App\Models\Espece;
 use Livewire\Component;
-use App\Models\Liste_race;
-use App\Models\Espece_animaux;
+
 
 class CreateAnimal extends Component
 {
@@ -73,7 +74,7 @@ public function mount()
 
 public function updatedEspece($newValue)
 {
-    $this->races = Liste_race::where('espece_id', $newValue)->orderBy('race_animal')->get();
+    $this->races = Race::where('espece_id', $newValue)->orderBy('race_animal')->get();
 }
 
 public function store()
@@ -125,7 +126,7 @@ public function store()
     {
         
         
-        $especes = Espece_animaux::select('id', 'espece')->where('id', '<', 9 )->get();
+        $especes = Espece::select('id', 'espece')->where('id', '<', 9 )->get();
 
         return view('livewire.create-animal', ["especes"=>$especes]);
     }
