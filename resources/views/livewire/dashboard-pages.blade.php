@@ -34,7 +34,7 @@
                 <div>            
                     <!-- Page de mes annonces --> 
                     @if($currentPage === 1)                       
-                        @foreach($ads as $annonce)
+                        @forelse($ads as $annonce)
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
                                 <div class="flex justify-between">
                                     <h2 class="text-md font-bold text-gray-600 mb-2">{{$annonce->name}}</h2>
@@ -97,8 +97,14 @@
                                     <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir mon annonce</a>
                                 </div> 
                                     
-                            </div>         
-                        @endforeach
+                            </div>
+                        @empty
+                            <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
+                                <div class="flex justify-between pb-2">
+                                    <p class="text-md font-normal text-gray-800">Vous n'avez aucune annonce active pour l'instant. Vous pouvez en poster une en cliquant <a class="text-blue-600" href="{{ route('annonces.create') }}">ici.</a></p>
+                                </div>
+                            </div>          
+                        @endforelse
                         @foreach($ads as $annonce)
                             <x-jet-dialog-modal wire:model="confirmingAnnonceDeletion">
                                 <x-slot name="title">
@@ -114,7 +120,7 @@
                                         Annuler
                                     </x-jet-secondary-button>
 
-                                    <x-jet-danger-button class="ml-3" wire:click="delete ({{ $annonce }})" wire:loading.attr="disabled">
+                                    <x-jet-danger-button class="ml-3" wire:click="delete ({{ $annonce->id }})" wire:loading.attr="disabled">
                                         Supprimer l'annonce
                                     </x-jet-danger-button>
                                 </x-slot>
@@ -125,7 +131,7 @@
                 <div>
                         <!-- Page de Favoris -->   
                     @if($currentPage === 2)
-                        @foreach($favs as $annonce)
+                        @forelse($favs as $annonce)
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">
                             <div class="flex justify-between pb-2">
                                 <h2 class="text-md font-bold text-gray-600">{{$annonce->name}}</h2>
@@ -173,7 +179,13 @@
                                 <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir l'annonce</a>
                             </div> 
                             </div>
-                        @endforeach
+                        @empty
+                            <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
+                                <div class="flex justify-between pb-2">
+                                    <p class="text-md font-normal text-gray-800">Vous n'avez aucun favori pour l'instant. Vous pouvez trouver l'annonce adéquate en cliquant <a class="text-blue-600" href="{{ route('annonces.index') }}">ici.</a></p>
+                                </div>
+                            </div>    
+                        @endforelse
                     @endif
                 </div>
             </div>            

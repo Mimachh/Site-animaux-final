@@ -24,14 +24,7 @@ class Annonce extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function especes()
-    {
-        return $this->hasMany('App\Models\Espece_animaux');
-    }
-
-    
+    } 
     public function ville()
     {
         return $this->belongsTo('App\Models\Ville');
@@ -39,6 +32,14 @@ class Annonce extends Model
     public function garde()
     {
         return $this->belongsTo('App\Models\Garde');
+    }
+    public function especes()
+    {
+        return $this->belongsTo('App\Models\Espece');
+    }
+    public function esp()
+    {
+        return $this->belongsTo('App\Models\Espece_animaux');
     }
 
 

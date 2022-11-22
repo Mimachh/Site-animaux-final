@@ -8,10 +8,6 @@
      
     </x-slot>
     
-   
-
                  @livewire('dashboard-pages')
-
-       
-            
+        
 </x-app-layout>

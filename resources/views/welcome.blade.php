@@ -1,5 +1,5 @@
 <x-app-layout>
-
+  <div class="text_wave">
     <!-- Hero Area Start -->
     <section id="hero-area" class="bg-blue-100 pt-48 pb-48">
       <div class="container">
@@ -661,5 +661,5 @@
     <script src="assets/js/main.js"></script>      
   
 
-
+  </div>
 </x-app-layout>

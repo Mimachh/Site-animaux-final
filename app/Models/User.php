@@ -68,11 +68,12 @@ class User extends Authenticatable
 
     public function animals()
     {
-        return $this->hasMany('App\Models\animals_owned');
+        return $this->hasMany('App\Models\Animal');
     }
 
     public function fav()
     {
         return $this->belongsToMany('App\Models\Annonce');
     }
+
 }

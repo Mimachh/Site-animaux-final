@@ -41,7 +41,7 @@ class Annonces extends Component
     {
         
     }
-public $annonce;
+    public $annonce;
     /**
      * Display the specified resource.
      *

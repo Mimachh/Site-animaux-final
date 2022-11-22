@@ -158,7 +158,7 @@
                     </div>
 
                     <div class="mt-3 space-y-1">
-                        <x-jet-responsive-nav-link href="" :active="request()->routeIs('')">
+                        <x-jet-responsive-nav-link href="{{ route('annonces.index') }}" :active="request()->routeIs('annonces.index')">
                                 {{ __('Voir les annonces') }}
                         </x-jet-responsive-nav-link>
 
@@ -201,7 +201,7 @@
 
                 <div class="mt-3 space-y-1">
                 
-                    <x-jet-responsive-nav-link href="" :active="request()->routeIs('')">
+                    <x-jet-responsive-nav-link href="{{ route('annonces.index') }}" :active="request()->routeIs('annonces.index')">
                             {{ __('Voir les annonces') }}
                     </x-jet-responsive-nav-link>
 

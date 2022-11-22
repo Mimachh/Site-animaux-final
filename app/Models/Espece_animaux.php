@@ -39,9 +39,9 @@ class Espece_animaux extends Model
         return $this->hasMany(Liste_race::class);
     }
 
-    public function annonces()
+    public function ads()
     {
-        return $this->belongsToMany('App\Models\Annonce');
+        return $this->hasMany('App\Models\Annonce');
     }
     
     

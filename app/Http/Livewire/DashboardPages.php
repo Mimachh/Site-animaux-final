@@ -60,14 +60,19 @@ class DashboardPages extends Component
     
     public function delete($annonce)
     {
-      $ad = $annonce['user_id'];
+      $annonce = Annonce::where('id', $annonce)->get();
+      $ad = $annonce[0]['user_id'];
       $user = auth()->user()->id;
-    
+      
+      
       if($ad === $user) {
         Annonce::destroy($annonce);
       
         $this->confirmingAnnonceDeletion = false;
+        $this->emit('flash', 'Votre annonce a bien été supprimée ! :(', 
+        'error');
       }
+      
       
     }
 

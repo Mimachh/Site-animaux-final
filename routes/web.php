@@ -3,6 +3,8 @@
 use App\Http\Livewire\AnimalOwnedForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Annonces;
+use App\Http\Livewire\Animals;
+
 
 
 /*
@@ -38,5 +40,7 @@ Route::middleware([
 
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
+
+Route::resource('/animals', Animals::class);
 
 

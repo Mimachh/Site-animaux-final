@@ -5,8 +5,8 @@
         </h1>
     </x-slot>
 
-<div >
-    <div class="text-center xs:mx-32 sm:mx-32 lg:mx-64 group border px-2 py-3 rounded shadow hover:shadow-lg">
+<div class="pb-5" >
+    <div class="text-center  my-10 xs:mx-32 sm:mx-32 lg:mx-64 group border px-2 py-3 rounded shadow hover:shadow-lg">
                                             
                                             <a href="{{ route('annonces.show', $annonce) }}">
                                                 <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
@@ -70,13 +70,14 @@
                                                 <label for="description" class="my-1 text-lg font-medium text-gray-600 mt-6">Quelques mots sur moi :</label> 
                                                 <p class="text-lg text-gray-800 mb-5" id="description" name="description">{{ $annonce->description }}</p>
                                                 
-                                                <label for="prix" class="my-1 text-lg font-medium text-gray-600 mt-5"> Mon tarif :</label>
-                                                <p class="my-1 text-lg font-medium text-gray-900 pb-3" id="prix" name="prix">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>
-                                                  
+                                                <div class="">
+                                                    <label for="prix" class="inline-block my-1 text-lg font-medium text-gray-600 mt-5"> Mon tarif :</label>
+                                                    <p class="inline-block my-1 text-lg font-medium text-gray-900 pb-3" id="prix" name="prix">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>
+                                                </div>
+                                                   
                                             </a>    
-                                                <div class="flex items-center mt-2">
-                                                    <span class="flex h-2 w-2 bg-red-600 rounded-full mr-2"></span>
-                                                    <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Consulter l'annonce</a>
+                                                <div class=" justify-center my-5">
+                                                <x-jet-button type="button" class="bg-blue-600"><a href="">Contacter</a></x-jet-button>   
                                                 </div> 
                                             
     </div>

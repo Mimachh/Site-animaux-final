@@ -18,6 +18,7 @@ class AdFav extends Component
 
         auth()->user()->fav()->toggle($this->annonce->id);
 
+        
        /* return redirect()->route('annonces.index'); Apparemment plus besoin ça marche sans */
       }
       else {
