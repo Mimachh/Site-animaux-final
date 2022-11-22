@@ -1,2 +1,3 @@
 {{$animal->animal_name}}
-{{$animal->race}}
+{{$animal->espece->espece}}
+{{$animal->race->race_animal}}

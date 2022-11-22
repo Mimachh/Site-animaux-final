@@ -13,4 +13,8 @@ class Espece extends Model
     {
         return $this->hasMany('App\Models\Annonce');
     }
+    public function animals()
+    {
+        return $this->hasMany('App\Models\Animal');
+    }
 }

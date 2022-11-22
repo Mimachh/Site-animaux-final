@@ -108,8 +108,8 @@ public function store()
         'female_rongeurs' => $this->rongeuses,
         'birds' => $this->birds,
         'reptiles' => $this->reptiles,
-        'espece' =>$this->espece,
-        'race' => $this->race,
+        'espece_id' =>$this->espece,
+        'race_id' => $this->race,
         'user_id' => $this->user_id,
         
     ]);

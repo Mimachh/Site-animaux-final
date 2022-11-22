@@ -16,14 +16,19 @@
                     @endif
                     
                     
-
                     @if($currentPage === 3)
+                        <button type="button" wire:click='goToPageAnim'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes animaux</h2></button>
+                        @else()
+                        <button type="button" wire:click='goToPageAnim'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes animaux</h2></button>
+                    @endif
+
+                    @if($currentPage === 4)
                         <button type="button" wire:click='goToPageMess'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes messages</h2></button>
                         @else()
                         <button type="button" wire:click='goToPageMess'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes messages</h2></button>
                     @endif
                     
-                    @if($currentPage === 4)
+                    @if($currentPage === 5)
                         <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes gardes réalisées</h2></button>    
                         @else()
                         <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes gardes réalisées</h2></button>    
@@ -204,7 +209,7 @@
                                             <p class="inline text-green-700">Modifier la fiche de {{$animal->animal_name}}</p>
                                         </a>
                                        
-                                        <button wire:click="confirmAnnonceDeletion ({{ $animal->id}})" wire:click="destroy({{ $animal->id}})" type="button" class="text-sm pr-10 items-center text-red-600">
+                                        <button wire:click="confirmAnimalDeletion ({{ $animal->id}})" wire:click="destroy({{ $animal->id}})" type="button" class="text-sm pr-10 items-center text-red-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-5 h-5 inline-block">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>

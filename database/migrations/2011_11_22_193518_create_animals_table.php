@@ -18,8 +18,8 @@ class CreateAnimalsTable extends Migration
             $table->timestamps();
             $table->string('animal_name')->nullable();
             $table->text('personnality')->nullable();
-            $table->string('espece')->nullable();
-            $table->unsignedBigInteger('race')->nullable();
+            $table->unsignedBigInteger('espece_id')->nullable();
+            $table->unsignedBigInteger('race_id')->nullable();
             $table->boolean('male_dogs')->nullable();
             $table->boolean('female_dogs')->nullable();
             $table->boolean('male_cats')->nullable();

@@ -23,21 +23,25 @@ class DashboardPages extends Component
     public $currentPage = 1;
     public $pages = [1=>1, 2=>2, 3=>3, 4=>4];
 
-    public function goToPageFav()
-      {
-      $this->currentPage = 2;
-      }
     public function goToPageAds()
       {
         $this->currentPage = 1;
       }
-    public function goToPageMess()
+    public function goToPageFav()
+      {
+      $this->currentPage = 2;
+      }
+      public function goToPageAnim()
       {
         $this->currentPage = 3;
       }
-    public function goToPageGardes()
+    public function goToPageMess()
       {
         $this->currentPage = 4;
+      }
+    public function goToPageGardes()
+      {
+        $this->currentPage = 5;
       }
   
     /* Fin séparation des pages */

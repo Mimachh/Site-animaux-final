@@ -18,6 +18,16 @@ class Animal extends Model
     protected $fillable = [
         
         'animal_name', 'user_id', 'personnality', 'male_cats', 'female_cats', 'male_dogs', 'female_dogs', 
-        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles', 'espece', 'race',
+        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles', 'espece_id', 'race_id',
     ];
+
+    public function espece()
+    {
+        return $this->belongsTo('App\Models\Espece');
+    }
+    public function race()
+    {
+        return $this->belongsTo('App\Models\Race');
+    }
+    
 }

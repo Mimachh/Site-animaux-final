@@ -14,8 +14,7 @@ class CreateEspecesTable extends Migration
     public function up()
     {
         Schema::create('especes', function (Blueprint $table) {
-            $table->string('id', 100)->nullable();
-            $table->primary('id');
+            $table->id();
             $table->timestamps();
             $table->string('espece')->nullable();
         });
