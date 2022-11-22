@@ -4,11 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Garde;
 
+use App\Models\Espece;
 use App\Models\Annonce;
 use Livewire\Component;
-use App\Models\Garde_type;
+
 use App\Models\villes_france;
-use App\Models\Espece_animaux;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditAnnonce extends Component
@@ -69,28 +70,28 @@ class EditAnnonce extends Component
          
             /* Animals */
          
-            $chats_id = Espece_animaux::find(1);
+            $chats_id = Espece::find(1);
             $this->chats = $this->chats_id;
          
-            $chiens_id = Espece_animaux::find(2);
+            $chiens_id = Espece::find(2);
             $this->chiens = $this->chiens_id;
          
-            $poissons_id = Espece_animaux::find(3);
+            $poissons_id = Espece::find(3);
             $this->poissons = $this->poissons_id;
          
-            $rongeurs_id = Espece_animaux::find(4);
+            $rongeurs_id = Espece::find(4);
             $this->rongeurs = $this->rongeurs_id;
          
-            $oiseaux_id = Espece_animaux::find(5);
+            $oiseaux_id = Espece::find(5);
             $this->oiseaux = $this->oiseaux_id;
          
-            $reptiles_id = Espece_animaux::find(6);
+            $reptiles_id = Espece::find(6);
             $this->reptiles = $this->reptiles_id;
          
-            $ferme_id = Espece_animaux::find(7);
+            $ferme_id = Espece::find(7);
             $this->ferme = $this->ferme_id;
          
-            $autre_id = Espece_animaux::find(8);
+            $autre_id = Espece::find(8);
             $this->autre = $this->autre_id;
          
             /* Fin animaux */    
@@ -179,14 +180,14 @@ class EditAnnonce extends Component
         $this->name = $infos->name;
         $this->user_id = $infos->user_id;
         
-        $this->chats_id = Espece_animaux::find(1);
-        $this->chiens_id = Espece_animaux::find(2);
-        $this->poissons_id  = Espece_animaux::find(3);
-        $this->rongeurs_id = Espece_animaux::find(4);
-        $this->oiseaux_id = Espece_animaux::find(5);
-        $this->reptiles_id = Espece_animaux::find(6);
-        $this->ferme_id = Espece_animaux::find(7);
-        $this->autre_id = Espece_animaux::find(8);
+        $this->chats_id = Espece::find(1);
+        $this->chiens_id = Espece::find(2);
+        $this->poissons_id  = Espece::find(3);
+        $this->rongeurs_id = Espece::find(4);
+        $this->oiseaux_id = Espece::find(5);
+        $this->reptiles_id = Espece::find(6);
+        $this->ferme_id = Espece::find(7);
+        $this->autre_id = Espece::find(8);
 
 
         return view('livewire.edit-annonce', ["gardes"=>$gardes]);

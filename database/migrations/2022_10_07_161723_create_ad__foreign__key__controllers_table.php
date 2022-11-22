@@ -15,17 +15,9 @@ class CreateAdForeignKeyControllersTable extends Migration
     {
        
        Schema::table('users', function ($table) {
-            $table->foreign('animal_owned_id')->references('id')->on('animals_owneds')->onDelete('cascade');
+            $table->foreign('animal_id')->references('id')->on('animals')->onDelete('cascade');
             $table->foreign('city')->references('ville_id')->on('villes_france');
             
-        });
-
-        Schema::table('animals_owneds', function(Blueprint $table) {
-            $table->foreign('owner')->references('id')->on('users')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('espece')->references('id')->on('especes_animaux');
-            $table->foreign('race')->references('id')->on('liste_race');
         });
 
         Schema::table('animals', function(Blueprint $table) {
@@ -40,31 +32,31 @@ class CreateAdForeignKeyControllersTable extends Migration
        
             $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade');
 
-            $table->foreign('my_animal_id')->references('id')->on('animals_owneds')->onDelete('cascade');
+            $table->foreign('my_animal_id')->references('id')->on('animals')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            
-            $table->foreign('chats')->references('id')->on('especes_animaux')
+            $table->foreign('chats')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('chiens')->references('id')->on('especes_animaux')
+            $table->foreign('chiens')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('poissons')->references('id')->on('especes_animaux')
+            $table->foreign('poissons')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('rongeurs')->references('id')->on('especes_animaux')
+            $table->foreign('rongeurs')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('reptiles')->references('id')->on('especes_animaux')
+            $table->foreign('reptiles')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('ferme')->references('id')->on('especes_animaux')
+            $table->foreign('ferme')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('autre')->references('id')->on('especes_animaux')
+            $table->foreign('autre')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('oiseaux')->references('id')->on('especes_animaux')
+            $table->foreign('oiseaux')->references('id')->on('especes')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->foreign('garde_id')->references('id')->on('gardes')
@@ -72,9 +64,8 @@ class CreateAdForeignKeyControllersTable extends Migration
             ->onUpdate('cascade'); 
         });
 
-
-        Schema::table('liste_race', function(Blueprint $table) {
-            $table->foreign('espece_id')->references('id')->on('especes_animaux'); 
+        Schema::table('races', function(Blueprint $table) {
+            $table->foreign('espece_id')->references('id')->on('especes'); 
         
         });
 

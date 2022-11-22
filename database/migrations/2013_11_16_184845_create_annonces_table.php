@@ -28,14 +28,14 @@ class CreateAnnoncesTable extends Migration
             
             $table->unsignedBigInteger('garde_id')->nullable();
 
-            $table->string('chats', 100)->nullable();
-            $table->string('chiens', 100)->nullable();
-            $table->string('poissons', 100)->nullable();
-            $table->string('rongeurs', 100)->nullable();
-            $table->string('oiseaux', 100)->nullable();
-            $table->string('reptiles', 100)->nullable();
-            $table->string('ferme', 100)->nullable();
-            $table->string('autre', 100)->nullable();
+            $table->unsignedBigInteger('chats')->nullable();
+            $table->unsignedBigInteger('chiens')->nullable();
+            $table->unsignedBigInteger('poissons')->nullable();
+            $table->unsignedBigInteger('rongeurs')->nullable();
+            $table->unsignedBigInteger('oiseaux')->nullable();
+            $table->unsignedBigInteger('reptiles')->nullable();
+            $table->unsignedBigInteger('ferme')->nullable();
+            $table->unsignedBigInteger('autre')->nullable();
 
             $table->text('description')->nullable();  
             $table->unsignedBigInteger('my_animal_id')->nullable();
