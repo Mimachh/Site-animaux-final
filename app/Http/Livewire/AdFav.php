@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\User;
 use App\Models\Annonce;
+use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 
 class AdFav extends Component
@@ -22,8 +23,9 @@ class AdFav extends Component
        /* return redirect()->route('annonces.index'); Apparemment plus besoin ça marche sans */
       }
       else {
+        
         $this->emit('flash', 'Vous devez être connecté pour ajouter un favori', 
-        'error');
+        'error');       
       }
      
     }

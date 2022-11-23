@@ -176,10 +176,8 @@ class CreateAnnonce extends Component
         'user_id' => $this->user_id,
       ]);
      
-     
-    
 
-      return redirect()->route('annonces.show', $annonces->id);
+      return redirect()->route('annonces.show', $annonces->id)->with('success', 'Ton annonce est bien enregistrée !');
 
   }
 

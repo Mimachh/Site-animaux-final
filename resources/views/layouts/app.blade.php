@@ -37,17 +37,35 @@
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" >
                         {{ $header }}
                     </div>
-                    
                 </header>
             @endif
             
             <!-- Page Content -->
             
             <main>
-            @livewire('flash')    
-                {{ $slot }}
+            <!-- Messages flash -->
+                @if(session()->has('alert'))
+                    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show" class="border-red-700 text-red-700 bg-red-200 border-2 px-1 py-2 rounded text-center md:mx-32 lg:mx-32 mt-2" role="alert">
+                        <strong class="font-bold">Holy smokes!</strong>
+                        <span class="block sm:inline">{{ session()->get('alert') }}</span>  
+                    </div>
+                @endif
+                @if(session()->has('success'))
+                    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show" class="border-green-700 text-green-700 bg-green-200 border-2 px-1 py-2 rounded text-center md:mx-32 lg:mx-32 mt-2" role="alert">
+                        <strong class="font-bold">Bravo !</strong>
+                        <span class="block sm:inline"> {{ session()->get('success') }}</span> 
+                    </div>
+                @endif   
                 
+                @livewire('flash')  
+
+            <!-- Fin Messages flash -->
+            
+            
+                {{ $slot }}
+               
                 @yield('content')
+                
             </main>
         </div>
 

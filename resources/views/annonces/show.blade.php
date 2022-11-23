@@ -4,7 +4,6 @@
             Annonce de {{$annonce->name}}
         </h1>
     </x-slot>
-
 <div class="pb-5" >
     <div class="text-center  my-10 xs:mx-32 sm:mx-32 lg:mx-64 group border px-2 py-3 rounded shadow hover:shadow-lg">
                                             

@@ -101,7 +101,7 @@
                                     <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
                                     <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir mon annonce</a>
                                 </div> 
-                                    
+                                
                             </div>
                         @empty
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">

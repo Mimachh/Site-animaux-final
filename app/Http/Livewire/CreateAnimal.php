@@ -114,7 +114,7 @@ public function store()
         'user_id' => $this->user_id,
         
     ]);
-   
+
 
     return redirect()->route('animals.show', $animals->id);
 
