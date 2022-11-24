@@ -32,12 +32,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    
+    Route::resource('/annonces', Annonces::class)
+    ->except('index');
     Route::resource('/animals', Animals::class);    
 });
 
-Route::resource('/annonces', Annonces::class)
-    ->except('index');
+
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
 

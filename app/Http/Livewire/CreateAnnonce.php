@@ -178,8 +178,8 @@ class CreateAnnonce extends Component
         'user_id' => $this->user_id,
       ]);
      
-      self::message('warning', 'An unknown error occured.');
-      return redirect()->route('annonces.show', $annonces->id)->with('success', 'Ton annonce est bien enregistrée !');
+      self::message('success', 'Ton annonce est bien enregistrée !.');
+      return redirect()->route('annonces.show', $annonces->id);
 
   }
 

@@ -3,17 +3,17 @@
 namespace App\Http\Livewire;
 
 use App\Models\Garde;
-
+use App\Models\Ville;
 use App\Models\Espece;
 use App\Models\Annonce;
+
 use Livewire\Component;
-
-use App\Models\villes_france;
-
+use App\View\Components\Flash;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditAnnonce extends Component
 {
+    use Flash;
     use AuthorizesRequests;
     
     public $annonce;
@@ -47,7 +47,7 @@ class EditAnnonce extends Component
 
             if(strlen($this->ville) > 2) 
                 {
-                    $this->villes = villes_france::where('ville_nom', 'like', $words)
+                    $this->villes = Ville::where('ville_nom', 'like', $words)
                     ->orWhere('ville_departement', 'like', $words)
                     ->orWhere('ville_code_postal', 'like', $words)
                     ->orWhere('ville_nom_simple', 'like', $words)
@@ -150,6 +150,7 @@ class EditAnnonce extends Component
             'user_id' => $this->user_id,
         ]);
 
+        self::message('success', 'La modification a bien été enregistrée !');
         return redirect()->route('annonces.show', $ids);
     }
     

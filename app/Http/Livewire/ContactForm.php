@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Contact;
+use Livewire\Component;
+use App\View\Components\Flash;
 
 class ContactForm extends Component
 {
+    use Flash;
+    
     public $nom;
     public $prenom;
     public $sujet;
@@ -14,8 +17,8 @@ class ContactForm extends Component
     public $email;
 
     protected $rules = [
-            'nom' => 'required|min:4',
-            'email' => 'required|email',
+            'nom' => 'required',
+            'email' => 'required',
             'sujet' => 'required',
             'message' => 'required',
             'prenom' => 'required',
@@ -34,6 +37,9 @@ class ContactForm extends Component
             'email' => $this->email,
         ]);
 
+        
+        $this->emit('flash', 'Ton message a bien été envoyé, nous y répondrons dans les plus brefs délais.', 
+        'info'); 
     }
     public function render()
     {

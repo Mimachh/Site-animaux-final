@@ -6,10 +6,12 @@ use App\Models\Race;
 use App\Models\Animal;
 use App\Models\Espece;
 use Livewire\Component;
+use App\View\Components\Flash;
 
 
 class CreateAnimal extends Component
 {
+    use Flash;
     /* Séparation des pages */
 
     public $currentPage = 1;
@@ -115,7 +117,7 @@ public function store()
         
     ]);
 
-
+    self::message('success', 'La fiche de ton animal est bien enregistrée !.');
     return redirect()->route('animals.show', $animals->id);
 
    

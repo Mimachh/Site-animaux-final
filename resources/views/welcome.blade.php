@@ -1,4 +1,5 @@
 <x-app-layout>
+  @livewire('contact-form')
   <div class="text_wave">
     <!-- Hero Area Start -->
     <section id="hero-area" class="bg-blue-100 pt-48 pb-48">

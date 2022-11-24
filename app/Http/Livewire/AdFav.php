@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Session;
 
 class AdFav extends Component
 {
+
+
     public $annonce;
 
 
@@ -18,7 +20,9 @@ class AdFav extends Component
       if(auth()->check()) {
 
         auth()->user()->fav()->toggle($this->annonce->id);
-
+        $this->emit('flash', 'Favoris mis à jour.', 
+        'success'); 
+        
         
        /* return redirect()->route('annonces.index'); Apparemment plus besoin ça marche sans */
       }
