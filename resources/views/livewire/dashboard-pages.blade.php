@@ -195,8 +195,29 @@
                 </div>
 
                 <div>
+
+                        <!-- Pas des animaux -->
                     @if($currentPage === 3)
                         @foreach($animals as $animal)
+                        <x-jet-dialog-modal wire:model="confirmingAnimalDeletion">
+                                <x-slot name="title">
+                                    Supprimer mon annonce
+                                </x-slot>
+
+                                <x-slot name="content">
+                                    Êtes-vous sûr de vouloir supprimer votre annonce ? Si vous confirmez, celle-ci sera définitivement perdu.
+                                </x-slot>
+
+                                <x-slot name="footer">
+                                    <x-jet-secondary-button wire:click="$set('confirmingAnimalDeletion')" wire:loading.attr="disabled">
+                                        Annuler
+                                    </x-jet-secondary-button>
+
+                                    <x-jet-danger-button class="ml-3" wire:click="deleteAnimal ({{ $animal->id }})" wire:loading.attr="disabled">
+                                        Supprimer l'annonce
+                                    </x-jet-danger-button>
+                                </x-slot>
+                            </x-jet-dialog-modal>
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
                                 <div class="flex justify-between">
                                     <h2 class="text-md font-bold text-gray-600 mb-2">{{$animal->animal_name}}</h2>
@@ -209,19 +230,16 @@
                                             <p class="inline text-green-700">Modifier la fiche de {{$animal->animal_name}}</p>
                                         </a>
                                        
-                                        <button wire:click="confirmAnimalDeletion ({{ $animal->id}})" wire:click="destroy({{ $animal->id}})" type="button" class="text-sm pr-10 items-center text-red-600">
+                                        <button wire:click="confirmAnimalDeletion ({{ $animal->id}})" type="button" class="text-sm pr-10 items-center text-red-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-5 h-5 inline-block">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
                                             Supprimer la fiche
-                                        </button> 
-                                                   
+                                        </button>          
                                     </div>
-
-                                </div>
-                                    
+                                </div>    
                             </div>
-                        @endforeach
+                        @endforeach                      
                     @endif
                 </div>
             </div>            

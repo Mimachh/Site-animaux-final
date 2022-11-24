@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Livewire;
+
+use App\Models\Animal;
 use App\Models\user;
 use App\Models\Annonce;
 use Livewire\Component;
@@ -16,6 +18,7 @@ class DashboardPages extends Component
 
     public $annonces;
     public $confirmingAnnonceDeletion = false;
+    public $confirmingAnimalDeletion = false;
   
 
     /* Séparation des pages */
@@ -93,6 +96,33 @@ class DashboardPages extends Component
     /* Fin suppression de mes annonces */
 
 
+    /* Suppression des animaux */
+
+    public function confirmAnimalDeletion()
+    {
+      $this->confirmingAnimalDeletion = true;
+    }
+
+    
+    public function deleteAnimal($animal)
+    {
+      $animal = Animal::where('id', $animal)->get();
+      $an = $animal[0]['user_id'];
+      $user = auth()->user()->id;
+      
+      
+      if($an === $user) {
+        Animal::destroy($animal);
+      
+        $this->confirmingAnimalDeletion = false;
+        $this->emit('flash', 'La fiche de votre animal a bien été supprimée ! :(', 
+        'error');
+      }
+      
+      
+    }
+
+    /* Fin suppression des animaux */
    
    
     public function render()
