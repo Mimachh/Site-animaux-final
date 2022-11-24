@@ -59,15 +59,22 @@ class DashboardPages extends Component
 
     /* Suppression de mes annonces */
 
-    public function confirmAnnonceDeletion()
+    public function confirmAnnonceDeletion($annonce)
     {
+      $annonce = Annonce::where('id', $annonce)->get();
       $this->confirmingAnnonceDeletion = true;
     }
 
-    
-    public function delete($annonce)
+    public function confirmingAnnonceDeletion($annonce)
     {
       $annonce = Annonce::where('id', $annonce)->get();
+     
+    }
+
+    
+    public function delete($id)
+    {
+      $annonce = Annonce::where('id', $id)->get();
       $ad = $annonce[0]['user_id'];
       $user = auth()->user()->id;
       

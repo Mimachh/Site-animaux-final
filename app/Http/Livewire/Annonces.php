@@ -54,11 +54,12 @@ class Annonces extends Component
        
        $animal = Animal::where('user_id', $annonce->user_id)->get();
       
+       
        foreach($animal as $a) {
            $animals = $a->get();
        }
-
-  
+      
+  dd($animal);
         
         return view('annonces.show', ['annonce' => $annonce, 'animals' => $animals]);
     }

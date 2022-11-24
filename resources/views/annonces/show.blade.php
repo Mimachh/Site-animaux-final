@@ -77,7 +77,6 @@
             <h1>{{ $animal->animal_name }}</h1>
             <p> {{ $animal->personnality }} </p>
         @endforeach
-        
         <div class=" justify-center my-5">
             <x-jet-button type="button" class="bg-blue-600"><a href="">Contacter</a></x-jet-button>   
         </div>                                       
