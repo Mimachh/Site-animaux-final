@@ -2478,6 +2478,7 @@ body{
 
 }
 
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 
 * {
@@ -2539,4 +2540,25 @@ body{
       0% 100%
     );
   }
+}
+
+.success {
+  background-color: #BBF7D0;
+  border-color: #15803D;
+  color: #15803D;
+}
+.danger {
+  background-color: #FECACA;
+  border-color: #B91C1C;
+  color: #B91C1C;
+}
+.info {
+  background-color: #BFDBFE;
+  border-color: #1D4ED8;
+  color: #1D4ED8;
+}
+.warning {
+  background-color: #FED7AA;
+  border-color: #C2410C;
+  color: #C2410C;
 }

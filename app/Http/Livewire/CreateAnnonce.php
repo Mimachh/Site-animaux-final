@@ -6,9 +6,11 @@ use App\Models\Garde;
 use App\Models\Espece;
 use App\Models\Annonce;
 use Livewire\Component;
+use App\View\Components\Flash;
 
 class CreateAnnonce extends Component
 {
+  use Flash;
     /* Séparation des pages */
 
     public $currentPage = 1;
@@ -176,7 +178,7 @@ class CreateAnnonce extends Component
         'user_id' => $this->user_id,
       ]);
      
-
+      self::message('warning', 'An unknown error occured.');
       return redirect()->route('annonces.show', $annonces->id)->with('success', 'Ton annonce est bien enregistrée !');
 
   }
