@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Animal;
 use App\Models\Annonce;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -51,8 +52,15 @@ class Annonces extends Component
     public function show(Annonce $annonce)
     {       
        
+       $animal = Animal::where('user_id', $annonce->user_id)->get();
+      
+       foreach($animal as $a) {
+           $animals = $a->get();
+       }
+
+  
         
-        return view('annonces.show', compact('annonce'));
+        return view('annonces.show', ['annonce' => $annonce, 'animals' => $animals]);
     }
 
     /**

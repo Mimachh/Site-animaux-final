@@ -198,8 +198,8 @@
 
                         <!-- Pas des animaux -->
                     @if($currentPage === 3)
-                        @foreach($animals as $animal)
-                        <x-jet-dialog-modal wire:model="confirmingAnimalDeletion">
+                        @forelse($animals as $animal)
+                            <x-jet-dialog-modal wire:model="confirmingAnimalDeletion">
                                 <x-slot name="title">
                                     Supprimer mon annonce
                                 </x-slot>
@@ -239,7 +239,13 @@
                                     </div>
                                 </div>    
                             </div>
-                        @endforeach                      
+                        @empty
+                            <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
+                                <div class="flex justify-between pb-2">
+                                    <p class="text-md font-normal text-gray-800">Vous n'avez aucune fiche pour vos animaux pour l'instant. Vous pouvez en créer une en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p>
+                                </div>
+                            </div>
+                        @endforelse                      
                     @endif
                 </div>
             </div>            
