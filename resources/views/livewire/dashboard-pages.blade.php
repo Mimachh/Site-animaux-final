@@ -58,7 +58,6 @@
                                             </svg>
                                             Supprimer mon annonce {{ $annonce->id }}
                                         </button> 
-                                                  
                                     </div>
 
                                 </div>
@@ -114,7 +113,7 @@
                     @endif
                                 <x-jet-dialog-modal wire:model="confirmingAnnonceDeletion">
                                     <x-slot name="title">
-                                        Supprimer mon annonce
+                                        Supprimer mon annonce {{$annonce->id}}
                                     </x-slot>
 
                                     <x-slot name="content">

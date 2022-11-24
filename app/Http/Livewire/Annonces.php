@@ -58,10 +58,9 @@ class Annonces extends Component
        foreach($animal as $a) {
            $animals = $a->get();
        }
-      
-  dd($animal);
+ 
         
-        return view('annonces.show', ['annonce' => $annonce, 'animals' => $animals]);
+        return view('annonces.show', ['annonce' => $annonce, 'animals' => Animal::where('user_id', $annonce->user_id)->get()]);
     }
 
     /**
