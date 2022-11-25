@@ -27,7 +27,7 @@
                                         
                                         <a href="{{ route('annonces.show', $annonce) }}">
                                             <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                                <img src="/images/clin.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                                                <img src="{{ asset('storage/annonces_photos/' . $annonce->photo) }}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
                                             </div>
                                         </a>
                                        

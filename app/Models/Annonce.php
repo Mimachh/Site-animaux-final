@@ -68,6 +68,6 @@ class Annonce extends Model
     protected $fillable = [
         
         'user_id', 'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
-        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 'garde_id',
+        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 'garde_id', 'photo',
     ];
 }

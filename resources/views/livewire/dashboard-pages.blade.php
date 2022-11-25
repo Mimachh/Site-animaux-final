@@ -1,6 +1,7 @@
 <div class="py-12">
         <div class=" sm:px-6 lg:px-8 opacity-80">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <!-- Boutons -->
                 <div class="flex justify-around">  
                 
                     @if($currentPage === 1)
@@ -102,16 +103,7 @@
                                 </div>
                                             
                             </div>
-                            
-                        @empty
-                            <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
-                                <div class="flex justify-between pb-2">
-                                    <p class="text-md font-normal text-gray-800">Vous n'avez aucune annonce active pour l'instant. Vous pouvez en poster une en cliquant <a class="text-blue-600" href="{{ route('annonces.create') }}">ici.</a></p>
-                                </div>
-                            </div>          
-                        @endforelse
-                    @endif
-                                <x-jet-dialog-modal wire:model="confirmingAnnonceDeletion">
+                            <x-jet-dialog-modal wire:model="confirmingAnnonceDeletion">
                                     <x-slot name="title">
                                         Supprimer mon annonce {{$annonce->id}}
                                     </x-slot>
@@ -130,6 +122,15 @@
                                         </x-jet-danger-button>
                                     </x-slot>
                                 </x-jet-dialog-modal>
+                            
+                        @empty
+                            <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
+                                <div class="flex justify-between pb-2">
+                                    <p class="text-md font-normal text-gray-800">Vous n'avez aucune annonce active pour l'instant. Vous pouvez en poster une en cliquant <a class="text-blue-600" href="{{ route('annonces.create') }}">ici.</a></p>
+                                </div>
+                            </div>          
+                        @endforelse
+                    @endif
                     </div> 
                 <div>
                         <!-- Page de Favoris -->   

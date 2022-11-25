@@ -32,6 +32,10 @@
                             <input name="name" type="text" class=" mt-1 block w-64 rounded" wire:model="nom"/>
                             <x-jet-input-error for="name" class="mt-2" />
 
+                            <!-- Photo de l'animal -->
+                            
+                            <input name="photo" type="file" id="photo" wire:model="photo"/>
+                            <div wire:loading wire:target="photo" class="text-sm text-gray-500 italic">Chargement...</div>
                             <!-- Barre de selection espèces et races -->
                             <div class=" py-5">
                                 <x-jet-label for="type" value="{{ __('Espèce de mon animal') }}" class="pb-3"/>

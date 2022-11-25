@@ -6,11 +6,14 @@ use App\Models\Garde;
 use App\Models\Espece;
 use App\Models\Annonce;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\View\Components\Flash;
 
 class CreateAnnonce extends Component
 {
   use Flash;
+  use WithFileUploads;
+
     /* Séparation des pages */
 
     public $currentPage = 1;
@@ -72,6 +75,7 @@ class CreateAnnonce extends Component
 
     'start_watch' => 'nullable',
     'end_watch' => 'nullable',
+    'photo' => 'image',
      
   ];
  
@@ -117,6 +121,8 @@ class CreateAnnonce extends Component
   public $start_watch;
   public $end_watch;
 
+  public $photo;
+
   public function mount()
   {
      
@@ -159,6 +165,9 @@ class CreateAnnonce extends Component
     $this->user_id = auth()->user()->id;
     $this->validate();
    
+    $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
+    $this->photo->storeAs('annonces_photos', $name_file);
+
      $annonces=Annonce::create([
          
         'garde_id' => $this->garde,
@@ -176,6 +185,7 @@ class CreateAnnonce extends Component
         'price' => $this->prix,
         'name' => $this->name,
         'user_id' => $this->user_id,
+        'photo' => $name_file,
       ]);
      
       self::message('success', 'Ton annonce est bien enregistrée !.');

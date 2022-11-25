@@ -18,7 +18,7 @@ class Animal extends Model
     protected $fillable = [
         
         'animal_name', 'user_id', 'personnality', 'male_cats', 'female_cats', 'male_dogs', 'female_dogs', 
-        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles', 'espece_id', 'race_id',
+        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles', 'espece_id', 'race_id', 'photo',
     ];
 
     public function espece()

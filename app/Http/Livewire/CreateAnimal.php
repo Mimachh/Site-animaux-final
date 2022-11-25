@@ -6,12 +6,15 @@ use App\Models\Race;
 use App\Models\Animal;
 use App\Models\Espece;
 use Livewire\Component;
+use Illuminate\Http\Request;
 use App\View\Components\Flash;
+use Livewire\WithFileUploads;
 
 
 class CreateAnimal extends Component
 {
     use Flash;
+    use WithFileUploads;
     /* Séparation des pages */
 
     public $currentPage = 1;
@@ -57,7 +60,7 @@ public $espece;
 
 public $race;
 
-
+public $photo;
 
 /* FAIRE LES ESPECES */
 
@@ -79,7 +82,7 @@ public function updatedEspece($newValue)
     $this->races = Race::where('espece_id', $newValue)->orderBy('race_animal')->get();
 }
 
-public function store()
+public function store(Request  $request)
 {
     $this->user_id = auth()->user()->id;
 
@@ -97,7 +100,13 @@ public function store()
         'birds' => 'nullable',
         'reptiles' => 'nullable',
         'user_id' => 'required',
+        'photo' => 'image',
+      
    ]);
+
+   $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
+   $this->photo->storeAs('animals_photos', $name_file);
+  
    $animals = Animal::create([
        
      
@@ -114,6 +123,7 @@ public function store()
         'espece_id' =>$this->espece,
         'race_id' => $this->race,
         'user_id' => $this->user_id,
+        'photo' => $name_file,
         
     ]);
 

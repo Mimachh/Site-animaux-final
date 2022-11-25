@@ -87,6 +87,7 @@ public function store(Request $request)
  */
 public function show(Animal $animal)
 {
+    
     return view('animals.show', compact('animal'));
 }
 
