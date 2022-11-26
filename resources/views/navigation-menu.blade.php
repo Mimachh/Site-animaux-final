@@ -12,13 +12,13 @@
                     </a>
                 </div>
 
-                
+                @auth
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" style="color: #cbd5e0">
                         {{ __('Tableau de bord') }}
                     </x-jet-nav-link>
                 </div>
-
+                @endauth
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('annonces.index') }}" :active="request()->routeIs('annonces.index')" style="color: #cbd5e0">
                         {{ __('Voir les annonces') }}
@@ -114,13 +114,13 @@
                 <!-- Navbar lorsque non connecté -->
                         <x-jet-nav-link href="{{ route('login') }}" class="text-sm text-white dark:text-white" style="color: #cbd5e0">
                         {{ __('Se connecter') }}
-                    </x-jet-nav-link>
-                        @if (Route::has('register'))
+                        </x-jet-nav-link>
+                    @if (Route::has('register'))
                             
-                            <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('/register')" class="ml-4 text-sm text-white dark:text-gray-500" style="color: #cbd5e0">
+                        <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('/register')" class="ml-4 text-sm text-white dark:text-gray-500" style="color: #cbd5e0">
                         {{ __("S'inscrire") }}
-                    </x-jet-nav-link>
-                        @endif
+                        </x-jet-nav-link>
+                    @endif
                     @endauth
                 </div>
                 @endif

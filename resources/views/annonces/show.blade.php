@@ -59,6 +59,18 @@
                         {{ $annonce->reptiles ? ' Reptiles' : ''}} 
                         {{ $annonce->ferme ? ' Animaux de la ferme' : ''}}
                     </p>
+                    @if(isset($watches[0]))
+                        @foreach($watches as $watch)
+                            @if(isset($watch[0]))
+                                <div class="flex">
+                                    <p class="mr-2">{{$watch[0]['espece']}}</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>         
+                            @endif
+                        @endforeach
+                    @endif
                 </p>
                 <label for="description" class="my-1 font-medium text-gray-600 mt-6">Me concernant :</label> 
                 <p class="text-gray-800 mb-5" id="description" name="description">{{ $annonce->description }}</p>
@@ -127,7 +139,12 @@
         @if(isset($watches[0]))
             @foreach($watches as $watch)
                 @if(isset($watch[0]))
-                    <h1>{{$watch[0]['espece']}}</h1>
+                    <div class="flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h1 class="ml-2">{{$watch[0]['espece']}}</h1>
+                    </div>         
                 @endif
             @endforeach
         @endif
