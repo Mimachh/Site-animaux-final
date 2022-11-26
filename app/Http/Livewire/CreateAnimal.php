@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Age;
 use App\Models\Race;
 use App\Models\Animal;
 use App\Models\Espece;
 use Livewire\Component;
 use Illuminate\Http\Request;
-use App\View\Components\Flash;
 use Livewire\WithFileUploads;
+use App\View\Components\Flash;
 
 
 class CreateAnimal extends Component
@@ -62,6 +63,8 @@ public $race;
 
 public $photo;
 
+public $age;
+
 /* FAIRE LES ESPECES */
 
 
@@ -101,6 +104,7 @@ public function store(Request  $request)
         'reptiles' => 'nullable',
         'user_id' => 'required',
         'photo' => 'image',
+        'age' => 'nullable',
       
    ]);
 
@@ -111,6 +115,7 @@ public function store(Request  $request)
        
      
         'animal_name' => $this->nom,
+        'age_id' => $this->age,
         'personnality' => $this->personnalité,
         'male_dogs' => $this->chiens,
         'female_dogs' => $this->chiennes,
@@ -137,9 +142,9 @@ public function store(Request  $request)
     public function render()
     {
         
-        
+        $ages = Age::all();
         $especes = Espece::select('id', 'espece')->where('id', '<', 9 )->get();
 
-        return view('livewire.create-animal', ["especes"=>$especes]);
+        return view('livewire.create-animal', ["especes"=>$especes, 'ages'=>$ages]);
     }
 }

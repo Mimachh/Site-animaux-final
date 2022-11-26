@@ -26,6 +26,8 @@ class CreateAdForeignKeyControllersTable extends Migration
                         ->onUpdate('cascade');
             $table->foreign('espece_id')->references('id')->on('especes');
             $table->foreign('race_id')->references('id')->on('races');
+            $table->foreign('age_id')->references('id')->on('ages');
+
         });
 
         Schema::table('annonces', function(Blueprint $table) {

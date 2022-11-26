@@ -17,6 +17,7 @@ class CreateAnimalsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('photo', 300)->nullable();
+            $table->unsignedBigInteger('age_id')->nullable();
             $table->string('animal_name')->nullable();
             $table->text('personnality')->nullable();
             $table->unsignedBigInteger('espece_id')->nullable();

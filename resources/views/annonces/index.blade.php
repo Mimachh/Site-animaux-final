@@ -35,9 +35,9 @@
                                             <a href="{{ route('annonces.show', $annonce) }}">
                                                 <h2 class="text-lg text-semibold text-gray-700">{{ $annonce->name }}</h2>
                                             </a>
-                                        
-                                            <livewire:ad-fav :annonce="$annonce">
-                                            
+                                            @if($annonce->user_id !== auth()->user()->id)
+                                                <livewire:ad-fav :annonce="$annonce">
+                                            @endif    
                                         </div>
 
                                         <a href="{{ route('annonces.show', $annonce) }}">

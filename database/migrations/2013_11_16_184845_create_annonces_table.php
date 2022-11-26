@@ -28,7 +28,7 @@ class CreateAnnoncesTable extends Migration
             
             $table->unsignedBigInteger('garde_id')->nullable();
 
-            $table->unsignedBigInteger('chats')->nullable();
+            $table->unsignedBigInteger('chats')->nullable();  
             $table->unsignedBigInteger('chiens')->nullable();
             $table->unsignedBigInteger('poissons')->nullable();
             $table->unsignedBigInteger('rongeurs')->nullable();

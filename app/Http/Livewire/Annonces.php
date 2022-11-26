@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Animal;
+use App\Models\Espece;
 use App\Models\Annonce;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -53,14 +54,28 @@ class Annonces extends Component
     {       
        
        $animal = Animal::where('user_id', $annonce->user_id)->get();
-      
-       
-       foreach($animal as $a) {
+
+    $cat= Espece::select('espece')->where('id', $annonce->chats)->get();
+    $dog = Espece::select('espece')->where('id', $annonce->chiens)->get();
+    $fish = Espece::select('espece')->where('id', $annonce->poissons)->get();
+    $rabbit = Espece::select('espece')->where('id', $annonce->rongeurs)->get(); 
+    $bird = Espece::select('espece')->where('id', $annonce->oiseaux)->get();
+    $rept = Espece::select('espece')->where('id', $annonce->reptiles)->get();
+    $farm = Espece::select('espece')->where('id', $annonce->ferme)->get();
+    $other = Espece::select('espece')->where('id', $annonce->autre)->get();
+    
+    $all_garde = [$cat, $dog, $fish, $rabbit, $bird, $rept, $farm, $other];
+   
+  
+        /* foreach($animal as $a) {
            $animals = $a->get();
-       }
- 
-        
-        return view('annonces.show', ['annonce' => $annonce, 'animals' => Animal::where('user_id', $annonce->user_id)->get()]);
+       } */
+  
+        return view('annonces.show', [
+            'annonce' => $annonce, 
+            'watches'=>$all_garde, 
+            'animals' => Animal::where('user_id', $annonce->user_id)->get()
+        ]);
     }
 
     /**

@@ -37,11 +37,10 @@ class Annonce extends Model
     {
         return $this->belongsTo('App\Models\Espece');
     }
-    public function esp()
+    public function watches()
     {
-        return $this->belongsTo('App\Models\Espece_animaux');
+        return $this->belongsTo('App\Models\Espece');
     }
-
 
 
     public function fav()

@@ -190,6 +190,13 @@ class DatabaseSeeder extends Seeder
             ['id' => '2', 'garde_id' => '1', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 21, 'user_id' => 1],
             ['id' => '3', 'garde_id' => '2', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 25, 'user_id' => 1]
         ]);
+
+        DB::table('ages')->insert([
+            ['id' => '1', 'age' => "Moins d'un an"],
+            ['id' => '2', 'age' => "Entre 1 et 2 ans"],
+            ['id' => '3', 'age' => "Plus de 2 ans"],
+            
+        ]);
      
     
     }

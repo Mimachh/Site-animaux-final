@@ -18,7 +18,7 @@ class Animal extends Model
     protected $fillable = [
         
         'animal_name', 'user_id', 'personnality', 'male_cats', 'female_cats', 'male_dogs', 'female_dogs', 
-        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles', 'espece_id', 'race_id', 'photo',
+        'male_rongeurs', 'female_rongeurs', 'birds', 'reptiles', 'espece_id', 'race_id', 'photo', 'age_id',
     ];
 
     public function espece()
@@ -28,6 +28,10 @@ class Animal extends Model
     public function race()
     {
         return $this->belongsTo('App\Models\Race');
+    }
+    public function age()
+    {
+        return $this->belongsTo('App\Models\Age');
     }
     
 }
