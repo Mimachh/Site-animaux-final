@@ -1,7 +1,7 @@
 <x-app-layout>
    
     <x-slot name="header">
-        <h1 class="font-semibold text-xl text-gray-200 leading-tight">
+        <h1 class="font-semibold text-xl text-gray-200 leading-tight text-center">
             {{ __('Les annonces en ligne') }}
         </h1>
     </x-slot>
@@ -49,6 +49,9 @@
                                             
                                             <!-- Dispo -->
                                             <p class="my-1 text-lg font-medium text-gray-900 pb-3">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>
+                                            {{ $annonce->getPrice() }}
+                                            {{ $annonce->getRealPrice() }}
+                                           
                                             @if($annonce->start_watch && $annonce->end_watch !== null)
                                             <div class="flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-4 h-4">

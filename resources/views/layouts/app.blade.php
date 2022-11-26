@@ -61,8 +61,8 @@
 
         @stack('modals')
     
-        <script src="../../js/app.js"></script>
-        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+       <!-- peut être supprimé je pense <script src="../../js/app.js"></script> -->
+       <!-- peut être supprimé je pense  <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script> -->
 
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
         @livewireScripts

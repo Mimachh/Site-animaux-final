@@ -79,7 +79,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray" class="w-6 h-6 mr-2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 7.756a4.5 4.5 0 100 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <label for="prix" class=" text-md font-medium text-gray-600 "> Mon tarif :</label>
+                    <label for="prix" class=" text-md font-medium text-gray-600 "> Mon tarif : </label>
                     <p class="font-medium text-gray-900 pb-3 ml-2" id="prix" name="prix">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>  
                 </div>
                 @if($annonce->user_id !== auth()->user()->id)
