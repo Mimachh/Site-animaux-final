@@ -15,6 +15,7 @@ use App\View\Components\Flash;
 class CreateAnnonce extends Component
 {
   use Flash;
+  
   use WithFileUploads;
 
     /* Séparation des pages */
@@ -139,11 +140,7 @@ class CreateAnnonce extends Component
   {
       $this->gardes = Garde::all();
       $this->habs = Habitation::all();
-      $this->exts = Exterieur::all();
-
-    /* Animals */
-
-         
+      $this->exts = Exterieur::all();  
       $this->chats_id = Espece::find(1);
       $this->chiens_id = Espece::find(2);
       $this->poissons_id  = Espece::find(3);
@@ -152,9 +149,6 @@ class CreateAnnonce extends Component
       $this->reptiles_id = Espece::find(6);
       $this->ferme_id = Espece::find(7);
       $this->autre_id = Espece::find(8);
-
-    /* Fin animaux */
-
   }
 
   public function store()

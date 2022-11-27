@@ -61,38 +61,24 @@ class EditAnnonce extends Component
            $chats_id, $chiens, $chiens_id, $poissons, $poissons_id,
            $rongeurs, $rongeurs_id, $oiseaux, $oiseaux_id, $reptiles,
            $reptiles_id, $ferme, $ferme_id, $autre, $autre_id, $description, 
-           $start_watch, $end_watch, $garde_type;
+           $start_watch, $end_watch, $garde_type, $gardes;
 
     public function mount()
         {
-            $name = auth()->user()->name;
-            $user_id = auth()->user()->id;
+            $this->gardes = Garde::all();
+            $this->name = auth()->user()->name;
+            $this->user_id = auth()->user()->id;
          
             /* Animals */
          
-            $chats_id = Espece::find(1);
-            $this->chats = $this->chats_id;
-         
-            $chiens_id = Espece::find(2);
-            $this->chiens = $this->chiens_id;
-         
-            $poissons_id = Espece::find(3);
-            $this->poissons = $this->poissons_id;
-         
-            $rongeurs_id = Espece::find(4);
-            $this->rongeurs = $this->rongeurs_id;
-         
-            $oiseaux_id = Espece::find(5);
-            $this->oiseaux = $this->oiseaux_id;
-         
-            $reptiles_id = Espece::find(6);
-            $this->reptiles = $this->reptiles_id;
-         
-            $ferme_id = Espece::find(7);
-            $this->ferme = $this->ferme_id;
-         
-            $autre_id = Espece::find(8);
-            $this->autre = $this->autre_id;
+            $this->chats_id = Espece::find(1);
+            $this->chiens_id = Espece::find(2);
+            $this->poissons_id  = Espece::find(3);
+            $this->rongeurs_id = Espece::find(4);
+            $this->oiseaux_id = Espece::find(5);
+            $this->reptiles_id = Espece::find(6);
+            $this->ferme_id = Espece::find(7);
+            $this->autre_id = Espece::find(8);
          
             /* Fin animaux */    
         }
@@ -109,7 +95,7 @@ class EditAnnonce extends Component
         
         $ids = $this->annonce->id;
         $this->authorize('update', $this->annonce);
-        $this->user_id = auth()->user()->id;
+    
 
         $this->validate([
             'user_id' => 'required',
@@ -160,7 +146,7 @@ class EditAnnonce extends Component
     {
         $ids = $this->annonce->id;
         $infos = Annonce::find($ids);
-        $gardes = Garde::all();
+        
         
         /*$this->garde = $infos->garde_type;
         $this->start_watch_upd = $infos->start_watch;
@@ -178,19 +164,11 @@ class EditAnnonce extends Component
         $this->description = $infos->description;
         $this->prix = $infos->price;
         
-        $this->name = $infos->name;
-        $this->user_id = $infos->user_id;
+       
         
-        $this->chats_id = Espece::find(1);
-        $this->chiens_id = Espece::find(2);
-        $this->poissons_id  = Espece::find(3);
-        $this->rongeurs_id = Espece::find(4);
-        $this->oiseaux_id = Espece::find(5);
-        $this->reptiles_id = Espece::find(6);
-        $this->ferme_id = Espece::find(7);
-        $this->autre_id = Espece::find(8);
+       
 
 
-        return view('livewire.edit-annonce', ["gardes"=>$gardes]);
+        return view('livewire.edit-annonce');
     }
 }
