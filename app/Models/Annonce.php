@@ -11,18 +11,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Annonce extends Model
 {
     use HasFactory;
-    use HasFactory;
 
     public function scopeOnline($query)
     {
         return $query->where('status', 1);
     }
 
+/* Fonctions pour le prix */
+
     public function getPrice()
     {
         $price = $this->price / 100;
         return number_format($price, 2, ',', ' ' ). '€';
     }
+
     public function getRealPrice()
     {
         $price = $this->price / 100;
@@ -30,7 +32,15 @@ class Annonce extends Model
 
         return number_format($price2, 2, ',', ' ' ). '€';
     }
-    
+
+    public function diffPrice()
+    {
+        $price = $this->price / 100;
+        $price2 = $price * 2;
+        $diff = $price2 - $price;
+        return 'La différence est de '. number_format($diff, 2, ',', ' ' ). '€';
+    }
+/* Fin fonctions pour le prix */
 
 /* Relations */
 
@@ -80,6 +90,6 @@ class Annonce extends Model
     protected $fillable = [
         
         'user_id', 'description', 'price', 'visit', 'home', 'name', 'chats', 'chiens', 'poissons', 'rongeurs', 
-        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville', 'start_watch', 'end_watch', 'garde_id', 'photo',
+        'oiseaux', 'reptiles', 'ferme', 'autre', 'ville_id', 'start_watch', 'end_watch', 'garde_id', 'photo',
     ];
 }

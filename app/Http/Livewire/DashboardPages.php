@@ -60,6 +60,34 @@ class DashboardPages extends Component
    
     /* Suppression de mes annonces */
 
+  /* La modal Sweet Alert 2 */
+
+    public $delete_id;
+    protected $listeners = ['deleteConfirmed' => 'deleteAnnonce'];
+
+    public function deleteConfirmation($id)
+      {
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+
+      }
+    public function deleteAnnonce()
+      {
+        $annonce = Annonce::where('id', $this->delete_id)->first();
+        $user = auth()->user()->id;
+        $ad = $annonce->user_id;
+
+        if($ad === $user) {
+          $annonce->delete();
+       
+          $this->emit('flash', 'Votre annonce a bien été supprimée ! :(', 
+          'error');
+        }
+      }
+  /* Fin la modal Sweet Alert 2 */
+
+  /*
+      la jetstream modale qui marchait pas bien 
     public function confirmAnnonceDeletion($annonce)
     {
       $annonce = Annonce::where('id', $annonce)->get();
@@ -86,8 +114,9 @@ class DashboardPages extends Component
       
       
     }
-
-    /*
+  */ 
+  /*
+   
     public function destroy($id)
     {
         if($id) {
@@ -95,7 +124,8 @@ class DashboardPages extends Component
           $record->delete();
         }
     }
-     Je le garde en exemple au cas ou*/
+    Je le garde en exemple au cas ou celui la marchait
+  */
 
     /* Fin suppression de mes annonces */
 

@@ -27,7 +27,7 @@
                                     </h2>
                                     <small>C'est toujours plus sympa de voir à qui on confie son animal !</small>
                                     <div class="my-5">
-                                        <input name="photo" type="file" id="photo" wire:model="photo"/>
+                                        <input name="photo" type="file" id="photo" wire:model="photo" wire:loading.attr="disabled"/>
                                         <div wire:loading wire:target="photo" class="text-sm text-gray-500 italic">Chargement...</div>
                                     </div>
                                 </fieldset>
@@ -44,7 +44,7 @@
                                                     <datalist id="list_ville">
                                                         @if (count($villes) > 0)
                                                             @foreach ($villes as $ville)
-                                                                <option value="{{$ville->ville_id}}">{{$ville->ville_nom}}-{{$ville->ville_departement}}</option>
+                                                                <option value="{{$ville->id}}"> <label for="">{{$ville->ville_nom_reel}}-{{$ville->ville_departement}}</label> </option>
                                                              @endforeach
                                                         @endif
                                                     </datalist>

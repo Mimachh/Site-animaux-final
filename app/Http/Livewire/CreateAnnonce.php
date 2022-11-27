@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Garde;
+use App\Models\Ville;
 use App\Models\Espece;
 use App\Models\Annonce;
 use Livewire\Component;
@@ -44,7 +45,7 @@ class CreateAnnonce extends Component
 
         if(strlen($this->ville) > 2) 
             {
-                $this->villes = villes_france::where('ville_nom', 'like', $words)
+                $this->villes = Ville::where('ville_nom', 'like', $words)
                 ->orWhere('ville_departement', 'like', $words)
                 ->orWhere('ville_code_postal', 'like', $words)
                 ->orWhere('ville_nom_simple', 'like', $words)
@@ -76,6 +77,7 @@ class CreateAnnonce extends Component
     'start_watch' => 'nullable',
     'end_watch' => 'nullable',
     'photo' => 'image',
+    'ville' => 'required',
      
   ];
  
@@ -90,6 +92,7 @@ class CreateAnnonce extends Component
   public $garde;
   public $prix;
   
+  public $ville_id;
 
   public $chats;
   public $chats_id;
@@ -171,6 +174,7 @@ class CreateAnnonce extends Component
      $annonces=Annonce::create([
          
         'garde_id' => $this->garde,
+        'ville_id' => $this->ville,
         'start_watch' => $this->start_watch,
         'end_watch' => $this->end_watch,
         'chats' => $this->chats,

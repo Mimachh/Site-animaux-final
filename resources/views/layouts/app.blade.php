@@ -10,10 +10,18 @@
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+        
+        
+        <!-- Tailwind -->
         <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- Tailwind mais je ne sais plus pourquoi je crois qu'il ne sert plus a rien -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+        
+        <!-- Sweet Alert 2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+        <!-- Pour les flash messages -->
         <style>
             [x-cloak] { display: none;}
         </style>
@@ -66,5 +74,27 @@
 
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
         @livewireScripts
+
+        <!-- Sweet Alert 2 Confirmation Delete Annonce -->
+            <script>
+                window.addEventListener('show-delete-confirmation', event => {
+                    Swal.fire({
+                        title: 'Supprimer cette annonce ?',
+                        text: "Cette action est irreversible !",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        cancelButtonText: 'Non',
+                        confirmButtonText: 'Confirmer !'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Livewire.emit('deleteConfirmed')
+                            }
+                    })
+                });
+                
+            </script>
+        <!-- Fin Sweet Alert 2 Confirmation Delete Annonce -->
     </body>
 </html>

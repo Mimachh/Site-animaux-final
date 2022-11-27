@@ -5,8 +5,7 @@
             {{ __('Les annonces en ligne') }}
         </h1>
     </x-slot>
-
-        
+ 
         <div class="md:flex-wrap md:flex md:mx-32 xs:mx-auto mt-5">
             <div class="bg-white">
                 <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -49,9 +48,6 @@
                                             
                                             <!-- Dispo -->
                                             <p class="my-1 text-lg font-medium text-gray-900 pb-3">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>
-                                            {{ $annonce->getPrice() }}
-                                            {{ $annonce->getRealPrice() }}
-                                           
                                             @if($annonce->start_watch && $annonce->end_watch !== null)
                                             <div class="flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-4 h-4">
@@ -70,7 +66,7 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-4 h-4">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
                                                 </svg>
-                                                <p class="text-sm text-gray-600 pl-1 pb-3"><span class="text-md text-gray-800"> Ville : {{ $annonce->ville->ville_nom }}</span></p>    
+                                                <p class="text-sm text-gray-600 pl-1 pb-3"><span class="text-md text-gray-800"> Ville : {{ $annonce->ville->ville_nom_reel }}</span></p>    
                                             </div>
                                             @endif
                                             <!--Fin ville -->
