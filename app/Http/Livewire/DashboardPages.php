@@ -63,7 +63,9 @@ class DashboardPages extends Component
   /* La modal Sweet Alert 2 */
 
     public $delete_id;
-    protected $listeners = ['deleteConfirmed' => 'deleteAnnonce'];
+    protected $listeners = ['deleteConfirmed' => 'deleteAnnonce', 
+      'deleteAnimalConfirmed' => 'deleteAnimal'
+    ];
 
     public function deleteConfirmation($id)
       {
@@ -132,13 +134,35 @@ class DashboardPages extends Component
 
     /* Suppression des animaux */
 
+    public $delete_id_animal;
+
+    public function deleteConfirmationAnimal($id)
+      {
+        $this->delete_id_animal = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation-animal');
+
+      }
+    public function deleteAnimal()
+      {
+        $animal = Animal::where('id', $this->delete_id_animal)->first();
+        $user = auth()->user()->id;
+        $an = $animal->user_id;
+
+        if($an === $user) {
+          $animal->delete();
+       
+          $this->emit('flash', 'La fiche a bien été supprimée ! :(', 
+          'error');
+        }
+      }
+
     public function confirmAnimalDeletion()
     {
       $this->confirmingAnimalDeletion = true;
     }
 
     
-    public function deleteAnimal($animal)
+    public function deleteAnimals($animal)
     {
       $animal = Animal::where('id', $animal)->get();
       $an = $animal[0]['user_id'];

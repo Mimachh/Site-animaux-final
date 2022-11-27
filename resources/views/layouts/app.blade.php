@@ -10,8 +10,7 @@
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-        
-        
+
         <!-- Tailwind -->
         <script src="https://cdn.tailwindcss.com"></script>
         
@@ -38,6 +37,7 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
+            
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -52,12 +52,12 @@
             <!-- Page Content -->
             
             <main>
-            <!-- Messages flash -->
-     
-                @livewire('flash')
-                @include ('partials.messages')  
+                <!-- Messages flash -->
+        
+                    @livewire('flash')
+                    @include ('partials.messages')  
 
-            <!-- Fin Messages flash -->
+                <!-- Fin Messages flash -->
             
             
                 {{ $slot }}
@@ -96,5 +96,26 @@
                 
             </script>
         <!-- Fin Sweet Alert 2 Confirmation Delete Annonce -->
+        <!-- Sweet Alert 2 Confirmation Delete Animal -->
+            <script>
+                window.addEventListener('show-delete-confirmation-animal', event => {
+                    Swal.fire({
+                        title: 'Supprimer cette fiche ?',
+                        text: "Cette action est irreversible !",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        cancelButtonText: 'Non',
+                        confirmButtonText: 'Confirmer !'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Livewire.emit('deleteAnimalConfirmed')
+                            }
+                    })
+                });
+                
+            </script>
+        <!-- Fin Sweet Alert 2 Confirmation Delete Animal-->
     </body>
 </html>

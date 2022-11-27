@@ -19,7 +19,10 @@ class CreateAnnoncesTable extends Migration
 
             $table->string('name')->nullable();
             $table->string('photo')->nullable();
-            $table->unsignedBigInteger('ville_id')->onDelete('cascade')->nullable(); 
+
+            $table->unsignedBigInteger('ville_id')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('habitation_id')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('exterieur_id')->onDelete('cascade')->nullable(); 
 
             $table->boolean('status')->default(1);
             
@@ -39,8 +42,11 @@ class CreateAnnoncesTable extends Migration
 
             $table->text('description')->nullable();  
             $table->unsignedBigInteger('my_animal_id')->nullable();
+
             $table->decimal('price', $precision = 4 )->nullable();
+
             $table->unsignedBigInteger('user_id')->onDelete('cascade');
+
             $table->timestamps();          
         });
 

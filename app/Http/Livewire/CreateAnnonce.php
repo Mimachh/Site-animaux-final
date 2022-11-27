@@ -7,6 +7,8 @@ use App\Models\Ville;
 use App\Models\Espece;
 use App\Models\Annonce;
 use Livewire\Component;
+use App\Models\Exterieur;
+use App\Models\Habitation;
 use Livewire\WithFileUploads;
 use App\View\Components\Flash;
 
@@ -78,6 +80,8 @@ class CreateAnnonce extends Component
     'end_watch' => 'nullable',
     'photo' => 'image',
     'ville' => 'required',
+    'hab' => 'required',
+    'ext' => 'required',
      
   ];
  
@@ -126,9 +130,17 @@ class CreateAnnonce extends Component
 
   public $photo;
 
+  public $habs;
+  public $exts;
+  public $hab;
+  public $ext;
+
   public function mount()
   {
      
+      $this->habs = Habitation::all();
+      $this->exts = Exterieur::all();
+
 
       $name = auth()->user()->name;
       $user_id = auth()->user()->id;
@@ -190,6 +202,8 @@ class CreateAnnonce extends Component
         'name' => $this->name,
         'user_id' => $this->user_id,
         'photo' => $name_file,
+        'habitation_id' => $this->hab,
+        'exterieur_id' => $this->ext,
       ]);
      
       self::message('success', 'Ton annonce est bien enregistrée !.');

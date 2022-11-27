@@ -198,6 +198,17 @@ class DatabaseSeeder extends Seeder
             
         ]);
      
-    
+        DB::table('habitations')->insert([
+            ['id' => '1', 'hab' => "Appartement"],
+            ['id' => '2', 'hab' => "Maison"],
+            ['id' => '3', 'hab' => "Non concerné"],            
+        ]);
+
+        DB::table('exterieurs')->insert([
+            ['id' => '1', 'ext' => "Avec jardin/cour"],
+            ['id' => '2', 'ext' => "Sans extérieur"],
+            ['id' => '3', 'ext' => "Non concerné"],            
+        ]);
+     
     }
 }

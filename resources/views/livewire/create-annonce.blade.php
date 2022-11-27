@@ -209,6 +209,34 @@
 
                             @elseif ($currentPage === 3)
                     
+                                <fieldset> 
+                                        <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  
+                                        Conditions de garde :
+                                            <legend  class="sr-only">Conditions de garde : </legend>           
+                                        </h2>
+                                    <div>
+                                        <div class="my-4">                        
+                                            <div class="flex items-start">               
+                                                <div class="flex items-center">
+                                                    <select wire:model='hab' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                        <option value="">--Type d'habitation--</option>
+                                                            @foreach($habs as $hab) 
+                                                            <option value="{{ $hab->id }}">{{ $hab->hab }}</option>
+                                                            @endforeach
+                                                    </select>
+                                                </div> 
+                                                <div class="flex items-center">
+                                                    <select wire:model='ext' class="ml-4 py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                        <option value="">--Extérieur--</option>
+                                                            @foreach($exts as $ext) 
+                                                            <option value="{{ $ext->id }}">{{ $ext->ext }}</option>
+                                                            @endforeach
+                                                    </select>
+                                                </div>       
+                                            </div>
+                                        </div>     
+                                    </div>
+                                </fieldset>
                                 <!-- Description -->
                                 <fieldset>
                                     <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  

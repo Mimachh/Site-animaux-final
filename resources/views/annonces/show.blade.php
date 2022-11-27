@@ -8,9 +8,9 @@
 
 <div class="pb-5">
     <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
-        <div class=" col-span-3 md:col-span-1">       
-        <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-xl">
-                <img class="object-cover object-center group-hover:opacity-75" src="{{ asset('storage/annonces_photos/' . $annonce->photo) }}">
+        <div class=" col-span-3 md:col-span-1 mx-auto">       
+            <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-3 xl:aspect-h-4 ">
+                <img class="img_size rounded-lg object-cover object-center group-hover:opacity-75 " src="{{ asset('storage/annonces_photos/' . $annonce->photo) }}">
             </div>
         </div>
         <!-- Partie description annonce -->
