@@ -8,13 +8,17 @@ use App\Models\Espece;
 use App\Models\Annonce;
 
 use Livewire\Component;
+use App\Models\Exterieur;
+use App\Models\Habitation;
 use App\View\Components\Flash;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Livewire\WithFileUploads;
 
 class EditAnnonce extends Component
 {
     use Flash;
     use AuthorizesRequests;
+    use WithFileUploads;
     
     public $annonce;
 
@@ -61,13 +65,15 @@ class EditAnnonce extends Component
            $chats_id, $chiens, $chiens_id, $poissons, $poissons_id,
            $rongeurs, $rongeurs_id, $oiseaux, $oiseaux_id, $reptiles,
            $reptiles_id, $ferme, $ferme_id, $autre, $autre_id, $description, 
-           $start_watch, $end_watch, $garde_type, $gardes;
+           $start_watch, $end_watch, $garde_type, $gardes, $photo, $habs, $exts, $hab, $ext;
 
     public function mount()
         {
             $this->gardes = Garde::all();
             $this->name = auth()->user()->name;
             $this->user_id = auth()->user()->id;
+            $this->habs = Habitation::all();
+            $this->exts = Exterieur::all();  
          
             /* Animals */
          
@@ -95,7 +101,9 @@ class EditAnnonce extends Component
         
         $ids = $this->annonce->id;
         $this->authorize('update', $this->annonce);
-    
+        
+        $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
+        $this->photo->storeAs('annonces_photos', $name_file);
 
         $this->validate([
             'user_id' => 'required',
@@ -116,10 +124,16 @@ class EditAnnonce extends Component
             'start_watch' => 'nullable',
             'end_watch' => 'nullable',
 
+            'photo' => 'image',
+            'ville' => 'required',
+            'hab' => 'required',
+            'ext' => 'required',
+
         ]);
 
         $update = Annonce::find($ids)->update([
             'garde_id' => $this->garde,
+            'ville_id' => $this->ville,
             'start_watch' => $this->start_watch,
             'end_watch' => $this->end_watch,
             'chats' => $this->chats,
@@ -134,6 +148,9 @@ class EditAnnonce extends Component
             'price' => $this->prix,
             'name' => $this->name,
             'user_id' => $this->user_id,
+            'photo' => $name_file,
+            'habitation_id' => $this->hab,
+            'exterieur_id' => $this->ext,
         ]);
 
         self::message('success', 'La modification a bien été enregistrée !');

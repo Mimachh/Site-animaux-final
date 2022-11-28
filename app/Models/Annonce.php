@@ -52,11 +52,11 @@ class Annonce extends Model
     {
         return $this->belongsTo('App\Models\Ville');
     }
-    public function hab()
+    public function habitation()
     {
         return $this->belongsTo('App\Models\Habitation');
     }
-    public function ext()
+    public function exterieur()
     {
         return $this->belongsTo('App\Models\Exterieur');
     }
