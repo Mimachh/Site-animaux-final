@@ -15,7 +15,7 @@ use App\View\Components\Flash;
 class CreateAnnonce extends Component
 {
   use Flash;
-  
+
   use WithFileUploads;
 
     /* Séparation des pages */
@@ -156,7 +156,7 @@ class CreateAnnonce extends Component
     $this->name = auth()->user()->name;
     $this->user_id = auth()->user()->id;
     $this->validate();
-   
+    $prix = $this->prix * 100;
     $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
     $this->photo->storeAs('annonces_photos', $name_file);
 
@@ -175,7 +175,7 @@ class CreateAnnonce extends Component
         'autre' => $this->autre,
         'reptiles' => $this->reptiles,
         'description' => $this->description,
-        'price' => $this->prix,
+        'price' => $prix,
         'name' => $this->name,
         'user_id' => $this->user_id,
         'photo' => $name_file,

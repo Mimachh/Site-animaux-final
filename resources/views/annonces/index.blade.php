@@ -23,13 +23,11 @@
         
 
                         <div class="group border px-2 py-3 rounded shadow hover:shadow-lg">
-                                        
                                         <a href="{{ route('annonces.show', $annonce) }}">
                                             <div class="aspect-w-1 aspect-h-1  overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                                                 <img src="{{ asset('storage/annonces_photos/' . $annonce->photo) }}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="mb-2 shadow-xl mx-auto h-64 md:h-40 rounded-lg object-cover object-center group-hover:opacity-75">
                                             </div>
                                         </a>
-                                       
                                         <div class="flex justify-between mt-4">
                                             <a href="{{ route('annonces.show', $annonce) }}">
                                                 <h2 class="text-lg text-semibold text-gray-700">{{ $annonce->name }}</h2>
@@ -46,8 +44,22 @@
 
                                         <a href="{{ route('annonces.show', $annonce) }}">
                                             
+                                            <!-- Prix -->
+                                                <p class="my-1 text-lg font-medium text-gray-900 pb-3">
+                                                    @auth
+                                                        @if($annonce->user_id !== auth()->user()->id)
+                                                            {{ $annonce->getRealPrice() }} / jour
+                                                        @else
+                                                            {{ $annonce->getPrice() }} / jour
+                                                        @endif
+                                                    @endauth    
+                                                    @guest
+                                                        {{ $annonce->getRealPrice() }} / jour
+                                                    @endguest
+                                                </p>
+                                            <!-- Fin prix-->
+
                                             <!-- Dispo -->
-                                            <p class="my-1 text-lg font-medium text-gray-900 pb-3">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>
                                             @if($annonce->start_watch && $annonce->end_watch !== null)
                                             <div class="flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-4 h-4">

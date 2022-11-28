@@ -14,6 +14,7 @@ class Annonces extends Component
 {
     use AuthorizesRequests;
     use WithPagination;
+
    
     public function index()
     {
@@ -44,6 +45,9 @@ class Annonces extends Component
         
     }
     public $annonce;
+    
+    
+
     /**
      * Display the specified resource.
      *

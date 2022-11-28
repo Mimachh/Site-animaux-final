@@ -65,7 +65,8 @@ class AnnoncePolicy
      */
     public function delete(User $user, Annonce $annonce)
     {
-        return $user->id === $annonce['user_id'];
+        
+        return $user->id === $annonce->user_id;
     }
 
     /**

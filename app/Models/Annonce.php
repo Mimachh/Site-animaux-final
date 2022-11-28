@@ -33,6 +33,7 @@ class Annonce extends Model
         return number_format($price2, 2, ',', ' ' ). '€';
     }
 
+
     public function diffPrice()
     {
         $price = $this->price / 100;

@@ -43,7 +43,7 @@ class CreateAnnoncesTable extends Migration
             $table->text('description')->nullable();  
             $table->unsignedBigInteger('my_animal_id')->nullable();
 
-            $table->decimal('price', $precision = 4 )->nullable();
+            $table->integer('price')->nullable();
 
             $table->unsignedBigInteger('user_id')->onDelete('cascade');
 

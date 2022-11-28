@@ -17,9 +17,7 @@ class DashboardPages extends Component
    use AuthorizesRequests;
 
     public $annonces;
-    public $confirmingAnnonceDeletion = false;
-    public $confirmingAnimalDeletion = false;
-  
+
 
     /* Séparation des pages */
 

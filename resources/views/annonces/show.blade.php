@@ -19,8 +19,22 @@
                     <h2 class="text-xl text-bold text-gray-700">Je m'appelle {{ $annonce->name }}</h2>                               
                     @if($annonce->user_id !== auth()->user()->id)
                         <livewire:ad-fav :annonce="$annonce">
-                    @endif                                            
+                    @endif
+                    <div class="flex md:justify-end mb-3 pr-10">
+                        @can('update', $annonce)
+                        <a class="text-sm pr-10 items-center" href="{{ route('annonces.edit', $annonce) }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                            </svg>
+                            <p class="inline text-green-700">Modifier mon annonce</p>
+                        </a> 
+                       @endcan
+                       @can('delete', $annonce)
+                        <livewire:delete-annonce-comp :annonce="$annonce">
+                        @endcan
+                    </div>                                            
                 </div>
+                
                 <!-- Dispo -->
                     @if($annonce->start_watch && $annonce->end_watch !== null)
                         <div class="flex text-md">
@@ -124,7 +138,13 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 7.756a4.5 4.5 0 100 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <label for="prix" class=" text-md font-medium text-gray-600 "> Mon tarif : </label>
-                    <p class="font-medium text-gray-900 pb-3 ml-2" id="prix" name="prix">{{ number_format($annonce->price, 2, ',', '') }} €/jour</p>  
+                    <p class="font-medium text-gray-900 pb-3 ml-2" id="prix" name="prix">
+                        @if($annonce->user_id !== auth()->user()->id)
+                        {{ $annonce->getRealPrice() }} / jour
+                        @else
+                        {{ $annonce->getPrice() }} / jour
+                        @endif
+                    </p>  
                 </div>
 
                 <!-- Bouton contact -->
@@ -293,6 +313,7 @@
             <div class="text-center">
                 <small class="text-lg text-blue-900">Aucun animal renseigné</small>
             </div>
-        @endforelse        
-       
+        @endforelse 
+         
+</div>
 </x-app-layout>
