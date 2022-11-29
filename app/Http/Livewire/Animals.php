@@ -4,9 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\Animal;
 use Livewire\Component;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 
 class Animals extends Component
 {
+    use AuthorizesRequests;
+    
     /* Séparation des pages */
 
     public $currentPage = 1;
@@ -36,27 +40,6 @@ public function index()
 
         return view('animals.index', ['animals' => $animals]);
 }
-
-/* Début du formulaire */
-    
-
-/* Validation du formulaire */
-
-public $nom, $personnalité, $chiens, $chiennes, $chats, $chattes, 
-       $rongeurs, $rongeuses, $birds, $reptiles, $owner, $espece, $race, $races;
-
-
-public function mount()
-   {
-       $this->races = collect();
-   
-   
-   }
-   
-    public function updatedEspece($newValue)
-   {
-       $this->races = Liste_race::where('espece_id', $newValue)->orderBy('race_animal')->get();
-   }
 
 /**
  * Show the form for creating a new resource.
@@ -99,7 +82,9 @@ public function show(Animal $animal)
  */
 public function edit(Animal $animal)
 {
-    //
+    $this->authorize('update', $animal);
+
+    return view ('animals.edit', compact('animal'));
 }
 
 /**

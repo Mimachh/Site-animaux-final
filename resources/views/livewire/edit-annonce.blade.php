@@ -47,7 +47,7 @@
                                                 </h2>          
                                                 <div class="my-8 space-y-4">
                                                                 <div class="flex items-start">
-                                                                    <x-jet-input list="list_ville" wire:model.defer='ville' class="py-2 px-1 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight" placeholder="Entrez votre ville"/>
+                                                                    <x-jet-input list="list_ville" wire:model='ville' class="py-2 px-1 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight" placeholder="Entrez votre ville"/>
 
                                                                     @if (strlen($ville) > 2)
                                                                         <datalist id="list_ville">
@@ -244,7 +244,7 @@
                                         <div class="my-4">                        
                                             <div class="flex items-start">               
                                                 <div class="flex items-center">
-                                                    <select wire:model='hab' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                    <select wire:model.defer='hab' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                                         <option value="">--Type d'habitation--</option>
                                                             @foreach($habs as $hab) 
                                                             <option value="{{ $hab->id }}">{{ $hab->hab }}</option>
@@ -252,7 +252,7 @@
                                                     </select>
                                                 </div> 
                                                 <div class="flex items-center">
-                                                    <select wire:model='ext' class="ml-4 py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                    <select wire:model.defer='ext' class="ml-4 py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                                         <option value="">--Extérieur--</option>
                                                             @foreach($exts as $ext) 
                                                             <option value="{{ $ext->id }}">{{ $ext->ext }}</option>

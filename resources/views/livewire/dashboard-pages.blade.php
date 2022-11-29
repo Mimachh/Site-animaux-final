@@ -108,27 +108,7 @@
                                     <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir mon annonce</a>
                                 </div>
                                             
-                            </div>
-                            <x-jet-dialog-modal wire:model="confirmingAnnonceDeletion">
-                                    <x-slot name="title">
-                                        Supprimer mon annonce {{$annonce->id}}
-                                    </x-slot>
-
-                                    <x-slot name="content">
-                                        Êtes-vous sûr de vouloir supprimer votre annonce ? Si vous confirmez, celle-ci sera définitivement perdu.
-                                    </x-slot>
-
-                                    <x-slot name="footer">
-                                        <x-jet-secondary-button wire:click="$set('confirmingAnnonceDeletion')" wire:loading.attr="disabled">
-                                            Annuler
-                                        </x-jet-secondary-button>
-
-                                        <x-jet-danger-button class="ml-3" wire:click="delete({{ $annonce->id }})" wire:loading.attr="disabled">
-                                            Supprimer l'annonce {{ $annonce->id }}
-                                        </x-jet-danger-button>
-                                    </x-slot>
-                                </x-jet-dialog-modal>
-                            
+                            </div>                          
                         @empty
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
                                 <div class="flex justify-between pb-2">
@@ -183,7 +163,7 @@
                                     <li class="pb-1">{{ $annonce->reptiles ? ' Reptiles' : ''}}</li>
                                     <li class="pb-1">{{ $annonce->ferme ? ' Animaux de la ferme' : ''}}</li>
                                 </ul> 
-                            <p class="text-sm text-gray-600 pb-2">Prix : <span class="text-sm text-gray-800">{{ number_format($annonce->price, 2, ',', '') }} €/jour.</span></p>     
+                            <p class="text-sm text-gray-600 pb-2">Prix : <span class="text-sm text-gray-800">{{ $annonce->getRealPrice() }}/ jour.</span></p>     
                             <div class="flex items-center">
                                 <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
                                 <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir l'annonce</a>
@@ -230,6 +210,10 @@
                                             Supprimer la fiche
                                         </button>          
                                     </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
+                                    <a class="text-sm" href="{{ route('animals.show', $animal) }}">Voir la fiche {{ $animal->animal_name }}</a>
                                 </div>    
                             </div>
                         @empty

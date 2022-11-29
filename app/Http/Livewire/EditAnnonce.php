@@ -10,14 +10,14 @@ use App\Models\Annonce;
 use Livewire\Component;
 use App\Models\Exterieur;
 use App\Models\Habitation;
-use App\View\Components\Flash;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\WithFileUploads;
+use App\View\Components\Flash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditAnnonce extends Component
 {
     use Flash;
-    use AuthorizesRequests;
     use WithFileUploads;
     
     public $annonce;
@@ -65,10 +65,16 @@ class EditAnnonce extends Component
            $chats_id, $chiens, $chiens_id, $poissons, $poissons_id,
            $rongeurs, $rongeurs_id, $oiseaux, $oiseaux_id, $reptiles,
            $reptiles_id, $ferme, $ferme_id, $autre, $autre_id, $description, 
-           $start_watch, $end_watch, $garde_type, $gardes, $photo, $habs, $exts, $hab, $ext;
+           $start_watch, $end_watch, $garde_type, $gardes, $photo, $habs, $exts, $hab, $ext, $Infoprice;
 
     public function mount()
         {
+            $ids = $this->annonce->id;
+            $infos = Annonce::find($ids);
+
+            $getInfoPrice = $infos->price / 100;
+            $this->Infoprice = number_format($getInfoPrice, 2, '.', ' ' );
+            
             $this->gardes = Garde::all();
             $this->name = auth()->user()->name;
             $this->user_id = auth()->user()->id;
@@ -89,23 +95,12 @@ class EditAnnonce extends Component
             /* Fin animaux */    
         }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Annonce  $annonce
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
-    {
-        
-        $ids = $this->annonce->id;
-        $this->authorize('update', $this->annonce);
-        
-        $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
-        $this->photo->storeAs('annonces_photos', $name_file);
+        protected function rules()
 
-        $this->validate([
+        {
+    
+            return [
+    
             'user_id' => 'required',
             'name' => 'required',
             'garde' =>'required',
@@ -124,12 +119,40 @@ class EditAnnonce extends Component
             'start_watch' => 'nullable',
             'end_watch' => 'nullable',
 
-            'photo' => 'image',
+            'photo' => 'nullable|image',
             'ville' => 'required',
             'hab' => 'required',
             'ext' => 'required',
+    
+            ];
+    
+        }
 
-        ]);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Annonce  $annonce
+     * @return \Illuminate\Http\Response
+     */
+    public function update()
+    {
+        
+        $ids = $this->annonce->id;
+        $prix = $this->prix * 100;
+        
+        if(isset($this->photo))
+        {
+            Storage::delete('annonces_photos/' . $this->annonce->photo);
+            $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
+            $this->photo->storeAs('annonces_photos', $name_file);
+        }
+
+        else {
+            $name_file = $this->annonce->photo;
+        }
+
+        $this->validate();
 
         $update = Annonce::find($ids)->update([
             'garde_id' => $this->garde,
@@ -145,7 +168,7 @@ class EditAnnonce extends Component
             'autre' => $this->autre,
             'reptiles' => $this->reptiles,
             'description' => $this->description,
-            'price' => $this->prix,
+            'price' => $prix,
             'name' => $this->name,
             'user_id' => $this->user_id,
             'photo' => $name_file,
@@ -179,7 +202,7 @@ class EditAnnonce extends Component
         J'enlève pour l'instant car sinon on ne peux pas editer le formulaire*/
 
         $this->description = $infos->description;
-        $this->prix = $infos->price;
+        $this->prix = $this->Infoprice;
         
        
         

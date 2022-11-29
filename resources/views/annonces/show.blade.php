@@ -165,7 +165,6 @@
         <div class="col-span-3 text-center">
             <h3 class="text-green-700 font-bold text-3xl pb-2">Je vous présente mes animaux </h3>
         </div>
-
         @forelse($animals as $animal)
             <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
                 <div class="pr-5 md:col-span-2 col-span-3 ml-4">
@@ -188,11 +187,28 @@
                     <!-- Fin plaque -->
 
                     <!-- Nom -->
-                        <div class="mt-4 mb-4 mr-10 space-y-1"> 
-                            <h2 class="text-xl text-bold text-gray-700">{{ $animal->animal_name }}</h2>
+                        <div class="flex justify-between mt-4 mb-4 mr-10"> 
+                            <h2 class="text-xl text-bold text-gray-700">Voici {{ $animal->animal_name }}</h2>                               
+                           
+                            <div class="flex md:justify-end mb-3 pr-2">
+                               @can('update', $animal)
+                                <a class="text-sm pr-10 items-center" href="{{ route('animals.edit', $animal) }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                    </svg>
+                                    <p class="inline text-green-700">Modifier la fiche</p>
+                                </a> 
+                                @endcan
+                                @can('delete', $animal)
+                                <livewire:delete-animal-comp :animal="$animal">
+                                @endcan
+                            </div>                                            
+                        </div>
+                        <div class="mt-4 mb-4 mr-10 space-y-1">       
                             <p class="ml-2 text-gray-700">{{$animal->espece->espece}}</p>
                             <p class="ml-2 text-gray-700">{{$animal->race->race_animal}}</p>                                                                         
                         </div>
+                        
                     <!-- Fin Nom -->
 
                     <!-- Personnalité -->
@@ -308,10 +324,16 @@
                     </div>
                 </div>
             </div>
-       
+        @if(auth()->user()->id === $annonce->user_id)
+            <p class="ml-10 mt-2">Ajouter un animal en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p> 
+        @endif
         @empty
+        <p class="ml-10 mt-2">Ajouter un animal en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p> 
             <div class="text-center">
-                <small class="text-lg text-blue-900">Aucun animal renseigné</small>
+                <small class="text-lg text-blue-900">Aucun animal renseigné.
+                </small>
+                
+                
             </div>
         @endforelse 
          

@@ -17,17 +17,17 @@ class DatabaseSeeder extends Seeder
 
         DB::table('especes')->insert([
  
-            ['espece' => 'Chats',
+            ['espece' => 'Chat',
             'id' => '1'],
-            ['espece' => 'Chiens',
+            ['espece' => 'Chien',
             'id' => '2'],
-            ['espece' => 'Poissons',
+            ['espece' => 'Poisson',
             'id' => '3'],
-            ['espece' => 'Rongeurs',
+            ['espece' => 'Rongeur',
             'id' => '4'],
-            ['espece' => 'Oiseaux',
+            ['espece' => 'Oiseau',
             'id' => '5'],
-            ['espece' => 'Reptiles',
+            ['espece' => 'Reptile',
             'id' => '6'],
             ['espece' => 'Animaux de la ferme',
             'id' => '7'],
