@@ -9,6 +9,7 @@ use App\Models\Espece;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\View\Components\Flash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditAnimal extends Component
@@ -65,6 +66,10 @@ public $photo;
 
 public $age;
 
+public $ids;
+
+public $animal;
+
 /* FAIRE LES ESPECES */
 
 
@@ -76,7 +81,7 @@ public $races;
 public function mount()
 {
     $this->races = collect();
-
+   
 
 }
 
@@ -85,13 +90,50 @@ public function updatedEspece($newValue)
     $this->races = Race::where('espece_id', $newValue)->orderBy('race_animal')->get();
 }
 
-public function update(Request  $request)
+public function oldValuesAnimals(Animal $animal)
+{
+    $animal_id = $this->animal->id;
+    $animals = Animal::findOrFail($animal_id);
+
+   
+
+    $this->nom = $animals->animal_name;
+    $this->age = $animals->age_id;
+    $this->espece = $animals->espece_id;
+    $this->race = $animals->race_id;
+    $this->personnality = $animals->personnality;
+    $this->chiens = $animals->male_dogs;
+    $this->chiennes = $animals->female_dogs;
+    $this->chats = $animals->male_cats;
+    $this->chattes = $animals->female_cats;
+    $this->rongeurs = $animals->male_rongeurs;
+    $this->rongeuses = $animals->female_rongeuses;
+    $this->birds = $animals->birds;
+    $this->reptiles = $animals->reptiles;
+
+}
+
+public function update()
 {
     $this->user_id = auth()->user()->id;
 
+    /* Photo */
+    if(isset($this->photo))
+        {
+            Storage::delete('animals_photos/' . $this->animal->photo);
+            $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
+            $this->photo->storeAs('animals_photos', $name_file);
+        }
+
+    else {
+        $name_file = $this->animal->photo;
+        }
+    /* Fin photo */
+    
+
    $validated =$this->validate([
         'nom' => 'required',
-        'personnalité' => 'nullable',
+        'personnality' => 'nullable',
         'espece' => 'required',
         'race' => 'required',
         'chiens' => 'nullable',
@@ -108,15 +150,14 @@ public function update(Request  $request)
       
    ]);
 
-   $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
-   $this->photo->storeAs('animals_photos', $name_file);
+   $ids = $this->animal->id;
   
-   $animals = Animal::create([
+   $animals = Animal::find($ids)->update([
        
      
         'animal_name' => $this->nom,
         'age_id' => $this->age,
-        'personnality' => $this->personnalité,
+        'personnality' => $this->personnality,
         'male_dogs' => $this->chiens,
         'female_dogs' => $this->chiennes,
         'male_cats' => $this->chats,
@@ -133,7 +174,7 @@ public function update(Request  $request)
     ]);
 
     self::message('success', 'La fiche de ton animal a bien été modifiée !');
-    return redirect()->route('animals.show', $animals->id);
+    return redirect()->route('animals.show', $ids);
 
    
  

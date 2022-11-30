@@ -9,8 +9,8 @@
 <div class="pb-5">
     <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
         <div class=" col-span-3 md:col-span-1 mx-auto">       
-            <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-3 xl:aspect-h-4 ">
-                <img class="img_size rounded-lg object-cover object-center group-hover:opacity-75 " src="{{ asset('storage/annonces_photos/' . $annonce->photo) }}">
+            <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-3 xl:aspect-h-4">
+                <img class="h-80 w-80 rounded-lg object-cover object-center group-hover:opacity-75 " src="{{ asset('storage/annonces_photos/' . $annonce->photo) }}">
             </div>
         </div>
         <!-- Partie description annonce -->
@@ -22,12 +22,13 @@
                     @endif
                     <div class="flex md:justify-end mb-3 pr-10">
                         @can('update', $annonce)
-                        <a class="text-sm pr-10 items-center" href="{{ route('annonces.edit', $annonce) }}">
+                        <a class="text-sm pr-10 items-center"  href="{{ route('annonces.edit', $annonce) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                             </svg>
                             <p class="inline text-green-700">Modifier mon annonce</p>
-                        </a> 
+                        </a>
+                        
                        @endcan
                        @can('delete', $annonce)
                         <livewire:delete-annonce-comp :annonce="$annonce">
@@ -165,6 +166,9 @@
         <div class="col-span-3 text-center">
             <h3 class="text-green-700 font-bold text-3xl pb-2">Je vous présente mes animaux </h3>
         </div>
+        @if(auth()->user()->id === $annonce->user_id)
+            <p class="ml-10 mt-2">Ajouter un animal en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p> 
+        @endif
         @forelse($animals as $animal)
             <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
                 <div class="pr-5 md:col-span-2 col-span-3 ml-4">
@@ -242,7 +246,7 @@
                                 </button>
                             </h2>
                             <div x-show="open" x-transition class="space-y-2 mb-4 ml-2 md:pr-6"> 
-                                @if($animal->male_dogs !== null)
+                                @if($animal->male_dogs === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Chiens mâles</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -251,7 +255,7 @@
                                     </div>
                                 @endif
 
-                                @if($animal->female_dogs !== null)
+                                @if($animal->female_dogs === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Chiens femelles</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -260,7 +264,7 @@
                                     </div>
                                 @endif
 
-                                @if($animal->male_cats !== null)
+                                @if($animal->male_cats  === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Chats mâles</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -269,7 +273,7 @@
                                     </div>
                                 @endif
 
-                                @if($animal->female_cats !== null)
+                                @if($animal->female_cats  === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Chats femelles</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -278,7 +282,7 @@
                                     </div>
                                 @endif
 
-                                @if($animal->male_rongeurs !== null)
+                                @if($animal->male_rongeurs  === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Rongeurs mâles</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -287,7 +291,7 @@
                                     </div>
                                 @endif
 
-                                @if($animal->female_rongeurs !== null)
+                                @if($animal->female_rongeurs === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Rongeurs femelles</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -296,7 +300,7 @@
                                     </div>
                                 @endif
 
-                                @if($animal->birds !== null)
+                                @if($animal->birds === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Oiseaux</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -305,7 +309,7 @@
                                     </div>
                                 @endif
 
-                                @if($animal->reptiles !== null)
+                                @if($animal->reptiles === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Reptiles</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -318,22 +322,16 @@
                     <!-- S'entend bien avec -->
                 </div>
             
-                <div class="col-span-3 md:col-span-1">
-                    <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-md hover:shadow-xl">
-                        <img class="object-cover object-center" src="{{ asset('storage/animals_photos/' . $animal->photo) }}">
+                <div class="col-span-3 md:col-span-1 mx-auto">
+                    <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-3 xl:aspect-h-4">
+                        <img class="h-80 w-80 rounded-lg object-cover object-center group-hover:opacity-75" src="{{ asset('storage/animals_photos/' . $animal->photo) }}">
                     </div>
                 </div>
             </div>
-        @if(auth()->user()->id === $annonce->user_id)
-            <p class="ml-10 mt-2">Ajouter un animal en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p> 
-        @endif
         @empty
-        <p class="ml-10 mt-2">Ajouter un animal en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p> 
             <div class="text-center">
                 <small class="text-lg text-blue-900">Aucun animal renseigné.
-                </small>
-                
-                
+                </small>       
             </div>
         @endforelse 
          

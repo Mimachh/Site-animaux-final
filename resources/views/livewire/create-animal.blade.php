@@ -84,6 +84,7 @@
                             </div>
 
                             <!-- Fin barre de selection espèces et races -->
+                            
                             <div>
                                 <x-jet-label for="personnality" value="{{ __('Sa personnalité') }}" />
                                 <textarea name="personnality" type="text"  class="rounded mt-2 block w-full" wire:model="personnalité" placeholder="Décrivez en quelques mots votre animal pour informer le pet-sitter"></textarea>

@@ -87,11 +87,11 @@ class Annonces extends Component
      * @param  \App\Models\Annonce  $annonce
      * @return \Illuminate\Http\Response
      */
-   
+  public $ids;
     public function edit(Annonce $annonce)
     {
         $this->authorize('update', $annonce);
-     
+       
         return view ('annonces.edit', compact('annonce'));
        
      

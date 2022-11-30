@@ -6,7 +6,6 @@ use App\Models\Garde;
 use App\Models\Ville;
 use App\Models\Espece;
 use App\Models\Annonce;
-
 use Livewire\Component;
 use App\Models\Exterieur;
 use App\Models\Habitation;
@@ -27,16 +26,18 @@ class EditAnnonce extends Component
     /* Séparation des pages */
 
     public $currentPage = 1;
+
     public $pages = [1=>1, 2=>2, 3=>3];
 
     public function goToPreviousPages()
-      {
+    {
         $this->currentPage--;
-      }
+    }
+
     public function goToNextPages()
-      {
+    {
         $this->currentPage++;
-      }
+    }
 
 
     /* Barre de data-list */
@@ -46,19 +47,18 @@ class EditAnnonce extends Component
      
 
     public function updatedVille()
-        {
-            $words = '%' . $this->ville . '%';
+    {
+        $words = '%' . $this->ville . '%';
 
-            if(strlen($this->ville) > 2) 
-                {
-                    $this->villes = Ville::where('ville_nom', 'like', $words)
-                    ->orWhere('ville_departement', 'like', $words)
-                    ->orWhere('ville_code_postal', 'like', $words)
-                    ->orWhere('ville_nom_simple', 'like', $words)
-                    ->get();
-                    
-                }   
-        }
+        if(strlen($this->ville) > 2) 
+        {
+            $this->villes = Ville::where('ville_nom', 'like', $words)
+            ->orWhere('ville_departement', 'like', $words)
+            ->orWhere('ville_code_postal', 'like', $words)
+            ->orWhere('ville_nom_simple', 'like', $words)
+            ->get();                
+        }   
+    }
 
     
     public $user_id, $name, $price, $garde, $prix, $chats, 
@@ -72,9 +72,7 @@ class EditAnnonce extends Component
             $ids = $this->annonce->id;
             $infos = Annonce::find($ids);
 
-            $getInfoPrice = $infos->price / 100;
-            $this->Infoprice = number_format($getInfoPrice, 2, '.', ' ' );
-            
+           
             $this->gardes = Garde::all();
             $this->name = auth()->user()->name;
             $this->user_id = auth()->user()->id;
@@ -83,14 +81,14 @@ class EditAnnonce extends Component
          
             /* Animals */
          
-            $this->chats_id = Espece::find(1);
-            $this->chiens_id = Espece::find(2);
-            $this->poissons_id  = Espece::find(3);
-            $this->rongeurs_id = Espece::find(4);
-            $this->oiseaux_id = Espece::find(5);
-            $this->reptiles_id = Espece::find(6);
-            $this->ferme_id = Espece::find(7);
-            $this->autre_id = Espece::find(8);
+                $this->chats_id = Espece::find(1);
+                $this->chiens_id = Espece::find(2);
+                $this->poissons_id  = Espece::find(3);
+                $this->rongeurs_id = Espece::find(4);
+                $this->oiseaux_id = Espece::find(5);
+                $this->reptiles_id = Espece::find(6);
+                $this->ferme_id = Espece::find(7);
+                $this->autre_id = Espece::find(8);
          
             /* Fin animaux */    
         }
@@ -112,13 +110,10 @@ class EditAnnonce extends Component
             'reptiles' => 'nullable',
             'ferme' => 'nullable',
             'autre' => 'nullable',
-
             'description' => 'required',
             'prix' => 'required',
-
             'start_watch' => 'nullable',
             'end_watch' => 'nullable',
-
             'photo' => 'nullable|image',
             'ville' => 'required',
             'hab' => 'required',
@@ -128,6 +123,35 @@ class EditAnnonce extends Component
     
         }
 
+        /* Affichage des anciennes valeurs */
+
+
+            public function oldValuesAnnonces(Annonce $annonce)
+            {
+            
+                $annonce_id = $this->annonce->id;
+                $annonce = Annonce::findorFail($annonce_id);
+
+                $this->start_watch = $annonce->start_watch;
+                $this->end_watch = $annonce->end_watch;
+                $this->garde = $annonce->garde_id;
+                $this->ville = $annonce->ville_id;
+                $this->prix = $annonce->price /100;
+                $this->hab = $annonce->habitation_id;
+                $this->ext = $annonce->exterieur_id;
+                $this->description = $annonce->description;
+                $this->chats = $annonce->chats;
+                $this->chiens = $annonce->chiens;
+                $this->poissons = $annonce->poissons;
+                $this->rongeurs = $annonce->rongeurs;
+                $this->oiseaux = $annonce->oiseaux;
+                $this->reptiles = $annonce->reptiles;
+                $this->ferme = $annonce->ferme;
+                $this->autre = $annonce->autre;
+            
+            }
+        /* Fin affichage des anciennes valeurs */
+
     /**
      * Update the specified resource in storage.
      *
@@ -135,22 +159,64 @@ class EditAnnonce extends Component
      * @param  \App\Models\Annonce  $annonce
      * @return \Illuminate\Http\Response
      */
+   
+
     public function update()
     {
         
         $ids = $this->annonce->id;
+        
         $prix = $this->prix * 100;
         
-        if(isset($this->photo))
-        {
-            Storage::delete('annonces_photos/' . $this->annonce->photo);
-            $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
-            $this->photo->storeAs('annonces_photos', $name_file);
-        }
+        /* Photo */
+            if(isset($this->photo))
+                {
+                    Storage::delete('annonces_photos/' . $this->annonce->photo);
+                    $name_file = md5($this->photo . microtime()).'.'.$this->photo->extension();
+                    $this->photo->storeAs('annonces_photos', $name_file);
+                }
 
-        else {
-            $name_file = $this->annonce->photo;
-        }
+            else {
+                $name_file = $this->annonce->photo;
+                }
+        /* Fin photo */
+
+        
+
+        /* Checkbox null */
+            if($this->chats !== 1)
+            {
+                $chats = null;
+            }
+            if($this->chiens !== 2)
+            {
+                $chiens = null;
+            }
+            if($this->poissons !== 3)
+            {
+                $poissons = null;
+            }
+            if($this->rongeurs !== 4)
+            {
+                $rongeurs = null;
+            }
+            if($this->oiseaux !== 5)
+            {
+                $oiseaux = null;
+            }
+            if($this->reptiles !== 6)
+            {
+                $reptiles = null;
+            }
+            if($this->ferme !== 7)
+            {
+                $ferme = null;
+            }
+            if($this->autre !== 8)
+            {
+                $autre = null;
+            }
+        /* Fin checkbox */   
 
         $this->validate();
 
@@ -159,14 +225,14 @@ class EditAnnonce extends Component
             'ville_id' => $this->ville,
             'start_watch' => $this->start_watch,
             'end_watch' => $this->end_watch,
-            'chats' => $this->chats,
-            'chiens' => $this->chiens,
-            'oiseaux' => $this->oiseaux,
-            'poissons' => $this->poissons,
-            'rongeurs' => $this->rongeurs,
-            'ferme' => $this->ferme,
-            'autre' => $this->autre,
-            'reptiles' => $this->reptiles,
+            'chats' => $chats,
+            'chiens' => $chiens,
+            'oiseaux' => $oiseaux,
+            'poissons' => $poissons,
+            'rongeurs' => $rongeurs,
+            'ferme' => $ferme,
+            'autre' => $autre,
+            'reptiles' => $reptiles,
             'description' => $this->description,
             'price' => $prix,
             'name' => $this->name,
@@ -180,7 +246,7 @@ class EditAnnonce extends Component
         return redirect()->route('annonces.show', $ids);
     }
     
-
+    
     
     public function render()
     {
@@ -200,13 +266,6 @@ class EditAnnonce extends Component
         $this->autre = $infos->autre;
         $this->reptiles = $infos->reptiles;
         J'enlève pour l'instant car sinon on ne peux pas editer le formulaire*/
-
-        $this->description = $infos->description;
-        $this->prix = $this->Infoprice;
-        
-       
-        
-       
 
 
         return view('livewire.edit-annonce');

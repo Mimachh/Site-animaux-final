@@ -89,7 +89,7 @@ public function store(Request  $request)
 {
     $this->user_id = auth()->user()->id;
 
-   $validated =$this->validate([
+   $validated = $this->validate([
         'nom' => 'required',
         'personnalité' => 'nullable',
         'espece' => 'required',

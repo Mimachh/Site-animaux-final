@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Animal;
 use Livewire\Component;
 use App\View\Components\Flash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class DeleteAnimalComp extends Component
@@ -30,11 +31,13 @@ class DeleteAnimalComp extends Component
       }
     public function deleteAnimal()
       {
-        $animal = Animal::where('id', $this->delete_id_animal)->first();
+          $animal = Animal::where('id', $this->delete_id_animal)->first();
+
+          Storage::delete('animals_photos/' . $animal->photo);
         
           $animal->delete();
  
-        self::message('danger', 'Votre fiche a bien été supprimée ! :(');
+          self::message('danger', 'Votre fiche a bien été supprimée ! :(');
 
         return redirect()->route('dashboard'); 
 

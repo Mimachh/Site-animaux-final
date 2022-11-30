@@ -10,7 +10,7 @@
     <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
         <div class=" col-span-3 md:col-span-1 mx-auto">       
             <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-3 xl:aspect-h-4 ">
-                <img class="img_size rounded-lg object-cover object-center group-hover:opacity-75 " src="{{ asset('storage/animals_photos/' . $animal->photo) }}"">
+                <img class="h-80 w-80 rounded-lg object-cover object-center group-hover:opacity-75 " src="{{ asset('storage/animals_photos/' . $animal->photo) }}"">
             </div>
         </div>
         <!-- Partie description annonce -->
@@ -34,8 +34,8 @@
                     </div>                                            
                 </div>
                 <div class="mb-2 space-y-1">
-                    <p class="text-gray-700">Je fais parti des {{$animal->race->race_animal}}</p> 
-                    <p class="text-gray-700">Je suis un {{$animal->espece->espece}}</p>
+                    <p class="text-gray-700">Je fais parti des {{$animal->espece->espece}}</p> 
+                    <p class="text-gray-700">Je suis un {{$animal->race->race_animal}}</p>
                 </div>
                 <!-- Personnalité -->
                     <label for="personnality" class="my-1 font-medium text-gray-600 mt-6">Ma personnalité :</label> 
@@ -67,7 +67,7 @@
                             </button>
                         </h2>
                         <div x-show="open" x-transition class="space-y-2 mb-4 ml-2 md:pr-6"> 
-                            @if($animal->male_dogs !== null)
+                            @if($animal->male_dogs === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Chiens mâles</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -76,7 +76,7 @@
                                 </div>
                             @endif
 
-                            @if($animal->female_dogs !== null)
+                            @if($animal->female_dogs === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Chiens femelles</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -85,7 +85,7 @@
                                 </div>
                             @endif
 
-                            @if($animal->male_cats !== null)
+                            @if($animal->male_cats === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Chats mâles</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -93,7 +93,7 @@
                                     </svg>
                                 </div>
                             @endif
-                            @if($animal->female_cats !== null)
+                            @if($animal->female_cats === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Chats femelles</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -102,7 +102,7 @@
                                 </div>
                             @endif
 
-                            @if($animal->male_rongeurs !== null)
+                            @if($animal->male_rongeurs === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Rongeurs mâles</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -111,7 +111,7 @@
                                 </div>
                             @endif
 
-                            @if($animal->female_rongeurs !== null)
+                            @if($animal->female_rongeurs === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Rongeurs femelles</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -120,7 +120,7 @@
                                 </div>
                             @endif
 
-                            @if($animal->birds !== null)
+                            @if($animal->birds === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Oiseaux</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -129,7 +129,7 @@
                                 </div>
                             @endif
 
-                            @if($animal->reptiles !== null)
+                            @if($animal->reptiles === 1)
                                 <div class="flex">
                                     <p class="text-gray-800 mr-2">Reptiles</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">

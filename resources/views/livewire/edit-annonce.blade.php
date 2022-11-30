@@ -25,6 +25,8 @@
                     <input type="hidden" wire:model="ids">
                         <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
                             <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+                            
+                            <x-jet-button class="bg-orange-600" type="button" wire:click="oldValuesAnnonces" >Remplir avec vos anciens champs</x-jet-button>
 
             @if($currentPage === 1)
                                 <!-- Photo --> 
@@ -66,7 +68,7 @@
                                                                 </div>
                                                 </div>
                                 </fieldset>
-                    
+
                                 <hr>
 
                                 <!-- Partie date mais en date --> 
@@ -84,7 +86,7 @@
                                                             <x-jet-label for="start_watch" value="{{ __('Du :') }}"/>
                                                         </div>
                                                         <div class="flex h-5 items-center">
-                                                            <x-jet-input id="start_watch" wire:model.lazy="start_watch" name="start_watch" type="date"/>   
+                                                            <x-jet-input id="start_watch" wire:model.defer="start_watch" name="start_watch" type="date"/>   
                                                         </div>
 
                                                         <div class="ml-16 text-sm mr-8">
@@ -271,7 +273,9 @@
                                     </h2>
                                         <div class="mt-4 space-y-4">
                                             <div class="flex items-start pt-4 pb-4">   
-                                                <textarea wire:model.defer="description" class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>       
+                                                <textarea wire:model.defer="description" class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description">
+                                                    
+                                                </textarea>       
                                             </div>
                                         </div>       
                                 </fieldset>    
@@ -288,12 +292,12 @@
                                         <div class="flex items-start items-center">
                                             <div class="ml-3 text-sm pr-10 ">
                                             <x-jet-label for="price" value="{{ __('Votre tarif en euro par jour.') }}"/>
+                                            <small>Merci de mettre un point entre les euros et les centimes</small>
                                             
                                             </div>
                                             <div class="flex">
-                                            <x-jet-input wire:model.defer="prix" name="prix" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
+                                            <x-jet-input wire:model="prix" name="prix" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
                                             </div>
-                                        
                                         </div>
                                     </div>
                                     </div>

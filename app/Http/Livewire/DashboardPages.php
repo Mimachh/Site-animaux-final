@@ -2,14 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Animal;
 use App\Models\user;
+use App\Models\Animal;
 use App\Models\Annonce;
 use Livewire\Component;
 
 
 
 use App\Models\annonce_user;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class DashboardPages extends Component
@@ -74,6 +75,7 @@ class DashboardPages extends Component
     public function deleteAnnonce()
       {
         $annonce = Annonce::where('id', $this->delete_id)->first();
+        Storage::delete('annonces_photos/' . $annonce->photo);
         $user = auth()->user()->id;
         $ad = $annonce->user_id;
 
@@ -143,6 +145,7 @@ class DashboardPages extends Component
     public function deleteAnimal()
       {
         $animal = Animal::where('id', $this->delete_id_animal)->first();
+        Storage::delete('animals_photos/' . $animal->photo);
         $user = auth()->user()->id;
         $an = $animal->user_id;
 
@@ -153,30 +156,6 @@ class DashboardPages extends Component
           'error');
         }
       }
-
-    public function confirmAnimalDeletion()
-    {
-      $this->confirmingAnimalDeletion = true;
-    }
-
-    
-    public function deleteAnimals($animal)
-    {
-      $animal = Animal::where('id', $animal)->get();
-      $an = $animal[0]['user_id'];
-      $user = auth()->user()->id;
-      
-      
-      if($an === $user) {
-        Animal::destroy($animal);
-      
-        $this->confirmingAnimalDeletion = false;
-        $this->emit('flash', 'La fiche de votre animal a bien été supprimée ! :(', 
-        'error');
-      }
-      
-      
-    }
 
     /* Fin suppression des animaux */
    
