@@ -216,7 +216,7 @@
                                         <x-jet-label for="farm_animal" value="Animaux de ferme"/>
                                             <p class="text-gray-500 pt-1">Poule, oie, cheval...</p>
                                         </div>
-                                        </div>
+                                        </div> 
 
                                         <!-- Autre -->
                                         <div class="flex items-start pt-2">

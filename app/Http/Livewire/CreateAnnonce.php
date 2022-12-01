@@ -153,6 +153,7 @@ class CreateAnnonce extends Component
 
   public function store()
   {   
+   
     $this->name = auth()->user()->name;
     $this->user_id = auth()->user()->id;
     $this->validate();

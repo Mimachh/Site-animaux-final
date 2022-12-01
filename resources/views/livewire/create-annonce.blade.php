@@ -18,7 +18,6 @@
                             <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 
                             @if($currentPage === 1)
-                
                                 <!-- Photo --> 
                                 <fieldset class="mt-4">
                                     <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">  

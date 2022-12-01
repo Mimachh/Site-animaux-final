@@ -128,6 +128,7 @@ public function update()
     else {
         $name_file = $this->animal->photo;
         }
+        
     /* Fin photo */
     
 

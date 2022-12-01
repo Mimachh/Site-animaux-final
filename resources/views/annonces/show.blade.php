@@ -162,7 +162,6 @@
        
 
         <!-- Animaux -->
-        
         <div class="col-span-3 text-center">
             <h3 class="text-green-700 font-bold text-3xl pb-2">Je vous présente mes animaux </h3>
         </div>

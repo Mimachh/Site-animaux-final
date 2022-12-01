@@ -184,37 +184,37 @@ class EditAnnonce extends Component
         
 
         /* Checkbox null */
-            if($this->chats !== 1)
+            if($this->chats != 1)
             {
-                $chats = null;
+                $this->chats = null;
             }
-            if($this->chiens !== 2)
+            if($this->chiens != 2)
             {
-                $chiens = null;
+                $this->chiens = null;
             }
-            if($this->poissons !== 3)
+            if($this->poissons != 3)
             {
-                $poissons = null;
+                $this->poissons = null;
             }
-            if($this->rongeurs !== 4)
+            if($this->rongeurs != 4)
             {
-                $rongeurs = null;
+                $this->rongeurs = null;
             }
-            if($this->oiseaux !== 5)
+            if($this->oiseaux != 5)
             {
-                $oiseaux = null;
+                $this->oiseaux = null;
             }
-            if($this->reptiles !== 6)
+            if($this->reptiles != 6)
             {
-                $reptiles = null;
+                $this->reptiles = null;
             }
-            if($this->ferme !== 7)
+            if($this->ferme != 7)
             {
-                $ferme = null;
+                $this->ferme = null;
             }
-            if($this->autre !== 8)
+            if($this->autre != 8)
             {
-                $autre = null;
+                $this->autre = null;
             }
         /* Fin checkbox */   
 
@@ -225,14 +225,14 @@ class EditAnnonce extends Component
             'ville_id' => $this->ville,
             'start_watch' => $this->start_watch,
             'end_watch' => $this->end_watch,
-            'chats' => $chats,
-            'chiens' => $chiens,
-            'oiseaux' => $oiseaux,
-            'poissons' => $poissons,
-            'rongeurs' => $rongeurs,
-            'ferme' => $ferme,
-            'autre' => $autre,
-            'reptiles' => $reptiles,
+            'chats' => $this->chats,
+            'chiens' => $this->chiens,
+            'oiseaux' => $this->oiseaux,
+            'poissons' => $this->poissons,
+            'rongeurs' => $this->rongeurs,
+            'ferme' => $this->ferme,
+            'autre' => $this->autre,
+            'reptiles' => $this->reptiles,
             'description' => $this->description,
             'price' => $prix,
             'name' => $this->name,
