@@ -72,6 +72,15 @@ class CreateAdForeignKeyControllersTable extends Migration
         
         });
 
+        Schema::table('demandes', function(Blueprint $table) {
+            $table->foreign('first_animal_id')->references('id')->on('animals')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('second_animal_id')->references('id')->on('animals')->onDelete('cascade')->onUpdate('cascade');  
+            $table->foreign('third_animal_id')->references('id')->on('animals')->onDelete('cascade')->onUpdate('cascade');  
+            $table->foreign('garde_id')->references('id')->on('gardes')->onDelete('cascade')->onUpdate('cascade');  
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');   
+        
+        });
+
     }
 
     /**

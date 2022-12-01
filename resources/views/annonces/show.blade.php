@@ -151,7 +151,7 @@
                 <!-- Bouton contact -->
                     @if($annonce->user_id !== auth()->user()->id)
                     <div class=" justify-center my-5">
-                        <x-jet-button type="button" class="bg-blue-600"><a href="">Contacter</a></x-jet-button>   
+                        <x-jet-button type="button" class="bg-blue-600"><a href="{{route('demandes.create', $annonce->id)}}">Contacter</a></x-jet-button>   
                     </div>                                       
                     @endif 
                 <!-- Fin bouton contact -->

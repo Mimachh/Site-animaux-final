@@ -9,6 +9,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
 
 class Annonces extends Component
 {
@@ -59,7 +60,7 @@ class Annonces extends Component
        
         $animal = Animal::where('user_id', $annonce->user_id)->get();
      
-       
+       $this->emit('annonce', $annonce->id);
 
         $cat= Espece::select('espece')->where('id', $annonce->chats)->get();
         $dog = Espece::select('espece')->where('id', $annonce->chiens)->get();

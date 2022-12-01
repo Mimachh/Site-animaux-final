@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Livewire\AnimalOwnedForm;
-use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Annonces;
 use App\Http\Livewire\Animals;
+use App\Http\Livewire\Annonces;
+use App\Http\Livewire\Demandes;
+use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\AnimalOwnedForm;
 
 
 
@@ -32,14 +33,19 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
     Route::resource('/annonces', Annonces::class)
     ->except('index');
+
     Route::resource('/animals', Animals::class);    
 });
 
 
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
+
+Route::resource('/demandes/{annonce}/', Demandes::class)->except('create');
+Route::get('demandes/{annonce}/create', [Demandes::class, 'create'])->name('demandes.create');
 
 
 
