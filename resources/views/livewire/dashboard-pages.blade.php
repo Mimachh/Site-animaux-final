@@ -2,6 +2,8 @@
         <div class=" sm:px-6 lg:px-8 opacity-80">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <!-- Boutons -->
+                
+                
                 <div class="flex justify-around">  
                 
                     @if($currentPage === 1)

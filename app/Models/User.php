@@ -76,4 +76,14 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Annonce');
     }
 
+    /* public function demandes()
+    {
+        return $this->hasMany('App\Models\Demande');
+    } Pas besoin je crois */
+
+    public function proposals()
+    {
+        return $this->hasMany('App\Models\Proposal');
+    }
+
 }

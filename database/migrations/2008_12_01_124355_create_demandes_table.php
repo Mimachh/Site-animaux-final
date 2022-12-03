@@ -15,18 +15,19 @@ class CreateDemandesTable extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->unsignedBigInteger('first_animal_id');
-            $table->unsignedBigInteger('second_animal_id');
-            $table->unsignedBigInteger('third_animal_id');
-            $table->text('content');
-            $table->unsignedBigInteger('garde_id');
-            $table->integer('number_visit');
-            $table->string('phone');
-            $table->string('mail');
-            $table->unsignedBigInteger('user_id');
+            $table->nullableTimestamps();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->unsignedBigInteger('first_animal_id')->nullable();
+            $table->unsignedBigInteger('second_animal_id')->nullable();
+            $table->unsignedBigInteger('third_animal_id')->nullable();
+            $table->text('content')->nullable();
+            $table->unsignedBigInteger('garde_id')->nullable();
+            $table->integer('number_visit')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('mail')->nullable();
+           /* $table->unsignedBigInteger('user_id'); pas besoin je crois */
+            $table->unsignedBigInteger('proposal_id')->nullable();
         });
     }
 

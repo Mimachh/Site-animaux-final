@@ -175,29 +175,6 @@ class DatabaseSeeder extends Seeder
    
         ]);
 
-        DB::table('users')->insert([
-            ['id' => '1', 'name' => 'Karl', 'email' => 'karl.m@gmail.com', 
-            'password' => '$2y$10$ZaUzuL/yWyVcl8bCxhQ64OyOA/GrLJpfP9eThY7dfco29sZvgw.fK']
-        ]);
-        
-        DB::table('villes')->insert([
-            ['id' => 1, 'ville_nom' => 'Le Mans']
-        
-        ]);
-
-        DB::table('annonces')->insert([
-            ['id' => '1', 'garde_id' => '2', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 12, 'user_id' => 1],
-            ['id' => '2', 'garde_id' => '1', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 21, 'user_id' => 1],
-            ['id' => '3', 'garde_id' => '2', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 25, 'user_id' => 1]
-        ]);
-
-        DB::table('ages')->insert([
-            ['id' => '1', 'age' => "Moins d'un an"],
-            ['id' => '2', 'age' => "Entre 1 et 2 ans"],
-            ['id' => '3', 'age' => "Plus de 2 ans"],
-            
-        ]);
-     
         DB::table('habitations')->insert([
             ['id' => '1', 'hab' => "Appartement"],
             ['id' => '2', 'hab' => "Maison"],
@@ -208,6 +185,39 @@ class DatabaseSeeder extends Seeder
             ['id' => '1', 'ext' => "Avec jardin/cour"],
             ['id' => '2', 'ext' => "Sans extérieur"],
             ['id' => '3', 'ext' => "Non concerné"],            
+        ]);
+
+        DB::table('users')->insert([
+            ['id' => '1', 'name' => 'Karl', 'email' => 'karl.m@gmail.com', 
+            'password' => '$2y$10$ZaUzuL/yWyVcl8bCxhQ64OyOA/GrLJpfP9eThY7dfco29sZvgw.fK'],
+            ['id' => '2', 'name' => 'Amandine', 'email' => 'karl@gmail.com', 
+            'password' => '$2y$10$ZaUzuL/yWyVcl8bCxhQ64OyOA/GrLJpfP9eThY7dfco29sZvgw.fK']
+        ]);
+        
+        DB::table('villes')->insert([
+            ['id' => 1, 'ville_nom' => 'Le Mans']
+        
+        ]);
+
+
+        DB::table('annonces')->insert([
+            ['id' => '1', 'garde_id' => '2', 'habitation_id'=> '1', 'exterieur_id' =>'2', 'name'=>'Karl', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 12, 'user_id' => 1],
+            ['id' => '2', 'garde_id' => '1', 'habitation_id'=> '2','exterieur_id' =>'2', 'name'=>'Karl', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 21, 'user_id' => 1],
+            ['id' => '3', 'garde_id' => '2', 'habitation_id'=> '2','exterieur_id' =>'2', 'name'=>'Karl', 'ville_id' =>1, 'description' => 'je suis un chameau', 'chats' => '1', 'chiens' => '2', 'price' => 25, 'user_id' => 1]
+        ]);
+
+        DB::table('ages')->insert([
+            ['id' => '1', 'age' => "Moins d'un an"],
+            ['id' => '2', 'age' => "Entre 1 et 2 ans"],
+            ['id' => '3', 'age' => "Plus de 2 ans"],
+            
+        ]);
+     
+       
+
+        DB::table('animals')->insert([
+            ['id' => '1', 'animal_name' => "Bunny"],
+                        
         ]);
      
     }

@@ -5,6 +5,7 @@
             Demande de garde à {{ $annonce->name }}
         </h1>
     </x-slot>
+
 <livewire:demandes :annonce="$annonce"/>
 
 </x-app-layout>

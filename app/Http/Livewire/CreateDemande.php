@@ -2,37 +2,13 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Garde;
-use App\Models\Annonce;
 use App\Models\Demande;
-
-
 use Livewire\Component;
-
-use App\Models\Proposal;
-use Illuminate\Http\Response;
 use App\View\Components\Flash;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class Demandes extends Component
+class CreateDemande extends Component
 {
     use Flash;
-
-    public function index()
-    {
-        //
-    }
-
-  
-    public function create(Annonce $annonce)
-    {
-        
-    
-
-     return view('demandes.create', compact('annonce'));
-    }
-
     
     protected $rules = [
 
@@ -49,19 +25,16 @@ class Demandes extends Component
 
     ];
 
-
     public  $content, $annonce, $first_animal_id, 
             $second_animal_id, $third_animal_id,
             $start_date, $end_date, $garde_id, $number_visit,
-            $phone, $mail, $user_id, $prix, $i, $price, $prix_date, $gardes, $proposal;
+            $phone, $mail, $user_id, $prix, $i, $price, $prix_date;
 
 
-    public function mount()
-    {
-        $this->gardes = Garde::all();
-
-    }
         
+
+        
+
     public function store()
     {
        
@@ -126,10 +99,6 @@ class Demandes extends Component
 
             $this->validate();
        
-            $proposal = Proposal::create([
-                'annonce_id' => $this->annonce->id,
-                'validated' => false,
-            ]);
             $demande = Demande::create([
 
                 'content' => $this->content,
@@ -152,7 +121,7 @@ class Demandes extends Component
 
                 'number_visit' => $this->number_visit,
 
-                'proposal_id' => $proposal->id,
+                'user_id' => $this->user_id,
         
             ]);
 
@@ -162,35 +131,9 @@ class Demandes extends Component
      
 
     }
-
     
-
-
-    
-    public function show(Demande $demande)
-    {
-        //
-    }
-
-    
-    public function edit(Demande $demande)
-    {
-        //
-    }
-
-    public function update(Request $request, Demande $demande)
-    {
-        //
-    }
-
-    
-    public function destroy(Demande $demande)
-    {
-        //
-    }
-
     public function render()
     {
-        return view('livewire.demandes');
+        return view('livewire.create-demande');
     }
 }

@@ -44,8 +44,9 @@ Route::middleware([
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
 
-Route::resource('/demandes/{annonce}/', Demandes::class)->except('create');
+Route::resource('/demandes', Demandes::class)->except('create');
 Route::get('demandes/{annonce}/create', [Demandes::class, 'create'])->name('demandes.create');
+
 
 
 
