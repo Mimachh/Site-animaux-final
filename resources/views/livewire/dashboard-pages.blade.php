@@ -1,4 +1,5 @@
-<div class="py-12">
+<div class="py-8">
+    @livewire('previous-page')  
         <div class=" sm:px-6 lg:px-8 opacity-80">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <!-- Boutons -->
@@ -48,7 +49,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
 
-                        </a>                       
+                        </a>      
+                        <h2 class="ml-5 mt-2 text-md font-bold text-gray-600 mb-2">Vos annonces ({{auth()->user()->ads->count()}})</h2>                 
                         @forelse($ads as $annonce)
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 ml-5 mt-4 shadow-sm hover:shadow-md rounded border border-gray-200">    
                                 <div class="flex justify-between">
@@ -183,7 +185,7 @@
 
                 <div>
 
-                        <!-- Pas des animaux -->
+                        <!-- Page des animaux -->
                     @if($currentPage === 3)
                         <a href="{{ route('animals.create') }}" class="mb-3 ml-5 text-blue-600 text-blue-600">
                             Ajouter une nouvelle fiche animal
@@ -226,6 +228,97 @@
                             </div>
                         @endforelse                      
                     @endif
+                </div>
+
+                <div>
+
+                        <!-- Page des gardes -->
+                    @if($currentPage === 5)
+                        <!-- Demandes envoyées -->
+                            <div>
+                                <h2 class="ml-5 text-md font-bold text-gray-600 mb-2">Vos demandes de garde envoyées ({{auth()->user()->proposals->count()}})</h2>
+
+                                @forelse(auth()->user()->proposals as $proposal)
+                                    <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200"> 
+                                        <div class="flex justify-between">
+                                            <h2 class="text-md font-bold text-gray-600 mb-2">{{ $proposal->annonce->name}}</h2>
+                                        </div>
+                                        <div>
+                                            <p class="text-md font-semi-bold text-gray-600 mb-2">{{ $proposal->annonce->getRealPrice()}} / jour</p>
+                                            <p class="text-md font-semi-bold text-gray-600 mb-2">Soit un total pour la garde de : {{ $proposal->demande->prix_final / 100 }}€ </p>
+                                            @if($proposal->validated === 1)
+                                                <p class="text-sm text-gray-600 mb-2"> Demande acceptée ! </p>
+                                            @else
+                                                <p class="text-sm text-red-600 mb-2"> Demande en attente de validation ...</p>
+                                            @endif
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
+                                            <a class="text-sm" href="">Voir la demande en détail</a>
+                                        </div>
+    
+                                    </div>
+                                @empty
+                                    <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
+                                        <div class="flex justify-between pb-2">
+                                            <p class="text-md font-normal text-gray-800">Vous n'avez aucune demande de garde pour l'instant. </p>
+                                        </div>
+                                    </div>
+                                
+                                @endforelse
+                            </div> 
+                        <!-- Fin demandes envoyées -->
+                        
+                        <!-- Demandes reçues -->
+                            <div>
+                                @if(auth()->user()->ads->count() > 0)
+                                <h2 class="ml-5 text-md font-bold text-gray-600 mb-2">Vos demandes de garde reçues</h2>
+                                @endif
+
+                                @foreach($annonces as $annonce)
+                                    
+                                        
+                                    @forelse($annonce->proposals as $prop)
+                                   {{$prop->count()}}
+                                        <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
+                                            <div class="justify-between">
+                                                <h2 class="text-md font-bold text-gray-600 mb-2">Demande envoyée par {{ $prop->user->name}}</h2>
+                                                @if(isset($prop->demande->first_animal))
+                                                <p class="text-md text-gray-600 mb-2">Pour garder {{ $prop->demande->first_animal->animal_name}} son/sa {{ $prop->demande->first_animal->race->race_animal}}. </p>
+                                                @endif
+                                                @if(isset($prop->demande->second_animal))
+                                                <p class="text-md text-gray-600 mb-2">Pour garder {{ $prop->demande->second_animal->animal_name}} son/sa {{ $prop->demande->second_animal->race->race_animal}}. </p>
+                                                @endif
+                                                @if(isset($prop->demande->third_animal))
+                                                <p class="text-md text-gray-600 mb-2">Pour garder {{ $prop->demande->third_animal->animal_name}} son/sa {{ $prop->demande->third_animal->race->race_animal}}. </p>
+                                                @endif
+                                                <p class="text-md text-gray-600 mb-2">{{ $prop->demande->garde->garde}}</p>
+                                                <p class="text-md font-semi-bold text-gray-600 mb-2">Pour un total de {{ $prop->demande->prix_final / 100 }}€ </p>
+                                            </div>
+                                            <div>
+                                                @if($prop->validated)
+                                                    <p class="text-sm text-gray-600 mb-2"> Demande acceptée ! </p>
+                                                @else
+                                                    <p class="text-sm text-red-600 mb-2"> Demande en attente de validation ...</p>
+                                                @endif
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
+                                                <a class="text-sm" href="">Voir la demande en détail</a>
+                                            </div>    
+                                        </div>
+                                    @empty
+                                        <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
+                                            <div class="flex justify-between pb-2">
+                                                <p class="text-md font-normal text-gray-800">Vous n'avez reçu aucune demande de garde pour l'instant. </p>
+                                            </div>
+                                        </div>
+                                    @endforelse
+                                @endforeach
+                            </div> 
+                        <!-- Fin demandes reçues -->
+                    @endif
+
                 </div>
             </div>            
         </div>                    

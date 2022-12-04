@@ -114,11 +114,10 @@ class Demandes extends Component
 
         /* Calcul des prix */
 
-            $price_animals = ($this->annonce->price * $this->i) / 100;
+            $price_animals = ($this->annonce->price * $this->i);
             $prix_date = ($price_animals * $days);
-            $prix_commission = $prix_date * 2;
+            $prix_final = $prix_date * 2;
 
-        
         /* Validation du formulaire */   
 
         
@@ -148,11 +147,13 @@ class Demandes extends Component
 
                 'second_animal_id' => $this->second_animal_id,
 
-                'third_animal_id' => $this->second_animal_id,
+                'third_animal_id' => $this->third_animal_id,
 
                 'number_visit' => $this->number_visit,
 
                 'proposal_id' => $proposal->id,
+
+                'prix_final' => $prix_final,
         
             ]);
 

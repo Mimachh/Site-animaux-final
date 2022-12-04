@@ -18,7 +18,7 @@ class DashboardPages extends Component
    use AuthorizesRequests;
 
     public $annonces;
-
+    public $proposals;
 
     /* Séparation des pages */
 
@@ -53,7 +53,7 @@ class DashboardPages extends Component
  
     $this->annonces = auth()->user()->ads;
     $ads = $this->annonces;
-    
+
     }
 
    

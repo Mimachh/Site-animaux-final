@@ -32,38 +32,38 @@ class CreateAdForeignKeyControllersTable extends Migration
 
         Schema::table('annonces', function(Blueprint $table) {
        
-            $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade');
-            $table->foreign('habitation_id')->references('id')->on('habitations')->onDelete('cascade');
-            $table->foreign('exterieur_id')->references('id')->on('exterieurs')->onDelete('cascade');
-            $table->foreign('my_animal_id')->references('id')->on('animals')->onDelete('cascade');
+            $table->foreign('ville_id')->references('id')->on('villes')->onDelete('set null');
+            $table->foreign('habitation_id')->references('id')->on('habitations')->onDelete('set null');
+            $table->foreign('exterieur_id')->references('id')->on('exterieurs')->onDelete('set null');
+            $table->foreign('my_animal_id')->references('id')->on('animals')->onDelete('set null');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            
             $table->foreign('chats')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
             $table->foreign('chiens')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
             $table->foreign('poissons')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
             $table->foreign('rongeurs')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
             $table->foreign('reptiles')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
             $table->foreign('ferme')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
             $table->foreign('autre')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
             $table->foreign('oiseaux')->references('id')->on('especes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade');
             $table->foreign('garde_id')->references('id')->on('gardes')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade'); 
         });
 
@@ -73,10 +73,7 @@ class CreateAdForeignKeyControllersTable extends Migration
         });
 
         Schema::table('demandes', function(Blueprint $table) {
-            $table->foreign('first_animal_id')->references('id')->on('animals')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('second_animal_id')->references('id')->on('animals')->onDelete('cascade')->onUpdate('cascade');  
-            $table->foreign('third_animal_id')->references('id')->on('animals')->onDelete('cascade')->onUpdate('cascade');  
-            $table->foreign('garde_id')->references('id')->on('gardes')->onDelete('cascade')->onUpdate('cascade');  
+            $table->foreign('garde_id')->references('id')->on('gardes')->onDelete('set null')->onUpdate('cascade');  
             $table->foreign('proposal_id')->references('id')->on('proposals')->onDelete('cascade')->onUpdate('cascade');
             /* $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); pas besoin je crois */  
         

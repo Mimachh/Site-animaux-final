@@ -15,8 +15,8 @@ class CreateProposalsTable extends Migration
     {
         Schema::create('proposals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('annonce_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('annonce_id')->nullable();
             $table->boolean('validated')->default(0);
             $table->timestamps();
         });

@@ -11,6 +11,11 @@ class Garde extends Model
     {
         return $this->hasMany('App\Models\Annonce');
     }
+
+    public function demandes()
+    {
+        return $this->hasMany('App\Models\Demande');
+    }
     
     use HasFactory;
 }
