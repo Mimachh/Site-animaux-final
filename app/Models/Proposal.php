@@ -35,4 +35,19 @@ class Proposal extends Model
         });
     }
 
+    public function getPriceWithoutCom()
+    {
+       $price = $this->demande->prix_final /200;
+       return number_format($price, 2, ',', ' ' ). '€';
+    }
+    public function start_date_fr()
+    {
+       $date = $this->demande->start_date;
+       return date('d/m/Y', strtotime($date));
+    }
+    public function end_date_fr()
+    {
+       $date = $this->demande->end_date;
+       return date('d/m/Y', strtotime($date));
+    }
 }

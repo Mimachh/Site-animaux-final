@@ -33,9 +33,9 @@
                     @endif
                     
                     @if($currentPage === 5)
-                        <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes gardes réalisées</h2></button>    
+                        <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-blue-800">Mes gardes </h2></button>    
                         @else()
-                        <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes gardes réalisées</h2></button>    
+                        <button type="button" wire:click='goToPageGardes'><h2 class="ml-5 mt-5 font-semibold text-lg text-gray-800">Mes gardes </h2></button>    
                     @endif
                 
                 </div>
@@ -55,7 +55,7 @@
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 ml-5 mt-4 shadow-sm hover:shadow-md rounded border border-gray-200">    
                                 <div class="flex justify-between">
                                     <h2 class="text-md font-bold text-gray-600 mb-2">{{$annonce->name}}</h2>
-                                        
+                                    
                                     <div class="flex md:justify-end mb-3 pr-10">
                                         <a class="text-sm pr-10 items-center" href="{{ route('annonces.edit', $annonce) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
@@ -70,8 +70,8 @@
                                             Supprimer mon annonce
                                         </button>
                                     </div>
-
                                 </div>
+
                                 @if($annonce->start_watch && $annonce->end_watch !== null)
                                     <div class="flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-4 h-4">
@@ -107,11 +107,21 @@
                                     <li class="pb-1">{{ $annonce->oiseaux ? ' Oiseaux' : ''}}</li>                                <li class="pb-1">{{ $annonce->reptiles ? ' Reptiles' : ''}}</li>                                    <li class="pb-1">{{ $annonce->ferme ? ' Animaux de la ferme' : ''}}</li>
                                 </ul>    
                                 <p class="text-sm text-gray-600 pb-2">Prix : <span class="text-sm text-gray-800">{{ $annonce->getPrice() }} /jour.</span></p>     
-                                <div class="flex items-center">
-                                    <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
-                                    <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir mon annonce</a>
+                                <div class="flex justify-between">
+
+                                    <div class="flex items-center">
+                                        <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
+                                        <a class="text-sm" href="{{ route('annonces.show', $annonce) }}">Voir mon annonce</a>
+                                    </div>
+
+                                    <div class=" my-4">
+                                        <p class="text-sm text-black mr-12 pr-5">Demandes de garde reçues ({{ $annonce->proposals->count() }})</p>
+                                        @if($annonce->proposals->count() > 0)
+                                        <a class="text-sm text-green-700" href="{{ route('proposals.index') }}">Voir les demandes</a>
+                                        @endif
+                                    </div>
                                 </div>
-                                            
+                                                                        
                             </div>                          
                         @empty
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
@@ -236,7 +246,11 @@
                     @if($currentPage === 5)
                         <!-- Demandes envoyées -->
                             <div>
-                                <h2 class="ml-5 text-md font-bold text-gray-600 mb-2">Vos demandes de garde envoyées ({{auth()->user()->proposals->count()}})</h2>
+                                <h2 class="ml-5 text-md font-bold text-gray-600 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                                Vos demandes de garde envoyées ({{auth()->user()->proposals->count()}})</h2>
 
                                 @forelse(auth()->user()->proposals as $proposal)
                                     <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200"> 
@@ -261,7 +275,7 @@
                                 @empty
                                     <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
                                         <div class="flex justify-between pb-2">
-                                            <p class="text-md font-normal text-gray-800">Vous n'avez aucune demande de garde pour l'instant. </p>
+                                            <p class="text-md font-normal text-gray-800">Vous n'avez envoyé aucune demande de garde pour l'instant. </p>
                                         </div>
                                     </div>
                                 
@@ -272,14 +286,18 @@
                         <!-- Demandes reçues -->
                             <div>
                                 @if(auth()->user()->ads->count() > 0)
-                                <h2 class="ml-5 text-md font-bold text-gray-600 mb-2">Vos demandes de garde reçues</h2>
+                                <h2 class="ml-5 text-md font-bold text-gray-600 mb-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    Vos demandes de garde reçues
+                                </h2>
                                 @endif
 
                                 @foreach($annonces as $annonce)
                                     
                                         
-                                    @forelse($annonce->proposals as $prop)
-                                   {{$prop->count()}}
+                                    @foreach($annonce->proposals as $prop)
                                         <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
                                             <div class="justify-between">
                                                 <h2 class="text-md font-bold text-gray-600 mb-2">Demande envoyée par {{ $prop->user->name}}</h2>
@@ -307,14 +325,9 @@
                                                 <a class="text-sm" href="">Voir la demande en détail</a>
                                             </div>    
                                         </div>
-                                    @empty
-                                        <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
-                                            <div class="flex justify-between pb-2">
-                                                <p class="text-md font-normal text-gray-800">Vous n'avez reçu aucune demande de garde pour l'instant. </p>
-                                            </div>
-                                        </div>
-                                    @endforelse
-                                @endforeach
+                                    @endforeach
+                                @endforeach 
+                                                               
                             </div> 
                         <!-- Fin demandes reçues -->
                     @endif

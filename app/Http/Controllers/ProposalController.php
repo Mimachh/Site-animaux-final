@@ -44,11 +44,13 @@ class ProposalController extends Controller
      * @param  \App\Models\Proposal  $proposal
      * @return \Illuminate\Http\Response
      */
-    public function show(Proposal $proposal)
+    public function show()
     {
-        //
+
+       
     }
 
+  
     /**
      * Show the form for editing the specified resource.
      *

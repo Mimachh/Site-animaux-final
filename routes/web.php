@@ -3,8 +3,10 @@
 use App\Http\Livewire\Animals;
 use App\Http\Livewire\Annonces;
 use App\Http\Livewire\Demandes;
+use App\Http\Livewire\GardePage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\AnimalOwnedForm;
+use App\Http\Controllers\ProposalController;
 
 
 
@@ -37,15 +39,22 @@ Route::middleware([
     Route::resource('/annonces', Annonces::class)
     ->except('index');
 
-    Route::resource('/animals', Animals::class);    
+    Route::resource('/animals', Animals::class);   
+
+    Route::resource('/demandes', Demandes::class)->except('create');
+
+    Route::get('demandes/{annonce}/create', [Demandes::class, 'create'])
+    ->name('demandes.create');
+
+    Route::get('/proposals', [GardePage::class, 'index'])->name('proposals.index');
+    Route::resource('/proposals', GardePage::class)->except('index');
+
+
 });
 
 
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
-
-Route::resource('/demandes', Demandes::class)->except('create');
-Route::get('demandes/{annonce}/create', [Demandes::class, 'create'])->name('demandes.create');
 
 
 

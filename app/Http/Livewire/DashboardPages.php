@@ -62,9 +62,10 @@ class DashboardPages extends Component
   /* La modal Sweet Alert 2 */
 
     public $delete_id;
+
     protected $listeners = ['deleteConfirmed' => 'deleteAnnonce', 
       'deleteAnimalConfirmed' => 'deleteAnimal'
-    ];
+      ];
 
     public function deleteConfirmation($id)
       {
