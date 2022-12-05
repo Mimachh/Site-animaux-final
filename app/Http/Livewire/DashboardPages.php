@@ -41,10 +41,6 @@ class DashboardPages extends Component
       {
         $this->currentPage = 4;
       }
-    public function goToPageGardes()
-      {
-        $this->currentPage = 5;
-      }
   
     /* Fin séparation des pages */
 

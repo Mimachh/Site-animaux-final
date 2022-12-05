@@ -7,6 +7,7 @@
     
 
 <div class="pb-5">
+    @livewire('previous-page')
     <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
         <div class=" col-span-3 md:col-span-1 mx-auto">       
             <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-3 xl:aspect-h-4 ">

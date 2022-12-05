@@ -4,8 +4,6 @@
             Vos demandes de garde 
         </h1>
     </x-slot>
-
-    @livewire('previous-page')
     
     @livewire('garde-page')
 </x-app-layout>
