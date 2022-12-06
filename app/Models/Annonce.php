@@ -43,6 +43,22 @@ class Annonce extends Model
     }
 /* Fin fonctions pour le prix */
 
+
+/* Fonction pour les dates */ 
+
+public function start_date_fr()
+    {
+       $date = $this->start_watch;
+       return date('d/m/Y', strtotime($date));
+    }
+    public function end_date_fr()
+    {
+       $date = $this->end_watch;
+       return date('d/m/Y', strtotime($date));
+    }
+/* Fin fonction pour les dates */
+
+
 /* Relations */
 
     public function user()
