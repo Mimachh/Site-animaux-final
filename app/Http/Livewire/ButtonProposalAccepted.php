@@ -15,9 +15,17 @@ class ButtonProposalAccepted extends Component
     {
         $id = $this->proposal->id;
         
-        $proposal = Proposal::find($id)->update([
+       /* $proposal = Proposal::findOrFail($id)->update([
             'validated' => 1,
-        ]);
+        ]); */
+
+        $proposal = Proposal::findOrFail($id);
+
+        $proposal->fill(['validated' => 1]);
+
+        if($proposal->isDirty()) {
+            $proposal->save();
+        }
 
         return redirect()->route('proposals.show', $id);
 

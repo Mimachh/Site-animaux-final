@@ -19,9 +19,16 @@ class AdFav extends Component
     {
       if(auth()->check()) {
 
-        auth()->user()->fav()->toggle($this->annonce->id);
-        $this->emit('flash', 'Favoris mis à jour.', 
-        'success'); 
+       $response = auth()->user()->fav()->toggle($this->annonce->id);
+        
+        if($response['attached']) {
+          $this->emit('flash', 'Ajouté aux favoris', 
+          'success'); 
+        } else {
+          $this->emit('flash', 'Retiré des favoris', 
+          'error'); 
+        }
+
         
         
        /* return redirect()->route('annonces.index'); Apparemment plus besoin ça marche sans */

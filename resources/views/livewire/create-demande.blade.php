@@ -45,6 +45,7 @@
 
         <!-- Selection Animaux -->
             <x-jet-label class="text-lg mt-10" for="animals">Vos animaux à garder :</x-jet-label>
+
             @forelse(auth()->user()->animals as $anima)
                 <div class="space-y-8 pb-5 bg-blue-400">
                     <div>

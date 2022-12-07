@@ -10,6 +10,7 @@ use App\Models\Demande;
 use Livewire\Component;
 
 use App\Models\Proposal;
+use App\Notifications\ProposalRecieved;
 use Illuminate\Http\Response;
 use App\View\Components\Flash;
 use Illuminate\Support\Facades\Request;
@@ -129,6 +130,9 @@ class Demandes extends Component
                 'annonce_id' => $this->annonce->id,
                 'validated' => false,
             ]);
+
+            $proposal->annonce->user->notify(new ProposalRecieved($proposal));
+
             $demande = Demande::create([
 
                 'content' => $this->content,
@@ -156,6 +160,8 @@ class Demandes extends Component
                 'prix_final' => $prix_final,
         
             ]);
+
+           
 
             self::message('success', 'Ta demande est transmise au Pet-Sitter ! Il te répondra au plus vite. ');
             

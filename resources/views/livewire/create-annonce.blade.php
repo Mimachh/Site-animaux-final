@@ -6,13 +6,25 @@
 
 
 <main class="bg-indigo-50 pt-5 rounded-3xl ">
-    <x-jet-validation-errors class="mb-4 text-center" />
-        <h2 class="text-center mb-10 py-5 font-semibold">Créer mon annonce de pet-sitter</h2>
-
+        <h2 class="text-center mt-5 py-5 font-semibold">Créer mon annonce de pet-sitter</h2>
+    
         <!-- Début du formulaire  -->
         <div class="mt-10 sm:mt-2">
             <div class="md:grid md:grid-cols-6 md:gap-4 ">
                 <div class="mt-5  md:col-start-2 md:col-span-4 md:mt-0">
+
+                    <!-- Messages d'erreur -->
+                        <div class="text-center mb-5">
+                            @error('ville') <span class="block error mt-2 text-red-600 text-sm">Vous devez renseigner votre ville</span> @enderror 
+                            @error('garde') <span class="block error mt-2 text-red-600 text-sm">Un type de garde doit être renseigné</span> @enderror 
+                            @error('hab') <span class="block error mt-2 text-red-600 text-sm">Les conditions de garde doivent être renseignées</span> @enderror 
+                            @error('ext') <span class="block error mt-2 text-red-600 text-sm">Les conditions de garde doivent être renseignées</span> @enderror 
+                            @error('photo') <span class="block error mt-2 text-red-600 text-sm">La photo doit être un format d'image</span> @enderror 
+                            @error('prix') <span class="block error mt-2 text-red-600 text-sm">{{ $message }}</span> @enderror 
+                            @error('description') <span class="block error mt-2 text-red-600 text-sm">Une description est nécessaire</span> @enderror 
+                        </div>
+                    <!-- Fin messages d'erreur -->
+
                     <form wire:submit.prevent="store">
                         <div class="overflow-hidden shadow sm:rounded-md mb-10 ">
                             <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
@@ -38,7 +50,7 @@
                                     </button>          
                                     <div class="my-8 space-y-4">
                                         <div class="flex items-start">
-                                            <x-jet-input list="list_ville" wire:model='ville' class="py-2 px-1 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight" placeholder="Entrez votre ville"/>
+                                            <x-jet-input list="list_ville" wire:model='ville' id="ville" class="py-2 px-1 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight" placeholder="Entrez votre ville"/>
                                                 @if (strlen($ville) > 2)
                                                     <datalist id="list_ville">
                                                         @if (count($villes) > 0)
@@ -90,7 +102,7 @@
                                     <div class="my-4">                        
                                         <div class="flex items-start">               
                                             <div class="flex items-center">
-                                                <select wire:model='garde' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                <select wire:model='garde' id="garde" class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                                     <option value="">--Choisissez un type de garde--</option>
                                                         @foreach($gardes as $g) 
                                                         <option value="{{ $g->id }}">{{ $g->garde }}</option>
@@ -217,7 +229,7 @@
                                         <div class="my-4">                        
                                             <div class="flex items-start">               
                                                 <div class="flex items-center">
-                                                    <select wire:model='hab' class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                    <select wire:model='hab' id="hab" class="py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                                         <option value="">--Type d'habitation--</option>
                                                             @foreach($habs as $hab) 
                                                             <option value="{{ $hab->id }}">{{ $hab->hab }}</option>
@@ -225,7 +237,7 @@
                                                     </select>
                                                 </div> 
                                                 <div class="flex items-center">
-                                                    <select wire:model='ext' class="ml-4 py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
+                                                    <select wire:model='ext' id="ext" class="ml-4 py-2 px-6 bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight">
                                                         <option value="">--Extérieur--</option>
                                                             @foreach($exts as $ext) 
                                                             <option value="{{ $ext->id }}">{{ $ext->ext }}</option>
@@ -244,7 +256,7 @@
                                     </h2>
                                         <div class="mt-4 space-y-4">
                                             <div class="flex items-start pt-4 pb-4">   
-                                                <textarea wire:model="description" class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>       
+                                                <textarea wire:model="description" id="description" class=" resize border rounded focus:outline-none focus:shadow-outline bg-gray-200 appearance-none border border-gray-500 rounded text-gray-700 leading-tight w-full h-20" id="description" placeholder="Démarquez-vous des autres pet-sitters" name="description"></textarea>       
                                             </div>
                                         </div>       
                                 </fieldset>    
@@ -260,11 +272,11 @@
                                     <div class="mt-4 space-y-4">
                                         <div class="flex items-start items-center">
                                             <div class="ml-3 text-sm pr-10 ">
-                                            <x-jet-label for="price" value="{{ __('Votre tarif en euro par jour.') }}"/>
+                                            <x-jet-label for="prix" value="{{ __('Votre tarif en euro par jour.') }}"/>
                                             
                                             </div>
                                             <div class="flex">
-                                            <x-jet-input wire:model="prix" name="prix" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
+                                            <x-jet-input wire:model="prix" id="prix" name="prix" type="text" class="bg-gray-200 border rounded focus:outline-none focus:shadow-outline appearance-none border border-gray-500 rounded text-gray-700 leading-tight"/>
                                             </div>
                                         
                                         </div>

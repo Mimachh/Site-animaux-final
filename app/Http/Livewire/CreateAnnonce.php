@@ -86,11 +86,7 @@ class CreateAnnonce extends Component
      
   ];
  
-  
-  
  
-
-  
 
   public $price;
 
@@ -183,6 +179,7 @@ class CreateAnnonce extends Component
         'habitation_id' => $this->hab,
         'exterieur_id' => $this->ext,
       ]);
+
      
       self::message('success', 'Ton annonce est bien enregistrée !.');
       return redirect()->route('annonces.show', $annonces->id);

@@ -167,7 +167,7 @@
                                         </div>
                                         <div class="flex items-center">
                                             <span class="h-2 w-2 bg-green-600 rounded-full mr-1"></span>
-                                                <a class="text-sm" href="">Voir la demande en détail</a>
+                                                <a class="text-sm" href="{{ route('proposals.show', $proposal) }}">Voir la demande en détail</a>
                                         </div>
                                 
                                     </div>

@@ -7,7 +7,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
+                    <a href="{{ route('welcome') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
@@ -45,6 +45,13 @@
                 
                 <!-- Navbar lorsque connecté -->
                 @if (Route::has('login'))
+
+                <!-- Notifications -->
+                    @auth
+                      @livewire('notification-proposal')  
+                    @endauth
+                <!-- Fin notifications -->
+
                 <div class="hidden top-0 right-0 px-6 py-4 sm:block" >
                     @auth
                     <div class="ml-4 relative ">
@@ -86,8 +93,12 @@
 
                            
                             
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}" style="color: #cbd5e0">
-                                {{ __('Mes annonces') }}
+                            <x-jet-dropdown-link href="{{ route('dashboard') }}" style="color: #cbd5e0">
+                                {{ __('Mon tableau de bord') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('proposals.index') }}" style="color: #cbd5e0">
+                                {{ __('Mes gardes') }}
                             </x-jet-dropdown-link>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}" style="color: #cbd5e0">
@@ -141,7 +152,6 @@
          <!-- Navbar responsive bouton lorsque connecté -->
             <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden ">
         
-
            
                 <div class="pt-4 pb-1 border-t border-gray-200">
                     <div class="flex items-center px-4">
@@ -151,10 +161,6 @@
                             </div>
                         @endif
 
-                        <div>
-                            <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                            <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                        </div>
                     </div>
 
                     <div class="mt-3 space-y-1">
@@ -162,9 +168,14 @@
                                 {{ __('Voir les annonces') }}
                         </x-jet-responsive-nav-link>
 
-                        <x-jet-responsive-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')">
-                                {{ __('Ajouter une annonce') }}
+                        <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('annonces.create')">
+                                {{ __('Mon tableau de bord') }}
                         </x-jet-responsive-nav-link>
+
+                        <x-jet-responsive-nav-link href="{{ route('proposals.index') }}" :active="request()->routeIs('annonces.create')">
+                                {{ __('Mes gardes') }}
+                        </x-jet-responsive-nav-link>
+
 
                         <x-jet-responsive-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')">
                                 {{ __('Articles') }}

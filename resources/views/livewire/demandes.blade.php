@@ -88,7 +88,7 @@
                                         <div class="col-span-6 sm:col-span-3 space-y-5">
                                         @if(auth()->user()->animals->count() > 0)
                                             <div>
-                                                <label for="first_animal_id" class="block text-sm font-medium text-gray-700">Votre animal à garder </label>
+                                                <label for="first_animal_id" class="block text-sm font-medium text-gray-700">Votre animal à garder</label>
                                                 <select wire:model='first_animal_id' class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                                     <option value="">--Choisissez l'animal à garder--</option>
                                                     @foreach(auth()->user()->animals as $animal) 
@@ -97,18 +97,22 @@
                                                 </select>
                                                 @error('first_animal_id') <span class="error mt-2 text-red-600 text-sm">Au moins un animal doit être renseigné</span> @enderror 
                                             </div>
-                                            <div>
-                                                <label for="second_animal_id" class="block text-sm font-medium text-gray-700">Votre animal à garder </label>
-                                                <select wire:model='second_animal_id' class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                            <div x-data="{ open: false }">
+                                                <label for="second_animal_id" class="block text-sm font-medium text-gray-700">
+                                                    <button type="button" x-on:click="open = ! open"> Ajouter un deuxième animal</button>
+                                                </label>
+                                                <select x-show="open" wire:model='second_animal_id' class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                                     <option value="">--Choisissez l'animal à garder--</option>
                                                     @foreach(auth()->user()->animals as $animal) 
                                                         <option value="{{ $animal->id }}">{{ $animal->animal_name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div>
-                                                <label for="third_animal_id" class="block text-sm font-medium text-gray-700">Votre animal à garder </label>
-                                                <select wire:model='third_animal_id' class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                            <div x-data="{ open: false }">
+                                                <label for="third_animal_id" class="block text-sm font-medium text-gray-700">
+                                                    <button type="button" x-on:click="open = ! open"> Ajouter un troisième animal </button>
+                                                </label>
+                                                <select x-show="open" wire:model='third_animal_id' class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                                     <option value="">--Choisissez l'animal à garder--</option>
                                                     @foreach(auth()->user()->animals as $animal) 
                                                         <option value="{{ $animal->id }}">{{ $animal->animal_name }}</option>

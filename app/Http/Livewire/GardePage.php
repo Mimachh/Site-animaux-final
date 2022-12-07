@@ -54,6 +54,16 @@ class GardePage extends Component
     public function show(Proposal $proposal)
     {
 
+       /* $notifications = auth()->user()->notifications;
+        foreach($notifications as $notification)
+        {
+            $id = $notification->data;
+            $propo = Proposal::where('id', $id)->get();
+            $demande = $propo[0]->demande;
+        }
+        
+        dd($demande); */
+
         return view('proposals.show', compact('proposal'));
     }
 

@@ -18,7 +18,12 @@
                 <div class="flex justify-between mt-4 mb-4 mr-10"> 
                     <h2 class="text-xl text-bold text-gray-700">Je m'appelle {{ $annonce->name }}</h2>                               
                     @if($annonce->user_id !== auth()->user()->id)
+                    <div class="flex items-center">
                         <livewire:ad-fav :annonce="$annonce">
+                        <div>
+                            ({{$annonce->fav->count()}})
+                        </div>
+                    </div>
                     @endif
                     <div class="flex md:justify-end mb-3 pr-10">
                         @can('update', $annonce)

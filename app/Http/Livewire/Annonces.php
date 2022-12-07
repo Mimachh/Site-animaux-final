@@ -21,7 +21,7 @@ class Annonces extends Component
     {
         $annonces = Annonce::paginate(8);
       
-
+        
         return view('annonces.index', ['annonces' => $annonces]);
     }
 
@@ -57,10 +57,12 @@ class Annonces extends Component
      */
     public function show(Annonce $annonce)
     {       
-       
+      
         $animal = Animal::where('user_id', $annonce->user_id)->get();
      
        $this->emit('annonce', $annonce->id);
+
+      
 
         $cat= Espece::select('espece')->where('id', $annonce->chats)->get();
         $dog = Espece::select('espece')->where('id', $annonce->chiens)->get();

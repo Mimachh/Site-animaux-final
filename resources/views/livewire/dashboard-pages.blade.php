@@ -131,7 +131,12 @@
                             <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">
                             <div class="flex justify-between pb-2">
                                 <h2 class="text-md font-bold text-gray-600">{{$annonce->name}}</h2>
-                                <livewire:ad-fav :annonce="$annonce">
+                                <div class="flex items-center">
+                                    <livewire:ad-fav :annonce="$annonce">
+                                    <div>
+                                        ({{$annonce->fav->count()}})
+                                    </div>
+                                </div>
                             </div>
                                 @if($annonce->start_watch && $annonce->end_watch !== null)
                                     <div class="flex">

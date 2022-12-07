@@ -4,6 +4,7 @@
          <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/css_perso.css') }}">
@@ -27,9 +28,7 @@
 
         @livewireStyles
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="{{ asset('js/app_perso.js') }}" defer></script>
+        
 
     </head>
 
@@ -75,6 +74,8 @@
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
         @livewireScripts
 
+        
+        
         <!-- Sweet Alert 2 Confirmation Delete Annonce -->
             <script>
                 window.addEventListener('show-delete-confirmation', event => {
@@ -117,5 +118,15 @@
                 
             </script>
         <!-- Fin Sweet Alert 2 Confirmation Delete Animal-->
+
+        <script>
+            window.User = {
+                id: {{ optional(auth()->user())->id }}
+            }
+        </script>
+
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app_perso.js') }}" defer></script>
+
     </body>
 </html>

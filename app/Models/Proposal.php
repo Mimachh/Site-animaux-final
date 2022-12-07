@@ -14,6 +14,8 @@ class Proposal extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+
+
     public function annonce()
     {
         return $this->belongsTo('App\Models\Annonce');

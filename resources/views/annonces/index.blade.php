@@ -34,7 +34,12 @@
                                             </a>
                                             @auth
                                                 @if($annonce->user_id !== auth()->user()->id)
-                                                    <livewire:ad-fav :annonce="$annonce">
+                                                    <div class="flex items-center">
+                                                        <livewire:ad-fav :annonce="$annonce">
+                                                        <div>
+                                                            ({{$annonce->fav->count()}})
+                                                        </div>
+                                                    </div>
                                                 @endif 
                                             @endauth
                                             @guest 
