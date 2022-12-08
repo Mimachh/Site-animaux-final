@@ -4,7 +4,7 @@
         <button x-on:click="open = ! open"><span id="js-count">{{ auth()->user()->unreadNotifications->count()}}</span></button>
     @endif
    
-    <div x-show="open">
+    <div x-cloak x-show="open">
         @foreach($notifications as $notification)
             <a wire:click="marked" href="{{ route('proposals.show', $notification->data['proposal_id']) }}" class="text-sm">
                 

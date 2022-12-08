@@ -4,11 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Proposal;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
 class GardePage extends Component
 {
-    
+    use AuthorizesRequests;
     
     public $annonces;
     public $proposals;
@@ -59,7 +60,7 @@ class GardePage extends Component
     
     public function show(Proposal $proposal)
     {
-
+        $this->authorize('view', $proposal); 
         return view('proposals.show', compact('proposal'));
     }
 

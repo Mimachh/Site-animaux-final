@@ -1,5 +1,5 @@
 <x-app-layout>
-       
+    @can('view', $proposal) 
     <x-slot name="header">
         <h1 class="font-semibold text-xl text-gray-200 leading-tight text-center">
             @if(auth()->user()->id !== $proposal->user_id)
@@ -66,4 +66,5 @@
         </div>
      
     </div>
+    @endcan
 </x-app-layout>
