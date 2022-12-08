@@ -131,7 +131,7 @@ class Demandes extends Component
                 'validated' => false,
             ]);
 
-            $proposal->annonce->user->notify(new ProposalRecieved($proposal));
+            
 
             $demande = Demande::create([
 
@@ -160,7 +160,8 @@ class Demandes extends Component
                 'prix_final' => $prix_final,
         
             ]);
-
+            
+            $proposal->annonce->user->notify(new ProposalRecieved($proposal, $demande));
            
 
             self::message('success', 'Ta demande est transmise au Pet-Sitter ! Il te répondra au plus vite. ');

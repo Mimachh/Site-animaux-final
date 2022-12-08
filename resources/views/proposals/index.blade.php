@@ -6,4 +6,5 @@
     </x-slot>
     
     @livewire('garde-page')
+
 </x-app-layout>

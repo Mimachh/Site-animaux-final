@@ -5,18 +5,14 @@ namespace App\Notifications;
 use App\Models\Demande;
 use App\Models\Proposal;
 use Illuminate\Bus\Queueable;
-use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 
-
-class ProposalRecieved extends Notification
+class ProposalResponse extends Notification
 {
     use Queueable;
-
-    public $proposal;
 
     /**
      * Create a new notification instance.
@@ -27,7 +23,6 @@ class ProposalRecieved extends Notification
     {
         $this->proposal = $proposal;
         $this->demande = $demande;
-        
     }
 
     /**
@@ -65,10 +60,8 @@ class ProposalRecieved extends Notification
     {
         return [
             'proposal_id' => $this->proposal->id,
-            'user_name' => $this->proposal->user->name,
-            'when' => $this->proposal->created_at,
-            'animal' =>$this->demande->first_animal->animal_name,
-            'demande' => $this->demande->id,
+            'annonce_user_name' => $this->proposal->annonce->user->name,
+            'proposal_response' => $this->proposal->validated,
         ];
     }
 
@@ -76,10 +69,9 @@ class ProposalRecieved extends Notification
     {
         return new BroadcastMessage([
             'proposal_id' => $this->proposal->id,
-            'user_name' => $this->proposal->user->name,
-            'when' => $this->proposal->created_at,
-            'animal' =>$this->demande->first_animal->animal_name,
-            'demande' => $this->demande->id,
+            'annonce_user_name' => $this->proposal->annonce->user->name,
+            'proposal_response' => $this->proposal->validated,
+           
         ]);
     }
 }

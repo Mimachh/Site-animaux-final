@@ -20,9 +20,11 @@
                     @if($annonce->user_id !== auth()->user()->id)
                     <div class="flex items-center">
                         <livewire:ad-fav :annonce="$annonce">
-                        <div>
-                            ({{$annonce->fav->count()}})
-                        </div>
+                        @if($annonce->fav->count() > 0)
+                            <div>
+                                ({{$annonce->fav->count()}})
+                            </div>
+                        @endif
                     </div>
                     @endif
                     <div class="flex md:justify-end mb-3 pr-10">
@@ -70,11 +72,11 @@
                     <div x-data="{ open: false }" class="mb-4">
                         <button x-on:click="open = ! open" class="text-gray-600 pb-2">
                             Mon type de garde 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex w-5 h-5 ml-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 ml-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg> 
                         </button>              
-                        <div x-show="open" x-transition class="mt-1 space-y-2">
+                        <div x-cloak x-show="open" x-transition class="mt-1 space-y-2">
                             <div class="flex">
                                 <p class="mr-2 text-gray-800">{{$annonce->garde->garde}}</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-6">
@@ -105,7 +107,7 @@
                     <div x-data="{ open: false }" class="mb-2">
                         <button x-on:click="open = ! open" class="text-gray-600 pb-2">
                             Je garde 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex w-5 h-5 ml-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 ml-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg> 
                         </button>
@@ -119,7 +121,7 @@
                             {{ $annonce->ferme ? ' Animaux de la ferme' : ''}}
                         </p>
                         -->
-                        <div x-show="open" x-transition class="mt-1 space-y-1">
+                        <div x-cloak x-show="open" x-transition class="mt-1 space-y-1">
                             @if(isset($watches[0]))
                                 @foreach($watches as $watch)
                                     @if(isset($watch[0]))
@@ -244,17 +246,17 @@
                             
                             <h2 for="like" class="my-1 font-medium text-gray-600 mt-6 mb-2">
                             <button x-on:click="open = ! open">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="flex w-5 h-5 mb-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="inline w-5 h-5 mb-1">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
                                     </svg>
     
                                     S'entend bien avec
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex w-5 h-5 ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 ml-2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                     </svg>
                                 </button>
                             </h2>
-                            <div x-show="open" x-transition class="space-y-2 mb-4 ml-2 md:pr-6"> 
+                            <div x-cloak x-show="open" x-transition class="space-y-2 mb-4 ml-2 md:pr-6"> 
                                 @if($animal->male_dogs === 1)
                                     <div class="flex">
                                         <p class="text-gray-800 mr-2">Chiens mâles</p>

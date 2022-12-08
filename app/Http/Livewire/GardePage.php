@@ -12,9 +12,11 @@ class GardePage extends Component
     
     public $annonces;
     public $proposals;
+
     public function mount()
     {
         $this->annonces = auth()->user()->ads;
+
     }
 
     /* Séparation des pages */
@@ -45,8 +47,12 @@ class GardePage extends Component
   
     /* Fin séparation des pages */
 
+    
     public function index()
     {
+        
+        
+        
         
         return view('proposals.index');
     }
@@ -54,21 +60,12 @@ class GardePage extends Component
     public function show(Proposal $proposal)
     {
 
-       /* $notifications = auth()->user()->notifications;
-        foreach($notifications as $notification)
-        {
-            $id = $notification->data;
-            $propo = Proposal::where('id', $id)->get();
-            $demande = $propo[0]->demande;
-        }
-        
-        dd($demande); */
-
         return view('proposals.show', compact('proposal'));
     }
 
     public function render()
     {
+       
         return view('livewire.garde-page');
     }
 }
