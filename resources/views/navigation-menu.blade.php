@@ -163,8 +163,32 @@
                 
                 
             </div>
+
             <div class="-mr-2 flex items-center sm:hidden" >
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
+                <!-- Notifications -->
+                    @if(auth()->user()->unreadNotifications->count() > 0)               
+                        <div class="ml-4 bg-red-800 px-4 py-2 rounded-full">
+                            <x-jet-dropdown align="right" width="48">
+                                <x-slot name="trigger">
+                                            
+                                        <button class="flex items-center space-x-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="inline w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5" />
+                                            </svg>
+                                            <span class="text-white" id="js-count">{{auth()->user()->unreadNotifications->count()}}</span>
+                                        </button>
+                                            
+                                </x-slot>
+                                <x-slot name="content">
+                                            
+                                    <livewire:notification-proposal>
+                                </x-slot>
+                            </x-jet-dropdown>
+                        </div>
+                           
+                    @endif               
+                <!-- Fin notifications -->
+                <button @click="open = ! open" class=" ml-4 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -173,7 +197,6 @@
             </div>
         </div>
 
-        
         
             @auth 
             <!-- Navbar responsive bouton lorsque connecté -->
@@ -186,33 +209,7 @@
                             <div class="shrink-0 mr-3">
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                             </div>
-                        @endif
-                        <!-- Notifications -->
-                            
-                                @if(auth()->user()->unreadNotifications->count() > 0)
-                                
-                                    <div class="ml-4 bg-red-800 px-4 py-2 rounded-full">
-                                        <x-jet-dropdown align="right" width="48">
-                                            <x-slot name="trigger">
-                                                
-                                                    <button class="flex items-center space-x-1">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="inline w-5 h-5">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5" />
-                                                        </svg>
-                                                        <span class="text-white" id="js-count">{{auth()->user()->unreadNotifications->count()}}</span>
-                                                    </button>
-                                                
-                                            </x-slot>
-                                            <x-slot name="content">
-                                                
-                                                <livewire:notification-proposal>
-                                            </x-slot>
-                                        </x-jet-dropdown>
-                                    </div>
-                               
-                                @endif 
-                            
-                        <!-- Fin notifications -->         
+                        @endif      
                     </div>
                     
 
