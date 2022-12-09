@@ -61,6 +61,7 @@ class GardePage extends Component
     public function show(Proposal $proposal)
     {
         $this->authorize('view', $proposal); 
+        
         return view('proposals.show', compact('proposal'));
     }
 

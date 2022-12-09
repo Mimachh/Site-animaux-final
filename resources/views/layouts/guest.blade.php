@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-         <!-- Fonts -->
-         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-<!-- Styles -->
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-@livewireStyles
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/css_perso.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Tailwind mais je ne sais plus pourquoi je crois qu'il ne sert plus a rien -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+
+        <!-- Sweet Alert 2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Pour les flash messages -->
+        <style>
+            [x-cloak] { display: none;}
+        </style>
+
+        @livewireStyles
     </head>
     <body>
 
@@ -204,6 +219,7 @@
         </div>
         @stack('modals')
         @livewireScripts
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
 </html>
 

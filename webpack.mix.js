@@ -21,3 +21,5 @@ mix.js('resources/js/app.js', 'public/js')
             children: true,
         },
     });
+
+mix.js('resources/js/perso.js', 'public/js');

@@ -49,9 +49,13 @@ Route::middleware([
     Route::get('/proposals', [GardePage::class, 'index'])->name('proposals.index');
     Route::resource('/proposals', GardePage::class)->except('index');
 
+    Route::get('markAsRead', function() {
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    })->name('markRead');
+    
 
 });
-
 
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');

@@ -39,6 +39,16 @@ class ProposalPolicy
         
     }
 
+    public function buttonForAnswer(User $user, Proposal $proposal)
+    {
+        return $user->id === $proposal->annonce->user->id;
+    }
+
+    public function waitingForAnswer(User $user, Proposal $proposal)
+    {
+        return $user->id === $proposal->user_id;
+    }
+
     /**
      * Determine whether the user can create models.
      *

@@ -43,13 +43,16 @@
         </div>
 
         <div>
-            @if(auth()->user()->id !== $proposal->user_id)
-
-                <div class="flex space-x-5">          
-                    <livewire:button-proposal-accepted :proposal="$proposal">
-                    <livewire:button-proposal-declined :proposal="$proposal">
+            @can('buttonForAnswer', $proposal)
+                <div class="flex space-x-5"> 
+                    <div>         
+                        <livewire:button-proposal-accepted :proposal="$proposal">
+                    </div>
+                    <div>
+                        <livewire:button-proposal-declined :proposal="$proposal">
+                    </div>
                 </div>
-            @endif
+            @endcan
 
                 @if($proposal->validated === 0)
                     <p class="text-sm text-red-600 mb-2"> Demande refusée</p>
@@ -58,11 +61,11 @@
                 @if($proposal->validated === 1)
                     <p class="text-sm text-blue-600 mb-2"> Demande acceptée ! </p>
                 @endif
-               
+            @can('waitingForAnswer', $proposal)   
                 @if($proposal->validated === 2)
                     <p class="text-sm text-red-600 mb-2"> Demande en attente de validation ...</p>
                 @endif
-            
+            @endcan
         </div>
      
     </div>

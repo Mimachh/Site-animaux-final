@@ -67,7 +67,9 @@
         </div>
 
         @stack('modals')
-    
+        
+    <!-- SCRIPTS -->
+
        <!-- peut être supprimé je pense <script src="../../js/app.js"></script> -->
        <!-- peut être supprimé je pense  <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script> -->
 
@@ -119,14 +121,21 @@
             </script>
         <!-- Fin Sweet Alert 2 Confirmation Delete Animal-->
 
-        <script>
-            window.User = {
-                id: {{ optional(auth()->user())->id }}
-            }
-        </script>
+        
+        @auth
+            <script src="{{ asset('js/app.js') }}" defer></script>
+            <script>
+                window.User = {
+                    id: {{ optional(auth()->user())->id }}
+                }
+            </script>
+        @endauth
 
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="{{ asset('js/app_perso.js') }}" defer></script>
+        <!-- Script de secours pour les non connecté, import d'alpine -->
+            <script src="{{ asset('js/perso.js') }}" defer></script>
+        <!-- Fin script de secours pour les non connecté, import d'alpine -->
 
+            <script src="{{ asset('js/app_perso.js') }}" defer></script>
+    <!-- FIN SCRIPTS -->
     </body>
 </html>
