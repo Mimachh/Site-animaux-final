@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Mail\ProposalRecieved as MailProposalRecieved;
 use App\Models\Demande;
 use App\Models\Proposal;
 use Illuminate\Bus\Queueable;
@@ -17,6 +18,7 @@ class ProposalRecieved extends Notification
     use Queueable;
 
     public $proposal;
+    public $demande;
 
     /**
      * Create a new notification instance.
@@ -38,7 +40,7 @@ class ProposalRecieved extends Notification
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast'];
+        return ['database', 'broadcast', 'mail'];
     }
 
     /**
@@ -49,10 +51,8 @@ class ProposalRecieved extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        return (new MailProposalRecieved($this->proposal, $this->demande, $notifiable  ))
+        ->to($notifiable->email);
     }
 
     /**
@@ -69,6 +69,7 @@ class ProposalRecieved extends Notification
             'when' => $this->proposal->created_at,
             'animal' =>$this->demande->first_animal->animal_name,
             'demande' => $this->demande->id,
+            'mail' => 'karl'
         ];
     }
 
