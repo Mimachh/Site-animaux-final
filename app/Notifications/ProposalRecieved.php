@@ -69,7 +69,7 @@ class ProposalRecieved extends Notification
             'when' => $this->proposal->created_at,
             'animal' =>$this->demande->first_animal->animal_name,
             'demande' => $this->demande->id,
-            'mail' => 'karl'
+            
         ];
     }
 

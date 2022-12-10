@@ -1,3 +1,4 @@
+
 <x-app-layout>
 
   <div class="text_wave">
@@ -21,3 +22,6 @@
 
   </div>
 </x-app-layout>
+
+
+@livewire('dashboard-panel')

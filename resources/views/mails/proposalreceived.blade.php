@@ -1,12 +1,12 @@
 @component('mail::message')
-# Demande de garde 
+# Nouvelle demande de garde 
 
-Salut {{ $proposal->user->name}},
+Salut {{ $proposal->annonce->user->name}},
 
-Tu as reçu une nouvelle demande de garde. <br>
+{{$proposal->user->name }} a besoin de toi pour garder {{ $demande->first_animal->animal_name }}. <br>
 Va vite y jeter un oeil !
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8001/proposals/'.$proposal->id.'/'])
+@component('mail::button', ['url' => 'http://127.0.0.1:8001/proposals/'.$proposal->id.'/', 'color' => 'success'])
 Voir la demande
 @endcomponent
 

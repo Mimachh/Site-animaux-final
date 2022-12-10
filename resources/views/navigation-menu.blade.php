@@ -1,7 +1,7 @@
-<nav x-data="{ open: false }" class="bg-gray-800 border-b border-gray-800 shadow">
+<nav x-data="{ open: false }" class="dark:bg-gray-900 border-b border-gray-800 shadow">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-16 text-sm font-light tracking-wide text-gray-400">
 
             <!-- Navbar pour tous -->
             <div class="flex">
@@ -13,7 +13,7 @@
                 </div>
 
                 @auth
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" style="color: #cbd5e0">
                         {{ __('Tableau de bord') }}
                     </x-jet-nav-link>
@@ -49,7 +49,7 @@
                 <!-- Notifications -->
                     @auth
                         @if(auth()->user()->unreadNotifications->count() > 0)
-                        <div class="hidden top-0 right-0 px-2 py-4 sm:block">
+                        <div class="hidden top-0 right-0 px-2 py-4 sm:block text-sm font-light tracking-wide text-gray-400">
                             <div class="ml-4 relative bg-red-800 px-4 py-2 rounded-full">
                                 <x-jet-dropdown align="right" width="48">
                                     <x-slot name="trigger">
@@ -75,11 +75,11 @@
 
                 <div class="hidden top-0 right-0 px-6 py-4 sm:block" >
                     @auth 
-                    <div class="ml-4 relative ">
+                    <div class="ml-4 relative bg-gray-900">
                         
                         <x-jet-dropdown align="right" width="48" >
                             
-                            <x-slot name="trigger">
+                            <x-slot name="trigger" >
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                         <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
@@ -99,7 +99,7 @@
 
                             <x-slot name="content">
                                 <!-- Account Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400 " style="color: #cbd5e0">
+                                <div class="block px-4 py-2 text-xs text-gray-400" style="color: #cbd5e0">
                                     {{ __('Paramètres de mon compte') }}
                                 </div>
 
@@ -204,7 +204,7 @@
         
            
                 <div class="pt-4 pb-1 border-t border-gray-200">
-                    <div class="flex justify-between px-4">
+                    <div class="flex px-4 justify-end">
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <div class="shrink-0 mr-3">
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
@@ -213,7 +213,7 @@
                     </div>
                     
 
-                    <div class="mt-3 space-y-1">
+                    <div class="mt-3 space-y-1 text-end">
                         <x-jet-responsive-nav-link href="{{ route('annonces.index') }}" :active="request()->routeIs('annonces.index')">
                                 {{ __('Voir les annonces') }}
                         </x-jet-responsive-nav-link>
