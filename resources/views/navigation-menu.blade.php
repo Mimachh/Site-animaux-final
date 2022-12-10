@@ -165,6 +165,7 @@
             </div>
 
             <div class="-mr-2 flex items-center sm:hidden" >
+                @auth
                 <!-- Notifications -->
                     @if(auth()->user()->unreadNotifications->count() > 0)               
                         <div class="ml-4 bg-red-800 px-4 py-2 rounded-full">
@@ -180,14 +181,13 @@
                                             
                                 </x-slot>
                                 <x-slot name="content">
-                                            
                                     <livewire:notification-proposal>
                                 </x-slot>
                             </x-jet-dropdown>
                         </div>
-                           
-                    @endif               
+                    @endif       
                 <!-- Fin notifications -->
+                @endauth
                 <button @click="open = ! open" class=" ml-4 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

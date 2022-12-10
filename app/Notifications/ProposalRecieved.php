@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\Mail\ProposalRecieved as MailProposalRecieved;
+use App\Mail\ProposalReceived;
 use App\Models\Demande;
 use App\Models\Proposal;
 use Illuminate\Bus\Queueable;
@@ -51,7 +51,7 @@ class ProposalRecieved extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailProposalRecieved($this->proposal, $this->demande, $notifiable  ))
+        return (new ProposalReceived($this->proposal, $this->demande, $notifiable  ))
         ->to($notifiable->email);
     }
 

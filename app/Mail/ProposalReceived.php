@@ -9,13 +9,12 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ProposalRecieved extends Mailable
+class ProposalReceived extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $proposal;
     public $demande;
-    
     /**
      * Create a new message instance.
      *
@@ -34,6 +33,6 @@ class ProposalRecieved extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.proposal-recieved');
+        return $this->markdown('mails.proposalreceived');
     }
 }
