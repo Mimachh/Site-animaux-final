@@ -49,6 +49,21 @@ class ProposalPolicy
         return $user->id === $proposal->user_id;
     }
 
+    public function paid(User $user, Proposal $proposal)
+    {
+        if($user->id === $proposal->user_id)
+        {
+            if($proposal->validated === 1)
+            {
+                return true;
+            }
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
     /**
      * Determine whether the user can create models.
      *

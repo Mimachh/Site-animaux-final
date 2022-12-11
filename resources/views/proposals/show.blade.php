@@ -67,6 +67,10 @@
                 @endif
             @endcan
         </div>
+        @can('paid', $proposal)
+            <p>système de paiement</p>
+            <button> Accéder à la messagerie</button>
+        @endcan
      
     </div>
     @endcan

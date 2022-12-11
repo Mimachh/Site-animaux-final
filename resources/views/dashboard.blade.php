@@ -1,5 +1,6 @@
 <x-app-layout>
 
+    
     <x-slot name="header">
     
             <h2 class="font-semibold text-xl text-white leading-tight">
@@ -8,6 +9,7 @@
      
     </x-slot>
     
-                 @livewire('dashboard-pages')
+    
+                 @livewire('dashboard-panel')
         
 </x-app-layout>

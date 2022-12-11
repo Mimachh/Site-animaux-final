@@ -54,6 +54,7 @@
                                             <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
                                                 <div class="justify-between">
                                                     <h2 class="text-md font-bold text-gray-600 mb-2">Demande envoyée par {{ $prop->user->name}}</h2>
+                                                    <p class="text-sm text-gray-900 underline mb-2"> Demande envoyée le {{ $proposal->created_date()}}</p>
                                                     @if(isset($prop->demande->first_animal))
                                                         <p class="text-sm text-gray-600 mb-2">Pour garder {{ $prop->demande->first_animal->animal_name}} son/sa {{ $prop->demande->first_animal->race->race_animal}}. </p>
                                                     @endif
@@ -96,6 +97,7 @@
                                             <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
                                                 <div class="justify-between">
                                                     <h2 class="text-md font-bold text-gray-600 mb-2">Demande envoyée par {{ $prop->user->name}}</h2>
+                                                    <p class="text-sm text-gray-900 underline mb-2"> Demande envoyée le {{ $proposal->created_date()}}</p>
                                                     @if(isset($prop->demande->first_animal))
                                                         <p class="text-sm text-gray-600 mb-2">Pour garder {{ $prop->demande->first_animal->animal_name}} son/sa {{ $prop->demande->first_animal->race->race_animal}}. </p>
                                                     @endif
@@ -151,6 +153,7 @@
                                             <h2 class="text-md font-bold text-gray-600 mb-2">{{ $proposal->annonce->name}}</h2>
                                         </div>
                                         <div>
+                                            <p class="text-sm text-gray-900 underline mb-2"> Demande envoyée le {{ $proposal->created_date()}}</p>
                                             <p class="text-sm font-semi-bold text-gray-600 mb-2">{{ $proposal->annonce->getRealPrice()}} / jour</p>
                                             <p class="text-sm font-semi-bold text-gray-600 mb-2">Soit un total pour la garde de <span class="font-semibold text-lg">{{ $proposal->finalPrice() }} </span> </p>
                                             @if($proposal->validated === 0)

@@ -57,4 +57,9 @@ class Proposal extends Model
        $date = $this->demande->end_date;
        return date('d/m/Y', strtotime($date));
     }
+    public function created_date()
+    {
+        $date = $this->demande->created_at;
+        return date('d/m/Y', strtotime($date));
+    }
 }
