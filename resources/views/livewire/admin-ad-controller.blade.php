@@ -32,7 +32,7 @@
                         <td>{{ $annonce->getRealPrice() }}</td>
 						<td>{{ $annonce->created_at }}</td>
                         <td>
-                            <x-jet-danger-button type="button">Supprimer</x-jet-danger-button>
+                            <x-jet-danger-button wire:click="deleteAdmin( {{ $annonce->id }} )" type="button">Supprimer</x-jet-danger-button>
                             <x-jet-button type="button"><a href="">Editer</a> </x-jet-button>
                         </td>
 					</tr>

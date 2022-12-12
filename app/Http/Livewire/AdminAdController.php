@@ -13,6 +13,11 @@ class AdminAdController extends Component
     {
         $this->annonces = Annonce::all();
     }
+
+    public function deleteAdmin(Annonce $annonce)
+    {
+        dd($annonce);
+    }
     
     public function index()
     {
