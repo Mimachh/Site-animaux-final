@@ -145,7 +145,9 @@
             <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">Vos informations</h3>
-                <p class="mt-1 text-sm text-gray-600">Pour permettre au Pet-Sitter de vous contacter.</p>
+                <p class="mt-1 text-sm text-gray-600">Pour permettre au Pet-Sitter de vous contacter nous lui fournissons l'adresse mail que vous avez
+                    renseigné à l'inscription. Vous pouvez aussi laisser votre numéro de téléphone pour qu'il vous appelle.
+                </p>
             </div>
             </div>
             <div class="mt-5 md:col-span-2 md:mt-0">
@@ -153,22 +155,12 @@
                 <div class="overflow-hidden shadow sm:rounded-md">
                 <div class="bg-white px-4 py-5 sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
-
-                        <!-- Mail -->
-                            <div class="col-span-6 sm:col-span-4">
-                                <label for="mail" class="block text-sm font-medium text-gray-700">Votre adresse mail</label>
-                                <input wire:model="mail" type="email" name="mail" id="mail" autocomplete="mail" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                @error('mail') <span class="error mt-2 text-red-600 text-sm">Veuillez indiquer votre mail pour que le Pet-Sitter puisse vous contacter</span> @enderror 
-                            </div>
-                        <!-- Fin mail -->
-
                         <!-- Telephone -->
                             <div class="col-span-6 sm:col-span-4">
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Votre numéro de téléphone</label>
                                 <input wire:model="phone" type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                             </div>
                         <!-- Fin telephone -->
-
                     </div>
                 </div>
 

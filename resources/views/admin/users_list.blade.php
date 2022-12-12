@@ -119,7 +119,6 @@
 
 
 
-
 	<!-- jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -130,7 +129,7 @@
 		$(document).ready(function() {
 
 			var table = $('#example').DataTable({
-					responsive: true
+					responsive: true,
 				})
 				.columns.adjust()
 				.responsive.recalc();

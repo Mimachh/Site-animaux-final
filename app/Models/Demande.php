@@ -39,6 +39,6 @@ class Demande extends Model
     protected $fillable = [
         'content', 'start_date', 'end_date',
         'first_animal_id', 'second_animal_id', 'third_animal_id',
-        'garde_id', 'mail', 'phone', 'number_visit', 'proposal_id', 'prix_final', 
+        'garde_id', 'phone', 'number_visit', 'proposal_id', 'prix_final', 
     ];
 }

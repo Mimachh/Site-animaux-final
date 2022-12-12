@@ -1,11 +1,31 @@
-    <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
+    <div class="w-full mx-auto px-2">
 		<!--Title-->
 		<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
-			Table des utilisateurs ({{ $users->count() }} Utilisateurs inscripts)
+			Table des utilisateurs ({{ $users->count() }} Utilisateurs inscrits)
 		</h1>
 
+		
 		<!--Card-->
 		<div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+			<form class="flex space-x-4">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <x-jet-input type="text" class="form-control" wire:model="state.name" id="marque" placeholder=""/>
+                </div>
+                <div class="mb-3">
+                    <label for="role_id" class="form-label">Role</label>
+                    <x-jet-input type="text" class="form-control" wire:model="state.role_id" id="prix" placeholder=""/>
+                </div>
+                <div class="mb-3">
+                    <x-jet-danger-button type="reset" wire:click.prevent="cancel">Annuler</x-jet-danger-button>
+                    @if ($updateMode)
+                        <x-jet-button class="bg-green-600" type="submit" wire:click.prevent="update">Mettre à jour</x-jet-button>
+                    @else
+                        <x-jet-button type="submit" wire:click.prevent="store">Enregistrer</x-jet-button>
+                    @endif
+                </div>
+            </form>
+			<div>
 			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
 				<thead>
 					<tr>
@@ -26,15 +46,18 @@
 						<td>{{ $user->role->name }}</td>
 						<td>{{ $user->created_at }}</td>
                         <td>
-                            <x-jet-danger-button  type="button" wire:click="adminDeleteUser( {{ $user->id }} )">Supprimer</x-jet-danger-button>
-                            <x-jet-button type="button">Editer</x-jet-button>
+                            <x-jet-danger-button wire:click.prevent="delete({{ $user->id }})">Supprimer</x-jet-danger-button>
+                            <x-jet-button wire:click.prevent="edit({{ $user->id }})" type="button">Editer</x-jet-button>
                         </td>
 					</tr>
-                    @endforeach
+                @endforeach
 				</tbody>
 			</table>
+			</div>
 		</div>
 		<!--/Card-->
 
 
 	</div>
+
+	

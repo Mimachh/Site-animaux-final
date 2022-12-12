@@ -46,8 +46,6 @@ class Demandes extends Component
         'third_animal_id' => 'nullable',
         'number_visit' => 'nullable',
         'phone' => 'nullable',
-        'mail' => 'required',
-
     ];
 
 
@@ -144,8 +142,6 @@ class Demandes extends Component
                 'garde_id' => $this->garde_id,
 
                 'phone' => $this->phone,
-
-                'mail' => $this->mail,
 
                 'first_animal_id' => $this->first_animal_id,
 

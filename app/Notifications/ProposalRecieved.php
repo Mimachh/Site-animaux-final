@@ -67,8 +67,8 @@ class ProposalRecieved extends Notification
             'proposal_id' => $this->proposal->id,
             'user_name' => $this->proposal->user->name,
             'when' => $this->proposal->created_at,
-            'animal' =>$this->demande->first_animal->animal_name,
-            'demande' => $this->demande->id,
+            'animal' =>$this->proposal->demande->first_animal->animal_name,
+            'demande' => $this->proposal->demande->id,
             
         ];
     }
@@ -79,8 +79,8 @@ class ProposalRecieved extends Notification
             'proposal_id' => $this->proposal->id,
             'user_name' => $this->proposal->user->name,
             'when' => $this->proposal->created_at,
-            'animal' =>$this->demande->first_animal->animal_name,
-            'demande' => $this->demande->id,
+            'animal' =>$this->proposal->demande->first_animal->animal_name,
+            'demande' => $this->proposal->demande->id,
         ]);
     }
 }
