@@ -36,6 +36,9 @@ class ProposalPolicy
         } elseif($user->id === $proposal->annonce->user->id) {
             return true;
         }
+        elseif($user->role->id === 1) {
+            return true;
+        }
         
     }
 

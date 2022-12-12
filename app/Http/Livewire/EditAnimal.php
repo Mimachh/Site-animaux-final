@@ -145,7 +145,6 @@ public function update()
         'rongeuses' => 'nullable',
         'birds' => 'nullable',
         'reptiles' => 'nullable',
-        'user_id' => 'required',
         'photo' => 'image',
         'age' => 'nullable',
       
@@ -169,7 +168,6 @@ public function update()
         'reptiles' => $this->reptiles,
         'espece_id' =>$this->espece,
         'race_id' => $this->race,
-        'user_id' => $this->user_id,
         'photo' => $name_file,
         
     ]);

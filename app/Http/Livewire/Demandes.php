@@ -128,7 +128,7 @@ class Demandes extends Component
        
             $proposal = Proposal::create([
                 'annonce_id' => $this->annonce->id,
-                'validated' => false,
+                'validated' => 2,
             ]);
 
             

@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminAdController;
+use App\Http\Controllers\AdminAnimalController;
+use App\Http\Controllers\AdminContactMessageController;
+use App\Http\Controllers\AdminProposalController;
+use App\Http\Controllers\AdminUserController;
+
 use App\Http\Livewire\Animals;
 use App\Http\Livewire\Annonces;
 use App\Http\Livewire\Demandes;
@@ -60,6 +66,12 @@ Route::middleware([
 
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
 
+/* Routes Admin penser a faire un middleware */
+Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
+Route::get('/admin/animals', [AdminAnimalController::class, 'index'])->name('admin.animals.index');
+Route::get('/admin/ads', [AdminAdController::class, 'index'])->name('admin.ads.index');
+Route::get('/admin/proposals', [AdminProposalController::class, 'index'])->name('admin.proposals.index');
+Route::get('/admin/contacts', [AdminContactMessageController::class, 'index'])->name('admin.contacts.index');
 
 
 

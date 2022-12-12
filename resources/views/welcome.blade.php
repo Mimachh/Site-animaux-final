@@ -21,7 +21,6 @@
     </section>
 
   </div>
+
+  @livewire('contact-form')
 </x-app-layout>
-
-
-@livewire('dashboard-panel')

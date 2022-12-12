@@ -3,13 +3,15 @@
     
     <x-slot name="header">
     
-            <h2 class="font-semibold text-xl text-white leading-tight">
+            <h1 class="ml-14 md:ml-64 font-semibold text-xl text-white leading-tight">
                 {{ __('Tableau de bord de ') }}{{auth()->user()->name}}
-            </h2>
+            </h1>
      
     </x-slot>
     
-    
-                 @livewire('dashboard-panel')
+   
+        @livewire('dashboard-panel')
+   
+               
         
 </x-app-layout>

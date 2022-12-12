@@ -53,7 +53,13 @@ class AnnoncePolicy
      */
     public function update(User $user, Annonce $annonce)
     {
-        return $user->id === $annonce->user_id;
+        if($user->id === $annonce->user_id) {
+            return true;
+          
+        }
+        elseif($user->role->id === 1){
+            return true;
+        }
     }
 
     /**
@@ -65,8 +71,14 @@ class AnnoncePolicy
      */
     public function delete(User $user, Annonce $annonce)
     {
+        if($user->id === $annonce->user_id) {
+            return true;
+          
+        }
+        elseif($user->role->id === 1){
+            return true;
+        }
         
-        return $user->id === $annonce->user_id;
     }
 
     /**

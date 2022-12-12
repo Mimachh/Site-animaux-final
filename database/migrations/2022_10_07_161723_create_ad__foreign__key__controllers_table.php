@@ -17,6 +17,7 @@ class CreateAdForeignKeyControllersTable extends Migration
        Schema::table('users', function ($table) {
             $table->foreign('animal_id')->references('id')->on('animals')->onDelete('cascade');
             $table->foreign('city')->references('id')->on('villes');
+            $table->foreign('role_id')->references('id')->on('roles');
             
         });
 

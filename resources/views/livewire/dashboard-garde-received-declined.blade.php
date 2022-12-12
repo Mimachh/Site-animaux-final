@@ -1,6 +1,6 @@
 <div>
-    @foreach($annonces as $annonce)                                                                                                    
-        @forelse($annonce->proposals as $prop)
+    @forelse($annonces as $annonce)                                                                                                    
+        @foreach($annonce->proposals->sortByDesc('updated_at') as $prop)
             @if($prop->validated === 0)
                 <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
                     <div class="justify-between">
@@ -27,8 +27,8 @@
                     </div>    
                 </div>
             @endif
-        @empty
-        <p class="text-sm font-semi-bold text-gray-600 mb-2">Aucune annonce à afficher</p>
-        @endforelse
-    @endforeach
+        @endforeach
+    @empty
+        <p class="text-sm font-semi-bold text-gray-600 mb-2 text-center">Aucune annonce refusée à afficher</p>
+    @endforelse
 </div>

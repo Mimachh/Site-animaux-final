@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('sex')->nullable();
             $table->unsignedBigInteger('city')->nullable(); 
             $table->unsignedBigInteger('animal_id')->nullable();
+            $table->unsignedBigInteger('role_id')->default(2);
          
         });
 

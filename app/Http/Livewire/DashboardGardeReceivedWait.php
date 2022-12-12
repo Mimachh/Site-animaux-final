@@ -3,10 +3,12 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Proposal;
 
 class DashboardGardeReceivedWait extends Component
 {
     public $annonces;
+
 
     public function mount()
     {

@@ -62,32 +62,24 @@
               <div x-data="{ open: false }">
                 <button x-on:click="open = ! open" type="button" class=" w-full relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                   <span class="inline-flex justify-center items-center ml-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-8"  viewBox="0 0 72 72" id="emoji" version="1.1">
-                      <g id="color">
-                        <path fill="#A57939" d="M14.375,47.125c0,0,0.2295,0.0762,0.4395,0.248c1.5,1.2295,1.333,2.9405,1.333,2.9405l1.3281,1.4678 L22,52.375l4.75,0.1875l6.375-0.4375l3.5625,1.125l2.75-1.375c0,0,0.0625-5.8437,0.7188-5.8437c0.75,0,1.7812,1.1044,1.7812,3.9687 c0,3.125-1.7939,6.2754-7.9375,6c-0.457-0.0205,0.25,1.8125,0.25,1.8125l-0.9375,2.75l-2,2.625L31,66.25l-0.3125,0.375 c0,0-0.2637,0.4063-0.8437,0.4063c-2.7813,0-3.2188-1.4688-1.5938-2.0938c0.1309-0.0508,0.375-1.75,0.375-1.75l-2-2.0205 l-3.917,0.708l-4.125,0.208L19,63.417l-1.708,3.166c0,0,1.124,0.459-0.459,0.459c-0.374,0-2.04-0.334-2.207-2.459l0.624-3.209 l-1.208-2.041l-0.833-2l-1.917-0.5l-4.124,0.624l-1.375-1l1.75-1.75L9.2188,52.5l3.2412-2.168L14.375,47.125z"/>
-                        <path fill="#6A462F" d="M13.583,59.71l1.667,1.664c-0.125,1-2.0713,0.8213-2.1455,1.6465c-0.1045,1.166,0.5225,0.835,0.4844,1.6904 c-0.0821,1.8418-2.4346,1.7686-3.0293,1.1866c-0.3848-0.376-0.3096-0.792,0.1484-2.1465c0.8428-2.4932,2.3545-4.25,2.3545-4.25 L13.583,59.71z"/>
+                    <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg class="w-7 h-6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                      <path style="fill:#BF7447;" d="M374.893,80.155h-48.128C326.765,40.59,295.577,8.17,256,8.17s-70.765,32.398-70.765,71.963  l31.483,68.967l-31.483,25.458l-31.788,15.926c0,27.387,4.249,43.988,23.105,62.845C192.872,269.65,256,332.876,256,332.876  s36.46-36.558,48.629-48.727c18.9-18.9,23.105-34.685,23.105-55.786v-79.818h13.159c18.868,0,34.173-16.798,34.173-35.709  C375.056,94.676,374.893,80.155,374.893,80.155z"/>
+                      <path style="fill:#A0613C;" d="M220.628,44.762c7.506,0,24.478,15.839,24.478,35.372v94.361c0,19.532-16.972,35.372-24.478,35.372  c-19.598,0-35.393-15.839-35.393-35.372l0.011-94.361C185.246,60.601,201.085,44.762,220.628,44.762z"/>
+                      <path style="fill:#804E30;" d="M256,80.133v94.361c0,19.532-15.839,35.372-35.372,35.372c7.506,0,13.584-15.839,13.584-35.372  V80.133c0-19.532-6.079-35.372-13.584-35.372C240.161,44.762,256,60.601,256,80.133z"/>
+                      <path style="fill:#FF9B5F;" d="M96.98,110.437c-13.136,0-23.783,10.649-23.783,23.783v156.064h47.567V134.22  C120.763,121.086,110.116,110.437,96.98,110.437z"/>
+                      <path style="fill:#FEBB8E;" d="M88.083,268.498V134.22c0-13.136-10.649-23.783-23.784-23.783s-23.783,10.649-23.783,23.783  l0.133,149.944c0.004,5.428,2.185,13.74,4.845,18.471l94.211,152.563c2.66,4.731,4.836,13.044,4.836,18.471v29.876h95.119v-51.2  l-39.871-97.498L88.083,268.498z"/>
+                      <path style="fill:#FCD5A2;" d="M239.661,392.264c0-16.284-9.421-39.027-20.934-50.542l-90.042-90.042  c-9.288-9.288-24.347-9.288-33.635,0c-9.288,9.288-9.288,24.347,0,33.635l72.683,72.683v21.359c0,40.31,31.619,72.987,71.928,72.987  L239.661,392.264L239.661,392.264z"/>
+                      <path style="fill:#FF9B5F;" d="M415.021,110.437c13.136,0,23.783,10.649,23.783,23.783v156.064h-47.567V134.22  C391.237,121.086,401.885,110.437,415.021,110.437z"/>
+                      <path style="fill:#FEBB8E;" d="M423.917,268.498V134.22c0-13.136,10.649-23.783,23.784-23.783s23.783,10.649,23.783,23.783  l-0.133,149.944c-0.004,5.428-2.185,13.74-4.845,18.471l-94.212,152.563c-2.66,4.731-4.836,13.044-4.836,18.471v29.876h-95.12v-51.2  l39.871-97.498L423.917,268.498z"/>
+                      <path style="fill:#FCD5A2;" d="M272.339,392.264c0-16.284,9.421-39.027,20.935-50.542l90.042-90.042  c9.288-9.288,24.347-9.288,33.635,0c9.288,9.288,9.288,24.347,0,33.635l-72.683,72.683v21.359c0,40.31-31.619,72.987-71.928,72.987  v-60.08H272.339z"/>
+                      <g>
+                        <path style="fill:#1D2328;" d="M134.461,246.187c-10.334-10.334-26.04-12.088-38.208-5.278V134.505   c0-5.404-1.353-10.497-3.732-14.965c1.431-0.426,2.93-0.649,4.459-0.649c8.609,0,15.613,7.004,15.613,15.613v78.553   c0,4.512,3.658,8.17,8.17,8.17c4.512,0,8.17-3.658,8.17-8.17v-78.553c0-17.619-14.335-31.953-31.953-31.953   c-5.828,0-11.447,1.574-16.351,4.502c-4.782-2.855-10.366-4.502-16.33-4.502c-17.619,0-31.954,14.334-31.954,31.961l0.133,149.944   c0.005,6.842,2.539,16.502,5.892,22.467c0.054,0.098,0.112,0.194,0.171,0.29l94.114,152.403c1.954,3.564,3.716,10.342,3.716,14.338   v29.877c0,4.512,3.658,8.17,8.17,8.17s8.17-3.658,8.17-8.17v-29.876c0-6.846-2.53-16.507-5.884-22.475   c-0.056-0.098-0.112-0.194-0.171-0.29L52.544,298.788c-1.955-3.565-3.721-10.348-3.725-14.346l-0.133-149.936   c0-8.609,7.005-15.613,15.614-15.613s15.613,7.004,15.613,15.613v134.277c0,0.192,0.015,0.38,0.028,0.569   c0.141,7.992,3.245,15.941,9.33,22.026l73.18,73.179c3.191,3.191,8.364,3.191,11.554,0c3.191-3.191,3.191-8.363,0-11.554   l-73.18-73.179c-6.087-6.087-6.087-15.993,0-22.08c6.087-6.087,15.993-6.087,22.081,0l90.042,90.042   c10.05,10.05,18.542,30.55,18.542,44.764v111.28c0,4.512,3.658,8.17,8.17,8.17c4.512,0,8.17-3.658,8.17-8.17V392.548   c0-18.5-10.247-43.238-23.329-56.319L134.461,246.187z"/>
+                        <path style="fill:#1D2328;" d="M447.702,102.551c-5.963,0-11.547,1.646-16.33,4.502c-4.904-2.928-10.523-4.502-16.351-4.502   c-17.619,0-31.954,14.334-31.954,31.953v78.553c0,4.512,3.657,8.17,8.17,8.17c4.513,0,8.17-3.658,8.17-8.17v-78.553   c0-8.609,7.005-15.613,15.614-15.613c1.528,0,3.027,0.223,4.459,0.649c-2.379,4.467-3.732,9.56-3.732,14.965v106.391   c-4.717-2.65-10.055-4.069-15.613-4.069c-8.535,0-16.559,3.324-22.594,9.359l-90.041,90.042   c-13.082,13.081-23.329,37.818-23.329,56.319V503.83c0,4.512,3.657,8.17,8.17,8.17c4.513,0,8.17-3.658,8.17-8.17V392.548   c0-14.214,8.492-34.714,18.543-44.764l90.042-90.042c2.948-2.949,6.87-4.573,11.04-4.573s8.092,1.624,11.04,4.573   c2.95,2.949,4.573,6.87,4.573,11.04s-1.623,8.092-4.573,11.041l-73.179,73.179c-3.191,3.191-3.191,8.364,0,11.554   c3.191,3.19,8.363,3.192,11.555,0l73.178-73.179c6.036-6.035,9.36-14.059,9.36-22.596V134.505c0-8.609,7.005-15.613,15.614-15.613   c8.608,0,15.613,7.004,15.613,15.606l-0.132,149.943c-0.004,4-1.77,10.783-3.726,14.346L365.345,451.19   c-0.06,0.095-0.115,0.192-0.171,0.29c-3.354,5.968-5.884,15.63-5.884,22.475v29.876c0,4.512,3.658,8.17,8.17,8.17   c4.513,0,8.17-3.658,8.17-8.17v-29.876c0-3.996,1.762-10.774,3.716-14.338l94.113-152.403c0.06-0.095,0.117-0.191,0.17-0.289   c3.354-5.964,5.888-15.624,5.895-22.469l0.132-149.951C479.655,116.885,465.321,102.551,447.702,102.551z"/>
+                        <path style="fill:#1D2328;" d="M253.596,64.276c-4.512,0-8.17,3.658-8.17,8.17v103.318c0,13.034-11.51,24.045-25.135,24.045   s-25.135-11.011-25.135-24.045v-16.337c0-0.002,0-0.003,0-0.005V73.449C195.155,43.027,223.587,16.34,256,16.34   c35.826,0,62.595,33.692,62.595,63.815c0,4.512,3.657,8.17,8.17,8.17h40.031c0.048,6.137,0.101,15.104,0.101,24.511   c0,13.126-13.609,27.539-26.003,27.539h-13.159c-4.453,0-8.086,3.565-8.169,8.018c-0.046,2.462-1.111,60.538,0.012,80.43   c1.096,19.404-9.802,39.44-9.983,39.768c-2.187,3.941-0.77,8.911,3.169,11.104c1.258,0.7,2.622,1.033,3.967,1.033   c2.868,0,5.652-1.514,7.146-4.198c0.548-0.983,13.387-24.353,12.016-48.629c-0.846-14.996-0.377-54.213-0.12-71.187h5.122   c21.37,0,42.344-21.735,42.344-43.879c0-17.021-0.173-32.618-0.175-32.773c-0.05-4.476-3.693-8.078-8.169-8.078h-40.408   C330.168,32.789,295.344,0,256,0c-19.436,0-38.963,7.765-53.573,21.305c-15.227,14.111-23.613,32.629-23.613,52.143v82.591   l-30.78,30.78c-3.191,3.191-3.191,8.364,0,11.555c1.595,1.596,3.686,2.393,5.777,2.393s4.182-0.797,5.777-2.393l19.378-19.378   c1.757,20.448,19.959,37.154,41.324,37.154c22.482,0,41.475-18.495,41.475-40.386V72.446   C261.765,67.934,258.108,64.276,253.596,64.276z"/>
                       </g>
-                      <g id="hair"/>
-                      <g id="skin">
-                        <circle cx="54.9688" cy="8.0938" r="3" fill="#FCEA2B"/>
-                        <path fill="#FCEA2B" d="M61.2666,51.6416l-2.1318-13.501l-0.0814-0.0046L60,37l-0.6112-7.3345L60,30l-1.4307-10.9917 C58.2852,16.8267,56.252,15,54.0518,15H54c-2.2002,0-4.2002,1.8306-4.4463,4.0171L49,23.979l0.0469,0.0257L49,24l-0.6505,6.8286 l-5.4735,2.5358l-0.709,1.0127c0,0,0.9072,2.2705,3.3769,1.581l2.4663-1.5679l-0.061,0.6402L46.0137,66l2.1602,1l5.9759-21.0105 l3.3737,8.656L65.167,65l3-2L61.2666,51.6416z"/>
-                      </g>
-                      <g id="skin-shadow"/>
-                      <g id="line">
-                        <circle cx="54.9688" cy="8.0938" r="3" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="2"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M49,35l-3.0479,30.0098C45.8408,66.1045,46.5205,67,47.4619,67s1.9492-0.8682,2.2383-1.9297l5.4863-20.1152 c0.2891-1.0615,1.043-2.667,1.6739-3.5674l2.1992-3.1397c0.6308-0.9003,1.1035-2.5371,1.0508-3.6357l-0.4922-10.1191"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M50,24"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M59.1348,38.1406l1.8203,11.5254c0.1709,1.0869,0.7793,2.7451,1.3496,3.6846l4.8242,7.9404 c0.5703,0.9395,0.3633,2.1592-0.4619,2.709c-0.8252,0.5498-2.0342,0.2764-2.6875-0.6094l-5.2686-7.1357 c-0.6533-0.8858-1.5146-2.4483-1.914-3.4727l-2.2031-5.6533"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M59.9248,29.5811L59.292,19.0347C59.1602,16.8389,57.252,15,55.0518,15H55c-2.2002,0-4.2002,1.8306-4.4463,4.0171L50.084,23.23"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M55.167,20l-3.0684,6.4443c-0.4726,0.9932-1.6269,2.2754-2.5654,2.8487l-7.5957,4.6445"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13,57l5-5c0,0,17-6,23.9375-18.0625"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M40,47c2,5-4,8-7,6c-0.7715-0.5137-3.8535-1.3145-7-1l-8.3281,0.3281L16,51.3125"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M27,58c0,2,1.25,4.501,1.25,4.501S28.6328,63.7354,28,65c-1,2,2,3,3,1s0.832-3.6641,1-4c0.4033-0.8066,1.999-1.917,2-4c0-1,0-1,0-1"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M27,60c-2.041,2.001-4.625,2-8,2"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M14,59c-1.0156,0.9287-2,1-3,2s-1,3,0,4"/>
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M14,48l-1,2c0,0-2.2441,0.2998-3,1c-0.5801,0.5371-1,3-1,3s-2.8779,1.5928-3,2c-0.0937,0.3125,1.293,2,2,2c1,0,4-1,4-1c2,0,2,3,3,4 c0.4102,0.4102,0,3-0.334,3.959C13.9863,66.9131,17,68,17.834,65.834C18.1387,65.04,19,63,19,61"/>
-                      </g>
-                    </svg>                  </span>
+                    </svg>                  
+                  </span>
                   <span class="ml-2 text-sm tracking-wide truncate">Mes demandes de garde</span>
                 </button>
                 <div x-show="open" x-transition class="pl-16">
@@ -340,18 +332,23 @@
 </div>
 <!-- ./Sidebar -->
 
-<div class="h-full ml-14 mt-14 mb-10 md:ml-64">
-    <div class='bg-white overflow-hidden shadow-xl sm:rounded-lg'>
+<div class="h-full mt-14 mb-10 ml-14 md:ml-64">
+    <div class='h-full bg-white overflow-hidden shadow-xl sm:rounded-lg'>
     
       @if($currentPage === 1)
-        <div class="mt-2">            
-        <!-- Page de mes annonces --> 
-          <a href="{{ route('annonces.create') }}" class="mb-3 ml-5 text-blue-600">
-              Ajouter une nouvelle annonce 
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2563EB" class="inline w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-          </a>      
+        <div class="mt-2">
+        <!-- Page de mes annonces -->
+          <div class="mx-5 flex space-x-4 justify-between">
+            <h2 class="inline text-gray-600 font-bold text-md"> Mes annonces ({{ auth()->user()->ads->count() }})</h2> 
+            <div class="inline">
+              <a href="{{ route('annonces.create') }}" class="text-sm mb-3 ml-5 text-blue-600">
+                  Ajouter une nouvelle annonce 
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2563EB" class="inline w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+              </a>
+            </div>
+          </div>      
           @forelse($ads as $annonce)
               <div class="px-3 py-5 mb-3 mr-4 md:mr-32 ml-5 mt-4 shadow-sm hover:shadow-md rounded border border-gray-200">    
                   <div class="flex justify-between">
@@ -425,23 +422,22 @@
                                                                           
               </div>                          
           @empty
-              <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
-                  <div class="flex justify-between pb-2">
-                      <p class="text-md font-normal text-gray-800">Vous n'avez aucune annonce active pour l'instant. Vous pouvez en poster une en cliquant <a class="text-blue-600" href="{{ route('annonces.create') }}">ici.</a></p>
-                  </div>
-              </div>          
+            <p class="ml-1 mt-2 text-sm font-normal text-gray-800">Vous n'avez aucune annonce active pour l'instant. Vous pouvez en poster une en cliquant <a class="text-blue-600" href="{{ route('annonces.create') }}">ici.</a></p>
           @endforelse
         </div> 
       @endif
 
       @if($currentPage === 2)
         <div class="mt-2">
-          <a href="{{ route('animals.create') }}" class="mb-3 ml-5 text-blue-600 text-blue-600">
-            Ajouter une nouvelle fiche animal
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2563EB" class="inline w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
+          <div class="mx-5 flex justify-between">
+            <h2 class="inline text-gray-600 font-bold text-md"> Mes animaux ({{ auth()->user()->animals->count() }})</h2> 
+            <a href="{{ route('animals.create') }}" class=" text-sm inline mb-3 ml-5 text-blue-600 text-blue-600">
+              Ajouter une nouvelle fiche animal
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2563EB" class="inline w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </a>
+          </div>
           @forelse($animals as $animal)
               <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">    
                   <div class="flex justify-between">
@@ -469,11 +465,7 @@
                   </div>    
               </div>
           @empty
-              <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
-                  <div class="flex justify-between pb-2">
-                      <p class="text-md font-normal text-gray-800">Vous n'avez aucune fiche pour vos animaux pour l'instant. Vous pouvez en créer une en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p>
-                  </div>
-              </div>
+          <p class="ml-1 mt-2 text-sm font-normal text-gray-800">Vous n'avez aucun animal pour l'instant. Vous pouvez en créer un en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p>
           @endforelse
         </div>
       @endif

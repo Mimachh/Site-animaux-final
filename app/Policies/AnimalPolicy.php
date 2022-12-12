@@ -53,7 +53,13 @@ class AnimalPolicy
      */
     public function update(User $user, Animal $animal)
     {
-        return $user->id === $animal->user_id;
+
+        if($user->id === $animal->user_id){
+            return true;
+        }
+        elseif($user->role->id === 1){
+            return true;
+        }
     }
 
     /**
@@ -65,7 +71,12 @@ class AnimalPolicy
      */
     public function delete(User $user, Animal $animal)
     {
-        return $user->id === $animal->user_id;
+        if($user->id === $animal->user_id){
+            return true;
+        }
+        elseif($user->role->id === 1){
+            return true;
+        }
     }
 
     /**

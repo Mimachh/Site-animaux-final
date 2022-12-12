@@ -65,6 +65,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Annonce');
     }
 
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
 
     public function animals()
     {

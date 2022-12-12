@@ -99,8 +99,6 @@ class EditAnnonce extends Component
     
             return [
     
-            'user_id' => 'required',
-            'name' => 'required',
             'garde' =>'required',
             'chats' => 'nullable',
             'chiens' => 'nullable',
@@ -235,8 +233,6 @@ class EditAnnonce extends Component
             'reptiles' => $this->reptiles,
             'description' => $this->description,
             'price' => $prix,
-            'name' => $this->name,
-            'user_id' => $this->user_id,
             'photo' => $name_file,
             'habitation_id' => $this->hab,
             'exterieur_id' => $this->ext,

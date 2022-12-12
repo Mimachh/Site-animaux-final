@@ -187,6 +187,11 @@ class DatabaseSeeder extends Seeder
             ['id' => '3', 'ext' => "Non concerné"],            
         ]);
 
+        DB::table('roles')->insert([
+            ['id' => 1, 'name' => 'Admin'],
+            ['id' => 2, 'name' => 'Utilisateur']
+        ]);
+
         DB::table('users')->insert([
             ['id' => '1', 'name' => 'Karl', 'email' => 'karl.m@gmail.com', 
             'password' => '$2y$10$ZaUzuL/yWyVcl8bCxhQ64OyOA/GrLJpfP9eThY7dfco29sZvgw.fK'],
@@ -196,7 +201,6 @@ class DatabaseSeeder extends Seeder
         
         DB::table('villes')->insert([
             ['id' => 1, 'ville_nom' => 'Le Mans']
-        
         ]);
 
 

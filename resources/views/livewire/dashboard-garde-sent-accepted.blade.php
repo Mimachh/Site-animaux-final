@@ -1,5 +1,5 @@
 <div>
-    @forelse(auth()->user()->proposals->where('validated', 1) as $proposal)
+    @forelse(auth()->user()->proposals->where('validated', 1)->sortByDesc('updated_at') as $proposal)
         <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200"> 
             <div class="flex justify-between">
                 <h2 class="text-md font-bold text-gray-600 mb-2">{{ $proposal->annonce->name}}</h2>
@@ -27,12 +27,7 @@
                                 
         </div>
     @empty
-        <div class="px-3 py-5 mb-3 mr-4 md:mr-32 lg:mr-32 ml-5">
-            <div class="flex justify-between pb-2">
-                <p class="text-md font-normal text-gray-800">Vous n'avez envoyé aucune demande de garde pour l'instant. </p>
-            </div>
-        </div>
-                                                            
+        <p class="text-sm font-semi-bold text-gray-600 mb-2 text-center">Aucune annonce acceptée à afficher</p>                                                                                                          
     @endforelse
 </div>
 
