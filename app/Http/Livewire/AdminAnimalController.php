@@ -21,8 +21,7 @@ class AdminAnimalController extends Component
         return view('admin.animals_list');
     }
 
-   
-  
+     
     public function render()
     {
         return view('livewire.admin-animal-controller');
