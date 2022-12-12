@@ -22,5 +22,4 @@
 
   </div>
 
-  @livewire('contact-form')
 </x-app-layout>
