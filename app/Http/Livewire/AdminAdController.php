@@ -94,7 +94,7 @@ class AdminAdController extends Component
 
             $this->updateMode = false;
             $this->reset('state');
-            $this->users = Annonce::all();
+            $this->annonces = Annonce::all();
         }
     }
 

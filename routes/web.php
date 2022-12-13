@@ -1,15 +1,19 @@
 <?php
 
 use App\Http\Livewire\AdminAdController;
-use App\Http\Controllers\AdminContactMessageController;
-use App\Http\Controllers\AdminProposalController;
+use App\Http\Livewire\AdminContactMessageController;
+use App\Http\Livewire\AdminProposalController;
 use App\Http\Livewire\AdminUserController;
 use App\Http\Livewire\AdminAnimalController;
+
 use App\Http\Livewire\Animals;
 use App\Http\Livewire\Annonces;
 use App\Http\Livewire\Demandes;
 use App\Http\Livewire\GardePage;
+
 use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Livewire\AnimalOwnedForm;
 use App\Http\Controllers\ProposalController;
 
@@ -31,6 +35,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
+/* Toutes les pages soumises à authentificate*/
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -62,17 +67,22 @@ Route::middleware([
 
 });
 
-
+/* Page principale des Annonces */
 Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
 
-/* Routes Admin penser a faire un middleware */
-Route::get('/admin/proposals', [AdminProposalController::class, 'index'])->name('admin.proposals.index');
-Route::get('/admin/contacts', [AdminContactMessageController::class, 'index'])->name('admin.contacts.index');
+/* Route Admin */
+Route::middleware(['auth', 'role:Admin'])->group(function(){
+    
+    Route::get('/admin', function ()
+    {
+        return view('admin.index');
+    })->name('admin/');
 
-/* Passe par livewire pour le crud */
-Route::get('/admin/animals', [AdminAnimalController::class, 'index'])->name('admin.animals.index');
-Route::get('/admin/ads', [AdminAdController::class, 'index'])->name('admin.ads.index');
-Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
-
-
+    /* Passe par livewire pour le crud */
+    Route::get('/admin/ads', [AdminAdController::class, 'index'])->name('admin.ads.index');
+    Route::get('/admin/proposals', [AdminProposalController::class, 'index'])->name('admin.proposals.index');
+    Route::get('/admin/contacts', [AdminContactMessageController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
+    Route::get('/admin/animals', [AdminAnimalController::class, 'index'])->name('admin.animals.index');
+});
 

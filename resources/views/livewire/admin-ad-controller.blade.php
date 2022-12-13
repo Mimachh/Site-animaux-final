@@ -1,11 +1,9 @@
 
 <div>
-		<!--Title-->
-		<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-sm md:text-2xl">
-			Table des annonces ({{ $annonces->count() }} annonces en ligne)
-		</h1>
-
-
+	<!--Title-->
+	<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-sm md:text-2xl">
+		Table des annonces ({{ $annonces->count() }} annonces en ligne)
+	</h1>
 
 	<div class="container flex justify-center mx-auto">
 		<div class="flex flex-col">
@@ -85,6 +83,7 @@
 								<th data-priority="9" class="border">Description</th>
 								<th data-priority="10" class="border">Prix</th>
 								<th data-priority="11" class="border">Prix commission</th>
+								<th data-priority="12" class="border">Utilisateur</th>
 								<th data-priority="13" class="border">Crud</th>
 							</tr>
 						</thead>
@@ -96,7 +95,7 @@
 								<td class="border">{{ $annonce->ville_id }}</td>
 								<td class="border">{{ $annonce->habitation->hab }} / {{ $annonce->exterieur->ext}}</td>
 								<td class="border">{{ $annonce->status }}</td>
-								<td class="border">{{ $annonce->start_watch }} / {{ $annonce->end_watch }}</td>
+								<td class="border">{{ $annonce->start_date_fr() }} / {{ $annonce->end_date_fr() }}</td>
 								<td class="border">{{ $annonce->garde->garde }}</td>
 								<td class="border">
 									{{ $annonce->chats }}/{{ $annonce->chiens }}/{{ $annonce->poissons }}/
@@ -106,6 +105,7 @@
 								<td class="border">{{ $annonce->description }}</td>
 								<td class="border">{{ $annonce->getPrice() }}</td>
 								<td class="border">{{ $annonce->getRealPrice() }}</td>
+								<td class="border">{{ $annonce->user->id }} / {{ $annonce->user->name }}</td>
 								<td class="px-6 py-4">
 									<button wire:click.prevent="edit({{ $annonce->id }})" type="button" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full">Edit</button>
 							

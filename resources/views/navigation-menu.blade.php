@@ -19,6 +19,17 @@
                     </x-jet-nav-link>
                 </div>
                 @endauth
+
+                @auth
+                    @if(auth()->user()->role->name === 'Admin')
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
+                            <x-jet-nav-link href="{{ route('admin/') }}" :active="request()->routeIs('admin/')" style="color: #cbd5e0">
+                                {{ __('Tableau Admin') }}
+                            </x-jet-nav-link>
+                        </div>
+                    @endif
+                @endauth
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('annonces.index') }}" :active="request()->routeIs('annonces.index')" style="color: #cbd5e0">
                         {{ __('Voir les annonces') }}
@@ -218,6 +229,13 @@
                                 {{ __('Voir les annonces') }}
                         </x-jet-responsive-nav-link>
 
+                        
+                        @if(auth()->user()->role->name === 'Admin')
+                                <x-jet-responsive-nav-link href="{{ route('admin/') }}" :active="request()->routeIs('admin/')" style="color: #cbd5e0">
+                                    {{ __('Tableau Admin') }}
+                                </x-jet-responsive-nav-link>
+                        @endif
+                
                         <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('annonces.create')">
                                 {{ __('Mon tableau de bord') }}
                         </x-jet-responsive-nav-link>

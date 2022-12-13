@@ -37,7 +37,7 @@ class DeleteAnimalComp extends Component
         
           $animal->delete();
  
-          self::message('danger', 'Votre fiche a bien été supprimée ! :(');
+          self::message('danger', 'Votre fiche a bien été supprimée !');
 
         return redirect()->route('dashboard'); 
 
