@@ -14,16 +14,14 @@ class ProposalReceived extends Mailable
     use Queueable, SerializesModels;
 
     public $proposal;
-    public $demande;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Proposal $proposal, Demande $demande)
+    public function __construct(Proposal $proposal)
     {
         $this->proposal = $proposal;
-        $this->demande = $demande;
     }
 
     /**

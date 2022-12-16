@@ -3,10 +3,10 @@
 
 Salut {{ $proposal->annonce->user->name}},
 
-{{$proposal->user->name }} a besoin de toi pour garder {{ $demande->first_animal->animal_name }}. <br>
-Va vite y jeter un oeil !
+{{$proposal->user->name }} a besoin de toi pour garder {{ $proposal->demande->first_animal->animal_name }}. <br>
+Va vite jeter un oeil !
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8001/proposals/'.$proposal->id.'/', 'color' => 'success'])
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/proposals/'.$proposal->id.'/', 'color' => 'success'])
 Voir la demande
 @endcomponent
 

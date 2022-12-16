@@ -157,7 +157,7 @@ class Demandes extends Component
         
             ]);
             
-            $proposal->annonce->user->notify(new ProposalRecieved($proposal, $demande));
+            $proposal->annonce->user->notify(new ProposalRecieved($proposal));
            
 
             self::message('success', 'Ta demande est transmise au Pet-Sitter ! Il te répondra au plus vite. ');

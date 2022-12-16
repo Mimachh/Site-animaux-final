@@ -18,17 +18,15 @@ class ProposalRecieved extends Notification
     use Queueable;
 
     public $proposal;
-    public $demande;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Proposal $proposal, Demande $demande)
+    public function __construct(Proposal $proposal)
     {
         $this->proposal = $proposal;
-        $this->demande = $demande;
         
     }
 
@@ -51,7 +49,7 @@ class ProposalRecieved extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new ProposalReceived($this->proposal, $this->demande, $notifiable  ))
+        return (new ProposalReceived($this->proposal, $notifiable  ))
         ->to($notifiable->email);
     }
 
