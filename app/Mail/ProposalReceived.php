@@ -33,6 +33,6 @@ class ProposalReceived extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.proposalreceived');
+        return $this->markdown('mails.proposalreceived')->subject('Demande de garde');
     }
 }

@@ -34,6 +34,6 @@ class ProposalResponse extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.proposal-response');
+        return $this->markdown('mails.proposal-response')->subject('Demande de garde : Réponse');
     }
 }

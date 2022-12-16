@@ -13,6 +13,8 @@
     </x-slot>
 
     @livewire('previous-page')
+    <p class="text-sm text-gray-600 mb-2">{{ $proposal->annonce->user->email}}</p>
+
     <div class="px-3 py-5 mb-3 mt-4 mr-4 md:mr-32 ml-5 shadow-sm hover:shadow-md rounded border border-gray-200">   
         <div class="justify-between">
             @if(auth()->user()->id !== $proposal->user_id)
