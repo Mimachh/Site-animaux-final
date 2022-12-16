@@ -48,6 +48,12 @@
                 </header>
             @endif
             
+            <!-- Button Back --> 
+            @if(isset($buttonBack))    
+                <div class="mt-2">
+                    {{ $buttonBack}}
+                </div>
+            @endif
             <!-- Page Content -->
 
             <main>

@@ -6,6 +6,9 @@
         </h1>
     </x-slot>
     
+    <x-slot name="buttonBack">
+        @livewire('previous-page')
+    </x-slot>
 
         <div class="md:flex-wrap md:flex md:mx-32 xs:mx-auto pt-5">
             <div class="bg-white">

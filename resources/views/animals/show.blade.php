@@ -5,6 +5,9 @@
         </h1>
     </x-slot>
     
+    <x-slot name="buttonBack">
+        @livewire('previous-page')
+    </x-slot>
 
 <div class="pb-5">
     @livewire('previous-page')

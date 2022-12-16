@@ -6,7 +6,11 @@
     </x-slot>
 @endauth
 
-<main class="bg-indigo-100">
+<x-slot name="buttonBack">
+    @livewire('previous-page')
+</x-slot>
+
+<main class="bg-gray-100">
     @auth
 
         <x-jet-validation-errors class="mb-4 text-center" />

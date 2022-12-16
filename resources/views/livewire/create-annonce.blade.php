@@ -4,6 +4,9 @@
     </h1>
 </x-slot>
 
+<x-slot name="buttonBack">
+    @livewire('previous-page')
+</x-slot>
 
 <main class="bg-indigo-50 pt-5 rounded-3xl ">
         <h2 class="text-center mt-5 py-5 font-semibold">Créer mon annonce de pet-sitter</h2>

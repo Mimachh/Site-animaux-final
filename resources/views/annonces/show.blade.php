@@ -5,7 +5,10 @@
         </h1>
     </x-slot>
     
-
+    <x-slot name="buttonBack">
+        @livewire('previous-page')
+    </x-slot>
+    
 <div class="pb-5">
     <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
         <div class=" col-span-3 md:col-span-1 mx-auto">       
