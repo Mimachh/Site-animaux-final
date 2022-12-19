@@ -33,7 +33,7 @@
                         </a>
                         @endcan
                         @can('delete', $animal) 
-                        <livewire:delete-animal-comp :animal="$animal" />
+                        <livewire:animals.delete-animal-comp :animal="$animal" />
                         @endcan
                     </div>                                            
                 </div>

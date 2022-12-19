@@ -1,6 +1,6 @@
 <x-app-layout>
 
 
-@livewire('create-annonce')
+@livewire('annonces.create-annonce')
 
 </x-app-layout>

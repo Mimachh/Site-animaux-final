@@ -41,7 +41,7 @@
                         
                        @endcan
                        @can('delete', $annonce)
-                        <livewire:delete-annonce-comp :annonce="$annonce">
+                        <livewire:annonces.delete-annonce-comp :annonce="$annonce">
                         @endcan
                     </div>                                            
                 </div>
@@ -218,7 +218,7 @@
                                 </a> 
                                 @endcan
                                 @can('delete', $animal)
-                                <livewire:delete-animal-comp :animal="$animal">
+                                <livewire:animals.delete-animal-comp :animal="$animal">
                                 @endcan
                             </div>                                            
                         </div>

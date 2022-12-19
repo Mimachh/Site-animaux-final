@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Annonces;
 
 use App\Models\Garde;
 use App\Models\Ville;
@@ -264,6 +264,6 @@ class EditAnnonce extends Component
         J'enlève pour l'instant car sinon on ne peux pas editer le formulaire*/
 
 
-        return view('livewire.edit-annonce');
+        return view('livewire.annonces.edit-annonce');
     }
 }

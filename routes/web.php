@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Livewire\Animals\Animals;
-use App\Http\Livewire\Annonces;
+use App\Http\Livewire\Annonces\Annonces;
 use App\Http\Livewire\Demandes;
 use App\Http\Livewire\GardePage;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Annonces;
 
 use App\Models\Garde;
 use App\Models\Ville;
@@ -188,6 +188,6 @@ class CreateAnnonce extends Component
 
     public function render()
     {
-        return view('livewire.create-annonce');
+        return view('livewire.annonces.create-annonce');
     }
 }

@@ -2,7 +2,7 @@
 
 
 
-<livewire:edit-annonce :annonce="$annonce"/>
+<livewire:annonces.edit-annonce :annonce="$annonce"/>
 
 
 </x-app-layout>

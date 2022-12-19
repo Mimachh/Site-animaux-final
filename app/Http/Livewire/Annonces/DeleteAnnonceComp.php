@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Annonces;
 
 use App\Models\Annonce;
 use Livewire\Component;
@@ -53,6 +53,6 @@ class DeleteAnnonceComp extends Component
   
     public function render()
     {
-        return view('livewire.delete-annonce-comp');
+        return view('livewire.annonces.delete-annonce-comp');
     }
 }

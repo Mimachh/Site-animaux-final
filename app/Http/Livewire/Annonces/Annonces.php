@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Annonces;
 
 use App\Models\Animal;
 use App\Models\Espece;
@@ -127,6 +127,6 @@ class Annonces extends Component
 
     public function render()
     {
-        return view('livewire.annonces');
+        return view('livewire.annonces.annonces');
     }
 }

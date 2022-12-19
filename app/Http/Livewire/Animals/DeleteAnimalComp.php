@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Animals;
 
 use App\Models\Animal;
 use Livewire\Component;
@@ -71,6 +71,6 @@ class DeleteAnimalComp extends Component
     
     public function render()
     {
-        return view('livewire.delete-animal-comp');
+        return view('livewire.animals.delete-animal-comp');
     }
 }
