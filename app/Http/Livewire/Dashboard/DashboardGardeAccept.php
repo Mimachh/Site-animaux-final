@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use Livewire\Component;
-use App\Models\Proposal;
 
-class DashboardGardeReceivedWait extends Component
+class DashboardGardeAccept extends Component
 {
     public $annonces;
-
 
     public function mount()
     {
@@ -18,9 +16,10 @@ class DashboardGardeReceivedWait extends Component
     $ads = $this->annonces;
 
     }
-    
+
     public function render()
     {
-        return view('livewire.dashboard-garde-received-wait');
+        
+        return view('livewire.dashboard.dashboard-garde-accept');
     }
 }

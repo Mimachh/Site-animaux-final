@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Proposal;
@@ -21,6 +21,6 @@ class AdminProposalController extends Component
 
     public function render()
     {
-        return view('livewire.admin-proposal-controller');
+        return view('livewire.admin.admin-proposal-controller');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Animals;
 
 use App\Models\Age;
 use App\Models\Race;
@@ -184,6 +184,6 @@ public function update()
         $ages = Age::all();
         $especes = Espece::select('id', 'espece')->where('id', '<', 9 )->get();
 
-        return view('livewire.edit-animal',  ["especes"=>$especes, 'ages'=>$ages]);
+        return view('livewire.animals.edit-animal',  ["especes"=>$especes, 'ages'=>$ages]);
     }
 }

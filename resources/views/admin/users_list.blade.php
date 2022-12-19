@@ -113,7 +113,7 @@
 
 
 	<!--Container-->
-	@livewire('admin-user-controller')
+	@livewire('admin.admin-user-controller')
 	<!--/container-->
 
 

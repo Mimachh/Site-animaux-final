@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use Livewire\Component;
 
@@ -148,6 +148,6 @@ class DashboardPanel extends Component
         $ads = auth()->user()->ads;
         $animals = auth()->user()->animals;
 
-        return view('livewire.dashboard-panel', ['ads' => $ads, 'animals' => $animals]);
+        return view('livewire.dashboard.dashboard-panel', ['ads' => $ads, 'animals' => $animals]);
     }
 }

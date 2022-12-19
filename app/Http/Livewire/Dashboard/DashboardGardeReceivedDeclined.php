@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use Livewire\Component;
 
-class DashboardGardeAccept extends Component
+class DashboardGardeReceivedDeclined extends Component
 {
     public $annonces;
 
@@ -16,10 +16,9 @@ class DashboardGardeAccept extends Component
     $ads = $this->annonces;
 
     }
-
+    
     public function render()
     {
-        
-        return view('livewire.dashboard-garde-accept');
+        return view('livewire.dashboard.dashboard-garde-received-declined');
     }
 }

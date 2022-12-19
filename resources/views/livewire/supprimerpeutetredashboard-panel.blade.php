@@ -1,6 +1,6 @@
 <div>
 <!-- Sidebar -->
-<div class=" mt-2 fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
+<div class="rounded-r-3xl mt-2 fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
         <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
           <ul class="flex flex-col py-4 space-y-1">
             <li class="px-5 hidden md:block">
@@ -138,7 +138,7 @@
                       </button>
                     </li>
                     <li>
-                      <button type="button" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                      <button type="button" class="w-full relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                         <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                         <svg class="w-4 h-4" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 489.2 489.2" style="enable-background:new 0 0 489.2 489.2;" xml:space="preserve">
                           <g>
@@ -243,7 +243,7 @@
                       </button>
                     </li>
                     <li>
-                      <button type="button" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                      <button type="button" class="w-full relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
                         <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                         <svg class="w-4 h-4" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 489.2 489.2" style="enable-background:new 0 0 489.2 489.2;" xml:space="preserve">
                           <g>
@@ -472,49 +472,49 @@
 
       @if($currentPage === 3)
         <div class="mt-2">
-          @livewire('dashboard-garde-sent')
+          @livewire('dashboard.dashboard-garde-sent')
         </div>
       @endif
 
       @if($currentPage === 4)
         <div class="mt-2">
-          @livewire('dashboard-garde-sent-wait')
+          @livewire('dashboard.dashboard-garde-sent-wait')
         </div>
       @endif
 
       @if($currentPage === 5)
         <div class="mt-2">
-          @livewire('dashboard-garde-sent-accepted')
+          @livewire('dashboard.dashboard-garde-sent-accepted')
         </div>
       @endif
 
       @if($currentPage === 6)
         <div class="mt-2">
-          @livewire('dashboard-garde-sent-declined')
+          @livewire('dashboard.dashboard-garde-sent-declined')
         </div>
       @endif
 
       @if($currentPage === 8)
         <div class="mt-2">
-          @livewire('dashboard-garde-received-wait')
+          @livewire('dashboard.dashboard-garde-received-wait')
         </div>
       @endif
 
       @if($currentPage === 9)
         <div class="mt-2">
-          @livewire('dashboard-garde-accept')
+          @livewire('dashboard.dashboard-garde-accept')
         </div>
       @endif
 
       @if($currentPage === 10)
         <div class="mt-2">
-          @livewire('dashboard-garde-received-declined')
+          @livewire('dashboard.dashboard-garde-received-declined')
         </div>
       @endif
 
       @if($currentPage === 12)
         <div class="mt-2">
-          @livewire('dashboard-fav')
+          @livewire('dashboard.dashboard-fav')
         </div>
       @endif
 

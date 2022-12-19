@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\User;
 use Livewire\Component;
@@ -72,6 +72,6 @@ class AdminUserController extends Component
 
     public function render()
     {
-        return view('livewire.admin-user-controller');
+        return view('livewire.admin.admin-user-controller');
     }
 }

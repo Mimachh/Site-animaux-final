@@ -116,7 +116,7 @@
 
 
 	<!--Container-->
-	@livewire('admin-proposal-controller')
+	@livewire('admin.admin-proposal-controller')
 	<!--/container-->
 
 

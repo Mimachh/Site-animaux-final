@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\Animal;
 use Livewire\Component;
@@ -101,6 +101,6 @@ class AdminAnimalController extends Component
      
     public function render()
     {
-        return view('livewire.admin-animal-controller');
+        return view('livewire.admin.admin-animal-controller');
     }
 }

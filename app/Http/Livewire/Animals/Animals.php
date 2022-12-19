@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Animals;
 
 use App\Models\Animal;
 use Livewire\Component;
@@ -112,6 +112,6 @@ public function destroy(Animal $animal)
 
     public function render()
     {
-        return view('livewire.animals');
+        return view('livewire.animals.animals');
     }
 }

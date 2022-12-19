@@ -1,6 +1,6 @@
 <x-app-layout>
 
 
-@livewire('create-animal')
+@livewire('animals.create-animal')
 
 </x-app-layout>

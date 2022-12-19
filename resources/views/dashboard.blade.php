@@ -10,7 +10,7 @@
     </x-slot>
     
    
-        @livewire('dashboard-panel')
+        @livewire('dashboard.dashboard-panel')
    
                
         

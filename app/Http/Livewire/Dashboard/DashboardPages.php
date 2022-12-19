@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use App\Models\user;
 use App\Models\Animal;
@@ -164,6 +164,6 @@ class DashboardPages extends Component
       $animals = auth()->user()->animals;
     
         
-        return view('livewire.dashboard-pages', ['ads' => $ads, 'favs' => $favs, 'animals' => $animals]);
+        return view('livewire.dashboard.dashboard-pages', ['ads' => $ads, 'favs' => $favs, 'animals' => $animals]);
     }
 }

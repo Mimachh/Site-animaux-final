@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Animals;
 
 use App\Models\Age;
 use App\Models\Race;
@@ -145,6 +145,6 @@ public function store(Request  $request)
         $ages = Age::all();
         $especes = Espece::select('id', 'espece')->where('id', '<', 9 )->get();
 
-        return view('livewire.create-animal', ["especes"=>$especes, 'ages'=>$ages]);
+        return view('livewire.animals.create-animal', ["especes"=>$especes, 'ages'=>$ages]);
     }
 }

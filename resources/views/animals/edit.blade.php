@@ -1,3 +1,3 @@
 <x-app-layout>
-<livewire:edit-animal :animal="$animal"/>
+<livewire:animals.edit-animal :animal="$animal"/>
 </x-app-layout>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use Livewire\Component;
 
@@ -10,6 +10,6 @@ class DashboardFav extends Component
     {
         $favs = auth()->user()->fav;
 
-        return view('livewire.dashboard-fav', ['favs' => $favs]);
+        return view('livewire.dashboard.dashboard-fav', ['favs' => $favs]);
     }
 }

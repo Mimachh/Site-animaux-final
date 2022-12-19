@@ -112,7 +112,7 @@
 
 
 	<!--Container-->
-	@livewire('admin-animal-controller')
+	@livewire('admin.admin-animal-controller')
 	<!--/container-->
 
 

@@ -1,22 +1,20 @@
 <?php
 
-use App\Http\Livewire\AdminAdController;
-use App\Http\Livewire\AdminContactMessageController;
-use App\Http\Livewire\AdminProposalController;
-use App\Http\Livewire\AdminUserController;
-use App\Http\Livewire\AdminAnimalController;
-
-use App\Http\Livewire\Animals;
+use App\Http\Livewire\Animals\Animals;
 use App\Http\Livewire\Annonces;
 use App\Http\Livewire\Demandes;
 use App\Http\Livewire\GardePage;
 
 use Illuminate\Support\Facades\Route;
-
-
 use App\Http\Livewire\AnimalOwnedForm;
 use App\Http\Controllers\ProposalController;
 
+
+use App\Http\Livewire\Admin\AdminUserController;
+use App\Http\Livewire\Admin\AdminAdController;
+use App\Http\Livewire\Admin\AdminProposalController;
+use App\Http\Livewire\Admin\AdminContactMessageController;
+use App\Http\Livewire\Admin\AdminAnimalController;
 
 
 /*
