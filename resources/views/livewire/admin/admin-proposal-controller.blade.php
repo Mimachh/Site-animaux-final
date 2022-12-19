@@ -50,7 +50,11 @@
 						<td>{{ $proposal->demande->phone }}</td>
                         <td>{{ $proposal->getFinalPriceWithoutCom() }}</td>
                         <td>{{ $proposal->finalPrice() }}</td>
+						<td class="px-6 py-4">
+							<button wire:click.prevent="delete({{ $proposal->id }})" type="button" class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</button>
+						</td>
 					</tr>
+					
                     @endforeach
 				
 				</tbody>

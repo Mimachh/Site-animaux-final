@@ -19,6 +19,14 @@ class AdminProposalController extends Component
         return view('admin.proposals_list');
     }
 
+    public function delete($proposal)
+    {
+
+        $proposal = Proposal::where('id', $proposal)->first();
+          
+        $proposal->delete();
+    }
+
     public function render()
     {
         return view('livewire.admin.admin-proposal-controller');
