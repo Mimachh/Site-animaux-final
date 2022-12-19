@@ -2,7 +2,7 @@
 <main class="md:mx-10 mt-10">
 
     <!-- La garde -->
-        <div class="mt-10 sm:mt-0 mx-10">
+        <div class="mt-10 sm:mt-0 md:mx-10">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
@@ -72,7 +72,7 @@
         </div>
 
     <!-- Les animaux -->
-            <div class="mt-10 sm:mt-0 mx-10">
+            <div class="mt-10 sm:mt-0 sm:mx-10">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="px-4 sm:px-0">
@@ -140,7 +140,7 @@
         </div>
 
     <!-- Les infos -->
-        <div class="mt-10 sm:mt-0 mx-10">
+        <div class="mt-10 sm:mt-0 sm:mx-10">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
             <div class="px-4 sm:px-0">

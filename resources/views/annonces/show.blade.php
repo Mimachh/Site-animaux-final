@@ -10,18 +10,38 @@
     </x-slot>
     
 <div class="pb-5">
-    <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
+    <div class="grid grid-cols-3 gap-4 sm:mx-10 my-10 border rounded shadow hover:shadow-lg">
         <div class=" col-span-3 md:col-span-1 mx-auto">       
             <div class="mx-2 my-2 aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-3 xl:aspect-h-4">
                 <img class="h-80 w-80 rounded-lg object-cover object-center group-hover:opacity-75 " src="{{ asset('storage/annonces_photos/' . $annonce->photo) }}">
             </div>
         </div>
         <!-- Partie description annonce -->
-            <div class="md:col-span-2 col-span-3 pl-5">
+            <div class=" md:col-span-2 col-span-3 pl-5">
+
+                <div class="flex">
+                    @can('update', $annonce)
+                        <div class="md:justify-end mb-3 pr-10 mt-4">
+                            <a class="text-sm pr-10 items-center"  href="{{ route('annonces.edit', $annonce) }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                </svg>
+                                <p class="inline text-green-700">Modifier mon annonce</p>
+                            </a> 
+                        </div>      
+                    @endcan
+                            
+                    @can('delete', $annonce)
+                        <div class="md:justify-end mb-3 pr-10 mt-4">
+                            <livewire:annonces.delete-annonce-comp :annonce="$annonce">
+                        </div>  
+                    @endcan
+                </div>
+
                 <div class="flex justify-between mt-4 mb-4 mr-10"> 
                     <h2 class="text-xl text-bold text-gray-700">Je m'appelle {{ $annonce->name }}</h2>                               
                     @if($annonce->user_id !== auth()->user()->id)
-                    <div class="flex items-center">
+                    <div class="flex items-end">
                         <livewire:ad-fav :annonce="$annonce">
                         @if($annonce->fav->count() > 0)
                             <div>
@@ -30,20 +50,7 @@
                         @endif
                     </div>
                     @endif
-                    <div class="flex md:justify-end mb-3 pr-10">
-                        @can('update', $annonce)
-                        <a class="text-sm pr-10 items-center"  href="{{ route('annonces.edit', $annonce) }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                            </svg>
-                            <p class="inline text-green-700">Modifier mon annonce</p>
-                        </a>
-                        
-                       @endcan
-                       @can('delete', $annonce)
-                        <livewire:annonces.delete-annonce-comp :annonce="$annonce">
-                        @endcan
-                    </div>                                            
+                                                              
                 </div>
                 
                 <!-- Dispo -->
@@ -165,7 +172,7 @@
 
                 <!-- Bouton contact -->
                     @if($annonce->user_id !== auth()->user()->id)
-                    <div class=" justify-center my-5">
+                    <div class=" text-center md:text-start my-5">
                         <x-jet-button type="button" class="bg-blue-600"><a href="{{route('demandes.create', $annonce->id)}}">Contacter</a></x-jet-button>   
                     </div>                                       
                     @endif 
@@ -184,7 +191,7 @@
             <p class="ml-10 mt-2">Ajouter un animal en cliquant <a class="text-blue-600" href="{{ route('animals.create') }}">ici.</a></p> 
         @endif
         @forelse($animals as $animal)
-            <div class="grid grid-cols-3 gap-4 mx-10 my-10 border rounded shadow hover:shadow-lg">
+            <div class="grid grid-cols-3 gap-4 sm:mx-10 my-10 border rounded shadow hover:shadow-lg">
                 <div class="pr-5 md:col-span-2 col-span-3 ml-4">
 
                     <!-- Plaque d'immat -->
@@ -205,23 +212,25 @@
                     <!-- Fin plaque -->
 
                     <!-- Nom -->
-                        <div class="flex justify-between mt-4 mb-4 mr-10"> 
-                            <h2 class="text-xl text-bold text-gray-700">Voici {{ $animal->animal_name }}</h2>                               
-                           
-                            <div class="flex md:justify-end mb-3 pr-2">
-                               @can('update', $animal)
-                                <a class="text-sm pr-10 items-center" href="{{ route('animals.edit', $animal) }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                    </svg>
-                                    <p class="inline text-green-700">Modifier la fiche</p>
-                                </a> 
-                                @endcan
-                                @can('delete', $animal)
-                                <livewire:animals.delete-animal-comp :animal="$animal">
-                                @endcan
-                            </div>                                            
+                        <div class="flex">
+                            @can('update', $animal)
+                                <div class="flex md:justify-end mb-3 pr-2 mt-2">
+                                    <a class="text-sm pr-10 items-center" href="{{ route('animals.edit', $animal) }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-5 h-5 inline">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                        </svg>
+                                        <p class="inline text-green-700">Modifier la fiche</p>
+                                    </a>
+                                </div> 
+                            @endcan
+
+                            @can('delete', $animal)
+                                <div class="flex md:justify-end mb-3 pr-2 mt-2">
+                                    <livewire:animals.delete-animal-comp :animal="$animal">
+                                </div>
+                            @endcan
                         </div>
+                        <h2 class="text-xl text-bold text-gray-700">Voici {{ $animal->animal_name }}</h2>                                                                 
                         <div class="mt-4 mb-4 mr-10 space-y-1">       
                             <p class="ml-2 text-gray-700">{{$animal->espece->espece}}</p>
                             <p class="ml-2 text-gray-700">{{$animal->race->race_animal}}</p>                                                                         

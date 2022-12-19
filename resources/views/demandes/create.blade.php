@@ -6,6 +6,10 @@
         </h1>
     </x-slot>
 
+    <x-slot name="buttonBack">
+        @livewire('previous-page')
+    </x-slot>
+
 <livewire:demandes :annonce="$annonce"/>
 
 </x-app-layout>
