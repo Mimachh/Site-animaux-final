@@ -38,6 +38,8 @@ class CreateNewUser implements CreatesNewUsers
                 $this->createTeam($user);
             });
         });
+
+
     }
 
     /**

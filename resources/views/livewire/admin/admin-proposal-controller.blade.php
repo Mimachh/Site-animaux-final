@@ -1,4 +1,4 @@
-<div class="w-full mx-auto px-2">
+	<div class="w-full mx-auto px-2">
 
 		<!--Title-->
 		<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
@@ -54,7 +54,6 @@
 							<button wire:click.prevent="delete({{ $proposal->id }})" type="button" class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</button>
 						</td>
 					</tr>
-					
                     @endforeach
 				
 				</tbody>

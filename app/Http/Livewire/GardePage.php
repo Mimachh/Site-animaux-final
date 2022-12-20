@@ -54,7 +54,6 @@ class GardePage extends Component
         
         
         
-        
         return view('proposals.index');
     }
     

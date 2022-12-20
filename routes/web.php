@@ -2,10 +2,12 @@
 
 use App\Http\Livewire\Animals\Animals;
 use App\Http\Livewire\Annonces\Annonces;
+
 use App\Http\Livewire\Demandes;
 use App\Http\Livewire\GardePage;
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Livewire\AnimalOwnedForm;
 use App\Http\Controllers\ProposalController;
 
@@ -29,9 +31,7 @@ use App\Http\Livewire\Admin\AdminAnimalController;
 */
 
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/welcome', function () { return view('welcome'); })->name('welcome');
 
 /* Toutes les pages soumises à authentificate*/
 Route::middleware([
@@ -40,19 +40,15 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 
-    Route::resource('/annonces', Annonces::class)
-    ->except('index');
+    Route::resource('/annonces', Annonces::class)->except('index');
 
     Route::resource('/animals', Animals::class);   
 
     Route::resource('/demandes', Demandes::class)->except('create');
 
-    Route::get('demandes/{annonce}/create', [Demandes::class, 'create'])
-    ->name('demandes.create');
+    Route::get('demandes/{annonce}/create', [Demandes::class, 'create'])->name('demandes.create');
 
     Route::get('/proposals', [GardePage::class, 'index'])->name('proposals.index');
     Route::resource('/proposals', GardePage::class)->except('index');
@@ -71,10 +67,7 @@ Route::get('/', [Annonces::class, 'index'])->name('annonces.index');
 /* Route Admin */
 Route::middleware(['auth', 'role:Admin'])->group(function(){
     
-    Route::get('/admin', function ()
-    {
-        return view('admin.index');
-    })->name('admin/');
+    Route::get('/admin', function () { return view('admin.index'); })->name('admin/');
 
     /* Passe par livewire pour le crud */
     Route::get('/admin/ads', [AdminAdController::class, 'index'])->name('admin.ads.index');
