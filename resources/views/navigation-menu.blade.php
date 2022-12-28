@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16 text-sm font-light tracking-wide text-gray-400">
 
             <!-- Navbar pour tous -->
-            <div class="flex">
+            <div class="flex space-x-4">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
@@ -33,11 +33,14 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('annonces.index') }}" :active="request()->routeIs('annonces.index')" style="color: #cbd5e0">
                         {{ __('Voir les annonces') }}
-                    </x-jet-nav-link>
+                    </x-jet-nav-link>   
                 </div>
                 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')" style="color: #cbd5e0">
+                    <x-jet-nav-link class="rounded-full px-2 h-12 mt-2 " href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')" style="color: #cbd5e0; background-color: #1D4ED8;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
                         {{ __('Ajouter une annonce') }}
                     </x-jet-nav-link>
                 </div>
@@ -155,18 +158,34 @@
                     @endauth  
                
                     @guest
-                    @if (Route::has('register'))
-                    <!-- Navbar lorsque non connecté -->
-                        <x-jet-nav-link href="{{ route('login') }}" class="text-sm text-white dark:text-white" style="color: #cbd5e0">
-                        {{ __('Se connecter') }}
-                        </x-jet-nav-link>
-                    
-                            
-                        <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('/register')" class="ml-4 text-sm text-white dark:text-gray-500" style="color: #cbd5e0">
-                        {{ __("S'inscrire") }}
-                        </x-jet-nav-link>
-                    @endif
-                
+                        @if (Route::has('register'))
+                        <div class="dropdown relative">
+                            <a class="dropdown-toggle flex items-center hidden-arrow"
+                                href="#" id="dropdownMenuButton2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_iconCarrier"> 
+                                        <path d="M16.5 22.5H18.75C19.1478 22.5 19.5294 22.342 19.8107 22.0607C20.092 21.7794 20.25 21.3978 20.25 21V13.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                        <path d="M7.5 22.5H5.25C4.85218 22.5 4.47064 22.342 4.18934 22.0607C3.90804 21.7794 3.75 21.3978 3.75 21V13.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                        <path d="M0.75 12.129L10.939 1.939C11.0783 1.79961 11.2437 1.68904 11.4258 1.61359C11.6078 1.53815 11.8029 1.49932 12 1.49932C12.1971 1.49932 12.3922 1.53815 12.5742 1.61359C12.7563 1.68904 12.9217 1.79961 13.061 1.939L23.122 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                        <path d="M12 12C13.2426 12 14.25 10.9926 14.25 9.75C14.25 8.50736 13.2426 7.5 12 7.5C10.7574 7.5 9.75 8.50736 9.75 9.75C9.75 10.9926 10.7574 12 12 12Z" stroke="gray" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                        <path d="M12 13.5C11.0054 13.5 10.0516 13.8951 9.34835 14.5983C8.64509 15.3016 8.25 16.2554 8.25 17.25V18H9.75L10.5 22.5H13.5L14.25 18H15.75V17.25C15.75 16.2554 15.3549 15.3016 14.6517 14.5983C13.9484 13.8951 12.9946 13.5 12 13.5Z" stroke="gray" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                                </svg>                    
+                            </a>
+                            <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                                aria-labelledby="dropdownMenuButton2">
+                                <li>
+                                    <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                    href="{{ route('login') }}">Se connecter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                    href="{{ route('register') }}">S'inscrire
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        @endif
                     @endguest
                 </div>
                 
@@ -304,6 +323,193 @@
     </div>
         
     
+</nav>
+
+
+<nav class="text-md relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+        <a href="{{ route('welcome') }}">
+            <x-jet-application-mark class="block h-9 w-auto" />
+        </a>
+        <button class="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
+        type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="w-6"
+            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
+        </svg>
+        </button>
+
+        <!-- Collapsible -->
+        <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
+
+            <!-- Left links -->
+            <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+                @auth
+                <li class="nav-item p-2">
+                    <a class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0" href="{{ route('dashboard') }}">Mon tableau de bord</a>
+                </li>
+                @endauth
+                <li class="nav-item p-2">
+                    <a href="{{ route('annonces.index') }}" class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0">
+                        Voir les annonces
+                    </a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="#" class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0">
+                        Articles
+                    </a>
+                </li>
+                @auth
+                    @if(auth()->user()->role->name === 'Admin')
+                    <li class="nav-item p-2">
+                        <a href="{{ route('admin/') }}" class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0">
+                            Admin
+                        </a>
+                    </li>
+                    @endif
+                @endauth
+                <li class="bg-blue-600 w-48 nav-item p-2 my-2 md:my-0 md:ml-4 rounded-3xl">
+                    <a class="flex items-center text-xs nav-link text-white font-semibold opacity-60 hover:opacity-80 focus:opacity-80 p-0" href="{{ route('dashboard') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        Ajouter une annonce
+                    </a>
+                </li>
+            </ul>
+            <!-- Left links -->
+       <!-- </div> -->
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <!-- <div class="flex items-center relative"> -->
+
+            <!-- Icon -->
+            <a class="text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4" href="#">
+                <svg aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="shopping-cart"
+                    class="w-4"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512">
+                    <path fill="currentColor" 
+                        d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 
+                        24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 
+                        426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z">
+                    </path>
+                </svg>
+            </a>
+
+            <!-- Notifications -->
+            @auth
+                @if(auth()->user()->unreadNotifications->count() > 0)
+                    <div class="dropdown relative">
+                        <a class="text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4 dropdown-toggle hidden-arrow flex items-center"
+                            href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="#DC2626" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                            </svg>
+                            <span class="text-white bg-red-600 absolute rounded-full text-xs -mt-3.5 ml-3 py-0 px-1.5">
+                                {{auth()->user()->unreadNotifications->count()}}
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                        aria-labelledby="dropdownMenuButton1">
+                            <li>
+                                <livewire:notification-proposal>
+                            </li>
+                        </ul>
+                    </div>
+                @endif
+            
+            
+
+                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())     
+                    <div class="dropdown relative">
+                        <a class="dropdown-toggle flex items-center hidden-arrow"
+                            href="#" id="dropdownMenuButton2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        </a>
+                        <ul class="dropdown-menu min-w-max absolute hidden bg-gray-900 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                            aria-labelledby="dropdownMenuButton2">
+                            <li>
+                                <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-400 hover:bg-indigo-700 hover:text-black"
+                                href="{{ route('profile.show') }}">Mon profil
+                                </a>
+                            </li>
+                            @if(auth()->user()->role->name === 'Admin')
+                                <li>
+                                    <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-400 hover:bg-indigo-700 hover:text-black"
+                                    href="{{ route('admin/') }}">Admin
+                                    </a>
+                                </li>
+                            @endif
+                            <li>
+                                <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-400 hover:bg-indigo-700 hover:text-black"
+                                href="{{ route('dashboard') }}">Mon tableau de bord
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-400 hover:bg-indigo-700 hover:text-black"
+                                href="">Mes gardes
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-400 hover:bg-indigo-700 hover:text-black"
+                                href="#">Ma messagerie
+                                </a>
+                            </li>
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+
+                                <li>
+                                    <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-400 hover:bg-indigo-700 hover:text-black"
+                                    href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                    Me déconnecter
+                                    </a>
+                                </li>
+                            </form>      
+                        </ul>
+                    </div>
+                @endif
+            @endauth
+
+            @guest
+                @if (Route::has('register'))
+                <div class="dropdown relative">
+                    <a class="dropdown-toggle flex items-center hidden-arrow"
+                        href="#" id="dropdownMenuButton2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_iconCarrier"> 
+                                <path d="M16.5 22.5H18.75C19.1478 22.5 19.5294 22.342 19.8107 22.0607C20.092 21.7794 20.25 21.3978 20.25 21V13.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                <path d="M7.5 22.5H5.25C4.85218 22.5 4.47064 22.342 4.18934 22.0607C3.90804 21.7794 3.75 21.3978 3.75 21V13.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                <path d="M0.75 12.129L10.939 1.939C11.0783 1.79961 11.2437 1.68904 11.4258 1.61359C11.6078 1.53815 11.8029 1.49932 12 1.49932C12.1971 1.49932 12.3922 1.53815 12.5742 1.61359C12.7563 1.68904 12.9217 1.79961 13.061 1.939L23.122 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                <path d="M12 12C13.2426 12 14.25 10.9926 14.25 9.75C14.25 8.50736 13.2426 7.5 12 7.5C10.7574 7.5 9.75 8.50736 9.75 9.75C9.75 10.9926 10.7574 12 12 12Z" stroke="gray" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                <path d="M12 13.5C11.0054 13.5 10.0516 13.8951 9.34835 14.5983C8.64509 15.3016 8.25 16.2554 8.25 17.25V18H9.75L10.5 22.5H13.5L14.25 18H15.75V17.25C15.75 16.2554 15.3549 15.3016 14.6517 14.5983C13.9484 13.8951 12.9946 13.5 12 13.5Z" stroke="gray" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                        </svg>                    
+                    </a>
+                    <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                        aria-labelledby="dropdownMenuButton2">
+                        <li>
+                            <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            href="{{ route('login') }}">Se connecter
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            href="{{ route('register') }}">S'inscrire
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+            @endguest
+        </div>
+        <!-- Right elements -->
+    </div>
 </nav>
 
 

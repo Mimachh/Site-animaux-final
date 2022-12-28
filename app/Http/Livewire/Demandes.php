@@ -28,10 +28,7 @@ class Demandes extends Component
   
     public function create(Annonce $annonce)
     {
-        
-    
-
-     return view('demandes.create', compact('annonce'));
+        return view('demandes.create', compact('annonce'));
     }
 
     

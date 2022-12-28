@@ -659,6 +659,15 @@ var directiveOrder = [
   "ref",
   "data",
   "id",
+  "radio",
+  "tabs",
+  "switch",
+  "disclosure",
+  "menu",
+  "listbox",
+  "list",
+  "item",
+  "combobox",
   "bind",
   "init",
   "for",
@@ -1337,11 +1346,11 @@ function getBinding(el, name, fallback) {
   let attr = el.getAttribute(name);
   if (attr === null)
     return typeof fallback === "function" ? fallback() : fallback;
+  if (attr === "")
+    return true;
   if (isBooleanAttr(name)) {
     return !![name, "true"].includes(attr);
   }
-  if (attr === "")
-    return true;
   return attr;
 }
 
@@ -1474,7 +1483,7 @@ var Alpine = {
   get raw() {
     return raw;
   },
-  version: "3.10.3",
+  version: "3.10.5",
   flushAndStopDeferringMutations,
   dontAutoEvaluateFunctions,
   disableEffectScheduling,
@@ -2635,8 +2644,9 @@ directive("bind", (el, {value, modifiers, expression, original}, {effect: effect
     return storeKeyForXFor(el, expression);
   let evaluate2 = evaluateLater(el, expression);
   effect3(() => evaluate2((result) => {
-    if (result === void 0 && expression.match(/\./))
+    if (result === void 0 && typeof expression === "string" && expression.match(/\./)) {
       result = "";
+    }
     mutateDom(() => bind(el, value, result, modifiers));
   }));
 });
