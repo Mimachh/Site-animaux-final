@@ -87,6 +87,7 @@
                     @endauth
                 <!-- Fin notifications -->
 
+                <!-- MENU DEROULANT CONNECTE -->
                 <div class="hidden top-0 right-0 px-6 py-4 sm:block" >
                     @auth 
                     <div class="ml-4 relative bg-gray-900">
@@ -188,7 +189,7 @@
                         @endif
                     @endguest
                 </div>
-                
+                <!-- / MENU DEROULANT CONNECTE -->
             
                 
                 
@@ -247,20 +248,22 @@
                         <x-jet-responsive-nav-link href="{{ route('annonces.index') }}" :active="request()->routeIs('annonces.index')">
                                 {{ __('Voir les annonces') }}
                         </x-jet-responsive-nav-link>
-
                         
+                        <x-jet-nav-link class="rounded-full px-2 h-12 my-2" href="{{ route('annonces.create') }}" :active="request()->routeIs('annonces.create')" style="color: #cbd5e0; background-color: #1D4ED8;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                            {{ __('Ajouter une annonce') }}
+                        </x-jet-nav-link>
+
                         @if(auth()->user()->role->name === 'Admin')
-                                <x-jet-responsive-nav-link href="{{ route('admin/') }}" :active="request()->routeIs('admin/')" style="color: #cbd5e0">
+                                <x-jet-responsive-nav-link href="{{ route('admin/') }}" :active="request()->routeIs('admin/')">
                                     {{ __('Tableau Admin') }}
                                 </x-jet-responsive-nav-link>
                         @endif
                 
-                        <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('annonces.create')">
+                        <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                 {{ __('Mon tableau de bord') }}
-                        </x-jet-responsive-nav-link>
-
-                        <x-jet-responsive-nav-link href="{{ route('proposals.index') }}" :active="request()->routeIs('annonces.create')">
-                                {{ __('Mes gardes') }}
                         </x-jet-responsive-nav-link>
 
 
